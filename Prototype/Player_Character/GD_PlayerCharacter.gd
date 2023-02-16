@@ -117,13 +117,12 @@ func handle_move(delta):
 	if not is_on_floor() and direction and is_on_wall() and is_wall_runable:
 		wall_run()
 	if (is_on_floor() or input_frame["direction"] == Vector2.ZERO) and is_wall_running:
-		print(is_on_floor())
-		print(input_frame["direction"])
 		reset_wall_run()
 	if is_wall_running and is_wall_runable:
-		velocity -= wall_normal.get_normal(0)*SPEED
+		velocity -= wall_normal.get_normal(0)
 		velocity.y = 0
 	if not attacking and not deflecting:
+		print(velocity)
 		move_and_slide()
 
 #Dash variable
