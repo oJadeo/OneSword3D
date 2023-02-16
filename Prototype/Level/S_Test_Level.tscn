@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1wd1fjg4stf"]
+[gd_scene load_steps=11 format=3 uid="uid://c1wd1fjg4stf"]
 
 [ext_resource type="PackedScene" uid="uid://gdxynxo6b172" path="res://Prototype/Player_Character/S_PlayerCharacter.tscn" id="1_jes38"]
 
@@ -9,6 +9,15 @@
 [sub_resource type="BoxMesh" id="BoxMesh_dfef0"]
 material = SubResource("StandardMaterial3D_7cs45")
 size = Vector3(5, 0.5, 5)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_10tyb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oxyus"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_78qe3"]
+material = SubResource("StandardMaterial3D_oxyus")
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_7t6u1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x4j1d"]
 size = Vector3(5, 0.5, 5)
@@ -39,8 +48,23 @@ physics_material_override = SubResource("PhysicsMaterial_0i3o3")
 mesh = SubResource("BoxMesh_dfef0")
 skeleton = NodePath("../../StaticBody3d2")
 
+[node name="StaticBody3d4" type="StaticBody3D" parent="StaticBody3d2/MeshInstance3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251, 0)
+physics_material_override = SubResource("PhysicsMaterial_10tyb")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="StaticBody3d2/MeshInstance3d/StaticBody3d4"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+mesh = SubResource("PlaneMesh_78qe3")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="StaticBody3d2/MeshInstance3d/StaticBody3d4"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("HeightMapShape3D_7t6u1")
+
 [node name="CollisionShape3d" type="CollisionShape3D" parent="StaticBody3d2"]
 shape = SubResource("BoxShape3D_x4j1d")
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("1_jes38")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.452, 0)
 
 [node name="StaticBody3d" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15096, 0.75826, -3.40733)
@@ -61,9 +85,6 @@ mesh = SubResource("BoxMesh_bbgn6")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="StaticBody3d3"]
 shape = SubResource("BoxShape3D_kl0tw")
-
-[node name="PlayerCharacter" parent="." instance=ExtResource("1_jes38")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.466567, 0)
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.757918, 0.65235, 0, -0.65235, 0.757918, -3.32541, 2.1958, 0)
