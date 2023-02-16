@@ -1,7 +1,7 @@
 [gd_scene load_steps=93 format=3 uid="uid://gdxynxo6b172"]
 
 [ext_resource type="Script" path="res://Prototype/Player_Character/GD_PlayerCharacter.gd" id="1_fiftu"]
-[ext_resource type="Texture2D" path="res://Prototype/Player_Character/Player_Character.png" id="2_c4vcj"]
+[ext_resource type="Texture2D" uid="uid://b4kalxwyltlge" path="res://Prototype/Player_Character/Player_Character.png" id="2_c4vcj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xc8no"]
 radius = 0.05
@@ -1367,7 +1367,7 @@ spring_length = 2.0
 transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-07, 0, 2.98023e-08, 1, 0, 2.38419e-07, 5)
 projection = 1
 current = true
-size = 3.0
+size = 10.0
 
 [node name="Sprite3d" type="Sprite3D" parent="CharacterBody3D"]
 billboard = 1
