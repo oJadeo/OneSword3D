@@ -8,7 +8,7 @@ const dash_delay = 0.5
 @onready var dust_trail = $DustTrail
 @onready var dust_burst = $DustBurst
 var can_dash = true
-var ghost_scene = preload("res://Testing3D_wallRun/Prototype/Player_Character/Dash/S_dashGhost.tscn")
+var ghost_scene = preload("res://Prototype/Player_Character/Dash/S_dashGhost.tscn")
 var sprite
 var height = 0
 var dashFinished = false
