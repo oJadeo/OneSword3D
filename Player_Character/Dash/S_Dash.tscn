@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3]
 
-[ext_resource type="Script" path="res://Prototype/Player_Character/Dash/GD_Dash.gd" id="1_ks0hi"]
+[ext_resource type="Script" path="res://Player_Character/Dash/GD_Dash.gd" id="1_ks0hi"]
 
 [sub_resource type="Gradient" id="Gradient_o5sgj"]
 offsets = PackedFloat32Array(0, 0.979167)
