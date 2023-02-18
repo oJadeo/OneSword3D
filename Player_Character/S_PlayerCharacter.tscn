@@ -1,11 +1,12 @@
-[gd_scene load_steps=70 format=3 uid="uid://gdxynxo6b172"]
+[gd_scene load_steps=72 format=3 uid="uid://ckhvfyhreuwrp"]
 
-[ext_resource type="Script" path="res://Prototype/Player_Character/GD_PlayerCharacter.gd" id="1_fiftu"]
-[ext_resource type="Texture2D" uid="uid://b4kalxwyltlge" path="res://Prototype/Player_Character/Player_Character.png" id="2_c4vcj"]
+[ext_resource type="Script" path="res://Player_Character/GD_PlayerCharacter.gd" id="1_key0r"]
+[ext_resource type="Texture2D" uid="uid://b4kalxwyltlge" path="res://Player_Character/Player_Character.png" id="2_ug3k3"]
+[ext_resource type="PackedScene" uid="uid://cwwjrhl86b5co" path="res://UI/playerUI.tscn" id="3_mmhdn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xc8no"]
 radius = 0.05
-height = 0.3
+height = 0.5
 
 [sub_resource type="Animation" id="Animation_lfwpn"]
 length = 0.001
@@ -67,7 +68,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gahde"]
@@ -141,6 +142,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [true, false, true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Marker3d/Hitbox/CollisionShape3d:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.3)]
+}
 
 [sub_resource type="Animation" id="Animation_jin0r"]
 resource_name = "player_attack_1_left"
@@ -208,6 +221,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [true, false, true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Marker3d/Hitbox/CollisionShape3d:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.2)]
+}
 
 [sub_resource type="Animation" id="Animation_scqq6"]
 length = 0.5
@@ -273,6 +298,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Marker3d/Hitbox/CollisionShape3d:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.2)]
 }
 
 [sub_resource type="Animation" id="Animation_eho80"]
@@ -340,6 +377,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [true, false, true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Marker3d/Hitbox/CollisionShape3d:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.3)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rsrm0"]
 _data = {
@@ -352,6 +401,7 @@ _data = {
 [sub_resource type="Animation" id="Animation_pq4cy"]
 resource_name = "player_attack_1_down"
 length = 0.208333
+loop_mode = 1
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -372,7 +422,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.208333),
+"times": PackedFloat32Array(0.166667),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -395,6 +445,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_of0t3"]
 resource_name = "player_block_left"
 length = 0.208333
+loop_mode = 1
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -427,7 +478,7 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.208333),
+"times": PackedFloat32Array(0.166667),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -437,6 +488,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_t0egf"]
 length = 0.208333
+loop_mode = 1
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -469,7 +521,7 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.208333),
+"times": PackedFloat32Array(0.166667),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -480,6 +532,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_lcong"]
 resource_name = "player_attack_1_down"
 length = 0.208333
+loop_mode = 1
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -512,7 +565,7 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.208333),
+"times": PackedFloat32Array(0.166667),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -530,8 +583,8 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_7njtl"]
 resource_name = "player_attack_1_down"
-length = 24.0
-step = 24.0
+length = 0.166667
+step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -556,9 +609,24 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2i(0, 6)]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.125),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"end_dash"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_xdrc4"]
 resource_name = "player_dash_left"
+length = 0.166667
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -584,8 +652,23 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.125),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"end_dash"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_88twc"]
+length = 0.166667
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -611,8 +694,24 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.125),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"end_dash"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_seuo5"]
+length = 0.166667
+step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -636,6 +735,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.125),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"end_dash"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eiw26"]
@@ -918,7 +1031,7 @@ blend_mode = 2
 animation = &"dash/player_dash_down"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1s51k"]
-animation = &"dash/player_dash_down"
+animation = &"dash/player_dash_up"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3feik"]
 animation = &"dash/player_dash_right"
@@ -935,7 +1048,7 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_3feik")
 blend_point_2/pos = Vector2(1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_dgrgr")
 blend_point_3/pos = Vector2(-1, 0)
-blend_mode = 2
+blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_12ecy"]
 animation = &"idle/player_idle_down"
@@ -1025,28 +1138,30 @@ graph_offset = Vector2(0, 28.9459)
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_ggkns"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ykq3n"]
-size = Vector3(0.3, 0.1, 0.2)
+size = Vector3(0.4, 0.1, 0.25)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r3dmx"]
+radius = 0.05
+height = 0.5
 
 [node name="Player_Character" type="CharacterBody3D"]
-script = ExtResource("1_fiftu")
+script = ExtResource("1_key0r")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_xc8no")
 
 [node name="Camera3d" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 7.07107, 7.07107)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 2, 2)
 projection = 1
 current = true
-size = 10.0
+size = 3.0
 
 [node name="Sprite3d" type="Sprite3D" parent="."]
 billboard = 1
 double_sided = false
-no_depth_test = true
 alpha_cut = 1
 texture_filter = 0
-texture = ExtResource("2_c4vcj")
+texture = ExtResource("2_ug3k3")
 hframes = 4
 vframes = 21
 
@@ -1068,11 +1183,11 @@ active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_ggkns")
 parameters/Attack_1/blend_position = Vector2(-0.000803232, 0.904255)
 parameters/Block/blend_position = Vector2(0.0102791, 0.946808)
-parameters/Dash/blend_position = Vector2(0, 0)
+parameters/Dash/blend_position = Vector2(-0.00943398, 0.0131004)
 parameters/Idle/blend_position = Vector2(-0.0038023, 0.968085)
 parameters/Run/blend_position = Vector2(0, 0)
 
-[node name="Wallrun_Timer" type="Timer" parent="."]
+[node name="WallrunTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 
@@ -1088,6 +1203,35 @@ collision_mask = 4736
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2)
 visible = false
 shape = SubResource("BoxShape3D_ykq3n")
+disabled = true
 
-[connection signal="timeout" from="Wallrun_Timer" to="." method="_on_wallrun_timer_timeout"]
+[node name="Shadow" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4, 0)
+light_energy = 0.81
+light_negative = true
+spot_range = 10.0
+spot_attenuation = 0.008668
+spot_angle = 1.0
+spot_angle_attenuation = 0.03983
+
+[node name="RechargeDashTimer" type="Timer" parent="."]
+
+[node name="RechargeBlockTimer" type="Timer" parent="."]
+
+[node name="RegenTimer" type="Timer" parent="."]
+
+[node name="CanvasLayer" parent="." instance=ExtResource("3_mmhdn")]
+
+[node name="HurtBox" type="Area3D" parent="."]
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="HurtBox"]
+shape = SubResource("CapsuleShape3D_r3dmx")
+
+[connection signal="Blockbar_changed" from="." to="CanvasLayer" method="_on_player_character_blockbar_changed"]
+[connection signal="DashCharge_changed" from="." to="CanvasLayer" method="_on_player_character_dash_charge_changed"]
+[connection signal="timeout" from="WallrunTimer" to="." method="_on_wallrun_timer_timeout"]
 [connection signal="area_entered" from="Marker3d/Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="RechargeDashTimer" to="." method="_on_recharge_dash_timer_timeout"]
+[connection signal="timeout" from="RechargeBlockTimer" to="." method="_on_recharge_block_timer_timeout"]
+[connection signal="timeout" from="RegenTimer" to="." method="_on_regen_timer_timeout"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

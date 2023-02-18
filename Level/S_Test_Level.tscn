@@ -1,13 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://c1wd1fjg4stf"]
+[gd_scene load_steps=12 format=3 uid="uid://dfcy7sj1gd1fr"]
 
-[ext_resource type="PackedScene" uid="uid://gdxynxo6b172" path="res://Prototype/Player_Character/S_PlayerCharacter.tscn" id="1_jes38"]
+[ext_resource type="PackedScene" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_jes38"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0i3o3"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7cs45"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f0xh6"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_dfef0"]
-material = SubResource("StandardMaterial3D_7cs45")
+material = SubResource("StandardMaterial3D_f0xh6")
+size = Vector3(5, 0.5, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x4j1d"]
 size = Vector3(5, 0.5, 5)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_10tyb"]
@@ -18,9 +21,6 @@ size = Vector3(5, 0.5, 5)
 material = SubResource("StandardMaterial3D_oxyus")
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_7t6u1"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_x4j1d"]
-size = Vector3(5, 0.5, 5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_bbgn6"]
 size = Vector3(1, 1, 3)
@@ -87,6 +87,12 @@ mesh = SubResource("BoxMesh_bbgn6")
 shape = SubResource("BoxShape3D_kl0tw")
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.757918, 0.65235, 0, -0.65235, 0.757918, -3.32541, 2.1958, 0)
-light_energy = 0.2
-shadow_enabled = true
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 3, 3)
+shadow_normal_bias = 0.0
+shadow_transmittance_bias = 0.0
+shadow_fog_fade = 0.001
+shadow_blur = 0.0
+directional_shadow_mode = 0
+directional_shadow_split_1 = 0.6
+directional_shadow_split_2 = 0.8
+directional_shadow_split_3 = 0.9
