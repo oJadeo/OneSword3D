@@ -6,7 +6,7 @@ signal DashCharge_changed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Global.set_player(self)
+	pass
 func _physics_process(delta):
 	handle_input()
 	handle_move(delta)
@@ -197,11 +197,13 @@ var blockBar = 100
 var begin_regen = false
 var is_regen = false
 func _on_hurt_box_area_entered(area):
+	if area.name != 'enemy':
+		return 0
 	#Hi
 	if not perfect_deflect and ( not deflecting or blockBar < 20):
 		if blockBar == 0 or not deflecting:
 			print("ouch!!!")
-			Global.spawn_player()
+			respawn()
 		else:
 			regen_timer.stop()
 			blockBar = 0
@@ -245,10 +247,9 @@ func _on_regen_timer_timeout():
 @onready var playerCamera = $SpringArm3d/Camera3d
 @onready var playerSpawnPoint = $"../playerSpawnPoint"
 func handle_animation():
+	animationState.travel("Idle")
 	if abs(input_frame["direction"].x) > 0.1 || abs(input_frame["direction"].y) > 0.1 :
 		animationState.travel("Run")
-	else:
-		animationState.travel("Idle")
 	if not is_on_floor():
 		if velocity.y > 0:
 			pass
