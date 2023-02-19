@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://kfflv5g5upi2"]
+[gd_scene load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Prototype/Level/Tiles/Danger_Area/GD_Danger_Area.gd" id="1_dsxk2"]
+[ext_resource type="Script" path="res://Level/Tiles/Danger_Area/GD_Danger_Area.gd" id="1_dsxk2"]
 
 [node name="Danger_Area" type="Area3D"]
 script = ExtResource("1_dsxk2")
