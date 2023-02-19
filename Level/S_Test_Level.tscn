@@ -7,10 +7,13 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0i3o3"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7cs45"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f0xh6"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_dfef0"]
-material = SubResource("StandardMaterial3D_7cs45")
+material = SubResource("StandardMaterial3D_f0xh6")
+size = Vector3(5, 0.5, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x4j1d"]
 size = Vector3(5, 0.5, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x4j1d"]

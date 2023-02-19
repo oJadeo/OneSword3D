@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwwjrhl86b5co"]
+
+[ext_resource type="Script" path="res://UI/PlayerUI.gd" id="1_t1xia"]
+[ext_resource type="Texture2D" uid="uid://cevwwt6qqsi4e" path="res://UI/Pan_Blue_Circle.png" id="2_s1las"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_t1xia")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BlockLabel" type="Label" parent="Control"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 67.0
+offset_bottom = 42.0
+text = "Block :"
+
+[node name="ProgressBar" type="ProgressBar" parent="Control/BlockLabel"]
+offset_left = 54.0
+offset_top = 5.0
+offset_right = 254.0
+offset_bottom = 21.0
+tooltip_text = "Block Guage"
+value = 100.0
+percent_visible = false
+
+[node name="DashCharge" type="Label" parent="Control"]
+offset_left = 16.0
+offset_top = 46.0
+offset_right = 67.0
+offset_bottom = 72.0
+text = "Dash :"
+
+[node name="firstDashCharge" type="TextureProgressBar" parent="Control/DashCharge"]
+offset_left = 58.0
+offset_top = 4.0
+offset_right = 735.0
+offset_bottom = 681.0
+scale = Vector2(0.0261876, 0.0261876)
+value = 100.0
+fill_mode = 4
+texture_progress = ExtResource("2_s1las")
+
+[node name="secondDashCharge" type="TextureProgressBar" parent="Control/DashCharge"]
+offset_left = 78.0
+offset_top = 4.0
+offset_right = 755.0
+offset_bottom = 681.0
+scale = Vector2(0.0261876, 0.0261876)
+value = 100.0
+fill_mode = 4
+texture_progress = ExtResource("2_s1las")
+
+[node name="thirdDashCharge" type="TextureProgressBar" parent="Control/DashCharge"]
+offset_left = 98.0
+offset_top = 4.0
+offset_right = 775.0
+offset_bottom = 681.0
+scale = Vector2(0.0261876, 0.0261876)
+value = 100.0
+fill_mode = 4
+texture_progress = ExtResource("2_s1las")
