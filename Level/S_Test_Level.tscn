@@ -1,0 +1,124 @@
+[gd_scene load_steps=17 format=3 uid="uid://coq8by0jub33x"]
+
+[ext_resource type="PackedScene" uid="uid://gdxynxo6b172" path="res://Prototype/Player_Character/S_PlayerCharacter.tscn" id="1_jes38"]
+[ext_resource type="PackedScene" uid="uid://dgf1hljhg572s" path="res://Prototype/Level/Tiles/Set_Spawn/S_setSpawn.tscn" id="2_qgcky"]
+[ext_resource type="PackedScene" uid="uid://kfflv5g5upi2" path="res://Prototype/Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="3_x61id"]
+[ext_resource type="PackedScene" uid="uid://d3j0bh6v2e0uw" path="res://Prototype/Level/Tiles/Trigger_Block_Area/S_Trigger_Block_Area.tscn" id="4_j2dgm"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0i3o3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f0xh6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dfef0"]
+material = SubResource("StandardMaterial3D_f0xh6")
+size = Vector3(5, 0.5, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x4j1d"]
+size = Vector3(5, 0.5, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bbgn6"]
+size = Vector3(1, 1, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kl0tw"]
+size = Vector3(1, 1, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0n7km"]
+size = Vector3(8.77227, 0.314632, 19.6456)
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_5shrj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p6e54"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wl4l5"]
+material = SubResource("StandardMaterial3D_p6e54")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_88itu"]
+size = Vector3(3.00706, 0.499985, 0.180684)
+
+[sub_resource type="BoxMesh" id="BoxMesh_h2n2n"]
+
+[node name="S_Ttest_Level" type="Node3D"]
+
+[node name="StaticBody3d4" type="StaticBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_0i3o3")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="StaticBody3d4"]
+mesh = SubResource("BoxMesh_dfef0")
+skeleton = NodePath("../../StaticBody3d4")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="StaticBody3d4"]
+shape = SubResource("BoxShape3D_x4j1d")
+
+[node name="StaticBody3d2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.68082)
+physics_material_override = SubResource("PhysicsMaterial_0i3o3")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="StaticBody3d2"]
+mesh = SubResource("BoxMesh_dfef0")
+skeleton = NodePath("../../StaticBody3d2")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="StaticBody3d2"]
+shape = SubResource("BoxShape3D_x4j1d")
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("1_jes38")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+
+[node name="StaticBody3d" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15096, 0.75826, -3.40733)
+physics_material_override = SubResource("PhysicsMaterial_0i3o3")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="StaticBody3d"]
+mesh = SubResource("BoxMesh_bbgn6")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="StaticBody3d"]
+shape = SubResource("BoxShape3D_kl0tw")
+
+[node name="StaticBody3d3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15964, 0.210773, -0.975042)
+physics_material_override = SubResource("PhysicsMaterial_0i3o3")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="StaticBody3d3"]
+mesh = SubResource("BoxMesh_bbgn6")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="StaticBody3d3"]
+shape = SubResource("BoxShape3D_kl0tw")
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.757918, 0.65235, 0, -0.65235, 0.757918, -3.32541, 2.1958, 0)
+light_energy = 0.2
+shadow_enabled = true
+
+[node name="S_setSpawn" parent="." instance=ExtResource("2_qgcky")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251, -1.63235)
+
+[node name="playerSpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251, 0)
+
+[node name="Danger_Area" parent="." instance=ExtResource("3_x61id")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -3.5)
+
+[node name="triggerCollision" parent="Danger_Area" index="0"]
+shape = SubResource("BoxShape3D_0n7km")
+
+[node name="Trigger_Block_Area" parent="." instance=ExtResource("4_j2dgm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.993494, 0.251, -1.65153)
+
+[node name="CollisionShape3d" parent="Trigger_Block_Area" index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("HeightMapShape3D_5shrj")
+
+[node name="MeshInstance3d" parent="Trigger_Block_Area" index="1"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+mesh = SubResource("PlaneMesh_wl4l5")
+
+[node name="CollisionShape3d" parent="Trigger_Block_Area/toBlock/StaticBody3d" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.747418)
+shape = SubResource("BoxShape3D_88itu")
+
+[node name="MeshInstance3d" parent="Trigger_Block_Area/toBlock/StaticBody3d/CollisionShape3d" index="0"]
+transform = Transform3D(3.01038, 0, 0, 0, 0.481142, 0, 0, 0, 0.167108, 0, 0, 0)
+mesh = SubResource("BoxMesh_h2n2n")
+
+[editable path="Danger_Area"]
+[editable path="Trigger_Block_Area"]

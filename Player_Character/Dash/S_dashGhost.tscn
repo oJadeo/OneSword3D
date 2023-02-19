@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Prototype/Player_Character/Dash/GD_dashGhost.gd" id="1_y0t6g"]
+[ext_resource type="Script" path="res://Player_Character/Dash/GD_dashGhost.gd" id="1_y0t6g"]
 
 [node name="dashGhost" type="Sprite3D"]
 script = ExtResource("1_y0t6g")
