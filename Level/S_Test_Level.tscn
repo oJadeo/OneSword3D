@@ -62,13 +62,23 @@ skeleton = NodePath("../../StaticBody3d2")
 shape = SubResource("BoxShape3D_x4j1d")
 
 [node name="StaticBody3d" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15096, 0.75826, -3.40733)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.98234, 0.685076, -3.45556)
 physics_material_override = SubResource("PhysicsMaterial_0i3o3")
 
 [node name="MeshInstance3d" type="MeshInstance3D" parent="StaticBody3d"]
 mesh = SubResource("BoxMesh_bbgn6")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="StaticBody3d"]
+shape = SubResource("BoxShape3D_kl0tw")
+
+[node name="StaticBody3d" type="StaticBody3D" parent="StaticBody3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11509, 0.0716425, -3.91721)
+physics_material_override = SubResource("PhysicsMaterial_0i3o3")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="StaticBody3d/StaticBody3d"]
+mesh = SubResource("BoxMesh_bbgn6")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="StaticBody3d/StaticBody3d"]
 shape = SubResource("BoxShape3D_kl0tw")
 
 [node name="StaticBody3d3" type="StaticBody3D" parent="."]
