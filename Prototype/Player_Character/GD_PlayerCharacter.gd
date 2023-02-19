@@ -22,6 +22,7 @@ var input_frame = {
 	"dash" : false,
 	"rotate_cw" : false,
 	"rotate_ccw" : false,
+	"respawn":false
 	}
 #take all input into input dict
 func handle_input():
@@ -42,6 +43,7 @@ func handle_input():
 	input_frame["rotate_cw"] = Input.is_action_just_pressed("Rotate_CW")
 	input_frame["rotate_ccw"] = Input.is_action_just_pressed("Rotate_CCW")
 	input_frame["jump"] = Input.is_action_pressed("ui_accept")
+	input_frame["respawn"] = Input.is_action_pressed("Respawn")
 	if Input.is_action_pressed("Deflect"):
 		deflecting = true
 	elif Input.is_action_just_released("Deflect"):
@@ -52,6 +54,8 @@ func handle_input():
 		rotate(Vector3(0,1,0),deg_to_rad(-45))
 	if input_frame["rotate_ccw"]:
 		rotate(Vector3(0,1,0),deg_to_rad(45))
+	if input_frame["respawn"]:
+		respawn()
 
 #Exploring variable
 const SPEED = 5 #150 for 2 tile gap Hrozon vetical 3 tile for diagonal
@@ -177,6 +181,7 @@ func on_deflect_animation_end():
 @onready var root = $".."
 #@onready var dash = $Dash
 @onready var playerCamera = $SpringArm3d/Camera3d
+@onready var playerSpawnPoint = $"../playerSpawnPoint"
 func handle_animation():
 	if input_frame["direction"] == Vector2.ZERO and not attacking and not deflecting:
 		animationState.travel("Idle")
@@ -184,3 +189,10 @@ func handle_animation():
 		animationState.travel("Attack_1")
 	if (input_frame["deflect"]):	
 		animationState.travel("Block")
+
+func respawn():
+	set_position(playerSpawnPoint.global_position)
+	blockBar = 100
+	dash_charge = 3
+	emit_signal("Blockbar_changed",blockBar)
+	emit_signal("DashCharge_changed",dash_charge)
