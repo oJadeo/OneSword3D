@@ -1,9 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://coq8by0jub33x"]
+[gd_scene load_steps=16 format=3 uid="uid://b0cflkx4qou5n"]
 
-[ext_resource type="PackedScene" uid="uid://gdxynxo6b172" path="res://Prototype/Player_Character/S_PlayerCharacter.tscn" id="1_jes38"]
-[ext_resource type="PackedScene" uid="uid://dgf1hljhg572s" path="res://Prototype/Level/Tiles/Set_Spawn/S_setSpawn.tscn" id="2_qgcky"]
-[ext_resource type="PackedScene" uid="uid://kfflv5g5upi2" path="res://Prototype/Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="3_x61id"]
-[ext_resource type="PackedScene" uid="uid://d3j0bh6v2e0uw" path="res://Prototype/Level/Tiles/Trigger_Block_Area/S_Trigger_Block_Area.tscn" id="4_j2dgm"]
+[ext_resource type="PackedScene" path="res://Level/Tiles/Set_Spawn/S_setSpawn.tscn" id="2_qgcky"]
+[ext_resource type="PackedScene" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="3_x61id"]
+[ext_resource type="PackedScene" path="res://Level/Tiles/Trigger_Block_Area/S_Trigger_Block_Area.tscn" id="4_j2dgm"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0i3o3"]
 
@@ -60,9 +59,6 @@ skeleton = NodePath("../../StaticBody3d2")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="StaticBody3d2"]
 shape = SubResource("BoxShape3D_x4j1d")
-
-[node name="PlayerCharacter" parent="." instance=ExtResource("1_jes38")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
 
 [node name="StaticBody3d" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15096, 0.75826, -3.40733)

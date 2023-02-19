@@ -1,7 +1,7 @@
-[gd_scene load_steps=84 format=3 uid="uid://byrk7a43miykt"]
+[gd_scene load_steps=84 format=3]
 
-[ext_resource type="Texture2D" uid="uid://1da7viyrm7jx" path="res://Prototype/Enemy/MeleeEnemy/Enemy_01.png" id="1_4b4og"]
-[ext_resource type="Script" path="res://Prototype/Enemy/MeleeEnemy/GD_MeleeEnemy.gd" id="2_quxdm"]
+[ext_resource type="Texture2D" path="res://Enemy/MeleeEnemy/Enemy_01.png" id="1_4b4og"]
+[ext_resource type="Script" path="res://Enemy/MeleeEnemy/GD_MeleeEnemy.gd" id="2_quxdm"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2e6xd"]
 radius = 4.80529
