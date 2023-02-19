@@ -22,6 +22,7 @@ var input_frame = {
 	"dash" : false,
 	"rotate_cw" : false,
 	"rotate_ccw" : false,
+	"respawn":false
 	}
 #take all input into input dict
 func handle_input():
@@ -41,6 +42,7 @@ func handle_input():
 	input_frame["deflect"] = Input.is_action_pressed("Deflect")
 	input_frame["rotate_cw"] = Input.is_action_just_pressed("Rotate_CW")
 	input_frame["rotate_ccw"] = Input.is_action_just_pressed("Rotate_CCW")
+	input_frame["respawn"] = Input.is_action_pressed("Respawn")
 	input_frame["jump"] = Input.is_action_pressed("Jump")
 	input_frame["dash"] = Input.is_action_pressed("Dash")
 	if Input.is_action_pressed("Deflect"):
@@ -53,6 +55,8 @@ func handle_input():
 		rotate(Vector3(0,1,0),deg_to_rad(-45))
 	if input_frame["rotate_ccw"]:
 		rotate(Vector3(0,1,0),deg_to_rad(45))
+	if input_frame["respawn"]:
+		respawn()
 
 #Exploring variable
 const SPEED = 1 
@@ -239,6 +243,7 @@ func _on_regen_timer_timeout():
 @onready var root = $".."
 #@onready var dash = $Dash
 @onready var playerCamera = $SpringArm3d/Camera3d
+@onready var playerSpawnPoint = $"../playerSpawnPoint"
 func handle_animation():
 	if abs(input_frame["direction"].x) > 0.1 || abs(input_frame["direction"].y) > 0.1 :
 		animationState.travel("Run")
@@ -264,8 +269,8 @@ func handle_animation():
 	if (input_frame["deflect"]):	
 		animationState.travel("Block")
 
-func respawn(position):
-	set_position(position)
+func respawn():
+	set_position(playerSpawnPoint.global_position)
 	blockBar = 100
 	dash_charge = 3
 	emit_signal("Blockbar_changed",blockBar)

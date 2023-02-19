@@ -1723,7 +1723,6 @@ size = 3.0
 [node name="Sprite3d" type="Sprite3D" parent="."]
 billboard = 1
 double_sided = false
-no_depth_test = true
 alpha_cut = 1
 texture_filter = 0
 texture = ExtResource("2_ug3k3")

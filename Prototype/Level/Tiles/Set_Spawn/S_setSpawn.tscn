@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgf1hljhg572s"]
+
+[ext_resource type="Script" path="res://Prototype/Level/Tiles/Set_Spawn/GD_Set_Spawn.gd" id="1_u0fet"]
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_7t6u1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oxyus"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_78qe3"]
+material = SubResource("StandardMaterial3D_oxyus")
+
+[node name="S_Set_Spawn" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251, 0)
+script = ExtResource("1_u0fet")
+
+[node name="triggerCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("HeightMapShape3D_7t6u1")
+
+[node name="triggerMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+mesh = SubResource("PlaneMesh_78qe3")
+skeleton = NodePath("")
+
+[node name="newSpawnPoint" type="Node3D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_s_set_spawn_body_entered"]
