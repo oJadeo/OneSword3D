@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://b76gdft4cavda"]
+
+[ext_resource type="Script" path="res://Level/Tiles/Trigger_Block_Area/GD_Trigger_Block_Area.gd" id="1_qjly2"]
+
+[node name="Trigger_Block_Area" type="Area3D"]
+script = ExtResource("1_qjly2")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="."]
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="."]
+skeleton = NodePath("")
+
+[node name="toBlock" type="Node3D" parent="."]
+
+[node name="StaticBody3d" type="StaticBody3D" parent="toBlock"]
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="toBlock/StaticBody3d"]
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="toBlock/StaticBody3d/CollisionShape3d"]
+skeleton = NodePath("../..")
+
+[connection signal="body_entered" from="." to="." method="_on_trigger_block_area_body_entered"]

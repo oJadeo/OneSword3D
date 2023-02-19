@@ -6,7 +6,7 @@ signal DashCharge_changed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Global.set_player(self)
+	pass
 func _physics_process(delta):
 	handle_input()
 	handle_move(delta)
@@ -22,6 +22,7 @@ var input_frame = {
 	"dash" : false,
 	"rotate_cw" : false,
 	"rotate_ccw" : false,
+	"respawn":false
 	}
 #take all input into input dict
 func handle_input():
@@ -32,8 +33,8 @@ func handle_input():
 		animationTree.set("parameters/Idle/blend_position",input_frame["direction"])
 		animationTree.set("parameters/Block/blend_position",input_frame["direction"])
 		animationTree.set("parameters/Attack_1/blend_position",input_frame["direction"])
-		animationTree.set("parameters/Attack_2/blend_position",input_frame["direction"])
-		animationTree.set("parameters/Attack_3/blend_position",input_frame["direction"])
+		animationTree.set("parameters/Slaming/blend_position",input_frame["direction"])
+		animationTree.set("parameters/Slam_end/blend_position",input_frame["direction"])
 		animationTree.set("parameters/Dash/blend_position",input_frame["direction"])
 	if input_frame["direction"] != Vector2.ZERO:
 		last_direction = (transform.basis * Vector3(input_frame["direction"] .x,0, input_frame["direction"] .y)).normalized()
@@ -41,6 +42,7 @@ func handle_input():
 	input_frame["deflect"] = Input.is_action_pressed("Deflect")
 	input_frame["rotate_cw"] = Input.is_action_just_pressed("Rotate_CW")
 	input_frame["rotate_ccw"] = Input.is_action_just_pressed("Rotate_CCW")
+	input_frame["respawn"] = Input.is_action_pressed("Respawn")
 	input_frame["jump"] = Input.is_action_pressed("Jump")
 	input_frame["dash"] = Input.is_action_pressed("Dash")
 	if Input.is_action_pressed("Deflect"):
@@ -53,11 +55,14 @@ func handle_input():
 		rotate(Vector3(0,1,0),deg_to_rad(-45))
 	if input_frame["rotate_ccw"]:
 		rotate(Vector3(0,1,0),deg_to_rad(45))
+	if input_frame["respawn"]:
+		respawn()
 
 #Exploring variable
 const SPEED = 1 
 const BLOCK_SPEED = 0.5
 const JUMP_VELOCITY = 3.5
+const SLAM_SPEED = 0.25
 var direction 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -98,6 +103,9 @@ func handle_move(delta):
 		await get_tree().create_timer(0.05).timeout
 		knockback = false
 
+	if slaming:
+		velocity.y -= SLAM_SPEED
+
 	if not is_on_floor() and direction and is_on_wall() and is_wall_runable:
 		wall_run()
 	if (is_on_floor() or not is_on_wall() or input_frame["direction"] == Vector2.ZERO) and is_wall_running:
@@ -106,6 +114,7 @@ func handle_move(delta):
 		velocity -= wall_normal.get_normal(0)
 		velocity.y = 0
 		velocity = velocity.normalized()
+
 	if not deflecting:
 		velocity.x *= speed 
 		velocity.z *= speed 
@@ -164,10 +173,13 @@ func _on_wallrun_timer_timeout():
 
 #Attack variable
 var attacking = false
+var slaming = false
 func handle_atk():
 	if input_frame["attack"]:
+		slaming = not is_on_floor()
 		attacking = true
 func reset_attack():
+	slaming = false
 	attacking = false
 func _on_hitbox_area_entered(area):
 	if area.name == "HurtBox":
@@ -185,11 +197,13 @@ var blockBar = 100
 var begin_regen = false
 var is_regen = false
 func _on_hurt_box_area_entered(area):
+	if area.name != 'enemy':
+		return 0
 	#Hi
 	if not perfect_deflect and ( not deflecting or blockBar < 20):
 		if blockBar == 0 or not deflecting:
 			print("ouch!!!")
-			Global.spawn_player()
+			respawn()
 		else:
 			regen_timer.stop()
 			blockBar = 0
@@ -231,11 +245,11 @@ func _on_regen_timer_timeout():
 @onready var root = $".."
 #@onready var dash = $Dash
 @onready var playerCamera = $SpringArm3d/Camera3d
+@onready var playerSpawnPoint = $"../playerSpawnPoint"
 func handle_animation():
+	animationState.travel("Idle")
 	if abs(input_frame["direction"].x) > 0.1 || abs(input_frame["direction"].y) > 0.1 :
 		animationState.travel("Run")
-	else:
-		animationState.travel("Idle")
 	if not is_on_floor():
 		if velocity.y > 0:
 			pass
@@ -246,12 +260,18 @@ func handle_animation():
 	if is_dashing:
 		animationState.travel("Dash")
 	if attacking:
-		animationState.travel("Attack_1")
+		if slaming:
+			if not is_on_floor():
+				animationState.travel("Slaming")
+			else:
+				animationState.travel("Slam_end")
+		else:
+			animationState.travel("Attack_1")
 	if (input_frame["deflect"]):	
 		animationState.travel("Block")
 
-func respawn(position):
-	set_position(position)
+func respawn():
+	set_position(playerSpawnPoint.global_position)
 	blockBar = 100
 	dash_charge = 3
 	emit_signal("Blockbar_changed",blockBar)
