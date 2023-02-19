@@ -1,21 +1,12 @@
 extends Node
 
-var player
-var player_spawn_point
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-func set_player(_player):
-	player = _player
-func spawn_player():
-	player.respawn(player_spawn_point)
-func set_player_spawn_point(position):
-	player_spawn_point = position
 
 func cal_camera_direction(y_deg):
 	if y_deg == 0:

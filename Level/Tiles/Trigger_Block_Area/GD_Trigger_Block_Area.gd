@@ -10,5 +10,5 @@ func _process(_delta):
 	blockMesh.set_visible(activated)
 
 func _on_trigger_block_area_body_entered(body):
-	if (body.name == "PlayerCharacter") :
+	if (body.name == "Player_Character") :
 		activated = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://b0yg8hhtv3vsc"]
 
 [ext_resource type="Script" path="res://Level/Tiles/Set_Spawn/GD_Set_Spawn.gd" id="1_u0fet"]
 
