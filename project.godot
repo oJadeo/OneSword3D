@@ -118,6 +118,27 @@ Jump={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="World"
+3d_physics/layer_1="World"
+2d_physics/layer_2="Player"
+3d_physics/layer_2="Player"
+2d_physics/layer_3="Enemy"
+3d_physics/layer_3="Enemy"
+2d_physics/layer_4="PlayerHitbox"
+3d_physics/layer_4="PlayerHitbox"
+2d_physics/layer_5="PlayerHurtbox"
+3d_physics/layer_5="PlayerHurtbox"
+2d_physics/layer_6="PlayerDeflectbox"
+3d_physics/layer_6="PlayerDeflectbox"
+2d_physics/layer_7="EnemyHitbox"
+3d_physics/layer_7="EnemyHitbox"
+2d_physics/layer_8="EnemyHurtbox"
+3d_physics/layer_8="EnemyHurtbox"
+2d_physics/layer_9="EnemyParrybox"
+3d_physics/layer_9="EnemyParrybox"
+
 [physics]
 
 common/physics_ticks_per_second=240

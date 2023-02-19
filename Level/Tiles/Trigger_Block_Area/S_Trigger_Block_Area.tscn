@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3j0bh6v2e0uw"]
+[gd_scene load_steps=2 format=3 uid="uid://b76gdft4cavda"]
 
-[ext_resource type="Script" path="res://Prototype/Level/Tiles/Trigger_Block_Area/GD_Trigger_Block_Area.gd" id="1_qjly2"]
+[ext_resource type="Script" path="res://Level/Tiles/Trigger_Block_Area/GD_Trigger_Block_Area.gd" id="1_qjly2"]
 
 [node name="Trigger_Block_Area" type="Area3D"]
 script = ExtResource("1_qjly2")
