@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c1wd1fjg4stf"]
+[gd_scene load_steps=12 format=3 uid="uid://c1wd1fjg4stf"]
 
 [ext_resource type="PackedScene" uid="uid://gdxynxo6b172" path="res://Prototype/Player_Character/S_PlayerCharacter.tscn" id="1_jes38"]
 
@@ -10,6 +10,9 @@
 material = SubResource("StandardMaterial3D_7cs45")
 size = Vector3(5, 0.5, 5)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_x4j1d"]
+size = Vector3(5, 0.5, 5)
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_10tyb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oxyus"]
@@ -18,9 +21,6 @@ size = Vector3(5, 0.5, 5)
 material = SubResource("StandardMaterial3D_oxyus")
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_7t6u1"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_x4j1d"]
-size = Vector3(5, 0.5, 5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_bbgn6"]
 size = Vector3(1, 1, 3)

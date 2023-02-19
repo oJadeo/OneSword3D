@@ -1028,6 +1028,7 @@ graph_offset = Vector2(0, 28.9459)
 size = Vector3(0.3, 0.1, 0.2)
 
 [node name="Player_Character" type="CharacterBody3D"]
+collision_layer = 2
 script = ExtResource("1_fiftu")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
@@ -1038,7 +1039,7 @@ shape = SubResource("CapsuleShape3D_xc8no")
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 7.07107, 7.07107)
 projection = 1
 current = true
-size = 10.0
+size = 3.0
 
 [node name="Sprite3d" type="Sprite3D" parent="."]
 billboard = 1
@@ -1081,7 +1082,7 @@ one_shot = true
 [node name="Marker3d" type="Marker3D" parent="."]
 
 [node name="Hitbox" type="Area3D" parent="Marker3d"]
-collision_layer = 64
+collision_layer = 8
 collision_mask = 4736
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="Marker3d/Hitbox"]

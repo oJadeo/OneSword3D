@@ -122,7 +122,7 @@ func handle_move(delta):
 		velocity -= wall_normal.get_normal(0)
 		velocity.y = 0
 	if not attacking and not deflecting:
-		print(velocity)
+		#print(velocity)
 		move_and_slide()
 
 #Dash variable
