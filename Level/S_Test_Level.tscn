@@ -95,6 +95,7 @@ shape = SubResource("BoxShape3D_kl0tw")
 transform = Transform3D(1, 0, 0, 0, 0.757918, 0.65235, 0, -0.65235, 0.757918, -3.32541, 2.1958, 0)
 light_energy = 0.2
 shadow_enabled = true
+directional_shadow_mode = 0
 
 [node name="Player_Character" parent="." instance=ExtResource("1_ilarg")]
 
