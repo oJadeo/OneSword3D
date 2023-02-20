@@ -1714,6 +1714,7 @@ radius = 0.05
 height = 0.5
 
 [node name="Player_Character" type="CharacterBody3D"]
+collision_layer = 2
 script = ExtResource("1_key0r")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
@@ -1736,12 +1737,13 @@ vframes = 21
 
 [node name="Shadow" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4, 0)
+visible = false
 light_energy = 0.81
 light_negative = true
 spot_range = 10.0
-spot_attenuation = 0.00571874
+spot_attenuation = 0.008668
 spot_angle = 1.0
-spot_angle_attenuation = 0.00533578
+spot_angle_attenuation = 0.008668
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle/player_idle_down"
@@ -1772,7 +1774,7 @@ parameters/Slaming/blend_position = Vector2(0, 0)
 [node name="NormalAtk" type="Marker3D" parent="."]
 
 [node name="Hitbox" type="Area3D" parent="NormalAtk"]
-collision_layer = 64
+collision_layer = 72
 collision_mask = 4736
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="NormalAtk/Hitbox"]
@@ -1792,6 +1794,8 @@ shape = SubResource("BoxShape3D_ykq3n")
 disabled = true
 
 [node name="HurtBox" type="Area3D" parent="."]
+collision_layer = 16
+collision_mask = 64
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="HurtBox"]
 shape = SubResource("CapsuleShape3D_r3dmx")

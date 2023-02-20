@@ -198,9 +198,8 @@ var blockBar = 100
 var begin_regen = false
 var is_regen = false
 func _on_hurt_box_area_entered(area):
-	if area.name != 'enemy':
+	if area.name != 'Hitbox':
 		return 0
-	#Hi
 	if not perfect_deflect and ( not deflecting or blockBar < 20):
 		if blockBar == 0 or not deflecting:
 			print("ouch!!!")
