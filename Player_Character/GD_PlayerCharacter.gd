@@ -244,7 +244,6 @@ func _on_regen_timer_timeout():
 @onready var animationState = animationTree.get("parameters/playback")
 @onready var root = $".."
 #@onready var dash = $Dash
-@onready var playerCamera = $SpringArm3d/Camera3d
 @onready var playerSpawnPoint = $"../playerSpawnPoint"
 func handle_animation():
 	animationState.travel("Idle")
