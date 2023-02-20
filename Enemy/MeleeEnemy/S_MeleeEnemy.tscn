@@ -188,6 +188,7 @@ states/Run/node = SubResource("AnimationNodeBlendSpace2D_t45mo")
 states/Run/position = Vector2(648, 120)
 states/Start/position = Vector2(333, 120)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_cq4qi")]
+graph_offset = Vector2(0, 65.1255)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_d043s"]
 

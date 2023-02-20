@@ -51,7 +51,7 @@ func _on_player_detection_body_entered(body):
 
 
 func _on_player_detection_body_exited(body):
-	if body.name == "PlayerCharacter":
+	if body.name == "Player_Character":
 		player = null
 
 
