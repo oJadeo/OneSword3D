@@ -134,6 +134,7 @@ var dash_end = false
 @onready var rechargeDashTimer = $RechargeDashTimer
 func handle_dash():
 	if input_frame["dash"] and is_dash_able and not is_wall_running and not is_dashing and dash_charge != 0:
+		print("DASH")
 		dash_charge -= 1
 		emit_signal("DashCharge_changed",dash_charge)
 		rechargeDashTimer.start()
@@ -243,7 +244,6 @@ func _on_regen_timer_timeout():
 @onready var animationState = animationTree.get("parameters/playback")
 @onready var root = $".."
 #@onready var dash = $Dash
-@onready var playerCamera = $SpringArm3d/Camera3d
 @onready var playerSpawnPoint = $"../playerSpawnPoint"
 func handle_animation():
 	animationState.travel("Idle")
