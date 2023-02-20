@@ -1709,6 +1709,7 @@ radius = 0.05
 height = 0.5
 
 [node name="Player_Character" type="CharacterBody3D"]
+collision_layer = 2
 script = ExtResource("1_key0r")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
@@ -1790,6 +1791,8 @@ shape = SubResource("BoxShape3D_ykq3n")
 disabled = true
 
 [node name="HurtBox" type="Area3D" parent="."]
+collision_layer = 16
+collision_mask = 64
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="HurtBox"]
 shape = SubResource("CapsuleShape3D_r3dmx")
