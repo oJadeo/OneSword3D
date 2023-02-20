@@ -1,6 +1,6 @@
-[gd_scene load_steps=84 format=3]
+[gd_scene load_steps=84 format=3 uid="uid://u4rxreh5ggbm"]
 
-[ext_resource type="Texture2D" path="res://Enemy/MeleeEnemy/Enemy_01.png" id="1_4b4og"]
+[ext_resource type="Texture2D" uid="uid://1da7viyrm7jx" path="res://Enemy/MeleeEnemy/Enemy_01.png" id="1_4b4og"]
 [ext_resource type="Script" path="res://Enemy/MeleeEnemy/GD_MeleeEnemy.gd" id="2_quxdm"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2e6xd"]
@@ -188,6 +188,7 @@ states/Run/node = SubResource("AnimationNodeBlendSpace2D_t45mo")
 states/Run/position = Vector2(648, 120)
 states/Start/position = Vector2(333, 120)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_cq4qi")]
+graph_offset = Vector2(0, 65.1255)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_d043s"]
 
