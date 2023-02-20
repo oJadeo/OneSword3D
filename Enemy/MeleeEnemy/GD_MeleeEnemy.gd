@@ -45,13 +45,13 @@ func _process(delta):
 	
 
 func _on_player_detection_body_entered(body):
-	if body.name == "PlayerCharacter":
+	if body.name == "Player_Character":
 		player = body
 		state = CHASE
 
 
 func _on_player_detection_body_exited(body):
-	if body.name == "PlayerCharacter":
+	if body.name == "Player_Character":
 		player = null
 
 
@@ -60,5 +60,5 @@ func _on_hurtbox_area_entered(area):
 		queue_free()
 		
 func _on_attac_range_body_entered(body):
-	if body.name == "PlayerCharacter":
+	if body.name == "Player_Character":
 		state = ATTACK
