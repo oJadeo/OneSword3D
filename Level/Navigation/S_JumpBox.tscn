@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://6dnu7ywfbvge"]
+
+[ext_resource type="Script" path="res://Level/Navigation/GD_JumpBox.gd" id="1_n823h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jin0u"]
+
+[node name="JumpBox" type="Area3D"]
+script = ExtResource("1_n823h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_jin0u")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
