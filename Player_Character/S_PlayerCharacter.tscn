@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://ckhvfyhreuwrp"]
+[gd_scene load_steps=96 format=3 uid="uid://ckhvfyhreuwrp"]
 
 [ext_resource type="Script" path="res://Player_Character/GD_PlayerCharacter.gd" id="1_key0r"]
 [ext_resource type="Texture2D" uid="uid://b4kalxwyltlge" path="res://Player_Character/Player_Character.png" id="2_ug3k3"]
@@ -19,7 +19,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector2i(0, 0)]
 }
 tracks/1/type = "value"
@@ -618,7 +618,7 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector2i(0, 6)]
 }
 tracks/2/type = "method"
@@ -649,7 +649,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector2i(0, 7)]
 }
 tracks/1/type = "value"
@@ -691,7 +691,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector2i(0, 7)]
 }
 tracks/1/type = "value"
@@ -733,7 +733,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector2i(0, 8)]
 }
 tracks/1/type = "value"
@@ -1509,6 +1509,7 @@ blend_point_2/pos = Vector2(-1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_7xbnj")
 blend_point_3/pos = Vector2(0, -0.9)
 blend_mode = 2
+sync = true
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jmdlr"]
 animation = &"block/player_block_down"
@@ -1531,7 +1532,7 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_bvoux")
 blend_point_2/pos = Vector2(0, -1)
 blend_point_3/node = SubResource("AnimationNodeAnimation_mal76")
 blend_point_3/pos = Vector2(-1, 0)
-blend_mode = 2
+blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lyibh"]
 animation = &"dash/player_dash_down"
@@ -1577,7 +1578,7 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_3n7x5")
 blend_point_2/pos = Vector2(0, -1)
 blend_point_3/node = SubResource("AnimationNodeAnimation_hhggb")
 blend_point_3/pos = Vector2(-1, 0)
-blend_mode = 2
+blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dnoo7"]
 animation = &"run/player_run_down"
@@ -1601,6 +1602,7 @@ blend_point_2/pos = Vector2(0, -1)
 blend_point_3/node = SubResource("AnimationNodeAnimation_271kl")
 blend_point_3/pos = Vector2(-1, 0)
 blend_mode = 2
+sync = true
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_38ayj"]
 animation = &"slamed/player_slamed_down"
@@ -1623,7 +1625,7 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_iaphv")
 blend_point_2/pos = Vector2(1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_153g8")
 blend_point_3/pos = Vector2(-1, 0)
-blend_mode = 2
+blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hyyha"]
 animation = &"slaming/player_slaming_down"
@@ -1646,7 +1648,7 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_jw4ta")
 blend_point_2/pos = Vector2(1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_tijt5")
 blend_point_3/pos = Vector2(-1, 0)
-blend_mode = 2
+blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1cegg"]
 
@@ -1670,6 +1672,7 @@ blend_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_thled"]
 switch_mode = 2
+advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_13fa8"]
 
@@ -1677,6 +1680,10 @@ switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oc25s"]
 switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jt4wg"]
+advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_bg24q"]
 states/Attack_1/node = SubResource("AnimationNodeBlendSpace2D_ik5n7")
@@ -1690,12 +1697,12 @@ states/Idle/position = Vector2(315, 90)
 states/Run/node = SubResource("AnimationNodeBlendSpace2D_tt6cc")
 states/Run/position = Vector2(263, 193)
 states/Slam_end/node = SubResource("AnimationNodeBlendSpace2D_x0jnw")
-states/Slam_end/position = Vector2(535, 132.946)
+states/Slam_end/position = Vector2(535, 198.946)
 states/Slaming/node = SubResource("AnimationNodeBlendSpace2D_dgfy8")
-states/Slaming/position = Vector2(535, 67.9459)
+states/Slaming/position = Vector2(543, 117.946)
 states/Start/position = Vector2(181, 80)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_1cegg"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_fkea5"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_gvt5f"), "Run", "Dash", SubResource("AnimationNodeStateMachineTransition_8vtlh"), "Dash", "Run", SubResource("AnimationNodeStateMachineTransition_jcmng"), "Dash", "Idle", SubResource("AnimationNodeStateMachineTransition_5ub82"), "Idle", "Dash", SubResource("AnimationNodeStateMachineTransition_lo1ux"), "Idle", "Block", SubResource("AnimationNodeStateMachineTransition_421b5"), "Block", "Idle", SubResource("AnimationNodeStateMachineTransition_oub33"), "Idle", "Attack_1", SubResource("AnimationNodeStateMachineTransition_odrdr"), "Attack_1", "Idle", SubResource("AnimationNodeStateMachineTransition_thled"), "Idle", "Slaming", SubResource("AnimationNodeStateMachineTransition_13fa8"), "Slaming", "Slam_end", SubResource("AnimationNodeStateMachineTransition_crb4r"), "Slam_end", "Idle", SubResource("AnimationNodeStateMachineTransition_oc25s")]
-graph_offset = Vector2(95, -40.0541)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_1cegg"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_fkea5"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_gvt5f"), "Run", "Dash", SubResource("AnimationNodeStateMachineTransition_8vtlh"), "Dash", "Run", SubResource("AnimationNodeStateMachineTransition_jcmng"), "Dash", "Idle", SubResource("AnimationNodeStateMachineTransition_5ub82"), "Idle", "Dash", SubResource("AnimationNodeStateMachineTransition_lo1ux"), "Idle", "Block", SubResource("AnimationNodeStateMachineTransition_421b5"), "Block", "Idle", SubResource("AnimationNodeStateMachineTransition_oub33"), "Idle", "Attack_1", SubResource("AnimationNodeStateMachineTransition_odrdr"), "Attack_1", "Idle", SubResource("AnimationNodeStateMachineTransition_thled"), "Idle", "Slaming", SubResource("AnimationNodeStateMachineTransition_13fa8"), "Slaming", "Slam_end", SubResource("AnimationNodeStateMachineTransition_crb4r"), "Slam_end", "Idle", SubResource("AnimationNodeStateMachineTransition_oc25s"), "Idle", "End", SubResource("AnimationNodeStateMachineTransition_jt4wg")]
+graph_offset = Vector2(-39, -48.0541)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_ggkns"]
 
@@ -1714,7 +1721,7 @@ script = ExtResource("1_key0r")
 shape = SubResource("CapsuleShape3D_xc8no")
 
 [node name="Camera3d" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 2, 2)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 5, 5)
 projection = 1
 current = true
 size = 3.0
@@ -1757,11 +1764,11 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_ggkns")
 parameters/Attack_1/blend_position = Vector2(-0.000803232, 0.904255)
-parameters/Block/blend_position = Vector2(0.0102791, 0.946808)
+parameters/Block/blend_position = Vector2(-0.726926, -0.545851)
 parameters/Dash/blend_position = Vector2(-0.00943398, 0.0131004)
 parameters/Idle/blend_position = Vector2(-0.0038023, 0.968085)
 parameters/Run/blend_position = Vector2(0, 0)
-parameters/Slam_end/blend_position = Vector2(0, 0)
+parameters/Slam_end/blend_position = Vector2(-0.170099, -0.292576)
 parameters/Slaming/blend_position = Vector2(0, 0)
 
 [node name="NormalAtk" type="Marker3D" parent="."]
@@ -1771,7 +1778,6 @@ collision_layer = 72
 collision_mask = 4736
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="NormalAtk/Hitbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2)
 visible = false
 shape = SubResource("BoxShape3D_ykq3n")
 disabled = true
@@ -1783,7 +1789,6 @@ collision_layer = 64
 collision_mask = 4736
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="SlamAtk/Hitbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.16, -0.1)
 visible = false
 shape = SubResource("BoxShape3D_ykq3n")
 disabled = true
