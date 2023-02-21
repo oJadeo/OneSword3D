@@ -1,11 +1,130 @@
-[gd_scene load_steps=35 format=3 uid="uid://dfynijq7m2hnq"]
+[gd_scene load_steps=63 format=3 uid="uid://dfynijq7m2hnq"]
 
 [ext_resource type="Texture2D" uid="uid://daplr4okhkkfr" path="res://Enemy/RangeEnemy/Enemy_02.png" id="1_1brmb"]
+[ext_resource type="Script" path="res://Enemy/RangeEnemy/GD_RangeEnemy.gd" id="1_12nk7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5h51k"]
-radius = 4.80529
+radius = 2.5
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kxam1"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ri6bj"]
+animation = &"Attack/range_enemy_attack_down_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a55r6"]
+animation = &"Attack/range_enemy_attack_down_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8e427"]
+animation = &"Attack/range_enemy_attack_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e8q5h"]
+animation = &"Attack/range_enemy_attack_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yn55t"]
+animation = &"Attack/range_enemy_attack_up_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jgoa5"]
+animation = &"Attack/range_enemy_attack_up_left"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_pi576"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_ri6bj")
+blend_point_0/pos = Vector2(-1, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_a55r6")
+blend_point_1/pos = Vector2(1, 1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_8e427")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_e8q5h")
+blend_point_3/pos = Vector2(1, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_yn55t")
+blend_point_4/pos = Vector2(-1, -1)
+blend_point_5/node = SubResource("AnimationNodeAnimation_jgoa5")
+blend_point_5/pos = Vector2(1, -1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_wa1e7"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a3pam"]
+animation = &"Reload/range_enemy_reload_down_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j3vus"]
+animation = &"Reload/range_enemy_reload_down_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0bfv6"]
+animation = &"Reload/range_enemy_reload_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yfdmk"]
+animation = &"Reload/range_enemy_reload_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uci2q"]
+animation = &"Reload/range_enemy_reload_up_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nset2"]
+animation = &"Reload/range_enemy_reload_up_left"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_3qces"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_a3pam")
+blend_point_0/pos = Vector2(-1, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_j3vus")
+blend_point_1/pos = Vector2(1, 1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_0bfv6")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_yfdmk")
+blend_point_3/pos = Vector2(1, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_uci2q")
+blend_point_4/pos = Vector2(-1, -1)
+blend_point_5/node = SubResource("AnimationNodeAnimation_nset2")
+blend_point_5/pos = Vector2(1, -1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8ev1t"]
+animation = &"Run/range_enemy_run_down_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t6ofr"]
+animation = &"Run/range_enemy_run_down_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ygueo"]
+animation = &"Run/range_enemy_run_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nmfis"]
+animation = &"Run/range_enemy_run_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a2jfs"]
+animation = &"Run/range_enemy_run_up_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_871ne"]
+animation = &"Run/range_enemy_run_up_right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_ftg82"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_8ev1t")
+blend_point_0/pos = Vector2(1, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_t6ofr")
+blend_point_1/pos = Vector2(-1, 1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_ygueo")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_nmfis")
+blend_point_3/pos = Vector2(-1, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_a2jfs")
+blend_point_4/pos = Vector2(1, -1)
+blend_point_5/node = SubResource("AnimationNodeAnimation_871ne")
+blend_point_5/pos = Vector2(-1, -1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dovqs"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xul6b"]
+states/Attack/node = SubResource("AnimationNodeBlendSpace2D_pi576")
+states/Attack/position = Vector2(574, 78)
+states/Block/node = SubResource("AnimationNodeBlendSpace2D_wa1e7")
+states/Block/position = Vector2(394, 163)
+states/Reload/node = SubResource("AnimationNodeBlendSpace2D_3qces")
+states/Reload/position = Vector2(574, 163)
+states/Run/node = SubResource("AnimationNodeBlendSpace2D_ftg82")
+states/Run/position = Vector2(394, 78)
+transitions = ["Reload", "Attack", SubResource("AnimationNodeStateMachineTransition_dovqs")]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_u5571"]
 
 [sub_resource type="Animation" id="Animation_tahvi"]
 length = 0.001
@@ -90,6 +209,20 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reload"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_c60oi"]
 resource_name = "range_enemy_attack_down_right"
@@ -129,6 +262,20 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reload"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_bkqma"]
@@ -170,6 +317,20 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reload"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_2bqlp"]
 resource_name = "range_enemy_attack_right"
@@ -209,6 +370,20 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reload"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_s7c7h"]
@@ -250,6 +425,20 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reload"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_brpwo"]
 resource_name = "range_enemy_attack_up_right"
@@ -289,6 +478,20 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reload"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rilo4"]
@@ -547,6 +750,8 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_rv6x1"]
 resource_name = "range_enemy_reload_down_left"
+length = 0.500004
+step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -586,6 +791,8 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_kwqm1"]
 resource_name = "range_enemy_reload_down_right"
+length = 0.500004
+step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -625,6 +832,8 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_aomod"]
 resource_name = "range_enemy_reload_left"
+length = 0.500004
+step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -664,6 +873,8 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_rpts0"]
 resource_name = "range_enemy_reload_right"
+length = 0.500004
+step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -703,6 +914,8 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_2owxm"]
 resource_name = "range_enemy_reload_up_left"
+length = 0.500004
+step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -742,6 +955,8 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_fcumj"]
 resource_name = "range_enemy_reload_up_right"
+length = 0.500004
+step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1037,7 +1252,13 @@ _data = {
 radius = 0.097
 height = 0.333
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_pto3n"]
+radius = 1.75
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_oxg0k"]
+
 [node name="RangeEnemy" type="CharacterBody3D"]
+script = ExtResource("1_12nk7")
 
 [node name="Sprite3d" type="Sprite3D" parent="."]
 billboard = 1
@@ -1050,7 +1271,6 @@ vframes = 12
 frame = 27
 
 [node name="PlayerDetection" type="Area3D" parent="."]
-transform = Transform3D(0.235, 0, 0, 0, 0.235, 0, 0, 0, 0.235, 0, 0, 0)
 collision_layer = 0
 collision_mask = 2
 
@@ -1060,6 +1280,16 @@ shape = SubResource("SphereShape3D_5h51k")
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.235, 0, 0, 0, 0.235, 0, 0, 0, 0.235, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_kxam1")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_xul6b")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_u5571")
+parameters/Attack/blend_position = Vector2(0, 0)
+parameters/Block/blend_position = Vector2(0, 0)
+parameters/Reload/blend_position = Vector2(0, 0)
+parameters/Run/blend_position = Vector2(-0.00312823, 0.0179641)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1074,3 +1304,20 @@ libraries = {
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="Hurtbox"]
 shape = SubResource("CapsuleShape3D_38lqq")
+
+[node name="AttackRange" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackRange"]
+shape = SubResource("SphereShape3D_pto3n")
+
+[node name="DangerZone" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DangerZone"]
+shape = SubResource("SphereShape3D_oxg0k")
+
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
+[connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
+[connection signal="body_entered" from="DangerZone" to="." method="_on_danger_zone_body_entered"]
+[connection signal="body_exited" from="DangerZone" to="." method="_on_danger_zone_body_exited"]
