@@ -1779,7 +1779,7 @@ parameters/Slaming/blend_position = Vector2(0, 0)
 [node name="NormalAtk" type="Marker3D" parent="."]
 
 [node name="Hitbox" type="Area3D" parent="NormalAtk"]
-collision_layer = 72
+collision_layer = 8
 collision_mask = 4736
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="NormalAtk/Hitbox"]
@@ -1790,7 +1790,7 @@ disabled = true
 [node name="SlamAtk" type="Marker3D" parent="."]
 
 [node name="Hitbox" type="Area3D" parent="SlamAtk"]
-collision_layer = 64
+collision_layer = 8
 collision_mask = 4736
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="SlamAtk/Hitbox"]

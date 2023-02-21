@@ -191,6 +191,7 @@ states/Start/position = Vector2(333, 120)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_cq4qi")]
 graph_offset = Vector2(128, 56.1255)
 
+
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_d043s"]
 
 [sub_resource type="Animation" id="Animation_d3kvc"]
@@ -2068,7 +2069,7 @@ parameters/Attack/blend_position = Vector2(0, 0.00849867)
 parameters/Dash/blend_position = Vector2(-0.00185871, -0.00346017)
 parameters/DrawWeapon/blend_position = Vector2(-0.00185871, -0.00283289)
 parameters/Idle/blend_position = Vector2(-0.00157231, -0.0057143)
-parameters/Run/blend_position = Vector2(0, 0)
+parameters/Run/blend_position = Vector2(-0.00104272, -0.00436676)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
