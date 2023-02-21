@@ -202,7 +202,6 @@ func _on_hurt_box_area_entered(area):
 		return 0
 	if not perfect_deflect and ( not deflecting or blockBar < 20):
 		if blockBar == 0 or not deflecting:
-			print("ouch!!!")
 			respawn()
 		else:
 			regen_timer.stop()
@@ -266,7 +265,7 @@ func handle_animation():
 				animationState.travel("Slam_end")
 		else:
 			animationState.travel("Attack_1")
-	if (input_frame["deflect"]):	
+	if deflecting:
 		animationState.travel("Block")
 
 func respawn():

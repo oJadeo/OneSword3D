@@ -182,13 +182,15 @@ states/Dash/node = SubResource("AnimationNodeBlendSpace2D_slvcv")
 states/Dash/position = Vector2(822, 226)
 states/DrawWeapon/node = SubResource("AnimationNodeBlendSpace2D_84y8a")
 states/DrawWeapon/position = Vector2(851, 120)
+states/End/position = Vector2(1011, 120)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_32owg")
 states/Idle/position = Vector2(486, 120)
 states/Run/node = SubResource("AnimationNodeBlendSpace2D_t45mo")
 states/Run/position = Vector2(648, 120)
 states/Start/position = Vector2(333, 120)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_cq4qi")]
-graph_offset = Vector2(120, 69.1255)
+graph_offset = Vector2(128, 56.1255)
+
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_d043s"]
 
