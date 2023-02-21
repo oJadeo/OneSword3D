@@ -1791,7 +1791,7 @@ disabled = true
 
 [node name="Hitbox" type="Area3D" parent="SlamAtk"]
 collision_layer = 8
-collision_mask = 4736
+collision_mask = 4800
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="SlamAtk/Hitbox"]
 visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://cwgktljjh2rqs"]
+[gd_scene load_steps=118 format=3 uid="uid://cwgktljjh2rqs"]
 
 [ext_resource type="Texture2D" uid="uid://1da7viyrm7jx" path="res://Enemy/MeleeEnemy/Enemy_01.png" id="1_4b4og"]
 [ext_resource type="Script" path="res://Enemy/MeleeEnemy/GD_MeleeEnemy.gd" id="2_quxdm"]
@@ -38,6 +38,39 @@ blend_point_3/pos = Vector2(1, -1)
 blend_point_4/node = SubResource("AnimationNodeAnimation_j0fn1")
 blend_point_4/pos = Vector2(-1, 1)
 blend_point_5/node = SubResource("AnimationNodeAnimation_0uj6m")
+blend_point_5/pos = Vector2(1, 1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rvqwf"]
+animation = &"Block/melee_enemy_block_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_buceq"]
+animation = &"Block/melee_enemy_block_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pqeqt"]
+animation = &"Block/melee_enemy_block_up_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_up0bh"]
+animation = &"Block/melee_enemy_block_up_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n40me"]
+animation = &"Block/melee_enemy_block_down_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wskmq"]
+animation = &"Block/melee_enemy_block_down_left"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_80ar4"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_rvqwf")
+blend_point_0/pos = Vector2(1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_buceq")
+blend_point_1/pos = Vector2(-1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_pqeqt")
+blend_point_2/pos = Vector2(-1, -1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_up0bh")
+blend_point_3/pos = Vector2(1, -1)
+blend_point_4/node = SubResource("AnimationNodeAnimation_n40me")
+blend_point_4/pos = Vector2(-1, 1)
+blend_point_5/node = SubResource("AnimationNodeAnimation_wskmq")
 blend_point_5/pos = Vector2(1, 1)
 blend_mode = 1
 
@@ -173,24 +206,60 @@ blend_point_5/node = SubResource("AnimationNodeAnimation_jiosm")
 blend_point_5/pos = Vector2(1, 1)
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_410oo"]
+animation = &"StoreWeapon/melee_enemy_store_weapon_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0aqoo"]
+animation = &"StoreWeapon/melee_enemy_store_weapon_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o4tvl"]
+animation = &"StoreWeapon/melee_enemy_store_weapon_up_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8uibu"]
+animation = &"StoreWeapon/melee_enemy_store_weapon_up_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0shla"]
+animation = &"StoreWeapon/melee_enemy_Store_weapon_down_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ocmmu"]
+animation = &"StoreWeapon/melee_enemy_store_weapon_down_left"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_p1xxw"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_410oo")
+blend_point_0/pos = Vector2(1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_0aqoo")
+blend_point_1/pos = Vector2(-1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_o4tvl")
+blend_point_2/pos = Vector2(-1, -1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_8uibu")
+blend_point_3/pos = Vector2(1, -1)
+blend_point_4/node = SubResource("AnimationNodeAnimation_0shla")
+blend_point_4/pos = Vector2(-1, 1)
+blend_point_5/node = SubResource("AnimationNodeAnimation_ocmmu")
+blend_point_5/pos = Vector2(1, 1)
+blend_mode = 1
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cq4qi"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ks0bh"]
 states/Attack/node = SubResource("AnimationNodeBlendSpace2D_nv04p")
-states/Attack/position = Vector2(648, 226)
+states/Attack/position = Vector2(611, 179)
+states/Block/node = SubResource("AnimationNodeBlendSpace2D_80ar4")
+states/Block/position = Vector2(611, 247.126)
 states/Dash/node = SubResource("AnimationNodeBlendSpace2D_slvcv")
-states/Dash/position = Vector2(822, 226)
+states/Dash/position = Vector2(486, 179)
 states/DrawWeapon/node = SubResource("AnimationNodeBlendSpace2D_84y8a")
-states/DrawWeapon/position = Vector2(851, 120)
-states/End/position = Vector2(1011, 120)
+states/DrawWeapon/position = Vector2(772, 120)
+states/End/position = Vector2(914, 149)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_32owg")
 states/Idle/position = Vector2(486, 120)
 states/Run/node = SubResource("AnimationNodeBlendSpace2D_t45mo")
-states/Run/position = Vector2(648, 120)
+states/Run/position = Vector2(611, 120)
 states/Start/position = Vector2(333, 120)
+states/StoreWeapon/node = SubResource("AnimationNodeBlendSpace2D_p1xxw")
+states/StoreWeapon/position = Vector2(772, 179)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_cq4qi")]
-graph_offset = Vector2(128, 56.1255)
-
+graph_offset = Vector2(113, 49.1255)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_d043s"]
 
@@ -298,8 +367,8 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-2.35619, 0, 0)]
+"update": 1,
+"values": [Vector3(0, -2.35619, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -324,6 +393,20 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_attack_finished"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_ud7r7"]
@@ -362,8 +445,8 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-2.35619, -3.14159, 0)]
+"update": 1,
+"values": [Vector3(0, -0.785398, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -388,6 +471,20 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_attack_finished"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_s47ur"]
@@ -426,7 +523,7 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector3(0, -3.14159, 0)]
 }
 tracks/3/type = "value"
@@ -452,6 +549,20 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_attack_finished"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_l023y"]
@@ -490,7 +601,7 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector3(0, 0, 0)]
 }
 tracks/3/type = "value"
@@ -516,6 +627,20 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_attack_finished"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_ubna2"]
@@ -554,8 +679,8 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.785398, -3.14159, 0)]
+"update": 1,
+"values": [Vector3(0, -3.92699, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -580,6 +705,20 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_attack_finished"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_tp11g"]
@@ -618,8 +757,8 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.785398, 0, 0)]
+"update": 1,
+"values": [Vector3(0, 0.785398, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -645,6 +784,20 @@ tracks/4/keys = {
 "update": 1,
 "values": [true, false, true]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_attack_finished"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l81vh"]
 _data = {
@@ -654,6 +807,255 @@ _data = {
 "melee_enemy_attack_right": SubResource("Animation_l023y"),
 "melee_enemy_attack_up_left": SubResource("Animation_ubna2"),
 "melee_enemy_attack_up_right": SubResource("Animation_tp11g")
+}
+
+[sub_resource type="Animation" id="Animation_0ef37"]
+resource_name = "melee_enemy_block_down_left"
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3d:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3d:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker3d/Hitbox/HitboxCollision:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_kxk1j"]
+resource_name = "melee_enemy_block_down_right"
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3d:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3d:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker3d/Hitbox/HitboxCollision:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_7wh64"]
+resource_name = "melee_enemy_block_left"
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3d:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3d:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker3d/Hitbox/HitboxCollision:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_6l288"]
+resource_name = "melee_enemy_block_right"
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3d:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3d:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker3d/Hitbox/HitboxCollision:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_08b17"]
+resource_name = "melee_enemy_block_up_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3d:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3d:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker3d/Hitbox/HitboxCollision:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_vddaa"]
+resource_name = "melee_enemy_block_up_right"
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3d:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3d:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker3d/Hitbox/HitboxCollision:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h25pp"]
+_data = {
+"melee_enemy_block_down_left": SubResource("Animation_0ef37"),
+"melee_enemy_block_down_right": SubResource("Animation_kxk1j"),
+"melee_enemy_block_left": SubResource("Animation_7wh64"),
+"melee_enemy_block_right": SubResource("Animation_6l288"),
+"melee_enemy_block_up_left": SubResource("Animation_08b17"),
+"melee_enemy_block_up_right": SubResource("Animation_vddaa")
 }
 
 [sub_resource type="Animation" id="Animation_e00st"]
@@ -1006,6 +1408,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [Vector2i(0, 15), Vector2i(1, 15), Vector2i(2, 15)]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.458333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"draw_weapon_finished"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_1rerd"]
 resource_name = "melee_enemy_draw_weapon_down_right"
@@ -1034,6 +1450,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [Vector2i(0, 15), Vector2i(1, 15), Vector2i(2, 15)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.458333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"draw_weapon_finished"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_8y8ql"]
@@ -1064,6 +1494,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [Vector2i(0, 16), Vector2i(1, 16), Vector2i(2, 16)]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.458333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"draw_weapon_finished"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_nd73l"]
 resource_name = "melee_enemy_draw_weapon_right"
@@ -1092,6 +1536,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [Vector2i(0, 16), Vector2i(1, 16), Vector2i(2, 16)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.458333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"draw_weapon_finished"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_mga8n"]
@@ -1122,6 +1580,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [Vector2i(0, 17), Vector2i(1, 17), Vector2i(2, 17)]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.458333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"draw_weapon_finished"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_1dlwi"]
 resource_name = "melee_enemy_draw_weapon_up_right"
@@ -1150,6 +1622,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [Vector2i(0, 17), Vector2i(1, 17), Vector2i(2, 17)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.458333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"draw_weapon_finished"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1igep"]
@@ -1408,6 +1894,7 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_unoic"]
 resource_name = "melee_enemy_knockback_down_left"
+step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1443,6 +1930,20 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"knockback_recovery"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_wikib"]
@@ -1484,6 +1985,20 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"knockback_recovery"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_4w3ai"]
 resource_name = "melee_enemy_knockback_left"
@@ -1523,6 +2038,20 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"knockback_recovery"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_ojx8o"]
@@ -1564,6 +2093,20 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"knockback_recovery"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_ojadq"]
 resource_name = "melee_enemy_knockback_up_left"
@@ -1604,6 +2147,20 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"knockback_recovery"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_tjl8k"]
 resource_name = "melee_enemy_knockback_up_right"
@@ -1643,6 +2200,20 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"knockback_recovery"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xvwtp"]
@@ -1867,6 +2438,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [Vector2i(0, 18), Vector2i(1, 18)]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"store_weapon_finished"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_l5lfw"]
 resource_name = "melee_enemy_store_weapon_down_left"
@@ -1895,6 +2480,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [Vector2i(0, 18), Vector2i(1, 18)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"store_weapon_finished"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_sqgkf"]
@@ -1925,6 +2524,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [Vector2i(0, 19), Vector2i(1, 19)]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"store_weapon_finished"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_u1ak4"]
 resource_name = "melee_enemy_store_weapon_right"
@@ -1953,6 +2566,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [Vector2i(0, 19), Vector2i(1, 19)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"store_weapon_finished"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_1uwm6"]
@@ -1983,6 +2610,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [Vector2i(0, 20), Vector2i(1, 20)]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"store_weapon_finished"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_yw7on"]
 resource_name = "melee_enemy_store_weapon_up_right"
@@ -2011,6 +2652,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [Vector2i(0, 20), Vector2i(1, 20)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"store_weapon_finished"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ffhg3"]
@@ -2066,15 +2721,18 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_d043s")
 parameters/Attack/blend_position = Vector2(0, 0.00849867)
+parameters/Block/blend_position = Vector2(-0.000861347, 0.00363636)
 parameters/Dash/blend_position = Vector2(-0.00185871, -0.00346017)
 parameters/DrawWeapon/blend_position = Vector2(-0.00185871, -0.00283289)
 parameters/Idle/blend_position = Vector2(-0.00157231, -0.0057143)
-parameters/Run/blend_position = Vector2(-0.00104272, -0.00436676)
+parameters/Run/blend_position = Vector2(0, 0)
+parameters/StoreWeapon/blend_position = Vector2(0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_a5f12"),
 "Attack": SubResource("AnimationLibrary_l81vh"),
+"Block": SubResource("AnimationLibrary_h25pp"),
 "Dash": SubResource("AnimationLibrary_7odi2"),
 "DrawWeapon": SubResource("AnimationLibrary_1igep"),
 "Idle": SubResource("AnimationLibrary_2jd2r"),
@@ -2122,3 +2780,4 @@ disabled = true
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="AttacRange" to="." method="_on_attac_range_body_entered"]
+[connection signal="body_exited" from="AttacRange" to="." method="_on_attac_range_body_exited"]
