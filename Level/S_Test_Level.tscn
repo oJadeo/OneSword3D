@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b0cflkx4qou5n"]
+[gd_scene load_steps=19 format=3 uid="uid://b0cflkx4qou5n"]
 
 [ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_ilarg"]
 [ext_resource type="PackedScene" uid="uid://b0yg8hhtv3vsc" path="res://Level/Tiles/Set_Spawn/S_setSpawn.tscn" id="2_qgcky"]
@@ -135,7 +135,7 @@ transform = Transform3D(3.3, 0, 0, 0, 0.6, 0, 0, 0, 0.2, 0, 0, 0)
 mesh = SubResource("BoxMesh_h2n2n")
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("5_kbn8l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.253773, 0.535571, -1.18827)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09758, 1.60511, 1.19132)
 
 [node name="RangeEnemy" parent="." instance=ExtResource("6_5yewt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -6.89129)

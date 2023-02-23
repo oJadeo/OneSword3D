@@ -121,7 +121,7 @@ func handle_move(delta):
 		move_and_slide()
 	elif deflecting:
 		velocity.x *= BLOCK_SPEED 
-		velocity.y *= BLOCK_SPEED 
+		velocity.z *= BLOCK_SPEED 
 		move_and_slide()
 		
 # Dash variable
