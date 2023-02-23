@@ -22,7 +22,6 @@ func _physics_process(delta):
 			velocity.y = jump_force
 			jumping = false
 	else:
-		print("Can't Go")
 		velocity.x = 0
 		velocity.z = 0
 	if not is_on_floor():

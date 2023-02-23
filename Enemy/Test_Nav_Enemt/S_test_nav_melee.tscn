@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://4gmv8hg1350m"]
+[gd_scene load_steps=5 format=3 uid="uid://daujrkdtdvnbk"]
 
-[ext_resource type="Script" path="res://Enemy/GD_test_enemy_for_nav.gd" id="1_jkbl2"]
+[ext_resource type="Script" path="res://Enemy/Test_Nav_Enemt/GD_test_nav_melee.gd" id="1_rj7kb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xeg1m"]
 albedo_color = Color(1, 0.054902, 0, 1)
@@ -14,10 +14,10 @@ height = 0.5
 radius = 0.05
 height = 0.5
 
-[node name="test_enemy_for_nav" type="CharacterBody3D" groups=["Enemy"]]
+[node name="Test_Nav_melee" type="CharacterBody3D" groups=["Enemy"]]
 axis_lock_angular_x = true
 axis_lock_angular_z = true
-script = ExtResource("1_jkbl2")
+script = ExtResource("1_rj7kb")
 
 [node name="MeshInstance3d" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_mkqb7")
