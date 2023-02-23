@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cskrxpo0wtllh"]
+[gd_scene load_steps=9 format=3 uid="uid://cwffxiltlk3mk"]
 
 [ext_resource type="Script" path="res://Level/Testing/GD_test_nav_link.gd" id="1_ou11l"]
 [ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="2_npcd4"]
-[ext_resource type="PackedScene" uid="uid://4gmv8hg1350m" path="res://Enemy/S_test_enemy_for_nav.tscn" id="3_0vft6"]
+[ext_resource type="PackedScene" uid="uid://x7w62c1qr6xx" path="res://Enemy/Test_Nav_Enemt/S_test_nav_range.tscn" id="3_fosvj"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ltx6n"]
 vertices = PackedVector3Array(-2.4, 0.172453, 0, -0.6, 0.172453, 0, -0.6, 0.172453, -0.3, -0.3, 0.172453, -0.6, 0, 0.172453, -0.6, 0, 0.172453, -2.4, -2.4, 0.172453, 0, -0.6, 0.172453, -0.3, -0.3, 0.172453, -0.6, 0, 0.172453, -2.4, -2.4, 0.172453, -2.4, 0.6, 0.172453, -0.3, 0.6, 0.172453, 0, 2.4, 0.172453, 0, 0, 0.172453, -2.4, 0, 0.172453, -0.6, 0.3, 0.172453, -0.6, 0.3, 0.172453, -0.6, 0.6, 0.172453, -0.3, 2.4, 0.172453, 0, 2.4, 0.172453, -2.4, 0, 0.172453, -2.4, -0.4, 1.12245, -0.3, -0.3, 1.12245, 0.4, 0.4, 1.12245, 0.3, 0.3, 1.12245, -0.4, 0, 0.172453, 2.4, 0, 0.172453, 0.6, -0.3, 0.172453, 0.6, -0.6, 0.172453, 0.3, -0.6, 0.172453, 0, -2.4, 0.172453, 0, 0, 0.172453, 2.4, -0.3, 0.172453, 0.6, -0.6, 0.172453, 0.3, -2.4, 0.172453, 0, -2.4, 0.172453, 2.4, 2.4, 0.172453, 0, 0.6, 0.172453, 0, 0.6, 0.172453, 0.3, 0.3, 0.172453, 0.6, 0, 0.172453, 0.6, 0, 0.172453, 2.4, 2.4, 0.172453, 0, 0.6, 0.172453, 0.3, 0.3, 0.172453, 0.6, 0, 0.172453, 2.4, 2.4, 0.172453, 2.4)
@@ -63,15 +63,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -0.8)
 start_position = Vector3(0, 1, 0.5)
 
 [node name="Player_Character" parent="." instance=ExtResource("2_npcd4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11056, 1.46986, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11056, 0.752155, 0.163087)
 
 [node name="playerSpawnPoint" type="Node3D" parent="."]
 transform = Transform3D(0.999104, 0, -0.042329, 0, 1, 0, 0.042329, 0, 0.999104, 1.33006, 0.593658, 0)
-
-[node name="test_enemy_for_nav" parent="." instance=ExtResource("3_0vft6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1364, 1.47119, -1.4106)
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.757918, 0.65235, 0, -0.65235, 0.757918, -3.32541, 2.1958, 0)
 shadow_enabled = true
 directional_shadow_mode = 0
+
+[node name="Test_nav_range" parent="." instance=ExtResource("3_fosvj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.93437, 0.400148, 0)
