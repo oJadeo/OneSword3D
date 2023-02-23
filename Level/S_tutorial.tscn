@@ -48,7 +48,7 @@ size = Vector3(1, 1, 4)
 [node name="S_tutorial" type="Node3D"]
 
 [node name="WalkFloor" type="StaticBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 0.3, 0, 1, 0, -1, 0, -1.31134e-08, 0.00466037, -0.00133562, -0.812584)
+transform = Transform3D(-4.37114e-08, 0, 0.3, 0, 1, 0, -1, 0, -1.31134e-08, 0.00466037, 0.194322, -0.812584)
 physics_material_override = SubResource("PhysicsMaterial_l2faq")
 
 [node name="MeshInstance3d" type="MeshInstance3D" parent="WalkFloor"]
@@ -78,7 +78,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7358, -0.259892, -1.65436)
 shape = SubResource("BoxShape3D_ms6be")
 
 [node name="Jump_Floor_1" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0144821, 0.588089, -4.26049)
+transform = Transform3D(1, 0, 0, 0, 0.7, 0, 0, 0, 1, 0.0144821, 0.685333, -4.26049)
 physics_material_override = SubResource("PhysicsMaterial_vliom")
 
 [node name="MeshInstance3d" type="MeshInstance3D" parent="Jump_Floor_1"]
@@ -90,7 +90,7 @@ transform = Transform3D(1.5, 0, 0, 0, 0.7, 0, 0, 0, 1, 0, -0.000958443, 0)
 shape = SubResource("BoxShape3D_wd4i1")
 
 [node name="Jump_Floor_2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0167573, 1.29905, -6.72931)
+transform = Transform3D(1, 0, 0, 0, 0.7, 0, 0, 0, 1, 0.0167573, 1.16099, -6.72931)
 physics_material_override = SubResource("PhysicsMaterial_vliom")
 
 [node name="MeshInstance3d" type="MeshInstance3D" parent="Jump_Floor_2"]
@@ -102,7 +102,7 @@ transform = Transform3D(1.5, 0, 0, 0, 0.7, 0, 0, 0, 1, 0, -0.000958443, 0)
 shape = SubResource("BoxShape3D_wd4i1")
 
 [node name="Jump_Floor_3" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.4, 0.0236569, 1.29328, -10.0627)
+transform = Transform3D(1, 0, 0, 0, 0.7, 0, 0, 0, 0.4, 0.0236569, 1.15522, -10.0627)
 physics_material_override = SubResource("PhysicsMaterial_vliom")
 
 [node name="MeshInstance3d" type="MeshInstance3D" parent="Jump_Floor_3"]
@@ -126,7 +126,7 @@ transform = Transform3D(1.5, 0, 0, 0, 3, 0, 0, 0, 2, 0, -0.000958443, 0)
 shape = SubResource("BoxShape3D_wd4i1")
 
 [node name="Dash_Floor_2" type="StaticBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.234, 1.295, -12.592)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 0.7, 0, -1, 0, -4.37114e-08, 1.234, 1.15694, -12.592)
 physics_material_override = SubResource("PhysicsMaterial_vliom")
 
 [node name="MeshInstance3d" type="MeshInstance3D" parent="Dash_Floor_2"]
@@ -138,7 +138,7 @@ transform = Transform3D(1.5, 0, 0, 0, 0.7, 0, 0, 0, 1, 0, -0.000958443, 0)
 shape = SubResource("BoxShape3D_rjvnv")
 
 [node name="Dash_Floor_3" type="StaticBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.13214, 1.29509, -12.592)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 0.7, 0, -1, 0, -4.37114e-08, 6.13214, 1.15703, -12.592)
 physics_material_override = SubResource("PhysicsMaterial_vliom")
 
 [node name="MeshInstance3d" type="MeshInstance3D" parent="Dash_Floor_3"]
@@ -150,11 +150,11 @@ transform = Transform3D(1.5, 0, 0, 0, 0.7, 0, 0, 0, 1, 0, -0.000958443, 0)
 shape = SubResource("BoxShape3D_wd4i1")
 
 [node name="Wallrun_Floor_1" type="StaticBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1.5, 0, 1, 0, -1, 0, -6.55671e-08, 11.176, 1.29509, -12.592)
+transform = Transform3D(-4.37114e-08, 0, 1.5, 0, 0.7, 0, -1, 0, -6.55671e-08, 11.176, 1.10763, -12.5939)
 physics_material_override = SubResource("PhysicsMaterial_vliom")
 
 [node name="MeshInstance3d" type="MeshInstance3D" parent="Wallrun_Floor_1"]
-transform = Transform3D(1.5, 0, 0, 0, 0.7, 0, 0, 0, 1, -0.00567055, 0, 0.0115972)
+transform = Transform3D(1.5, 0, 0, 0, 0.7, 0, 0, 0, 1, -0.0025444, 0.00542235, 0.00600672)
 mesh = SubResource("BoxMesh_fr2hc")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="Wallrun_Floor_1"]
@@ -162,11 +162,11 @@ transform = Transform3D(1.5, 0, 0, 0, 0.7, 0, 0, 0, 1, 0, -0.000958443, 0)
 shape = SubResource("BoxShape3D_wd4i1")
 
 [node name="Wallrun_Floor_2" type="StaticBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1.5, 0, 1, 0, -1, 0, -6.55671e-08, 17.3004, 1.29509, -12.592)
+transform = Transform3D(-4.37114e-08, 0, 1.5, 0, 0.7, 0, -1, 0, -6.55671e-08, 17.3004, 1.15703, -12.592)
 physics_material_override = SubResource("PhysicsMaterial_vliom")
 
 [node name="MeshInstance3d" type="MeshInstance3D" parent="Wallrun_Floor_2"]
-transform = Transform3D(1.5, 0, 0, 0, 0.7, 0, 0, 0, 1, -0.00567055, 0, 0.0115967)
+transform = Transform3D(1.5, 0, 0, 0, 0.7, 0, 0, 0, 1, -0.00567055, 0, 0.00426388)
 mesh = SubResource("BoxMesh_fr2hc")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="Wallrun_Floor_2"]
@@ -186,11 +186,11 @@ transform = Transform3D(1.5, 0, 0, 0, 3, 0, 0, 0, 2, 0, -0.000958443, 0)
 shape = SubResource("BoxShape3D_wd4i1")
 
 [node name="Wallrun_Floor_3" type="StaticBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1.5, 0, 1, 0, -1, 0, -6.55671e-08, 23.5515, 1.29509, -12.592)
+transform = Transform3D(-4.37114e-08, 0, 1.5, 0, 0.7, 0, -1, 0, -6.55671e-08, 23.5515, 1.15703, -12.592)
 physics_material_override = SubResource("PhysicsMaterial_vliom")
 
 [node name="MeshInstance3d" type="MeshInstance3D" parent="Wallrun_Floor_3"]
-transform = Transform3D(1.5, 0, 0, 0, 0.7, 0, 0, 0, 1, -0.00567055, 0, 0.0115967)
+transform = Transform3D(1.5, 0, 0, 0, 0.7, 0, 0, 0, 1, -0.00567055, 0, -0.00284672)
 mesh = SubResource("BoxMesh_fr2hc")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="Wallrun_Floor_3"]
