@@ -1729,7 +1729,7 @@ shape = SubResource("CapsuleShape3D_xc8no")
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 5, 5)
 projection = 1
 current = true
-size = 3.0
+size = 5.0
 
 [node name="Sprite3d" type="Sprite3D" parent="."]
 billboard = 1
@@ -1799,6 +1799,7 @@ shape = SubResource("BoxShape3D_ykq3n")
 disabled = true
 
 [node name="HurtBox" type="Area3D" parent="."]
+visible = false
 collision_layer = 16
 collision_mask = 64
 
