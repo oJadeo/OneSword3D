@@ -8,10 +8,10 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0i3o3"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f0xh6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0wvnu"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_dfef0"]
-material = SubResource("StandardMaterial3D_f0xh6")
+material = SubResource("StandardMaterial3D_0wvnu")
 size = Vector3(5, 0.5, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x4j1d"]
@@ -99,19 +99,20 @@ shadow_enabled = true
 directional_shadow_mode = 0
 
 [node name="Player_Character" parent="." instance=ExtResource("1_ilarg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.001, 0.5, 0)
+transform = Transform3D(0.999999, 0.000802765, -0.0010807, -0.000800022, 0.999996, 0.00252643, 0.00108273, -0.00252556, 0.999996, 0.000913071, 0.5, -0.00602978)
 collision_layer = 3
 
 [node name="S_setSpawn" parent="." instance=ExtResource("2_qgcky")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251, -1.63235)
 
 [node name="playerSpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251, -0.00871629)
 
 [node name="Danger_Area" parent="." instance=ExtResource("3_x61id")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -3.5)
 
 [node name="triggerCollision" parent="Danger_Area" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.259892, 0)
 shape = SubResource("BoxShape3D_0n7km")
 
 [node name="Trigger_Block_Area" parent="." instance=ExtResource("4_j2dgm")]
@@ -132,9 +133,6 @@ shape = SubResource("BoxShape3D_88itu")
 [node name="MeshInstance3d" parent="Trigger_Block_Area/toBlock/StaticBody3d/CollisionShape3d" index="0"]
 transform = Transform3D(3.3, 0, 0, 0, 0.6, 0, 0, 0, 0.2, 0, 0, 0)
 mesh = SubResource("BoxMesh_h2n2n")
-
-[node name="MeleeEnemy" parent="." instance=ExtResource("5_kbn8l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09758, 1.60511, 1.19132)
 
 [node name="RangeEnemy" parent="." instance=ExtResource("6_5yewt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1.89865)
