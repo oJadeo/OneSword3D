@@ -134,9 +134,6 @@ shape = SubResource("BoxShape3D_88itu")
 transform = Transform3D(3.3, 0, 0, 0, 0.6, 0, 0, 0, 0.2, 0, 0, 0)
 mesh = SubResource("BoxMesh_h2n2n")
 
-[node name="MeleeEnemy" parent="." instance=ExtResource("5_kbn8l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09758, 1.60511, 1.19132)
-
 [node name="RangeEnemy" parent="." instance=ExtResource("6_5yewt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1.89865)
 
