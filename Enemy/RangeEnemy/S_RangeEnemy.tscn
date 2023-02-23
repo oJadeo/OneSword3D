@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://dfynijq7m2hnq"]
+[gd_scene load_steps=69 format=3 uid="uid://dfynijq7m2hnq"]
 
 [ext_resource type="Texture2D" uid="uid://daplr4okhkkfr" path="res://Enemy/RangeEnemy/Enemy_02.png" id="1_1brmb"]
 [ext_resource type="Script" path="res://Enemy/RangeEnemy/GD_RangeEnemy.gd" id="1_12nk7"]
@@ -41,7 +41,38 @@ blend_point_5/node = SubResource("AnimationNodeAnimation_jgoa5")
 blend_point_5/pos = Vector2(1, -1)
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s04c8"]
+animation = &"Block/range_enemy_block_down_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1x1eb"]
+animation = &"Block/range_enemy_block_down_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_47tit"]
+animation = &"Block/range_enemy_block_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wjas0"]
+animation = &"Block/range_enemy_block_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4ol1y"]
+animation = &"Block/range_enemy_block_up_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_082fc"]
+animation = &"Block/range_enemy_block_up_left"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_wa1e7"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_s04c8")
+blend_point_0/pos = Vector2(-1, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_1x1eb")
+blend_point_1/pos = Vector2(1, 0.9)
+blend_point_2/node = SubResource("AnimationNodeAnimation_47tit")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_wjas0")
+blend_point_3/pos = Vector2(1, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_4ol1y")
+blend_point_4/pos = Vector2(-1, -1)
+blend_point_5/node = SubResource("AnimationNodeAnimation_082fc")
+blend_point_5/pos = Vector2(1, -1)
+blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a3pam"]
 animation = &"Reload/range_enemy_reload_down_right"
@@ -223,6 +254,20 @@ tracks/3/keys = {
 "method": &"reload"
 }]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawn_bullet"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_c60oi"]
 resource_name = "range_enemy_attack_down_right"
@@ -275,6 +320,20 @@ tracks/3/keys = {
 "values": [{
 "args": [],
 "method": &"reload"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawn_bullet"
 }]
 }
 
@@ -331,6 +390,20 @@ tracks/3/keys = {
 "method": &"reload"
 }]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawn_bullet"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_2bqlp"]
 resource_name = "range_enemy_attack_right"
@@ -383,6 +456,20 @@ tracks/3/keys = {
 "values": [{
 "args": [],
 "method": &"reload"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawn_bullet"
 }]
 }
 
@@ -439,6 +526,20 @@ tracks/3/keys = {
 "method": &"reload"
 }]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawn_bullet"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_brpwo"]
 resource_name = "range_enemy_attack_up_right"
@@ -493,6 +594,20 @@ tracks/3/keys = {
 "method": &"reload"
 }]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawn_bullet"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rilo4"]
 _data = {
@@ -542,6 +657,20 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_blocking_finish"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_qldxf"]
 resource_name = "range_enemy_block_down_right"
@@ -580,6 +709,20 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_blocking_finish"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_b5r1s"]
@@ -620,6 +763,20 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_blocking_finish"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_ecld3"]
 resource_name = "range_enemy_block_right"
@@ -658,6 +815,20 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_blocking_finish"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_sdwjj"]
@@ -698,6 +869,20 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_blocking_finish"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_lh6ff"]
 resource_name = "range_enemy_block_up_right"
@@ -736,6 +921,20 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_blocking_finish"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k1t7t"]
@@ -1256,6 +1455,7 @@ height = 0.333
 radius = 1.75
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_oxg0k"]
+radius = 0.6
 
 [node name="RangeEnemy" type="CharacterBody3D"]
 script = ExtResource("1_12nk7")
@@ -1301,22 +1501,29 @@ libraries = {
 }
 
 [node name="Hurtbox" type="Area3D" parent="."]
+collision_layer = 128
+collision_mask = 8
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="Hurtbox"]
 shape = SubResource("CapsuleShape3D_38lqq")
 
 [node name="AttackRange" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackRange"]
 shape = SubResource("SphereShape3D_pto3n")
 
 [node name="DangerZone" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DangerZone"]
 shape = SubResource("SphereShape3D_oxg0k")
 
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
 [connection signal="body_entered" from="DangerZone" to="." method="_on_danger_zone_body_entered"]
