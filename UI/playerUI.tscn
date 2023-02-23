@@ -13,6 +13,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="BlockLabel" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 67.0
@@ -20,15 +21,15 @@ offset_bottom = 42.0
 text = "Block :"
 
 [node name="ProgressBar" type="ProgressBar" parent="Control/BlockLabel"]
-offset_left = 54.0
-offset_top = 5.0
-offset_right = 254.0
-offset_bottom = 21.0
+layout_mode = 0
+offset_left = 55.0
+offset_right = 255.0
+offset_bottom = 27.0
 tooltip_text = "Block Guage"
 value = 100.0
-percent_visible = false
 
 [node name="DashCharge" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 46.0
 offset_right = 67.0
@@ -36,9 +37,10 @@ offset_bottom = 72.0
 text = "Dash :"
 
 [node name="firstDashCharge" type="TextureProgressBar" parent="Control/DashCharge"]
-offset_left = 58.0
+layout_mode = 0
+offset_left = 55.0
 offset_top = 4.0
-offset_right = 735.0
+offset_right = 732.0
 offset_bottom = 681.0
 scale = Vector2(0.0261876, 0.0261876)
 value = 100.0
@@ -46,9 +48,10 @@ fill_mode = 4
 texture_progress = ExtResource("2_s1las")
 
 [node name="secondDashCharge" type="TextureProgressBar" parent="Control/DashCharge"]
-offset_left = 78.0
+layout_mode = 0
+offset_left = 75.0
 offset_top = 4.0
-offset_right = 755.0
+offset_right = 752.0
 offset_bottom = 681.0
 scale = Vector2(0.0261876, 0.0261876)
 value = 100.0
@@ -56,9 +59,10 @@ fill_mode = 4
 texture_progress = ExtResource("2_s1las")
 
 [node name="thirdDashCharge" type="TextureProgressBar" parent="Control/DashCharge"]
-offset_left = 98.0
+layout_mode = 0
+offset_left = 95.0
 offset_top = 4.0
-offset_right = 775.0
+offset_right = 772.0
 offset_bottom = 681.0
 scale = Vector2(0.0261876, 0.0261876)
 value = 100.0

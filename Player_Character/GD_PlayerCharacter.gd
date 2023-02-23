@@ -121,7 +121,7 @@ func handle_move(delta):
 		move_and_slide()
 	elif deflecting:
 		velocity.x *= BLOCK_SPEED 
-		velocity.y *= BLOCK_SPEED 
+		velocity.z *= BLOCK_SPEED 
 		move_and_slide()
 		
 # Dash variable
@@ -134,7 +134,6 @@ var dash_end = false
 @onready var rechargeDashTimer = $RechargeDashTimer
 func handle_dash():
 	if input_frame["dash"] and is_dash_able and not is_wall_running and not is_dashing and dash_charge != 0:
-		print("DASH")
 		dash_charge -= 1
 		emit_signal("DashCharge_changed",dash_charge)
 		rechargeDashTimer.start()
@@ -146,7 +145,6 @@ func handle_dash():
 		is_dash_able = true
 		dash_end = false
 func end_dash():
-	print("End dash")
 	dash_end = true
 	is_dashing = false
 func _on_recharge_dash_timer_timeout():
