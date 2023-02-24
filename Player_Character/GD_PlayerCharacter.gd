@@ -71,7 +71,7 @@ var direction
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func handle_move(delta):
 	# Add the gravity.
-	if not is_on_floor():
+	if not is_on_floor() and not is_wall_running:
 		velocity.y -= gravity * delta
 
 	#Handle Direction from camera_direction
@@ -89,19 +89,21 @@ func handle_move(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
-		
+
+	handle_wall_run(delta)
+
 	# Handle Jump.
 	if input_frame["jump"] and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+
+	if slaming:
+		velocity.y -= SLAM_SPEED
 
 	if knockback :
 		velocity = -Vector3(last_direction.dot(cam_dir[0]),0,last_direction.dot(cam_dir[1]))*SPEED*2.5
 		move_and_slide()
 		await get_tree().create_timer(0.05).timeout
 		knockback = false
-
-	if slaming:
-		velocity.y -= SLAM_SPEED
 
 	if not deflecting or is_dashing:
 		velocity.x *= speed 
@@ -146,17 +148,60 @@ func _on_recharge_dash_timer_timeout():
 # Wallrun variable
 var wall_normal
 var is_wall_running = false
-var is_wall_runable = false
+var is_wall= {'left':null,'right':null,'up':null}
+const WALL_CHECK_RANGE = 1
+@onready var ray = $RayCast3D
+@onready var ray_target = $RayCast3D/ray_target
 @onready var wall_run_timer = $WallrunTimer
-func wall_run():
-	wall_normal = get_slide_collision(0)
-	await get_tree().create_timer(0.2).timeout
-	is_wall_running = true
+func handle_wall_run(delta):
+#	if input_frame["wall_run"] :
+	if Input.is_action_just_pressed("WallRun") :
+		is_wall_running = true
+		velocity.y = 0.5
+	if not input_frame["wall_run"]:
+		is_wall_running = false
+	if is_wall_running and input_frame['direction'] != Vector2.ZERO:
+		is_wall['left'] = check_wall(Vector3(-WALL_CHECK_RANGE,0.2,0))
+		is_wall['right'] = check_wall(Vector3(WALL_CHECK_RANGE,0.2,0))
+		is_wall['up'] = check_wall(Vector3(0,0.2,-WALL_CHECK_RANGE))
+		var selected_wall = select_wall()
+		if selected_wall:
+			velocity.y -= 0.5 * delta
+			var wall_normal = selected_wall[2]
+			var move_dir = wall_normal.cross(Vector3(0,1,0))
+			if move_dir.x != 0:
+				velocity.z = 0
+				velocity.x = 2 if velocity.x>0 else -2
+			if move_dir.z != 0:
+				velocity.x = 0
+				velocity.z = 2 if velocity.z>0 else -2
+			velocity -= wall_normal
+		else:
+			reset_wall_run()
+func check_wall(dir):
+	ray.set_target_position(dir)
+	ray.force_raycast_update()
+	var collided = ray.get_collider()
+	if collided is StaticBody3D:
+		return [collided,(ray.get_collision_point()-get_global_position()).length(),ray.get_collision_normal()]
+	return null
+func select_wall():
+	var result = null
+	if is_wall['left']:
+		result = is_wall['left']
+	if is_wall['right']:
+		if result:
+			result = is_wall['right'] if is_wall['right'][1] < result[1] else result
+		else:
+			result = is_wall['right']
+	if is_wall['up']:
+		if result:
+			result = is_wall['up'] if is_wall['up'][1] < result[1] else result
+		else:
+			result = is_wall['up']
+	return result
 func reset_wall_run():
-	is_wall_runable = false
 	is_wall_running = false
-func _on_wallrun_timer_timeout():
-	reset_wall_run()
 
 #Attack variable
 var attacking = false

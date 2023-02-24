@@ -1729,7 +1729,7 @@ shape = SubResource("CapsuleShape3D_xc8no")
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 5, 5)
 projection = 1
 current = true
-size = 5.0
+size = 3.0
 
 [node name="Sprite3d" type="Sprite3D" parent="."]
 billboard = 1
@@ -1806,10 +1806,6 @@ collision_mask = 64
 [node name="CollisionShape3d" type="CollisionShape3D" parent="HurtBox"]
 shape = SubResource("CapsuleShape3D_r3dmx")
 
-[node name="WallrunTimer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-
 [node name="RechargeDashTimer" type="Timer" parent="."]
 
 [node name="RechargeBlockTimer" type="Timer" parent="."]
@@ -1818,12 +1814,13 @@ one_shot = true
 
 [node name="CanvasLayer" parent="." instance=ExtResource("3_mmhdn")]
 
+[node name="RayCast3D" type="RayCast3D" parent="."]
+
 [connection signal="Blockbar_changed" from="." to="CanvasLayer" method="_on_player_character_blockbar_changed"]
 [connection signal="DashCharge_changed" from="." to="CanvasLayer" method="_on_player_character_dash_charge_changed"]
 [connection signal="area_entered" from="NormalAtk/Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_entered" from="SlamAtk/Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
-[connection signal="timeout" from="WallrunTimer" to="." method="_on_wallrun_timer_timeout"]
 [connection signal="timeout" from="RechargeDashTimer" to="." method="_on_recharge_dash_timer_timeout"]
 [connection signal="timeout" from="RechargeBlockTimer" to="." method="_on_recharge_block_timer_timeout"]
 [connection signal="timeout" from="RegenTimer" to="." method="_on_regen_timer_timeout"]
