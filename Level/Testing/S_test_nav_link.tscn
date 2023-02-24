@@ -27,6 +27,7 @@ script = ExtResource("1_ou11l")
 
 [node name="NavigationRegion3d" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_ltx6n")
+navigation_layers = 3
 
 [node name="MeshInstance3d" type="MeshInstance3D" parent="NavigationRegion3d"]
 mesh = SubResource("BoxMesh_sn48h")
@@ -41,9 +42,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0224527, 0)
 mesh = SubResource("CylinderMesh_pmn7s")
 skeleton = NodePath("../MeshInstance3d")
 
-[node name="StaticBody3d" type="StaticBody3D" parent="NavigationRegion3d/MeshInstance3d2"]
+[node name="StaticBody3dS" type="StaticBody3D" parent="NavigationRegion3d/MeshInstance3d2"]
 
-[node name="CollisionShape3d" type="CollisionShape3D" parent="NavigationRegion3d/MeshInstance3d2/StaticBody3d"]
+[node name="CollisionShape3d" type="CollisionShape3D" parent="NavigationRegion3d/MeshInstance3d2/StaticBody3dS"]
 shape = SubResource("ConcavePolygonShape3D_0i4xs")
 
 [node name="NavigationLink3D" type="NavigationLink3D" parent="NavigationRegion3d"]
