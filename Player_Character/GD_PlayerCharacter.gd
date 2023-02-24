@@ -115,7 +115,7 @@ func handle_move(delta):
 		velocity.y = 0
 		velocity = velocity.normalized()
 
-	if not deflecting:
+	if not deflecting or is_dashing:
 		velocity.x *= speed 
 		velocity.z *= speed 
 		move_and_slide()
@@ -253,8 +253,6 @@ func handle_animation():
 		else:
 			pass
 			#animationState.travel("Jump")
-	if is_dashing:
-		animationState.travel("Dash")
 	if attacking:
 		if slaming:
 			if not is_on_floor():
@@ -263,8 +261,10 @@ func handle_animation():
 				animationState.travel("Slam_end")
 		else:
 			animationState.travel("Attack_1")
-	if deflecting:
+	if deflecting and not is_dashing:
 		animationState.travel("Block")
+	if is_dashing:
+		animationState.travel("Dash")
 
 func respawn():
 	set_position(playerSpawnPoint.global_position)
