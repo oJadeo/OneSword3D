@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://6fgjtidg4ky5"]
+[gd_scene load_steps=18 format=3 uid="uid://cavthbi1j1xoo"]
 
 [ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_22sqt"]
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="2_x0ik1"]
+[ext_resource type="PackedScene" uid="uid://dn8dj3cw7i5as" path="res://Level/Testing/S_rotate_camera.tscn" id="3_v204k"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_l2faq"]
 
@@ -45,6 +46,9 @@ size = Vector3(1, 1, 4)
 [sub_resource type="BoxShape3D" id="BoxShape3D_rjvnv"]
 size = Vector3(1, 1, 4)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_qmf7g"]
+size = Vector3(2.20111, 1.34753, 1.43812)
+
 [node name="S_tutorial" type="Node3D"]
 
 [node name="WalkFloor" type="StaticBody3D" parent="."]
@@ -58,10 +62,10 @@ mesh = SubResource("BoxMesh_6gebk")
 shape = SubResource("BoxShape3D_5ix41")
 
 [node name="playerSpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0.48, -0.04)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.040528, 1.50138, -10.7427)
 
 [node name="Player_Character" parent="." instance=ExtResource("1_22sqt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.050992, 0.487615, -0.00708234)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.050992, 1.61552, -10.7734)
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.0927052, 0.790577, -0.605305, -0.23383, 0.608208, 0.758556, 0.967848, 0.0712163, 0.241244, -3.32541, 2.1958, -0.00355339)
@@ -197,4 +201,13 @@ mesh = SubResource("BoxMesh_fr2hc")
 transform = Transform3D(1.5, 0, 0, 0, 0.7, 0, 0, 0, 1, 0, -0.000958443, 0)
 shape = SubResource("BoxShape3D_wd4i1")
 
+[node name="S_rotate_camera2" parent="." instance=ExtResource("3_v204k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0555533, 1.11631, -12.7687)
+collision_mask = 2
+
+[node name="CollisionShape3D" parent="S_rotate_camera2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.408235, 0.443062, 0.188188)
+shape = SubResource("BoxShape3D_qmf7g")
+
 [editable path="Danger_Area"]
+[editable path="S_rotate_camera2"]
