@@ -45,8 +45,6 @@ func handle_input():
 	input_frame["respawn"] = Input.is_action_pressed("Respawn")
 	input_frame["jump"] = Input.is_action_pressed("Jump")
 	input_frame["dash"] = Input.is_action_pressed("Dash")
-	input_frame["wall_run"] = Input.is_action_pressed("WallRun")
-	
 	if Input.is_action_pressed("Deflect"):
 		deflecting = true
 	elif Input.is_action_just_released("Deflect"):
@@ -93,7 +91,12 @@ func handle_move(delta):
 	# Handle Jump.
 	if input_frame["jump"] and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-
+		is_wall_runable = true
+		wall_run_timer.start()
+	if input_frame["jump"] and is_wall_running:
+		velocity -= wall_normal.get_normal(0)*SPEED
+		velocity.y = JUMP_VELOCITY
+		is_wall_running = false
 	if knockback :
 		velocity = -Vector3(last_direction.dot(cam_dir[0]),0,last_direction.dot(cam_dir[1]))*SPEED*2.5
 		move_and_slide()
@@ -102,6 +105,15 @@ func handle_move(delta):
 
 	if slaming:
 		velocity.y -= SLAM_SPEED
+
+	if not is_on_floor() and direction and is_on_wall() and is_wall_runable:
+		wall_run()
+	if (is_on_floor() or not is_on_wall() or input_frame["direction"] == Vector2.ZERO) and is_wall_running:
+		reset_wall_run()
+	if is_wall_running and is_wall_runable:
+		velocity -= wall_normal.get_normal(0)
+		velocity.y = 0
+		velocity = velocity.normalized()
 
 	if not deflecting or is_dashing:
 		velocity.x *= speed 
