@@ -1,10 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://b0cflkx4qou5n"]
+[gd_scene load_steps=18 format=3 uid="uid://b0cflkx4qou5n"]
 
 [ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_ilarg"]
 [ext_resource type="PackedScene" uid="uid://b0yg8hhtv3vsc" path="res://Level/Tiles/Set_Spawn/S_setSpawn.tscn" id="2_qgcky"]
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="3_x61id"]
 [ext_resource type="PackedScene" uid="uid://b76gdft4cavda" path="res://Level/Tiles/Trigger_Block_Area/S_Trigger_Block_Area.tscn" id="4_j2dgm"]
-[ext_resource type="PackedScene" uid="uid://dfynijq7m2hnq" path="res://Enemy/RangeEnemy/S_RangeEnemy.tscn" id="6_5yewt"]
+[ext_resource type="PackedScene" uid="uid://dgwyiwbgx7iyb" path="res://Enemy/MortarEnemy/S_MortarEnemy.tscn" id="6_o0aai"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0i3o3"]
 
@@ -99,7 +99,7 @@ shadow_enabled = true
 directional_shadow_mode = 0
 
 [node name="Player_Character" parent="." instance=ExtResource("1_ilarg")]
-transform = Transform3D(0.999999, 0.000802765, -0.0010807, -0.000800022, 0.999996, 0.00252643, 0.00108273, -0.00252556, 0.999996, 0.000913071, 0.5, -0.00602978)
+transform = Transform3D(0.999999, 0.000802765, -0.0010807, -0.000800022, 0.999996, 0.00252643, 0.00108273, -0.00252556, 0.999996, 0.000913071, 0.5, 1.09382)
 collision_layer = 3
 
 [node name="S_setSpawn" parent="." instance=ExtResource("2_qgcky")]
@@ -134,8 +134,8 @@ shape = SubResource("BoxShape3D_88itu")
 transform = Transform3D(3.3, 0, 0, 0, 0.6, 0, 0, 0, 0.2, 0, 0, 0)
 mesh = SubResource("BoxMesh_h2n2n")
 
-[node name="RangeEnemy" parent="." instance=ExtResource("6_5yewt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1.89865)
+[node name="MortarEnemy" parent="." instance=ExtResource("6_o0aai")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.51911, 0.677284, -1.99825)
 
 [editable path="Danger_Area"]
 [editable path="Trigger_Block_Area"]
