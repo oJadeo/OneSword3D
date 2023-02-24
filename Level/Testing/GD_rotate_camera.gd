@@ -2,7 +2,7 @@ extends Area3D
 
 
 # Called when the node enters the scene tree for the first time.
-var angle = 90
+@export var angle = -90
 var activate = false
 var turn = false
 func _rotate_camera_on_body_entered(body):
@@ -12,7 +12,8 @@ func _rotate_camera_on_body_entered(body):
 		if not turn:
 			print("turn")
 			await get_tree().create_timer(0.05).timeout
-			body.rotate(Vector3(0,1,0),deg_to_rad(angle))
+			#body.rotate(Vector3(0,1,0),deg_to_rad(angle))
+			body.set_rotation(Vector3(0,deg_to_rad(angle),0))
 			turn = true
 		else:
 			print("unturn")
