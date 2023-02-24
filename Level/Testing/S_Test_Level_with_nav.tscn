@@ -1,14 +1,13 @@
-[gd_scene load_steps=23 format=3 uid="uid://bb5l3an7als3r"]
-
+[gd_scene load_steps=25 format=3 uid="uid://bb5l3an7als3r"]
 
 [ext_resource type="Script" path="res://Level/Testing/GD_Test_Level_with_nav.gd" id="1_nhrur"]
 [ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="2_ggap4"]
 [ext_resource type="PackedScene" uid="uid://b0yg8hhtv3vsc" path="res://Level/Tiles/Set_Spawn/S_setSpawn.tscn" id="3_i0uac"]
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="4_xrt7e"]
 [ext_resource type="PackedScene" uid="uid://b76gdft4cavda" path="res://Level/Tiles/Trigger_Block_Area/S_Trigger_Block_Area.tscn" id="5_60n33"]
-[ext_resource type="PackedScene" uid="uid://daujrkdtdvnbk" path="res://Enemy/Test_Nav_Enemt/S_test_nav_melee.tscn" id="6_4tbdd"]
 [ext_resource type="PackedScene" uid="uid://6dnu7ywfbvge" path="res://Level/Navigation/S_JumpBox.tscn" id="6_ye3xk"]
 [ext_resource type="PackedScene" uid="uid://cwgktljjh2rqs" path="res://Enemy/MeleeEnemy/S_MeleeEnemy.tscn" id="8_3ivug"]
+[ext_resource type="PackedScene" uid="uid://dfynijq7m2hnq" path="res://Enemy/RangeEnemy/S_RangeEnemy.tscn" id="9_vbc5k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0n7km"]
 size = Vector3(8.77227, 0.314632, 19.6456)
@@ -216,11 +215,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00254029, -0.327965, 1.4517
 start_position = Vector3(0, 0, -1)
 end_position = Vector3(-1, 1, 0)
 
-[node name="test_enemy_for_nav" parent="." instance=ExtResource("6_4tbdd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.66902, 1.51611, -5.18983)
-
 [node name="MeleeEnemy" parent="." groups=["Enemy"] instance=ExtResource("8_3ivug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.87199, 1.48702, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.347936, 0.277088, 1.89392)
+
+[node name="RangeEnemy" parent="." instance=ExtResource("9_vbc5k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.0682)
 
 [editable path="Danger_Area"]
 [editable path="Trigger_Block_Area"]

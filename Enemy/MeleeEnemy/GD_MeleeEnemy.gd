@@ -164,6 +164,7 @@ func _on_hurtbox_area_entered(area):
 			blocking = true
 			knockback = false
 			print("block")
+			knockbackDirection = direction
 			state = BLOCK
 		else:
 			queue_free()
