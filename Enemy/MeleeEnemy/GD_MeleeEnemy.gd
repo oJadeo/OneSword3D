@@ -41,7 +41,7 @@ func _process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	if player != null:
-		direction = Vector2((player.global_position - global_position).normalized().z,(player.global_position - global_position).normalized().x)
+		direction = Global.cal_sprite_direction((player.global_position - global_position).normalized())
 	else :
 		blocking = false
 		knockback = false
