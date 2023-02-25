@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://cavthbi1j1xoo"]
+[gd_scene load_steps=25 format=3 uid="uid://cavthbi1j1xoo"]
 
 [ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_22sqt"]
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="2_x0ik1"]
 [ext_resource type="PackedScene" uid="uid://dn8dj3cw7i5as" path="res://Level/Testing/S_rotate_camera.tscn" id="3_v204k"]
+[ext_resource type="PackedScene" uid="uid://b0yg8hhtv3vsc" path="res://Level/Tiles/Set_Spawn/S_setSpawn.tscn" id="4_ejbhy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c0fhi"]
 size = Vector3(2, 1, 1.5)
@@ -47,7 +48,7 @@ size = Vector3(4, 0.5, 1.5)
 size = Vector3(4, 0.5, 1.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8101d"]
-albedo_color = Color(0.392157, 0.392157, 0.392157, 1)
+albedo_color = Color(0.670588, 0.0156863, 0.54902, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_cx11v"]
 lightmap_size_hint = Vector2i(54, 36)
@@ -56,6 +57,27 @@ size = Vector3(4, 0.5, 1.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yjdj3"]
 size = Vector3(4, 0.5, 1.5)
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_0pum6"]
+map_width = 4
+map_depth = 4
+map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oxyus"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ku1fo"]
+material = SubResource("StandardMaterial3D_oxyus")
+size = Vector2(6, 6)
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_wj18x"]
+map_width = 5
+map_depth = 4
+map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qath3"]
+material = SubResource("StandardMaterial3D_oxyus")
+size = Vector2(8, 6)
 
 [node name="S_tutorial" type="Node3D"]
 
@@ -84,7 +106,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.040528, 2.32947, -10.7427)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.050992, 0.605528, 0.991994)
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.0927052, 0.790577, -0.605305, -0.23383, 0.608208, 0.758556, 0.967848, 0.0712163, 0.241244, -3.32541, 2.1958, -0.00355339)
+transform = Transform3D(0.936754, 0.349891, 0.00821962, -0.23383, 0.608208, 0.758556, 0.260412, -0.712503, 0.651556, 6.37917, 2.1958, -0.00355339)
 light_energy = 0.61
 shadow_enabled = true
 directional_shadow_mode = 0
@@ -198,13 +220,13 @@ mesh = SubResource("BoxMesh_v42b6")
 shape = SubResource("BoxShape3D_w1kvg")
 
 [node name="S_rotate_camera2" parent="." instance=ExtResource("3_v204k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.13828, -11.5828)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.13828, -11.4707)
 collision_mask = 2
 angle = 90
 delay = true
 
 [node name="CollisionShape3D" parent="S_rotate_camera2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0388117)
 shape = SubResource("BoxShape3D_c0fhi")
 
 [node name="S_rotate_camera3" parent="." instance=ExtResource("3_v204k")]
@@ -216,7 +238,37 @@ delay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.268866, 0, -0.0171614)
 shape = SubResource("BoxShape3D_c0fhi")
 
+[node name="S_Set_Spawn" parent="." instance=ExtResource("4_ejbhy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.96458, -11.5499)
+
+[node name="triggerCollision" parent="S_Set_Spawn" index="0"]
+shape = SubResource("HeightMapShape3D_0pum6")
+
+[node name="triggerMesh" parent="S_Set_Spawn" index="1"]
+mesh = SubResource("PlaneMesh_ku1fo")
+
+[node name="S_Set_Spawn2" parent="." instance=ExtResource("4_ejbhy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.261633, 1.96458, -13.5355)
+
+[node name="triggerCollision" parent="S_Set_Spawn2" index="0"]
+shape = SubResource("HeightMapShape3D_wj18x")
+
+[node name="triggerMesh" parent="S_Set_Spawn2" index="1"]
+mesh = SubResource("PlaneMesh_qath3")
+
+[node name="S_Set_Spawn3" parent="." instance=ExtResource("4_ejbhy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.73141, 1.96458, -13.5267)
+
+[node name="triggerCollision" parent="S_Set_Spawn3" index="0"]
+shape = SubResource("HeightMapShape3D_0pum6")
+
+[node name="triggerMesh" parent="S_Set_Spawn3" index="1"]
+mesh = SubResource("PlaneMesh_ku1fo")
+
 [editable path="S_rotate_camera"]
 [editable path="Danger_Area"]
 [editable path="S_rotate_camera2"]
 [editable path="S_rotate_camera3"]
+[editable path="S_Set_Spawn"]
+[editable path="S_Set_Spawn2"]
+[editable path="S_Set_Spawn3"]
