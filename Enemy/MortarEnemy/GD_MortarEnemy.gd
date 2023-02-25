@@ -26,17 +26,20 @@ func _on_player_detection_body_entered(body):
 		player = body
 		attackTimer.start()
 		print("player in range")
-
+		
+func _on_player_detection_body_exited(body):
+	if body.name == "Player_Character":
+		player = null
 
 func _on_attack_timer_timeout():
 	attackTimer.stop()
-	if ammo > 0 and not reloading:
+	if ammo > 0 and not reloading and player != null:
 		new_bomb = bomb.instantiate()
 		get_owner().add_child(new_bomb)
 		new_bomb.init(player.global_position,global_position)
 		attackTimer.start()
 		ammo -= 1
-	else:
+	elif ammo == 0:
 		reloading = true
 		reloadTimer.start()
 		print("start_reload")
