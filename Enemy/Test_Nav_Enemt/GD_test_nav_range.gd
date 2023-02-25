@@ -5,8 +5,6 @@ extends CharacterBody3D
 const SPEED = 0.5
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-var jumping = false
-var jump_force = 0
 var can_shoot = false
 var moving = false
 var player_pos 
@@ -23,13 +21,6 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 	move_and_slide()
 	
-func jump(force):
-	jumping = true
-	jump_force = force
-
-func stop_jump():
-	jumping = false
-	jump_force = 0
 
 func get_collider(ray_pos,location):
 	ray.set_position(ray_pos)

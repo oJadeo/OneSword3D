@@ -7,6 +7,7 @@ signal DashCharge_changed
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
+
 func _physics_process(delta):
 	handle_input()
 	handle_move(delta)
@@ -45,8 +46,6 @@ func handle_input():
 	input_frame["respawn"] = Input.is_action_pressed("Respawn")
 	input_frame["jump"] = Input.is_action_pressed("Jump")
 	input_frame["dash"] = Input.is_action_pressed("Dash")
-	input_frame["wall_run"] = Input.is_action_pressed("WallRun")
-	
 	if Input.is_action_pressed("Deflect"):
 		deflecting = true
 	elif Input.is_action_just_released("Deflect"):
@@ -54,9 +53,9 @@ func handle_input():
 		on_deflect_animation_end()
 		
 	if input_frame["rotate_cw"]:
-		rotate(Vector3(0,1,0),deg_to_rad(-45))
+		rotate(Vector3(0,1,0),deg_to_rad(-90))
 	if input_frame["rotate_ccw"]:
-		rotate(Vector3(0,1,0),deg_to_rad(45))
+		rotate(Vector3(0,1,0),deg_to_rad(90))
 	if input_frame["respawn"]:
 		respawn()
 

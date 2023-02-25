@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Level/Testing/S_test_wall_run.gd" id="1_3mlsc"]
 [ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="2_npcd4"]
-[ext_resource type="PackedScene" uid="uid://x7w62c1qr6xx" path="res://Enemy/Test_Nav_Enemt/S_test_nav_range.tscn" id="3_fosvj"]
+[ext_resource type="PackedScene" uid="uid://cwgktljjh2rqs" path="res://Enemy/MeleeEnemy/S_MeleeEnemy.tscn" id="3_eesxo"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ltx6n"]
 vertices = PackedVector3Array(-2.4, 0.172453, 0, -0.6, 0.172453, 0, -0.6, 0.172453, -0.3, -0.3, 0.172453, -0.6, 0, 0.172453, -0.6, 0, 0.172453, -2.4, -2.4, 0.172453, 0, -0.6, 0.172453, -0.3, -0.3, 0.172453, -0.6, 0, 0.172453, -2.4, -2.4, 0.172453, -2.4, 0.6, 0.172453, -0.3, 0.6, 0.172453, 0, 2.4, 0.172453, 0, 0, 0.172453, -2.4, 0, 0.172453, -0.6, 0.3, 0.172453, -0.6, 0.3, 0.172453, -0.6, 0.6, 0.172453, -0.3, 2.4, 0.172453, 0, 2.4, 0.172453, -2.4, 0, 0.172453, -2.4, -0.4, 1.12245, -0.3, -0.3, 1.12245, 0.4, 0.4, 1.12245, 0.3, 0.3, 1.12245, -0.4, 0, 0.172453, 2.4, 0, 0.172453, 0.6, -0.3, 0.172453, 0.6, -0.6, 0.172453, 0.3, -0.6, 0.172453, 0, -2.4, 0.172453, 0, 0, 0.172453, 2.4, -0.3, 0.172453, 0.6, -0.6, 0.172453, 0.3, -2.4, 0.172453, 0, -2.4, 0.172453, 2.4, 2.4, 0.172453, 0, 0.6, 0.172453, 0, 0.6, 0.172453, 0.3, 0.3, 0.172453, 0.6, 0, 0.172453, 0.6, 0, 0.172453, 2.4, 2.4, 0.172453, 0, 0.6, 0.172453, 0.3, 0.3, 0.172453, 0.6, 0, 0.172453, 2.4, 2.4, 0.172453, 2.4)
@@ -74,5 +74,5 @@ transform = Transform3D(1, 0, 0, 0, 0.757918, 0.65235, 0, -0.65235, 0.757918, -3
 shadow_enabled = true
 directional_shadow_mode = 0
 
-[node name="Test_nav_range" parent="." instance=ExtResource("3_fosvj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.93437, 0.400148, 0)
+[node name="MeleeEnemy" parent="." instance=ExtResource("3_eesxo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.359803, 1.59355)
