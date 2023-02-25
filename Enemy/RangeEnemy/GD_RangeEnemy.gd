@@ -6,6 +6,7 @@ enum {
 	ATTACK,
 }
 
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var player = null
 var state = IDLE
 var block = 3
@@ -49,6 +50,8 @@ func _physics_process(delta):
 				velocity = Vector3.ZERO
 			else:
 				velocity  = -((player.global_position - global_position).normalized() * fleeSpeed)
+	if not is_on_floor():
+		velocity.y -= gravity
 	move_and_slide()
 		
 	
