@@ -66,7 +66,6 @@ const BLOCK_SPEED = 0.5
 const JUMP_VELOCITY = 3.5
 const SLAM_SPEED = 0.25
 var direction 
-
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func handle_move(delta):
@@ -93,8 +92,20 @@ func handle_move(delta):
 	handle_wall_run(delta)
 
 	# Handle Jump.
-	if input_frame["jump"] and is_on_floor():
+	if input_frame["jump"] and is_on_floor() and not is_wall_running:
 		velocity.y = JUMP_VELOCITY
+		
+	if Input.is_action_just_pressed("Jump") and is_wall_running:
+		wall_run_jump_Timer.start()
+		wall_run_jumping = [true,selected_wall[2]]
+		velocity.y = JUMP_VELOCITY
+		is_wall_running = false
+
+	if wall_run_jumping[0]:
+		if is_on_floor():
+			wall_run_jumping = [false,Vector3.ZERO]
+		else:
+			velocity += selected_wall[2]*3
 
 	if slaming:
 		velocity.y -= SLAM_SPEED
@@ -149,22 +160,26 @@ func _on_recharge_dash_timer_timeout():
 var wall_normal
 var is_wall_running = false
 var is_wall= {'left':null,'right':null,'up':null}
+var selected_wall 
+var wall_run_jumping = [false,Vector3.ZERO]
 const WALL_CHECK_RANGE = 1
 @onready var ray = $RayCast3D
 @onready var ray_target = $RayCast3D/ray_target
 @onready var wall_run_timer = $WallrunTimer
+@onready var wall_run_jump_Timer = $WallRunJumpTimer
 func handle_wall_run(delta):
-#	if input_frame["wall_run"] :
-	if Input.is_action_just_pressed("WallRun") :
+	if Input.is_action_just_pressed("WallRun") and input_frame['direction'] != Vector2.ZERO:
 		is_wall_running = true
 		velocity.y = 0.5
+		wall_run_jumping = [false,Vector3.ZERO]
+		wall_run_timer.start()
 	if not input_frame["wall_run"]:
 		is_wall_running = false
 	if is_wall_running and input_frame['direction'] != Vector2.ZERO:
 		is_wall['left'] = check_wall(Vector3(-WALL_CHECK_RANGE,0.2,0))
 		is_wall['right'] = check_wall(Vector3(WALL_CHECK_RANGE,0.2,0))
 		is_wall['up'] = check_wall(Vector3(0,0.2,-WALL_CHECK_RANGE))
-		var selected_wall = select_wall()
+		selected_wall = select_wall()
 		if selected_wall:
 			velocity.y -= 0.5 * delta
 			var wall_normal = selected_wall[2]
@@ -177,7 +192,7 @@ func handle_wall_run(delta):
 				velocity.z = 2 if velocity.z>0 else -2
 			velocity -= wall_normal
 		else:
-			reset_wall_run()
+			is_wall_running = false
 func check_wall(dir):
 	ray.set_target_position(dir)
 	ray.force_raycast_update()
@@ -200,9 +215,11 @@ func select_wall():
 		else:
 			result = is_wall['up']
 	return result
-func reset_wall_run():
+func _on_wallrun_timer_timeout():
+	print("Wallrun_timeout")
 	is_wall_running = false
-
+func _on_wall_run_jump_timer_timeout():
+	wall_run_jumping = [false,Vector3.ZERO]
 #Attack variable
 var attacking = false
 var slaming = false
@@ -305,3 +322,5 @@ func respawn():
 	dash_charge = 3
 	emit_signal("Blockbar_changed",blockBar)
 	emit_signal("DashCharge_changed",dash_charge)
+
+

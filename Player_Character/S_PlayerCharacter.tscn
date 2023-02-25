@@ -1727,7 +1727,6 @@ shape = SubResource("CapsuleShape3D_xc8no")
 
 [node name="Camera3d" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 5, 5)
-projection = 1
 current = true
 size = 3.0
 
@@ -1816,6 +1815,12 @@ shape = SubResource("CapsuleShape3D_r3dmx")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 
+[node name="WallRunJumpTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="WallrunTimer" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="Blockbar_changed" from="." to="CanvasLayer" method="_on_player_character_blockbar_changed"]
 [connection signal="DashCharge_changed" from="." to="CanvasLayer" method="_on_player_character_dash_charge_changed"]
 [connection signal="area_entered" from="NormalAtk/Hitbox" to="." method="_on_hitbox_area_entered"]
@@ -1824,3 +1829,5 @@ shape = SubResource("CapsuleShape3D_r3dmx")
 [connection signal="timeout" from="RechargeDashTimer" to="." method="_on_recharge_dash_timer_timeout"]
 [connection signal="timeout" from="RechargeBlockTimer" to="." method="_on_recharge_block_timer_timeout"]
 [connection signal="timeout" from="RegenTimer" to="." method="_on_regen_timer_timeout"]
+[connection signal="timeout" from="WallRunJumpTimer" to="." method="_on_wall_run_jump_timer_timeout"]
+[connection signal="timeout" from="WallrunTimer" to="." method="_on_wallrun_timer_timeout"]
