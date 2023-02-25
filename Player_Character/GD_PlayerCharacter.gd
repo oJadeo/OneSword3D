@@ -23,7 +23,8 @@ var input_frame = {
 	"dash" : false,
 	"rotate_cw" : false,
 	"rotate_ccw" : false,
-	"respawn":false
+	"respawn":false,
+	"wall_run":false
 	}
 #take all input into input dict
 func handle_input():
@@ -46,6 +47,7 @@ func handle_input():
 	input_frame["respawn"] = Input.is_action_pressed("Respawn")
 	input_frame["jump"] = Input.is_action_pressed("Jump")
 	input_frame["dash"] = Input.is_action_pressed("Dash")
+	input_frame["wall_run"]  = Input.is_action_pressed("WallRun")
 	if Input.is_action_pressed("Deflect"):
 		deflecting = true
 	elif Input.is_action_just_released("Deflect"):
@@ -58,6 +60,7 @@ func handle_input():
 		rotate(Vector3(0,1,0),deg_to_rad(90))
 	if input_frame["respawn"]:
 		respawn()
+	
 
 #Exploring variable
 const SPEED = 1 
