@@ -58,6 +58,7 @@ func handle_input():
 		rotate(Vector3(0,1,0),deg_to_rad(90))
 	if input_frame["respawn"]:
 		respawn()
+	
 
 #Exploring variable
 const SPEED = 1 
