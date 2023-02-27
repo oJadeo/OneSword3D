@@ -7,6 +7,7 @@ var isSet = false
 
 
 func _on_s_set_spawn_body_entered(body):
+	print(body.name)
 	if (body.name == "Player_Character" and not isSet) :
 		#print(body.playerSpawnPoint.global_position)
 		body.playerSpawnPoint = newSpawnPoint
