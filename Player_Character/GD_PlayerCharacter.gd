@@ -96,7 +96,7 @@ func handle_move(delta):
 	handle_wall_run(delta)
 
 	# Handle Jump.
-	if input_frame["jump"] and is_on_floor() and not is_wall_running:
+	if Input.is_action_just_pressed("Jump") and is_on_floor() and not is_wall_running:
 		velocity.y = JUMP_VELOCITY
 		
 	if Input.is_action_just_pressed("Jump") and is_wall_running:

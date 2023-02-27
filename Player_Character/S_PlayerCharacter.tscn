@@ -2077,23 +2077,21 @@ collision_layer = 8
 collision_mask = 4736
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="NormalAtk/Hitbox"]
-visible = false
 shape = SubResource("BoxShape3D_ykq3n")
 disabled = true
 
 [node name="SlamAtk" type="Marker3D" parent="."]
+visible = false
 
 [node name="Hitbox" type="Area3D" parent="SlamAtk"]
 collision_layer = 8
 collision_mask = 4800
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="SlamAtk/Hitbox"]
-visible = false
 shape = SubResource("BoxShape3D_ykq3n")
 disabled = true
 
 [node name="HurtBox" type="Area3D" parent="."]
-visible = false
 collision_layer = 16
 collision_mask = 64
 
