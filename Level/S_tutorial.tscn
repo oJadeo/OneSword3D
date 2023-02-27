@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cavthbi1j1xoo"]
+[gd_scene load_steps=28 format=3 uid="uid://cavthbi1j1xoo"]
 
 [ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_22sqt"]
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="2_x0ik1"]
@@ -70,14 +70,26 @@ albedo_color = Color(0, 0, 1, 1)
 material = SubResource("StandardMaterial3D_oxyus")
 size = Vector2(6, 6)
 
-[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_wj18x"]
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_tey5e"]
 map_width = 5
 map_depth = 4
 map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_qath3"]
-material = SubResource("StandardMaterial3D_oxyus")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_udjhk"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rwaxk"]
+material = SubResource("StandardMaterial3D_udjhk")
 size = Vector2(8, 6)
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_buad8"]
+map_width = 4
+map_depth = 4
+map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ahmss"]
+material = SubResource("StandardMaterial3D_udjhk")
+size = Vector2(6, 6)
 
 [node name="S_tutorial" type="Node3D"]
 
@@ -247,22 +259,22 @@ shape = SubResource("HeightMapShape3D_0pum6")
 mesh = SubResource("PlaneMesh_ku1fo")
 
 [node name="S_Set_Spawn2" parent="." instance=ExtResource("4_ejbhy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.261633, 1.96458, -13.5355)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.274257, 1.95954, -13.5617)
 
 [node name="triggerCollision" parent="S_Set_Spawn2" index="0"]
-shape = SubResource("HeightMapShape3D_wj18x")
+shape = SubResource("HeightMapShape3D_tey5e")
 
 [node name="triggerMesh" parent="S_Set_Spawn2" index="1"]
-mesh = SubResource("PlaneMesh_qath3")
+mesh = SubResource("PlaneMesh_rwaxk")
 
 [node name="S_Set_Spawn3" parent="." instance=ExtResource("4_ejbhy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.73141, 1.96458, -13.5267)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3693, 1.96825, -13.5415)
 
 [node name="triggerCollision" parent="S_Set_Spawn3" index="0"]
-shape = SubResource("HeightMapShape3D_0pum6")
+shape = SubResource("HeightMapShape3D_buad8")
 
 [node name="triggerMesh" parent="S_Set_Spawn3" index="1"]
-mesh = SubResource("PlaneMesh_ku1fo")
+mesh = SubResource("PlaneMesh_ahmss")
 
 [editable path="S_rotate_camera"]
 [editable path="Danger_Area"]
