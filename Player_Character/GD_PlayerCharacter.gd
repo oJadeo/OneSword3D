@@ -38,6 +38,8 @@ func handle_input():
 		animationTree.set("parameters/Slaming/blend_position",input_frame["direction"])
 		animationTree.set("parameters/Slam_end/blend_position",input_frame["direction"])
 		animationTree.set("parameters/Dash/blend_position",input_frame["direction"])
+		animationTree.set("parameters/Fall/blend_position",input_frame["direction"])
+		animationTree.set("parameters/Jump/blend_position",input_frame["direction"])
 	if input_frame["direction"] != Vector2.ZERO:
 		last_direction = (transform.basis * Vector3(input_frame["direction"] .x,0, input_frame["direction"] .y)).normalized()
 	input_frame["attack"] = Input.is_action_just_pressed("Attack")
@@ -136,7 +138,7 @@ var is_dashing = false
 var dash_end = false
 @onready var rechargeDashTimer = $RechargeDashTimer
 func handle_dash():
-	if input_frame["dash"] and is_dash_able and not is_wall_running and not is_dashing and dash_charge != 0:
+	if input_frame["dash"] and is_dash_able and not is_wall_running and not is_dashing and dash_charge != 0 and not attacking:
 		dash_charge -= 1
 		emit_signal("DashCharge_changed",dash_charge)
 		rechargeDashTimer.start()
@@ -300,11 +302,9 @@ func handle_animation():
 		animationState.travel("Run")
 	if not is_on_floor():
 		if velocity.y > 0:
-			pass
-			#animationState.travel("Fall")
+			animationState.travel("Jump")
 		else:
-			pass
-			#animationState.travel("Jump")
+			animationState.travel("Fall")
 	if attacking:
 		if slaming:
 			if not is_on_floor():
