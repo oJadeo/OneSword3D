@@ -12,6 +12,7 @@ material = SubResource("StandardMaterial3D_oxyus")
 
 [node name="S_Set_Spawn" type="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251, 0)
+collision_mask = 2
 script = ExtResource("1_u0fet")
 
 [node name="triggerCollision" type="CollisionShape3D" parent="."]

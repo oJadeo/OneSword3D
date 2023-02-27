@@ -25,7 +25,6 @@ func _on_player_detection_body_entered(body):
 	if body.name == "Player_Character":
 		player = body
 		attackTimer.start()
-		print("player in range")
 		
 func _on_player_detection_body_exited(body):
 	if body.name == "Player_Character":
@@ -42,11 +41,9 @@ func _on_attack_timer_timeout():
 	elif ammo == 0:
 		reloading = true
 		reloadTimer.start()
-		print("start_reload")
 
 
 func _on_reload_timer_timeout():
-	print("finish_reload")
 	reloadTimer.stop()
 	attackTimer.start()
 	ammo = 3
