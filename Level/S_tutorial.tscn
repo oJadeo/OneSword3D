@@ -100,7 +100,7 @@ mesh = SubResource("BoxMesh_6gebk")
 shape = SubResource("BoxShape3D_5ix41")
 
 [node name="playerSpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.040528, 2.32947, -10.7427)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.040528, 0.447573, 0.99425)
 
 [node name="Player_Character" parent="." instance=ExtResource("1_22sqt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.050992, 0.605528, 0.991994)
@@ -113,7 +113,6 @@ directional_shadow_mode = 0
 
 [node name="Danger_Area" parent="." instance=ExtResource("2_x0ik1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.483346, -0.484461, -3.97562)
-collision_mask = 2
 
 [node name="triggerCollision" parent="Danger_Area" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7358, -0.259892, -1.65436)
