@@ -96,7 +96,7 @@ func handle_move(delta):
 	handle_wall_run(delta)
 
 	# Handle Jump.
-	if input_frame["jump"] and is_on_floor() and not is_wall_running and not attacking:
+	if Input.is_action_just_pressed("Jump") and is_on_floor() and not is_wall_running:
 		velocity.y = JUMP_VELOCITY
 		
 	if Input.is_action_just_pressed("Jump") and is_wall_running:
@@ -252,7 +252,7 @@ var blockBar = 100
 var begin_regen = false
 var is_regen = false
 func _on_hurt_box_area_entered(area):
-	if area.name != 'Hitbox':
+	if "Hitbox" not in area.name :
 		return 0
 	if not perfect_deflect and ( not deflecting or blockBar < 20):
 		if blockBar == 0 or not deflecting:
