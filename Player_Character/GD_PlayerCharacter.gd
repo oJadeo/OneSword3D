@@ -244,7 +244,7 @@ func _on_hitbox_area_entered(area):
 var perfect_deflect = false
 var deflecting = false
 var knockback = false
-var last_direction = Vector2.ZERO
+var last_direction = Vector3.ZERO
 const MAX_BLOCK_BAR = 100
 var blockBar = 100
 var begin_regen = false
