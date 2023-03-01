@@ -1,8 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://cavthbi1j1xoo"]
+[gd_scene load_steps=40 format=3 uid="uid://bauw8p53hdcvr"]
 
 [ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_22sqt"]
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="2_x0ik1"]
-[ext_resource type="PackedScene" uid="uid://dn8dj3cw7i5as" path="res://Level/Testing/S_rotate_camera.tscn" id="3_v204k"]
+[ext_resource type="PackedScene" uid="uid://wycb6glgigjg" path="res://Level/Tiles/Rotate_Camera/S_rotate_camera.tscn" id="3_v204k"]
 [ext_resource type="PackedScene" uid="uid://b0yg8hhtv3vsc" path="res://Level/Tiles/Set_Spawn/S_setSpawn.tscn" id="4_ejbhy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c0fhi"]
@@ -58,6 +58,14 @@ size = Vector3(4, 0.5, 1.5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_yjdj3"]
 size = Vector3(4, 0.5, 1.5)
 
+[sub_resource type="BoxMesh" id="BoxMesh_ox7ww"]
+lightmap_size_hint = Vector2i(54, 36)
+material = SubResource("StandardMaterial3D_f0xh6")
+size = Vector3(4, 0.5, 1.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5lg52"]
+size = Vector3(4, 0.5, 1.5)
+
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_0pum6"]
 map_width = 4
 map_depth = 4
@@ -70,20 +78,70 @@ albedo_color = Color(0, 0, 1, 1)
 material = SubResource("StandardMaterial3D_oxyus")
 size = Vector2(6, 6)
 
-[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_wj18x"]
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_tey5e"]
 map_width = 5
 map_depth = 4
 map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_qath3"]
-material = SubResource("StandardMaterial3D_oxyus")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_udjhk"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rwaxk"]
+material = SubResource("StandardMaterial3D_udjhk")
 size = Vector2(8, 6)
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_buad8"]
+map_width = 4
+map_depth = 4
+map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ahmss"]
+material = SubResource("StandardMaterial3D_udjhk")
+size = Vector2(6, 6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_50naj"]
+lightmap_size_hint = Vector2i(54, 36)
+material = SubResource("StandardMaterial3D_8101d")
+size = Vector3(4, 0.5, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ymtab"]
+size = Vector3(4, 0.5, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2ac13"]
+lightmap_size_hint = Vector2i(54, 36)
+material = SubResource("StandardMaterial3D_8101d")
+size = Vector3(4, 0.5, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ww5ou"]
+size = Vector3(4, 0.5, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l1u2v"]
+size = Vector3(1.5, 1.5, 1.5)
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_gid0i"]
+map_width = 4
+map_depth = 4
+map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6k2wd"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_we2xa"]
+material = SubResource("StandardMaterial3D_6k2wd")
+size = Vector2(6, 6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lobu1"]
+albedo_color = Color(0.733333, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yv4j1"]
+lightmap_size_hint = Vector2i(54, 36)
+material = SubResource("StandardMaterial3D_lobu1")
+size = Vector3(4, 0.5, 1.5)
 
 [node name="S_tutorial" type="Node3D"]
 
 [node name="S_rotate_camera" parent="." instance=ExtResource("3_v204k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.441696, 0.949124)
-collision_mask = 2
 angle = 90
 
 [node name="CollisionShape3D" parent="S_rotate_camera" index="0"]
@@ -188,14 +246,14 @@ mesh = SubResource("BoxMesh_cx11v")
 [node name="CollisionShape3d" type="CollisionShape3D" parent="WallWall1"]
 shape = SubResource("BoxShape3D_yjdj3")
 
-[node name="DashJump3" type="StaticBody3D" parent="."]
+[node name="WallFloor2" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 12.9581, 1.705, -13.5411)
 physics_material_override = SubResource("PhysicsMaterial_l2faq")
 
-[node name="MeshInstance3d" type="MeshInstance3D" parent="DashJump3"]
+[node name="MeshInstance3d" type="MeshInstance3D" parent="WallFloor2"]
 mesh = SubResource("BoxMesh_v42b6")
 
-[node name="CollisionShape3d" type="CollisionShape3D" parent="DashJump3"]
+[node name="CollisionShape3d" type="CollisionShape3D" parent="WallFloor2"]
 shape = SubResource("BoxShape3D_w1kvg")
 
 [node name="WallWall2" type="StaticBody3D" parent="."]
@@ -208,19 +266,18 @@ mesh = SubResource("BoxMesh_cx11v")
 [node name="CollisionShape3d" type="CollisionShape3D" parent="WallWall2"]
 shape = SubResource("BoxShape3D_yjdj3")
 
-[node name="DashJump4" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 17.9195, 1.705, -13.5411)
+[node name="WallFloor3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 18.9578, 1.705, -13.5411)
 physics_material_override = SubResource("PhysicsMaterial_l2faq")
 
-[node name="MeshInstance3d" type="MeshInstance3D" parent="DashJump4"]
-mesh = SubResource("BoxMesh_v42b6")
+[node name="MeshInstance3d" type="MeshInstance3D" parent="WallFloor3"]
+mesh = SubResource("BoxMesh_ox7ww")
 
-[node name="CollisionShape3d" type="CollisionShape3D" parent="DashJump4"]
-shape = SubResource("BoxShape3D_w1kvg")
+[node name="CollisionShape3d" type="CollisionShape3D" parent="WallFloor3"]
+shape = SubResource("BoxShape3D_5lg52")
 
 [node name="S_rotate_camera2" parent="." instance=ExtResource("3_v204k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.13828, -11.4707)
-collision_mask = 2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.13828, -11.627)
 angle = 90
 delay = true
 
@@ -230,7 +287,6 @@ shape = SubResource("BoxShape3D_c0fhi")
 
 [node name="S_rotate_camera3" parent="." instance=ExtResource("3_v204k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.13828, -13.5187)
-collision_mask = 2
 delay = true
 
 [node name="CollisionShape3D" parent="S_rotate_camera3" index="0"]
@@ -247,22 +303,82 @@ shape = SubResource("HeightMapShape3D_0pum6")
 mesh = SubResource("PlaneMesh_ku1fo")
 
 [node name="S_Set_Spawn2" parent="." instance=ExtResource("4_ejbhy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.261633, 1.96458, -13.5355)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.274257, 1.95954, -13.5617)
 
 [node name="triggerCollision" parent="S_Set_Spawn2" index="0"]
-shape = SubResource("HeightMapShape3D_wj18x")
+shape = SubResource("HeightMapShape3D_tey5e")
 
 [node name="triggerMesh" parent="S_Set_Spawn2" index="1"]
-mesh = SubResource("PlaneMesh_qath3")
+mesh = SubResource("PlaneMesh_rwaxk")
 
 [node name="S_Set_Spawn3" parent="." instance=ExtResource("4_ejbhy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.73141, 1.96458, -13.5267)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3693, 1.96825, -13.5415)
 
 [node name="triggerCollision" parent="S_Set_Spawn3" index="0"]
-shape = SubResource("HeightMapShape3D_0pum6")
+shape = SubResource("HeightMapShape3D_buad8")
 
 [node name="triggerMesh" parent="S_Set_Spawn3" index="1"]
-mesh = SubResource("PlaneMesh_ku1fo")
+mesh = SubResource("PlaneMesh_ahmss")
+
+[node name="DoubleWall_1_1" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 22.4795, 2.23508, -14.5644)
+physics_material_override = SubResource("PhysicsMaterial_l2faq")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="DoubleWall_1_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00475121, -0.00669193, -0.00822115)
+mesh = SubResource("BoxMesh_50naj")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="DoubleWall_1_1"]
+shape = SubResource("BoxShape3D_ymtab")
+
+[node name="DoubleWall_1_2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 22.4795, 2.23508, -12.5167)
+physics_material_override = SubResource("PhysicsMaterial_l2faq")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="DoubleWall_1_2"]
+mesh = SubResource("BoxMesh_2ac13")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="DoubleWall_1_2"]
+shape = SubResource("BoxShape3D_ww5ou")
+
+[node name="WallFloor4" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 25.0989, 1.705, -13.5411)
+physics_material_override = SubResource("PhysicsMaterial_l2faq")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="WallFloor4"]
+mesh = SubResource("BoxMesh_v42b6")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="WallFloor4"]
+shape = SubResource("BoxShape3D_w1kvg")
+
+[node name="S_rotate_camera4" parent="." instance=ExtResource("3_v204k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.6374, 2.138, -13.51)
+angle = 270
+delay = true
+
+[node name="CollisionShape3D" parent="S_rotate_camera4" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0303993)
+shape = SubResource("BoxShape3D_l1u2v")
+
+[node name="S_Set_Spawn4" parent="." instance=ExtResource("4_ejbhy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.6395, 1.95862, -13.5467)
+
+[node name="triggerCollision" parent="S_Set_Spawn4" index="0"]
+shape = SubResource("HeightMapShape3D_gid0i")
+
+[node name="triggerMesh" parent="S_Set_Spawn4" index="1"]
+mesh = SubResource("PlaneMesh_we2xa")
+
+[node name="WallFloor5" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 22.4906, 0.922002, -13.5411)
+physics_material_override = SubResource("PhysicsMaterial_l2faq")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="WallFloor5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251239, 0)
+mesh = SubResource("BoxMesh_yv4j1")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="WallFloor5"]
+shape = SubResource("BoxShape3D_5lg52")
 
 [editable path="S_rotate_camera"]
 [editable path="Danger_Area"]
@@ -271,3 +387,5 @@ mesh = SubResource("PlaneMesh_ku1fo")
 [editable path="S_Set_Spawn"]
 [editable path="S_Set_Spawn2"]
 [editable path="S_Set_Spawn3"]
+[editable path="S_rotate_camera4"]
+[editable path="S_Set_Spawn4"]
