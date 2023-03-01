@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bb5l3an7als3r"]
+[gd_scene load_steps=24 format=3 uid="uid://bb5l3an7als3r"]
 
 [ext_resource type="Script" path="res://Level/Testing/GD_Test_Level_with_nav.gd" id="1_nhrur"]
 [ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="2_ggap4"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="4_xrt7e"]
 [ext_resource type="PackedScene" uid="uid://b76gdft4cavda" path="res://Level/Tiles/Trigger_Block_Area/S_Trigger_Block_Area.tscn" id="5_60n33"]
 [ext_resource type="PackedScene" uid="uid://6dnu7ywfbvge" path="res://Level/Navigation/S_JumpBox.tscn" id="6_ye3xk"]
+[ext_resource type="PackedScene" uid="uid://cwgktljjh2rqs" path="res://Enemy/MeleeEnemy/S_MeleeEnemy.tscn" id="7_x3ts2"]
+
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0n7km"]
 size = Vector3(8.77227, 0.314632, 19.6456)
@@ -213,6 +215,9 @@ skeleton = NodePath("../../StaticBody3d6")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3d6"]
 shape = SubResource("BoxShape3D_kl0tw")
+
+[node name="MeleeEnemy" parent="." instance=ExtResource("7_x3ts2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57723, 0.57333, 0.123164)
 
 [editable path="Danger_Area"]
 [editable path="Trigger_Block_Area"]
