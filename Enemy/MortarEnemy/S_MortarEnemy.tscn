@@ -22,6 +22,7 @@ hframes = 3
 vframes = 12
 
 [node name="PlayerDetection" type="Area3D" parent="."]
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetection"]
 shape = SubResource("SphereShape3D_7clb8")

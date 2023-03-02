@@ -16,18 +16,24 @@ var fleeSpeed = 0.5
 var danger = false
 var blocking = true
 var new_bullet
+var can_shoot = false
+var find_new_pos_direction = Vector3.ZERO
+var finding_new_pos = false
+var player_pos
 
 @onready var playerDetectionCollision = $PlayerDetection/CollisionShape3d
 @onready var animationTree = $AnimationTree
 @onready var animationState = animationTree.get("parameters/playback")
 @onready var bullet = preload("res://Enemy/RangeEnemy/Bullet/S_Bullet.tscn")
 
+@onready var ray = $RayCast3D
+@onready var nav_agent = $NavigationAgent3D
 func _ready():
 	pass
 
 func _physics_process(delta):
 	if player != null:
-		direction = Vector2((player.global_position - global_position).normalized().z,(player.global_position - global_position).normalized().x)
+		direction = Global.cal_sprite_direction((player.global_position - global_position).normalized())
 	else:
 		blocking = false
 		danger = false
@@ -46,10 +52,15 @@ func _physics_process(delta):
 				velocity = Vector3.ZERO
 				animationTree.set("parameters/Reload/blend_position",direction)
 				animationTree.set("parameters/Attack/blend_position",direction)
-			if not danger:
-				velocity = Vector3.ZERO
+			if danger or finding_new_pos:
+				if danger :
+					velocity  = -((player.global_position - global_position).normalized() * fleeSpeed)
+				if finding_new_pos :
+					velocity.x = find_new_pos_direction.x
+					velocity.z = find_new_pos_direction.z
+					velocity = velocity.normalized()*moveSpeed
 			else:
-				velocity  = -((player.global_position - global_position).normalized() * fleeSpeed)
+				velocity = Vector3.ZERO
 	if not is_on_floor():
 		velocity.y -= gravity
 	move_and_slide()
@@ -112,3 +123,46 @@ func _on_hurtbox_area_entered(area):
 func on_blocking_finish():
 	animationState.travel("Attack")
 	blocking = false
+	
+func get_collider(ray_pos,location):
+	ray.set_position(ray_pos)
+	var target_pos = location-ray.get_global_position()
+	target_pos.y = 0
+	ray.set_target_position(target_pos)
+	ray.force_raycast_update()
+	return ray.get_collider()
+
+func update_target_location(location):
+	var collider = get_collider((Vector3.ZERO),location)
+	if collider:
+		if collider.name == "Player_Character":
+			can_shoot = true
+			player_pos = location
+			finding_new_pos = false
+		else:
+			can_shoot = false
+			var new_pos  = Vector3.ZERO
+			finding_new_pos = false
+			var length = 100
+			for i in range(-3,3,1):
+				for j in range(-3,3,1):
+					var a = i / 2.0
+					var b = j / 2.0
+					var new_collider = get_collider(Vector3(i,0,j),location)
+					if new_collider:
+						if new_collider.name == "Player_Character":
+							var target_pos = location-ray.get_global_position()
+							var new_legnth = target_pos.length()
+							if new_legnth < length:
+								nav_agent.set_target_position(ray.get_global_position())
+								if nav_agent.is_target_reachable():
+									length = new_legnth
+									new_pos = ray.get_global_position()
+									finding_new_pos = true
+									find_new_pos_direction = Vector3(i,0,j).normalized()
+			nav_agent.set_target_position(get_global_position())
+			ray.set_position(Vector3.ZERO)
+			var target_pos = location-ray.get_global_position()
+			ray.set_target_position(target_pos)
+			if finding_new_pos:
+				nav_agent.set_target_position(new_pos)
