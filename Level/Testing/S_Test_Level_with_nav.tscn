@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="4_xrt7e"]
 [ext_resource type="PackedScene" uid="uid://b76gdft4cavda" path="res://Level/Tiles/Trigger_Block_Area/S_Trigger_Block_Area.tscn" id="5_60n33"]
 [ext_resource type="PackedScene" uid="uid://6dnu7ywfbvge" path="res://Level/Navigation/S_JumpBox.tscn" id="6_ye3xk"]
-[ext_resource type="PackedScene" uid="uid://cwgktljjh2rqs" path="res://Enemy/MeleeEnemy/S_MeleeEnemy.tscn" id="7_x3ts2"]
+[ext_resource type="PackedScene" uid="uid://dfynijq7m2hnq" path="res://Enemy/RangeEnemy/S_RangeEnemy.tscn" id="8_n62xs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0n7km"]
 size = Vector3(8.77227, 0.314632, 19.6456)
@@ -125,6 +125,7 @@ shape = SubResource("BoxShape3D_x4j1d")
 
 [node name="StaticBody3d" type="StaticBody3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, -1.2177, 1.21411, -3.45556)
+collision_mask = 64
 physics_material_override = SubResource("PhysicsMaterial_0i3o3")
 
 [node name="MeshInstance3d" type="MeshInstance3D" parent="NavigationRegion3D/StaticBody3d"]
@@ -136,6 +137,7 @@ shape = SubResource("BoxShape3D_kl0tw")
 
 [node name="StaticBody3d3" type="StaticBody3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15964, 0.210773, -0.975042)
+collision_mask = 64
 physics_material_override = SubResource("PhysicsMaterial_0i3o3")
 
 [node name="MeshInstance3d" type="MeshInstance3D" parent="NavigationRegion3D/StaticBody3d3"]
@@ -215,8 +217,8 @@ skeleton = NodePath("../../StaticBody3d6")
 [node name="CollisionShape3d" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3d6"]
 shape = SubResource("BoxShape3D_kl0tw")
 
-[node name="MeleeEnemy" parent="." instance=ExtResource("7_x3ts2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57723, 0.57333, 0.123164)
+[node name="RangeEnemy" parent="." instance=ExtResource("8_n62xs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7646, 0.795547, 1.80348)
 
 [editable path="Danger_Area"]
 [editable path="Trigger_Block_Area"]
