@@ -1452,12 +1452,12 @@ radius = 0.097
 height = 0.333
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_pto3n"]
-radius = 1.75
+radius = 2.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_oxg0k"]
 radius = 0.6
 
-[node name="RangeEnemy" type="CharacterBody3D"]
+[node name="RangeEnemy" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_12nk7")
 
 [node name="Sprite3d" type="Sprite3D" parent="."]
@@ -1520,6 +1520,12 @@ collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DangerZone"]
 shape = SubResource("SphereShape3D_oxg0k")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+collision_mask = 3
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+navigation_layers = 2
 
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
