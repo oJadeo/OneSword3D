@@ -1,6 +1,6 @@
 [gd_scene load_steps=125 format=3 uid="uid://cwgktljjh2rqs"]
 
-[ext_resource type="Texture2D" uid="uid://1da7viyrm7jx" path="res://Enemy/MeleeEnemy/Enemy_01.png" id="1_4b4og"]
+[ext_resource type="Texture2D" uid="uid://bur11edc8qs5j" path="res://Enemy/MeleeEnemy/MeleeEnemy.png" id="2_qna43"]
 [ext_resource type="Script" path="res://Enemy/MeleeEnemy/GD_MeleeEnemy.gd" id="2_quxdm"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2e6xd"]
@@ -2973,9 +2973,9 @@ billboard = 1
 double_sided = false
 no_depth_test = true
 texture_filter = 0
-texture = ExtResource("1_4b4og")
+texture = ExtResource("2_qna43")
 hframes = 4
-vframes = 21
+vframes = 24
 
 [node name="PlayerDetection" type="Area3D" parent="."]
 transform = Transform3D(0.235, 0, 0, 0, 0.235, 0, 0, 0, 0.235, 0, 0, 0)
