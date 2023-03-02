@@ -120,14 +120,16 @@ func handle_move(delta):
 		await get_tree().create_timer(0.05).timeout
 		knockback = false
 
-	if not deflecting or is_dashing:
+	if not deflecting or is_dashing  :
 		velocity.x *= speed 
 		velocity.z *= speed 
-		move_and_slide()
 	elif deflecting:
 		velocity.x *= BLOCK_SPEED 
 		velocity.z *= BLOCK_SPEED 
-		move_and_slide()
+	if slaming:
+		velocity.x = 0
+		velocity.z = 0
+	move_and_slide()
 		
 # Dash variable
 const DASH_SPEED = 10
@@ -228,7 +230,7 @@ func _on_wall_run_jump_timer_timeout():
 var attacking = false
 var slaming = false
 func handle_atk():
-	if input_frame["attack"]:
+	if input_frame["attack"] and not attacking and not is_wall_running:
 		slaming = not is_on_floor()
 		attacking = true
 func reset_attack():
@@ -325,4 +327,5 @@ func respawn():
 	emit_signal("Blockbar_changed",blockBar)
 	emit_signal("DashCharge_changed",dash_charge)
 
-
+func print_lam():
+	print(slaming)

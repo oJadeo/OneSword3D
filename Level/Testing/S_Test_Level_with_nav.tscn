@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://6dnu7ywfbvge" path="res://Level/Navigation/S_JumpBox.tscn" id="6_ye3xk"]
 [ext_resource type="PackedScene" uid="uid://cwgktljjh2rqs" path="res://Enemy/MeleeEnemy/S_MeleeEnemy.tscn" id="7_x3ts2"]
 
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_0n7km"]
 size = Vector3(8.77227, 0.314632, 19.6456)
 
