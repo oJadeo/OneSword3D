@@ -30,16 +30,6 @@ var input_frame = {
 func handle_input():
 	input_frame["direction"] = Vector2(Input.get_axis("Move_Left", "Move_Right"),Input.get_axis("Move_Up", "Move_Down")) 
 	input_frame["direction"] = input_frame["direction"] if input_frame["direction"].length() <=1 else input_frame["direction"].normalized()
-	if input_frame["direction"] != Vector2.ZERO and not deflecting:
-		animationTree.set("parameters/Run/blend_position",input_frame["direction"])
-		animationTree.set("parameters/Idle/blend_position",input_frame["direction"])
-		animationTree.set("parameters/Block/blend_position",input_frame["direction"])
-		animationTree.set("parameters/Attack_1/blend_position",input_frame["direction"])
-		animationTree.set("parameters/Slaming/blend_position",input_frame["direction"])
-		animationTree.set("parameters/Slam_end/blend_position",input_frame["direction"])
-		animationTree.set("parameters/Dash/blend_position",input_frame["direction"])
-		animationTree.set("parameters/Fall/blend_position",input_frame["direction"])
-		animationTree.set("parameters/Jump/blend_position",input_frame["direction"])
 	if input_frame["direction"] != Vector2.ZERO:
 		last_direction = (transform.basis * Vector3(input_frame["direction"] .x,0, input_frame["direction"] .y)).normalized()
 	input_frame["attack"] = Input.is_action_just_pressed("Attack")
@@ -166,6 +156,7 @@ func _on_recharge_dash_timer_timeout():
 var wall_normal
 var is_wall_running = false
 var is_wall= {'left':null,'right':null,'up':null}
+var wall_dir_selected = ''
 var selected_wall 
 var wall_run_jumping = [false,Vector3.ZERO]
 const WALL_CHECK_RANGE = 1
@@ -222,7 +213,6 @@ func select_wall():
 			result = is_wall['up']
 	return result
 func _on_wallrun_timer_timeout():
-	print("Wallrun_timeout")
 	is_wall_running = false
 func _on_wall_run_jump_timer_timeout():
 	wall_run_jumping = [false,Vector3.ZERO]
@@ -299,6 +289,18 @@ func _on_regen_timer_timeout():
 #@onready var dash = $Dash
 @onready var playerSpawnPoint = $"../playerSpawnPoint"
 func handle_animation():
+	if input_frame["direction"] != Vector2.ZERO and not deflecting:
+		animationTree.set("parameters/Run/blend_position",input_frame["direction"])
+		animationTree.set("parameters/Idle/blend_position",input_frame["direction"])
+		animationTree.set("parameters/Block/blend_position",input_frame["direction"])
+		animationTree.set("parameters/Attack_1/blend_position",input_frame["direction"])
+		animationTree.set("parameters/Slaming/blend_position",input_frame["direction"])
+		animationTree.set("parameters/Slam_end/blend_position",input_frame["direction"])
+		animationTree.set("parameters/Dash/blend_position",input_frame["direction"])
+		animationTree.set("parameters/Fall/blend_position",input_frame["direction"])
+		animationTree.set("parameters/Jump/blend_position",input_frame["direction"])
+		animationTree.set("parameters/Wall_run_left/blend_position",Global.cal_sprite_direction(velocity))
+		animationTree.set("parameters/Wall_run_right/blend_position",Global.cal_sprite_direction(velocity))
 	animationState.travel("Idle")
 	if abs(input_frame["direction"].x) > 0.1 || abs(input_frame["direction"].y) > 0.1 :
 		animationState.travel("Run")
@@ -315,6 +317,11 @@ func handle_animation():
 				animationState.travel("Slam_end")
 		else:
 			animationState.travel("Attack_1")
+	if is_wall_running:
+		if velocity.cross(selected_wall[2]).y < 0:
+			animationState.travel("Wall_run_left")
+		else:
+			animationState.travel("Wall_run_right")
 	if deflecting and not is_dashing:
 		animationState.travel("Block")
 	if is_dashing:
