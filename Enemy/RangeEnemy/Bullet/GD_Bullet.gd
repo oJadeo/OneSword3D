@@ -26,10 +26,14 @@ func init(dir_x,dir_z,pos,height,time):
 
 
 func _on_hitbox_area_entered(area):
-	print(area.name)
 	if area.name == "Hitbox":
 		deflected = true
 		direction = -direction
 		speed = 0.025
-	elif area.name == "HurtBox":		
+	elif area.name == "HurtBox" :		
+		queue_free()
+
+
+func _on_hitbox_body_entered(body):
+	if body is StaticBody3D :
 		queue_free()
