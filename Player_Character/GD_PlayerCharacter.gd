@@ -88,8 +88,12 @@ func handle_move(delta):
 	# Handle Jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor() and not is_wall_running:
 		velocity.y = JUMP_VELOCITY
-		
+	
+	if is_on_floor() and not is_wall_running:
+		is_wall_runable = true
+	
 	if Input.is_action_just_pressed("Jump") and is_wall_running:
+		is_wall_runable = true
 		wall_run_jump_Timer.start()
 		wall_run_jumping = [true,selected_wall[2]]
 		velocity.y = JUMP_VELOCITY
@@ -154,9 +158,9 @@ func _on_recharge_dash_timer_timeout():
 	
 # Wallrun variable
 var wall_normal
+var is_wall_runable = true
 var is_wall_running = false
 var is_wall= {'left':null,'right':null,'up':null}
-var wall_dir_selected = ''
 var selected_wall 
 var wall_run_jumping = [false,Vector3.ZERO]
 const WALL_CHECK_RANGE = 1
@@ -164,12 +168,15 @@ const WALL_CHECK_RANGE = 1
 @onready var ray_target = $RayCast3D/ray_target
 @onready var wall_run_timer = $WallrunTimer
 @onready var wall_run_jump_Timer = $WallRunJumpTimer
+@onready var shadow_pivot = $ShadowPivot
 func handle_wall_run(delta):
-	if Input.is_action_just_pressed("WallRun") and input_frame['direction'] != Vector2.ZERO:
+	shadow_pivot.set_rotation(Vector3(0,0,0))
+	if Input.is_action_just_pressed("WallRun") and input_frame['direction'] != Vector2.ZERO and is_wall_runable:
 		is_wall_running = true
 		velocity.y = 0.5
 		wall_run_jumping = [false,Vector3.ZERO]
 		wall_run_timer.start()
+		is_wall_runable = false
 	if not input_frame["wall_run"]:
 		is_wall_running = false
 	if is_wall_running and input_frame['direction'] != Vector2.ZERO:
@@ -209,8 +216,11 @@ func select_wall():
 	if is_wall['up']:
 		if result:
 			result = is_wall['up'] if is_wall['up'][1] < result[1] else result
+			if result == is_wall['up']:
+				shadow_pivot.set_rotation(Vector3(deg_to_rad(30),0,0))
 		else:
 			result = is_wall['up']
+			shadow_pivot.set_rotation(Vector3(deg_to_rad(30),0,0))
 	return result
 func _on_wallrun_timer_timeout():
 	is_wall_running = false
@@ -333,6 +343,3 @@ func respawn():
 	dash_charge = 3
 	emit_signal("Blockbar_changed",blockBar)
 	emit_signal("DashCharge_changed",dash_charge)
-
-func print_lam():
-	print(slaming)

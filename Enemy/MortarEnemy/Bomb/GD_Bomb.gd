@@ -1,23 +1,22 @@
 extends Area3D
 
-@onready var bomb = $Bomb
-@onready var warn = $Warn
 @onready var bombHitbox = $Hitbox
-@onready var warn_timer = $warn_timer
+@onready var warnAnimationPlayer = $AnimationPlayer
+@onready var bomb = $Hitbox/Bomb
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
+	
 func init(position,mortar_position):
+	warnAnimationPlayer.play("warn")
 	global_position.x = position.x
 	global_position.z = position.z
 	global_position.y = mortar_position.y
-	bomb.set_visible(false)
 	bombHitbox.disabled = true
-	warn_timer.start()
+	bomb.set_visible(false)
 
-func _on_warn_timer_timeout():
-	warn_timer.stop()
-	bombHitbox.disabled = false
+func trigger_bomb():
 	bomb.set_visible(true)
+	bombHitbox.disabled = false
 	await get_tree().create_timer(0.25).timeout
 	queue_free()
