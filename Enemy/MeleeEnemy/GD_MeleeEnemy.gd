@@ -12,6 +12,7 @@ enum {
 
 @onready var playerDetectionCollision = $CollisionShape3d
 @onready var nav_agent = $NavigationAgent3D
+@onready var hitboxCollision = $Marker3d/Hitbox/HitboxCollision
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var jumping = false
@@ -22,10 +23,12 @@ var state = IDLE
 var block = 3
 var direction = Vector3.ZERO
 var knockbackDirection
-var moveSpeed = 0.5
+var moveSpeed = 0.75
 var knockback = false
 var blocking = false
 var inAttackRange = false
+var attacking = false
+var isRotate = false
 
 #Animation
 @onready var animationTree = $AnimationTree
@@ -35,9 +38,8 @@ var inAttackRange = false
 func _ready():
 	pass
 
-func _process(delta):
-	#print(player)
-	#print(state)
+func _process(delta):	
+	handle_rotate()
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	if player != null:
@@ -51,6 +53,8 @@ func _process(delta):
 			animationState.travel("Idle")
 		CHASE:
 			if player != null and !knockback and !blocking:
+				if inAttackRange:
+					state = ATTACK
 				animationTree.set("parameters/Dash/blend_position",direction)
 				animationState.travel("Dash")
 				if nav_agent.is_target_reachable():
@@ -75,8 +79,10 @@ func _process(delta):
 				knockback = false
 				state = IDLE
 		ATTACK:
-			if player != null and inAttackRange:
+			if player != null and inAttackRange and !attacking:
+				attacking = true
 				velocity = Vector3.ZERO
+				animationTree.set("parameters/Attack/blend_position",direction)
 				animationState.travel("Attack")
 		DRAW_WEAPON:
 			knockback = false
@@ -100,20 +106,28 @@ func _process(delta):
 		
 	
 	move_and_slide()
+func handle_rotate():
+	isRotate = Input.is_action_just_pressed("Rotate_CW")
+	if isRotate:
+		rotate(Vector3(0,1,0),deg_to_rad(-90))
 	
 func draw_weapon_finished():
-	print("chase")
+	#print("chase")
 	state = CHASE
-
+	
 func store_weapon_finished():
-	print("call")
+	#print("call")
+	attacking = false
 	if (player != null):
+		if (inAttackRange):
+			state = ATTACK
 		state = CHASE
 	else:
 		state = IDLE
 
 
 func knockback_recovery():
+	print("call")
 	knockback = false
 	blocking = false
 	if player != null:
@@ -153,6 +167,7 @@ func _on_player_detection_body_entered(body):
 func _on_player_detection_body_exited(body):
 	if body.name == "Player_Character":
 		player = null
+		attacking = false
 		if state != ATTACK and state != KNOCKBACK and state != BLOCK:
 			state = STORE_WEAPON
 
@@ -163,6 +178,7 @@ func _on_hurtbox_area_entered(area):
 			block -= 1
 			blocking = true
 			knockback = false
+			attacking = false
 			print("block")
 			knockbackDirection = direction
 			state = BLOCK
@@ -172,9 +188,9 @@ func _on_hurtbox_area_entered(area):
 func _on_attac_range_body_entered(body):
 	if body.name == "Player_Character":
 		inAttackRange = true
-		velocity = Vector3.ZERO
-		animationTree.set("parameters/Attack/blend_position",direction)
-		animationState.travel("Attack")
+		#velocity = Vector3.ZERO
+		#animationTree.set("parameters/Attack/blend_position",direction)
+		#animationState.travel("Attack")
 		state = ATTACK
 
 
@@ -195,3 +211,9 @@ func _on_parrybox_area_entered(area):
 		#animationState.travel("Knockback")
 		#velocity += Vector3(direction.x,direction.y,0) * -20
 		state = KNOCKBACK
+
+
+func _on_hitbox_area_entered(area):
+	if area.name == "HurtBox":
+		pass
+		#hitboxCollision.disabled = true
