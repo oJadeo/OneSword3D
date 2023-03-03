@@ -7,10 +7,10 @@ var reloading = false
 var new_bomb
 @onready var attackTimer = $AttackTimer
 @onready var reloadTimer = $ReloadTimer
-@onready var bomb = preload("res://Enemy/MortarEnemy/S_Bomb.tscn")
+@onready var bomb = preload("res://Enemy/MortarEnemy/Bomb/S_Bomb.tscn")
 @onready var sprtie = $Sprite3d
 func _ready():
-	attackTimer.wait_time = 0.25
+	pass
 func _physics_process(delta):
 	if reloading :
 		sprtie.modulate = Color(0,1,0)
