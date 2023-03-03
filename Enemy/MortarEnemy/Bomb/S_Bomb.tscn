@@ -1,0 +1,86 @@
+[gd_scene load_steps=8 format=3 uid="uid://qyyepg4wdy5e"]
+
+[ext_resource type="Script" path="res://Enemy/MortarEnemy/Bomb/GD_Bomb.gd" id="1_u5nhr"]
+[ext_resource type="Texture2D" uid="uid://bvivcemk0ms4s" path="res://Enemy/MortarEnemy/Bomb/Warning.png" id="2_wbe6x"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_aw33r"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_n7t8m"]
+
+[sub_resource type="Animation" id="Animation_wcxkj"]
+length = 0.500004
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6nqcf"]
+resource_name = "warn"
+length = 1.00001
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.958333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"trigger_bomb"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8d8an"]
+_data = {
+"RESET": SubResource("Animation_wcxkj"),
+"warn": SubResource("Animation_6nqcf")
+}
+
+[node name="Hitbox" type="Area3D"]
+collision_layer = 64
+collision_mask = 16
+gravity_point = true
+script = ExtResource("1_u5nhr")
+
+[node name="Hitbox" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_aw33r")
+
+[node name="Bomb" type="MeshInstance3D" parent="Hitbox"]
+mesh = SubResource("SphereMesh_n7t8m")
+skeleton = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../warnSprite")
+libraries = {
+"": SubResource("AnimationLibrary_8d8an")
+}
+
+[node name="warnSprite" type="Sprite3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_wbe6x")
+hframes = 5
