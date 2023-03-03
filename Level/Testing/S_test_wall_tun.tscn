@@ -37,6 +37,15 @@ mesh = SubResource("BoxMesh_sn48h")
 [node name="CollisionShape3d" type="CollisionShape3D" parent="NavigationRegion3d/Floor/StaticBody3d"]
 shape = SubResource("ConcavePolygonShape3D_y31uj")
 
+[node name="Floor" type="MeshInstance3D" parent="NavigationRegion3d/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.49348, 1.2861, -4.84742)
+mesh = SubResource("BoxMesh_sn48h")
+
+[node name="StaticBody3d" type="StaticBody3D" parent="NavigationRegion3d/Floor/Floor"]
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="NavigationRegion3d/Floor/Floor/StaticBody3d"]
+shape = SubResource("ConcavePolygonShape3D_y31uj")
+
 [node name="Floor2" type="MeshInstance3D" parent="NavigationRegion3d"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
 mesh = SubResource("BoxMesh_sn48h")
@@ -62,6 +71,24 @@ mesh = SubResource("BoxMesh_s1ov6")
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3d/Wall"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3d/Wall/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_suij4")
+
+[node name="Wall" type="MeshInstance3D" parent="NavigationRegion3d/Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.8684, 0.505072, 5.18493)
+mesh = SubResource("BoxMesh_s1ov6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3d/Wall/Wall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3d/Wall/Wall/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_suij4")
+
+[node name="Wall" type="MeshInstance3D" parent="NavigationRegion3d/Wall/Wall"]
+transform = Transform3D(-0.0122694, 0, -0.999925, 0, 1, 0, 0.999925, 0, -0.0122694, -0.453653, 0.532845, -2.46778)
+mesh = SubResource("BoxMesh_s1ov6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3d/Wall/Wall/Wall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3d/Wall/Wall/Wall/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_suij4")
 
 [node name="Wall2" type="MeshInstance3D" parent="NavigationRegion3d"]
