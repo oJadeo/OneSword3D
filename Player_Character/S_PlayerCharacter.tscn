@@ -2337,8 +2337,7 @@ script = ExtResource("1_key0r")
 shape = SubResource("CapsuleShape3D_xc8no")
 
 [node name="Camera3d" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 5, 5)
-projection = 1
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 2, 2)
 current = true
 size = 3.0
 
@@ -2351,15 +2350,6 @@ texture_filter = 0
 texture = ExtResource("2_ug3k3")
 hframes = 4
 vframes = 36
-
-[node name="Shadow" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4, 0)
-light_energy = 0.81
-light_negative = true
-spot_range = 10.0
-spot_attenuation = 0.008668
-spot_angle = 1.0
-spot_angle_attenuation = 0.008668
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle/player_idle_down"
@@ -2440,6 +2430,16 @@ wait_time = 0.5
 
 [node name="WallrunTimer" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="ShadowPivot" type="Node3D" parent="."]
+
+[node name="Shadow" type="SpotLight3D" parent="ShadowPivot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4, 0)
+light_negative = true
+spot_range = 10.0
+spot_attenuation = 0.008668
+spot_angle = 1.0
+spot_angle_attenuation = 0.008668
 
 [connection signal="Blockbar_changed" from="." to="CanvasLayer" method="_on_player_character_blockbar_changed"]
 [connection signal="DashCharge_changed" from="." to="CanvasLayer" method="_on_player_character_dash_charge_changed"]
