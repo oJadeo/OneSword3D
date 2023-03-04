@@ -205,7 +205,6 @@ func _on_parrybox_area_entered(area):
 	if area.name == "Hitbox":
 		knockback = true
 		blocking = false
-		print("enemy:parry")
 		lastDirection = direction
 		knockbackDirection = (global_position - area.global_position).normalized()
 		#animationTree.set("parameters/Knockback/blend_position",direction)
@@ -214,7 +213,3 @@ func _on_parrybox_area_entered(area):
 		state = KNOCKBACK
 
 
-func _on_hitbox_area_entered(area):
-	if area.name == "HurtBox":
-		pass
-		#hitboxCollision.disabled = true

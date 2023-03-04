@@ -143,6 +143,7 @@ WallRun={
 3d_physics/layer_8="EnemyHurtbox"
 2d_physics/layer_9="EnemyParrybox"
 3d_physics/layer_9="EnemyParrybox"
+3d_physics/layer_10="ProjectileHitbox"
 
 [physics]
 
