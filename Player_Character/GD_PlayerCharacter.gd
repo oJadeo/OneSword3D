@@ -4,6 +4,8 @@ extends CharacterBody3D
 signal Blockbar_changed
 signal DashCharge_changed
 
+@export var enable_wallrun : bool = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -24,7 +26,8 @@ var input_frame = {
 	"rotate_cw" : false,
 	"rotate_ccw" : false,
 	"respawn":false,
-	"wall_run":false
+	"wall_run":false,
+	"just_jump":true
 	}
 #take all input into input dict
 func handle_input():
@@ -38,6 +41,7 @@ func handle_input():
 	input_frame["rotate_ccw"] = Input.is_action_just_pressed("Rotate_CCW")
 	input_frame["respawn"] = Input.is_action_pressed("Respawn")
 	input_frame["jump"] = Input.is_action_pressed("Jump")
+	input_frame["just_jump"] = Input.is_action_just_pressed("Jump")
 	input_frame["dash"] = Input.is_action_pressed("Dash")
 	input_frame["wall_run"]  = Input.is_action_pressed("WallRun")
 	if Input.is_action_pressed("Deflect"):
@@ -83,16 +87,17 @@ func handle_move(delta):
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
 
-	handle_wall_run(delta)
+	if enable_wallrun:
+		handle_wall_run(delta)
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("Jump") and is_on_floor() and not is_wall_running:
+	if input_frame["just_jump"] and is_on_floor() and not is_wall_running:
 		velocity.y = JUMP_VELOCITY
 	
 	if is_on_floor() and not is_wall_running:
 		is_wall_runable = true
 	
-	if Input.is_action_just_pressed("Jump") and is_wall_running:
+	if input_frame["just_jump"] and is_wall_running:
 		is_wall_runable = true
 		wall_run_jump_Timer.start()
 		wall_run_jumping = [true,selected_wall[2]]
@@ -348,7 +353,7 @@ func respawn():
 	dash_charge = 3
 	emit_signal("Blockbar_changed",blockBar)
 	emit_signal("DashCharge_changed",dash_charge)
-
+	get_tree().call_group("respawn","respawn")
 
 func _on_iframe_timer_timeout():
 	iFrame = false
