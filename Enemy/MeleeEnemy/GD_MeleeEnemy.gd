@@ -23,6 +23,7 @@ var state = IDLE
 var block = 3
 var direction = Vector3.ZERO
 var knockbackDirection
+var lastDirection
 var moveSpeed = 0.75
 var knockback = false
 var blocking = false
@@ -38,7 +39,7 @@ var isRotate = false
 func _ready():
 	pass
 
-func _process(delta):	
+func _process(delta):
 	handle_rotate()
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -95,12 +96,12 @@ func _process(delta):
 			animationState.travel("StoreWeapon")
 			animationTree.set("parameters/StoreWeapon/blend_position",direction)
 		KNOCKBACK:
-			animationTree.set("parameters/Knockback/blend_position",knockbackDirection)
+			animationTree.set("parameters/Knockback/blend_position",lastDirection)
 			animationState.travel("Knockback")
-			#velocity += Vector3(direction.x,direction.y,0) * -20
+			velocity += knockbackDirection * 0.0075
 		BLOCK:
 			velocity = Vector3.ZERO
-			animationTree.set("parameters/Block/blend_position",knockbackDirection)
+			animationTree.set("parameters/Block/blend_position",lastDirection)
 			animationState.travel("Block")
 			
 		
@@ -127,7 +128,7 @@ func store_weapon_finished():
 
 
 func knockback_recovery():
-	print("call")
+	attacking = false
 	knockback = false
 	blocking = false
 	if player != null:
@@ -179,8 +180,7 @@ func _on_hurtbox_area_entered(area):
 			blocking = true
 			knockback = false
 			attacking = false
-			print("block")
-			knockbackDirection = direction
+			lastDirection = direction
 			state = BLOCK
 		else:
 			queue_free()
@@ -205,15 +205,11 @@ func _on_parrybox_area_entered(area):
 	if area.name == "Hitbox":
 		knockback = true
 		blocking = false
-		print("enemy:parry")
-		knockbackDirection = direction
+		lastDirection = direction
+		knockbackDirection = (global_position - area.global_position).normalized()
 		#animationTree.set("parameters/Knockback/blend_position",direction)
 		#animationState.travel("Knockback")
 		#velocity += Vector3(direction.x,direction.y,0) * -20
 		state = KNOCKBACK
 
 
-func _on_hitbox_area_entered(area):
-	if area.name == "HurtBox":
-		pass
-		#hitboxCollision.disabled = true

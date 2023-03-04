@@ -10,7 +10,7 @@ radius = 3.0
 radius = 0.165602
 height = 0.9724
 
-[node name="MortarEnemy" type="CharacterBody3D"]
+[node name="MortarEnemy" type="CharacterBody3D" groups=["Mortar"]]
 script = ExtResource("1_f2w7y")
 
 [node name="Sprite3d" type="Sprite3D" parent="."]
