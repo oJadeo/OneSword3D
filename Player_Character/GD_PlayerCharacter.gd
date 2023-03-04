@@ -243,6 +243,7 @@ func _on_hitbox_area_entered(area):
 		print("Player:parry success")
 
 #Deflect variable
+var iFrame = false
 var perfect_deflect = false
 var deflecting = false
 var knockback = false
@@ -251,6 +252,8 @@ const MAX_BLOCK_BAR = 100
 var blockBar = 100
 var begin_regen = false
 var is_regen = false
+@onready var iframeTimer = $IframeTimer
+
 func _on_hurt_box_area_entered(area):
 	if "Hitbox" not in area.name :
 		return 0
@@ -264,10 +267,12 @@ func _on_hurt_box_area_entered(area):
 			emit_signal("Blockbar_changed",blockBar)
 			recharge_block_timer.start()
 			print("blockBar : " + str(blockBar))
-	elif not perfect_deflect and blockBar >= 20 :
+	elif not perfect_deflect and blockBar >= 20 and !iFrame:
 		regen_timer.stop()
 		knockback = true
 		blockBar -= 20
+		iFrame = true
+		iframeTimer.start()
 		emit_signal("Blockbar_changed",blockBar)
 		recharge_block_timer.start()
 		print("blockBar : " + str(blockBar))
@@ -343,3 +348,8 @@ func respawn():
 	dash_charge = 3
 	emit_signal("Blockbar_changed",blockBar)
 	emit_signal("DashCharge_changed",dash_charge)
+
+
+func _on_iframe_timer_timeout():
+	iFrame = false
+	
