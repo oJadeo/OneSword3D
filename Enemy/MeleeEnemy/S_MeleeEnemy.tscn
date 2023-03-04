@@ -1,6 +1,6 @@
 [gd_scene load_steps=125 format=3 uid="uid://cwgktljjh2rqs"]
 
-[ext_resource type="Texture2D" uid="uid://1da7viyrm7jx" path="res://Enemy/MeleeEnemy/Enemy_01.png" id="1_4b4og"]
+[ext_resource type="Texture2D" uid="uid://bur11edc8qs5j" path="res://Enemy/MeleeEnemy/MeleeEnemy.png" id="2_qna43"]
 [ext_resource type="Script" path="res://Enemy/MeleeEnemy/GD_MeleeEnemy.gd" id="2_quxdm"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2e6xd"]
@@ -287,7 +287,7 @@ states/End/position = Vector2(914, 149)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_32owg")
 states/Idle/position = Vector2(486, 120)
 states/Knockback/node = SubResource("AnimationNodeBlendSpace2D_aay13")
-states/Knockback/position = Vector2(772, 247.126)
+states/Knockback/position = Vector2(307, 196.126)
 states/Run/node = SubResource("AnimationNodeBlendSpace2D_t45mo")
 states/Run/position = Vector2(611, 120)
 states/Start/position = Vector2(333, 120)
@@ -372,6 +372,30 @@ tracks/5/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Marker3d/Hitbox/HitboxCollision:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Marker3d/Parrybox/ParryboxCollision:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a5f12"]
 _data = {
@@ -415,7 +439,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector3(0, -2.35619, 0)]
+"values": [Vector3(0, 2.35619, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -467,6 +491,30 @@ tracks/6/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Marker3d/Hitbox/HitboxCollision:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.2)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Marker3d/Parrybox/ParryboxCollision:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.2)]
+}
 
 [sub_resource type="Animation" id="Animation_ud7r7"]
 resource_name = "melee_enemy_attack_down_right"
@@ -505,7 +553,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector3(0, -0.785398, 0)]
+"values": [Vector3(0, -2.35619, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -557,6 +605,30 @@ tracks/6/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Marker3d/Hitbox/HitboxCollision:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.2)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Marker3d/Parrybox/ParryboxCollision:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.2)]
+}
 
 [sub_resource type="Animation" id="Animation_s47ur"]
 resource_name = "melee_enemy_attack_left"
@@ -595,7 +667,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector3(0, -3.14159, 0)]
+"values": [Vector3(0, 1.5708, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -647,6 +719,30 @@ tracks/6/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Marker3d/Hitbox/HitboxCollision:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.2)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Marker3d/Parrybox/ParryboxCollision:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.2)]
+}
 
 [sub_resource type="Animation" id="Animation_l023y"]
 resource_name = "melee_enemy_attack_right"
@@ -678,46 +774,34 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Marker3d:rotation")
+tracks/2/path = NodePath("Marker3d/Hitbox/HitboxCollision:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Marker3d/Hitbox/HitboxCollision:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.333333, 0.666667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Marker3d/Parrybox/ParryboxCollision:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Marker3d/Parrybox/ParryboxCollision:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.125, 0.315526),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
 }
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(1),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -725,17 +809,53 @@ tracks/5/keys = {
 "method": &"on_attack_finished"
 }]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Hurtbox/CollisionShape3d:disabled")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Hurtbox/CollisionShape3d:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0.123587, 0.315606),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Marker3d:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector3(0, -1.5708, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Marker3d/Hitbox/HitboxCollision:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.2)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Marker3d/Parrybox/ParryboxCollision:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.2)]
 }
 
 [sub_resource type="Animation" id="Animation_ubna2"]
@@ -775,7 +895,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector3(0, -3.92699, 0)]
+"values": [Vector3(0, 0.785398, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -827,6 +947,30 @@ tracks/6/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Marker3d/Hitbox/HitboxCollision:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.2)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Marker3d/Parrybox/ParryboxCollision:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.2)]
+}
 
 [sub_resource type="Animation" id="Animation_tp11g"]
 resource_name = "melee_enemy_attack_up_right"
@@ -865,7 +1009,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector3(0, 0.785398, 0)]
+"values": [Vector3(0, -0.785398, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -916,6 +1060,30 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Marker3d/Hitbox/HitboxCollision:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.2)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Marker3d/Parrybox/ParryboxCollision:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.2)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l81vh"]
@@ -1264,6 +1432,8 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_e00st"]
 resource_name = "melee_enemy_dash_down_left"
+length = 0.500005
+loop_mode = 1
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1284,10 +1454,10 @@ tracks/1/path = NodePath("Sprite3d:frame_coords")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(2, 15)]
+"values": [Vector2i(0, 21), Vector2i(1, 21), Vector2i(2, 21), Vector2i(3, 21)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1316,6 +1486,8 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_4qcfe"]
 resource_name = "melee_enemy_dash_down_right"
+length = 0.500005
+loop_mode = 1
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1360,14 +1532,16 @@ tracks/3/path = NodePath("Sprite3d:frame_coords")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(2, 15)]
+"values": [Vector2i(0, 21), Vector2i(1, 21), Vector2i(2, 21), Vector2i(3, 21)]
 }
 
 [sub_resource type="Animation" id="Animation_3s12l"]
 resource_name = "melee_enemy_dash_left"
+length = 0.500005
+loop_mode = 1
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1388,10 +1562,10 @@ tracks/1/path = NodePath("Sprite3d:frame_coords")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(2, 16)]
+"values": [Vector2i(0, 22), Vector2i(1, 22), Vector2i(2, 22), Vector2i(3, 22)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1420,6 +1594,8 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_rv73b"]
 resource_name = "melee_enemy_dash_right"
+length = 0.500005
+loop_mode = 1
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1440,10 +1616,10 @@ tracks/1/path = NodePath("Sprite3d:frame_coords")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(2, 16)]
+"values": [Vector2i(0, 22), Vector2i(1, 22), Vector2i(2, 22), Vector2i(3, 22)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1472,6 +1648,8 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_nuugp"]
 resource_name = "melee_enemy_dash_up_left"
+length = 0.500005
+loop_mode = 1
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1492,10 +1670,10 @@ tracks/1/path = NodePath("Sprite3d:frame_coords")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(2, 17)]
+"values": [Vector2i(0, 23), Vector2i(1, 23), Vector2i(2, 23), Vector2i(3, 23)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1524,6 +1702,8 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_q6s5j"]
 resource_name = "melee_enemy_dash_up_right"
+length = 0.500005
+loop_mode = 1
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1544,10 +1724,10 @@ tracks/1/path = NodePath("Sprite3d:frame_coords")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(2, 17)]
+"values": [Vector2i(0, 23), Vector2i(1, 23), Vector2i(2, 23), Vector2i(3, 23)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -2973,9 +3153,9 @@ billboard = 1
 double_sided = false
 no_depth_test = true
 texture_filter = 0
-texture = ExtResource("1_4b4og")
+texture = ExtResource("2_qna43")
 hframes = 4
-vframes = 21
+vframes = 24
 
 [node name="PlayerDetection" type="Area3D" parent="."]
 transform = Transform3D(0.235, 0, 0, 0, 0.235, 0, 0, 0, 0.235, 0, 0, 0)
@@ -3038,12 +3218,11 @@ shape = SubResource("SphereShape3D_prhlw")
 [node name="Marker3d" type="Marker3D" parent="."]
 
 [node name="Hitbox" type="Area3D" parent="Marker3d"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.188534, 0.0252265, -0.12602)
 collision_layer = 64
 collision_mask = 16
 
 [node name="HitboxCollision" type="CollisionShape3D" parent="Marker3d/Hitbox"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.186904, 0.0104794, -0.0769227)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_qlibe")
 disabled = true
 
@@ -3052,7 +3231,7 @@ collision_layer = 256
 collision_mask = 8
 
 [node name="ParryboxCollision" type="CollisionShape3D" parent="Marker3d/Parrybox"]
-transform = Transform3D(1.5, -2.13163e-14, -2.13163e-14, 2.13163e-14, 1.5, 0, 2.13163e-14, -3.02925e-28, 1.5, -0.00268896, 0.0348744, -0.202595)
+transform = Transform3D(1.5, -2.13163e-14, -2.13163e-14, 2.13163e-14, 1.5, 0, 2.13163e-14, -3.02925e-28, 1.5, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_qlibe")
 disabled = true
 
@@ -3063,4 +3242,5 @@ disabled = true
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="AttacRange" to="." method="_on_attac_range_body_entered"]
 [connection signal="body_exited" from="AttacRange" to="." method="_on_attac_range_body_exited"]
+[connection signal="area_entered" from="Marker3d/Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_entered" from="Marker3d/Parrybox" to="." method="_on_parrybox_area_entered"]

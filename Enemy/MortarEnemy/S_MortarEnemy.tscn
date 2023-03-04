@@ -7,6 +7,8 @@
 radius = 3.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k6ee0"]
+radius = 0.165602
+height = 0.9724
 
 [node name="MortarEnemy" type="CharacterBody3D" groups=["Mortar"]]
 script = ExtResource("1_f2w7y")
@@ -28,7 +30,7 @@ collision_mask = 2
 shape = SubResource("SphereShape3D_7clb8")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.235, 0, 0, 0, 0.235, 0, 0, 0, 0.235, 0, 0, 0)
+transform = Transform3D(-0.000898227, -0.234998, 0, 0.234998, -0.000898227, 0, 0, 0, 0.235, 0, -0.148184, 0)
 shape = SubResource("CapsuleShape3D_k6ee0")
 
 [node name="AttackTimer" type="Timer" parent="."]
