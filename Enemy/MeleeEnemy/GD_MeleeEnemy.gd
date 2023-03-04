@@ -110,7 +110,7 @@ func _process(delta):
 func handle_rotate():
 	isRotate = Input.is_action_just_pressed("Rotate_CW")
 	if isRotate:
-		rotate(Vector3(0,1,0),deg_to_rad(90))
+		rotate(Vector3(0,1,0),deg_to_rad(-90))
 	
 func draw_weapon_finished():
 	#print("chase")
@@ -205,7 +205,6 @@ func _on_parrybox_area_entered(area):
 	if area.name == "Hitbox":
 		knockback = true
 		blocking = false
-		print("enemy:parry")
 		lastDirection = direction
 		knockbackDirection = (global_position - area.global_position).normalized()
 		#animationTree.set("parameters/Knockback/blend_position",direction)
@@ -214,7 +213,3 @@ func _on_parrybox_area_entered(area):
 		state = KNOCKBACK
 
 
-func _on_hitbox_area_entered(area):
-	if area.name == "HurtBox":
-		pass
-		#hitboxCollision.disabled = true
