@@ -2965,7 +2965,7 @@ radius = 0.268298
 radius = 0.124013
 height = 0.497486
 
-[node name="MeleeEnemy" type="CharacterBody3D" groups=["Enemy"]]
+[node name="MeleeEnemy" type="CharacterBody3D" groups=["Enemy", "Melee"]]
 script = ExtResource("2_quxdm")
 
 [node name="Sprite3d" type="Sprite3D" parent="."]

@@ -1457,7 +1457,7 @@ radius = 2.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_oxg0k"]
 radius = 0.6
 
-[node name="RangeEnemy" type="CharacterBody3D" groups=["Enemy"]]
+[node name="RangeEnemy" type="CharacterBody3D" groups=["Enemy", "Range"]]
 script = ExtResource("1_12nk7")
 
 [node name="Sprite3d" type="Sprite3D" parent="."]

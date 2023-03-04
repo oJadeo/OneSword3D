@@ -8,7 +8,7 @@ radius = 3.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k6ee0"]
 
-[node name="MortarEnemy" type="CharacterBody3D"]
+[node name="MortarEnemy" type="CharacterBody3D" groups=["Mortar"]]
 script = ExtResource("1_f2w7y")
 
 [node name="Sprite3d" type="Sprite3D" parent="."]
