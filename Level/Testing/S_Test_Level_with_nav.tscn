@@ -59,6 +59,7 @@ size = Vector3(1, 0.5, 0.8)
 size = Vector3(2, 0.5, 4)
 
 [node name="S_Test_Level_With_Nav" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.341214)
 script = ExtResource("1_nhrur")
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]

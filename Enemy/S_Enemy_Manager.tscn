@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg0cvw71amuo5"]
+
+[ext_resource type="Script" path="res://Enemy/GD_Enemy_Manager.gd" id="1_826ha"]
+
+[node name="S_Enemy_Manager" type="Node3D" groups=["respawn"]]
+script = ExtResource("1_826ha")
