@@ -3201,7 +3201,7 @@ libraries = {
 [node name="Hurtbox" type="Area3D" parent="."]
 visible = false
 collision_layer = 128
-collision_mask = 8
+collision_mask = 520
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="Hurtbox"]
 shape = SubResource("CapsuleShape3D_hwx6o")

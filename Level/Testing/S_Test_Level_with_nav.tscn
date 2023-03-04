@@ -68,7 +68,7 @@ shadow_enabled = true
 directional_shadow_mode = 0
 
 [node name="Player_Character" parent="." instance=ExtResource("2_ggap4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.487702, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.487702, -5.23632)
 
 [node name="S_setSpawn" parent="." instance=ExtResource("3_i0uac")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251, -1.63235)

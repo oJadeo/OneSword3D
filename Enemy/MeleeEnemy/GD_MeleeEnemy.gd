@@ -110,7 +110,7 @@ func _process(delta):
 func handle_rotate():
 	isRotate = Input.is_action_just_pressed("Rotate_CW")
 	if isRotate:
-		rotate(Vector3(0,1,0),deg_to_rad(-90))
+		rotate(Vector3(0,1,0),deg_to_rad(90))
 	
 func draw_weapon_finished():
 	#print("chase")
