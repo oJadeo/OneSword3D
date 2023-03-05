@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://isaki07ch2l"]
+
+[ext_resource type="PackedScene" uid="uid://bauw8p53hdcvr" path="res://Level/S_tutorial.tscn" id="1_unxbw"]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_v3lhc"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="S_tutorial" parent="." instance=ExtResource("1_unxbw")]
+
+[node name="AnimationTree" parent="S_tutorial/Player_Character" index="4"]
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_v3lhc")
+
+[editable path="S_tutorial"]
+[editable path="S_tutorial/WalkFloor/S_rotate_camera"]
+[editable path="S_tutorial/Player_Character"]
+[editable path="S_tutorial/Danger_Area"]
+[editable path="S_tutorial/DashFloor/S_rotate_camera"]
+[editable path="S_tutorial/JumpDashFloor1/S_rotate_camera"]
