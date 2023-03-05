@@ -1,26 +1,37 @@
 extends CharacterBody3D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
 var ammo = 3
 var player
 var reloading = false
+var isHit = false
 var new_bomb
-@onready var attackTimer = $AttackTimer
-@onready var reloadTimer = $ReloadTimer
+var new_ball
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var bomb = preload("res://Enemy/MortarEnemy/Bomb/S_Bomb.tscn")
-@onready var sprtie = $Sprite3d
+@onready  var ball = preload("res://Enemy/MortarEnemy/Ball/S_Ball.tscn")
+
+@onready var attackTimer = $AttackTimer
+@onready var reloadLoopTimer = $ReloadLoopTimer
+@onready var reloadTimer = $ReloadTimer
+@onready var redTimer = $RedTimer
+@onready var animation = $AnimationPlayer
+@onready var health = 5
+@onready var sprite = $Sprite3d
 func _ready():
-	pass
+	animation.play("idle")
+	
 func _physics_process(delta):
-	if reloading :
-		sprtie.modulate = Color(0,1,0)
-	else:
-		sprtie.modulate = Color(1,1,1)
+	if isHit :
+		sprite.set_modulate(Color(0.8,0,0))
+	elif reloading :
+		sprite.set_modulate(Color(0.8,0.8,0.8))
+	else :
+		sprite.set_modulate(Color(1,1,1))
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	move_and_slide()
-
-
+	
 func _on_player_detection_body_entered(body):
 	if body.name == "Player_Character":
 		player = body
@@ -32,19 +43,47 @@ func _on_player_detection_body_exited(body):
 
 func _on_attack_timer_timeout():
 	attackTimer.stop()
-	if ammo > 0 and not reloading and player != null:
-		new_bomb = bomb.instantiate()
-		get_owner().add_child(new_bomb)
-		new_bomb.init(player.global_position,global_position)
+	animation.play("attack")
+	
+func attack_finish():
+	if ammo > 0 and not reloading and player != null and player.is_on_floor():
+		new_ball = ball.instantiate()
+		new_ball.init(player,global_position)
+		get_owner().add_child(new_ball)
+		#new_bomb = bomb.instantiate()
+		#get_owner().add_child(new_bomb)
+		#new_bomb.init(player.global_position,global_position)
 		attackTimer.start()
 		ammo -= 1
 	elif ammo == 0:
 		reloading = true
-		reloadTimer.start()
+		reloadLoopTimer.start()
+		animation.play("reload loop")
 
+
+func _on_reload_loop_timer_timeout():
+	reloadLoopTimer.stop()
+	animation.play("reload")
+	reloadTimer.start()
 
 func _on_reload_timer_timeout():
 	reloadTimer.stop()
-	attackTimer.start()
-	ammo = 3
 	reloading = false
+	ammo = 3
+	animation.play("idle")
+	attackTimer.start()
+
+
+func _on_hurt_box_area_entered(area):
+	if area.name == "Hitbox":
+		health -= 1
+		if health > 0:
+			redTimer.start()
+			isHit = true
+		else:
+			queue_free()
+
+
+func _on_red_timer_timeout():
+	redTimer.stop()
+	isHit = false
