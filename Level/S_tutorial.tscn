@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bauw8p53hdcvr"]
+[gd_scene load_steps=42 format=3 uid="uid://bauw8p53hdcvr"]
 
 [ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_22sqt"]
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="2_x0ik1"]
@@ -20,8 +20,6 @@ size = Vector3(5, 0.5, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c0fhi"]
 size = Vector3(5, 1, 5)
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_7kvib"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ms6be"]
 size = Vector3(68.0897, 0.314632, 92.677)
@@ -177,12 +175,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0.448, -0.813)
 [node name="Player_Character" parent="." instance=ExtResource("1_22sqt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005, 0.713779, -0.813)
 enable_wallrun = false
-
-[node name="Camera3d" parent="Player_Character" index="1"]
-projection = 0
-
-[node name="AnimationTree" parent="Player_Character" index="4"]
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_7kvib")
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.936754, 0.349891, 0.00821962, -0.23383, 0.608208, 0.758556, 0.260412, -0.712503, 0.651556, 6.37917, 2.1958, -0.00355339)
@@ -474,7 +466,6 @@ shape = SubResource("HeightMapShape3D_w3nt8")
 mesh = SubResource("PlaneMesh_jfb1i")
 
 [editable path="WalkFloor/S_rotate_camera"]
-[editable path="Player_Character"]
 [editable path="Danger_Area"]
 [editable path="S_Set_Spawn"]
 [editable path="DashFloor/S_rotate_camera"]

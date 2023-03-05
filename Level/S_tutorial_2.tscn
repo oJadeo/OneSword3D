@@ -8,6 +8,9 @@
 
 [node name="S_tutorial" parent="." instance=ExtResource("1_unxbw")]
 
+[node name="Camera3d" parent="S_tutorial/Player_Character" index="1"]
+projection = 1
+
 [node name="AnimationTree" parent="S_tutorial/Player_Character" index="4"]
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_v3lhc")
 
@@ -15,5 +18,12 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_v3lhc")
 [editable path="S_tutorial/WalkFloor/S_rotate_camera"]
 [editable path="S_tutorial/Player_Character"]
 [editable path="S_tutorial/Danger_Area"]
+[editable path="S_tutorial/S_Set_Spawn"]
 [editable path="S_tutorial/DashFloor/S_rotate_camera"]
+[editable path="S_tutorial/S_Set_Spawn2"]
+[editable path="S_tutorial/S_Set_Spawn3"]
 [editable path="S_tutorial/JumpDashFloor1/S_rotate_camera"]
+[editable path="S_tutorial/S_Set_Spawn4"]
+[editable path="S_tutorial/S_Set_Spawn5"]
+[editable path="S_tutorial/S_Set_Spawn6"]
+[editable path="S_tutorial/S_Set_Spawn7"]
