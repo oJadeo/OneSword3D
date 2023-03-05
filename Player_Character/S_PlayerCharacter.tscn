@@ -2164,7 +2164,7 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_iaphv")
 blend_point_2/pos = Vector2(1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_153g8")
 blend_point_3/pos = Vector2(-1, 0)
-blend_mode = 1
+blend_mode = 2
 sync = true
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hyyha"]
@@ -2338,7 +2338,6 @@ shape = SubResource("CapsuleShape3D_xc8no")
 
 [node name="Camera3d" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 2, 2)
-projection = 1
 current = true
 size = 3.0
 

@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgwyiwbgx7iyb"]
+[gd_scene load_steps=12 format=3 uid="uid://dgwyiwbgx7iyb"]
 
 [ext_resource type="Script" path="res://Enemy/MortarEnemy/GD_MortarEnemy.gd" id="1_f2w7y"]
-[ext_resource type="Texture2D" uid="uid://cks8oysmj8yuj" path="res://Enemy/MortarEnemy/Enemy-03.png" id="2_51ca7"]
+[ext_resource type="Texture2D" uid="uid://va72w2qcgl45" path="res://Enemy/MortarEnemy/Enemy-03.png" id="2_51ca7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7clb8"]
 radius = 3.0
@@ -10,15 +10,129 @@ radius = 3.0
 radius = 0.165602
 height = 0.9724
 
+[sub_resource type="Animation" id="Animation_yiyvg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3d:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wr2hy"]
+resource_name = "attack"
+length = 0.500004
+loop_mode = 1
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3d:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.375),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"attack_finish"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_vq30h"]
+resource_name = "idle"
+length = 0.500004
+loop_mode = 1
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3d:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ighc2"]
+resource_name = "reload"
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3d:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.291667, 0.458333, 0.583333, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3), Vector2i(4, 3), Vector2i(5, 3), Vector2i(6, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_g3wd0"]
+resource_name = "reload loop"
+length = 0.500004
+loop_mode = 1
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3d:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4dqaa"]
+_data = {
+"RESET": SubResource("Animation_yiyvg"),
+"attack": SubResource("Animation_wr2hy"),
+"idle": SubResource("Animation_vq30h"),
+"reload": SubResource("Animation_ighc2"),
+"reload loop": SubResource("Animation_g3wd0")
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m5ql6"]
+radius = 0.1
+height = 0.4
+
 [node name="MortarEnemy" type="CharacterBody3D" groups=["Mortar"]]
 script = ExtResource("1_f2w7y")
 
 [node name="Sprite3d" type="Sprite3D" parent="."]
+modulate = Color(0.784314, 0.784314, 0.784314, 1)
 billboard = 1
 double_sided = false
-no_depth_test = true
 texture_filter = 0
 texture = ExtResource("2_51ca7")
+hframes = 7
+vframes = 4
 
 [node name="PlayerDetection" type="Area3D" parent="."]
 collision_mask = 2
@@ -30,13 +144,33 @@ shape = SubResource("SphereShape3D_7clb8")
 transform = Transform3D(-0.000898227, -0.234998, 0, 0.234998, -0.000898227, 0, 0, 0, 0.235, 0, -0.148184, 0)
 shape = SubResource("CapsuleShape3D_k6ee0")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4dqaa")
+}
+
+[node name="HurtBox" type="Area3D" parent="."]
+collision_layer = 128
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox"]
+shape = SubResource("CapsuleShape3D_m5ql6")
+
 [node name="AttackTimer" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.5
+
+[node name="ReloadLoopTimer" type="Timer" parent="."]
+wait_time = 4.0
 
 [node name="ReloadTimer" type="Timer" parent="."]
-wait_time = 5.0
+
+[node name="RedTimer" type="Timer" parent="."]
+wait_time = 0.25
 
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="ReloadLoopTimer" to="." method="_on_reload_loop_timer_timeout"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
+[connection signal="timeout" from="RedTimer" to="." method="_on_red_timer_timeout"]

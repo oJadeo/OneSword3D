@@ -99,7 +99,7 @@ shadow_enabled = true
 directional_shadow_mode = 0
 
 [node name="Player_Character" parent="." instance=ExtResource("1_ilarg")]
-transform = Transform3D(0.999999, 0.000802765, -0.0010807, -0.000800022, 0.999996, 0.00252643, 0.00108273, -0.00252556, 0.999996, 0.000913071, 0.5, 1.09382)
+transform = Transform3D(0.999999, 0.000802765, -0.0010807, -0.000800022, 0.999996, 0.00252643, 0.00108273, -0.00252556, 0.999996, 0.000913071, 0.804965, 1.09382)
 collision_layer = 3
 
 [node name="S_setSpawn" parent="." instance=ExtResource("2_qgcky")]
