@@ -2338,6 +2338,7 @@ shape = SubResource("CapsuleShape3D_xc8no")
 
 [node name="Camera3d" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 2, 2)
+projection = 1
 current = true
 size = 3.0
 
@@ -2411,7 +2412,7 @@ disabled = true
 
 [node name="HurtBox" type="Area3D" parent="."]
 collision_layer = 16
-collision_mask = 64
+collision_mask = 576
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="HurtBox"]
 shape = SubResource("CapsuleShape3D_r3dmx")

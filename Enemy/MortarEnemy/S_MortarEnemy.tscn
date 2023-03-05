@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dgwyiwbgx7iyb"]
 
 [ext_resource type="Script" path="res://Enemy/MortarEnemy/GD_MortarEnemy.gd" id="1_f2w7y"]
-[ext_resource type="Texture2D" uid="uid://cm5d48x8k1see" path="res://Enemy/MortarEnemy/Enemy_02_2.png" id="1_ofocg"]
+[ext_resource type="Texture2D" uid="uid://cks8oysmj8yuj" path="res://Enemy/MortarEnemy/Enemy-03.png" id="2_51ca7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7clb8"]
 radius = 3.0
@@ -10,18 +10,15 @@ radius = 3.0
 radius = 0.165602
 height = 0.9724
 
-[node name="MortarEnemy" type="CharacterBody3D"]
+[node name="MortarEnemy" type="CharacterBody3D" groups=["Mortar"]]
 script = ExtResource("1_f2w7y")
 
 [node name="Sprite3d" type="Sprite3D" parent="."]
-modulate = Color(0, 0, 0, 1)
 billboard = 1
 double_sided = false
 no_depth_test = true
 texture_filter = 0
-texture = ExtResource("1_ofocg")
-hframes = 3
-vframes = 12
+texture = ExtResource("2_51ca7")
 
 [node name="PlayerDetection" type="Area3D" parent="."]
 collision_mask = 2

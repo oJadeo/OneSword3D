@@ -73,6 +73,7 @@ func spawn_bullet():
 	add_child(new_bullet)
 	new_bullet.init(bulletDirection_x,bulletDirection_z,0,0,2)
 
+
 func _on_player_detection_body_entered(body):
 	if body.name == "Player_Character":
 		player = body
