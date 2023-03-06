@@ -363,3 +363,5 @@ func respawn():
 func _on_iframe_timer_timeout():
 	iFrame = false
 	
+func set_draw_flag(draw):
+	$Sprite3d.set_draw_flag(3,draw)

@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xc8no"]
 radius = 0.07
-height = 0.5
+height = 0.4
 
 [sub_resource type="Animation" id="Animation_lfwpn"]
 length = 0.001
@@ -2327,7 +2327,7 @@ size = Vector3(0.4, 0.1, 0.4)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r3dmx"]
 radius = 0.07
-height = 0.5
+height = 0.4
 
 [node name="Player_Character" type="CharacterBody3D"]
 collision_layer = 2
@@ -2337,7 +2337,8 @@ script = ExtResource("1_key0r")
 shape = SubResource("CapsuleShape3D_xc8no")
 
 [node name="Camera3d" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 2, 2)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 5, 5)
+projection = 1
 current = true
 size = 3.0
 
