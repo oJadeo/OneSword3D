@@ -13,5 +13,6 @@ func _on_transition_screen_transitioned():
 		currentScene.add_child(S_Test_Level.instantiate())
 
 
-func _on_area_3d_2_load_new_area():
+
+func _on_tutorial_load_area_1_load_new_area():
 	transitionScreen.transition()
