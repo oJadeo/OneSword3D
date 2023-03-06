@@ -13,14 +13,14 @@ func _ready():
 
 func _physics_process(delta):
 	if not is_on_floor():
-		velocity.y -= gravity * 1000
+		velocity.y -= gravity * 10
 	move_and_slide()
 	
 func init(position):
 	animationPlayer.play("warn")
 	global_position.x = position.x
 	global_position.z = position.z
-	global_position.y = position.y - 0.25
+	global_position.y = position.y -.25
 	bombHitbox.disabled = true
 	boomSprite.set_visible(false)
 

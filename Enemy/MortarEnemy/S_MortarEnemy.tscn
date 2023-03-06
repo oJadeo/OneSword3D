@@ -123,6 +123,7 @@ radius = 0.1
 height = 0.4
 
 [node name="MortarEnemy" type="CharacterBody3D" groups=["Mortar"]]
+collision_layer = 4
 script = ExtResource("1_f2w7y")
 
 [node name="Sprite3d" type="Sprite3D" parent="."]
