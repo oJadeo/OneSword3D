@@ -4,11 +4,11 @@
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_7t6u1"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oxyus"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cqx5m"]
 albedo_color = Color(0, 0, 1, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_78qe3"]
-material = SubResource("StandardMaterial3D_oxyus")
+material = SubResource("StandardMaterial3D_cqx5m")
 
 [node name="S_Set_Spawn" type="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251, 0)
