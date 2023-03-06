@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
-@onready var bombHitbox = $Area3D/Hitbox
+@onready var bombHitbox = $Hitbox/Hitbox
 @onready var animationPlayer = $AnimationPlayer
-@onready var boomSprite = $Area3D/Hitbox/boom
+@onready var boomSprite = $Hitbox/Hitbox/boom
 @onready var warnSprite = $warnSprite
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
