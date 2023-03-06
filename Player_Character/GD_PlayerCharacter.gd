@@ -78,14 +78,12 @@ func handle_move(delta):
 
 	handle_dash()
 
-	var speed = DASH_SPEED if is_dashing else SPEED
-	
 	if direction:
 		velocity.x = direction.dot(cam_dir[0])
 		velocity.z = direction.dot(cam_dir[1])
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
-		velocity.z = move_toward(velocity.z, 0, speed)
+		velocity.x = move_toward(velocity.x, 0, 1)
+		velocity.z = move_toward(velocity.z, 0, 1)
 
 	if enable_wallrun:
 		handle_wall_run(delta)
@@ -119,15 +117,21 @@ func handle_move(delta):
 		await get_tree().create_timer(0.05).timeout
 		knockback = false
 
-	if not deflecting or is_dashing  :
-		velocity.x *= speed 
-		velocity.z *= speed 
-	elif deflecting:
+	if deflecting:
 		velocity.x *= BLOCK_SPEED 
 		velocity.z *= BLOCK_SPEED 
 	if slaming:
 		velocity.x = 0
 		velocity.z = 0
+		
+	if velocity.x + velocity.z >=5:
+		print("Error Speed Limit")
+		velocity.x /= 5
+		velocity.z /= 5
+	
+	if is_dashing:
+		velocity.x *= DASH_SPEED
+		velocity.z *= DASH_SPEED
 	move_and_slide()
 		
 # Dash variable
@@ -185,20 +189,21 @@ func handle_wall_run(delta):
 	if not input_frame["wall_run"]:
 		is_wall_running = false
 	if is_wall_running and input_frame['direction'] != Vector2.ZERO:
-		is_wall['left'] = check_wall(Vector3(-WALL_CHECK_RANGE,0.2,0))
-		is_wall['right'] = check_wall(Vector3(WALL_CHECK_RANGE,0.2,0))
-		is_wall['up'] = check_wall(Vector3(0,0.2,-WALL_CHECK_RANGE))
+		is_wall['left'] = check_wall(Vector3(-WALL_CHECK_RANGE,0,0))
+		is_wall['right'] = check_wall(Vector3(WALL_CHECK_RANGE,0,0))
+		is_wall['up'] = check_wall(Vector3(0,0,-WALL_CHECK_RANGE))
 		selected_wall = select_wall()
 		if selected_wall:
 			velocity.y -= 0.5 * delta
 			var wall_normal = selected_wall[2]
 			var move_dir = wall_normal.cross(Vector3(0,1,0))
-			if move_dir.x != 0:
+			if abs(move_dir.x) > 0.1 :
 				velocity.z = 0
 				velocity.x = 2 if velocity.x>0 else -2
-			if move_dir.z != 0:
+			if abs(move_dir.z) > 0.1:
 				velocity.x = 0
 				velocity.z = 2 if velocity.z>0 else -2
+			print(move_dir,":",velocity)
 			velocity -= wall_normal
 		else:
 			is_wall_running = false
@@ -358,3 +363,5 @@ func respawn():
 func _on_iframe_timer_timeout():
 	iFrame = false
 	
+func set_draw_flag(draw):
+	$Sprite3d.set_draw_flag(3,draw)
