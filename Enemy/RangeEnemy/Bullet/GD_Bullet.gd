@@ -14,8 +14,8 @@ func _ready():
 	initialTimer.start()
 func _physics_process(delta):
 	#position+= direction[move_dir] * speed
-	position.x += direction.x * speed
-	position.z += direction.y * speed
+	global_position.x += direction.x * speed
+	global_position.z += direction.y * speed
 	#handle_height()
 	pass
 
