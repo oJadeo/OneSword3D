@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="3_kms13"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxrbg"]
+uv1_offset = Vector3(0.5, 0, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_xfebi"]
 material = SubResource("StandardMaterial3D_mxrbg")
@@ -596,6 +597,8 @@ directional_shadow_mode = 0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2lxyd")
+
+[node name="GridMap" type="GridMap" parent="."]
 
 [editable path="NavigationRegion3D/Wallrun/StaticBody3D16/S_rotate_camera"]
 [editable path="NavigationRegion3D/Danger_Area"]
