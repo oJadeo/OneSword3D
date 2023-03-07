@@ -2419,8 +2419,10 @@ shape = SubResource("CapsuleShape3D_r3dmx")
 [node name="RechargeDashTimer" type="Timer" parent="."]
 
 [node name="RechargeBlockTimer" type="Timer" parent="."]
+wait_time = 1.75
 
 [node name="RegenTimer" type="Timer" parent="."]
+wait_time = 0.1
 
 [node name="IframeTimer" type="Timer" parent="."]
 wait_time = 0.5
