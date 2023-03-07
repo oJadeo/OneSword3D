@@ -11,6 +11,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0wvnu"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_dfef0"]
+lightmap_size_hint = Vector2i(54, 36)
 material = SubResource("StandardMaterial3D_0wvnu")
 size = Vector3(5, 0.5, 5)
 

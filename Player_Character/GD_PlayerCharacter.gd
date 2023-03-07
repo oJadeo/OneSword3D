@@ -166,7 +166,6 @@ func _on_recharge_dash_timer_timeout():
 			rechargeDashTimer.start()
 	
 # Wallrun variable
-var wall_normal
 var is_wall_runable = true
 var is_wall_running = false
 var is_wall= {'left':null,'right':null,'up':null}
@@ -174,13 +173,16 @@ var selected_wall
 var wall_run_jumping = [false,Vector3.ZERO]
 const WALL_CHECK_RANGE = 1
 @onready var ray = $RayCast3D
-@onready var ray_target = $RayCast3D/ray_target
 @onready var wall_run_timer = $WallrunTimer
 @onready var wall_run_jump_Timer = $WallRunJumpTimer
 @onready var shadow_pivot = $ShadowPivot
 func handle_wall_run(delta):
 	shadow_pivot.set_rotation(Vector3(0,0,0))
-	if Input.is_action_just_pressed("WallRun") and input_frame['direction'] != Vector2.ZERO and is_wall_runable:
+	is_wall['left'] = check_wall(Vector3(-WALL_CHECK_RANGE,0,0))
+	is_wall['right'] = check_wall(Vector3(WALL_CHECK_RANGE,0,0))
+	is_wall['up'] = check_wall(Vector3(0,0,-WALL_CHECK_RANGE))
+	var has_wall = select_wall()
+	if Input.is_action_just_pressed("WallRun") and input_frame['direction'] != Vector2.ZERO and is_wall_runable and has_wall:
 		is_wall_running = true
 		velocity.y = 0.5
 		wall_run_jumping = [false,Vector3.ZERO]
@@ -203,7 +205,6 @@ func handle_wall_run(delta):
 			if abs(move_dir.z) > 0.1:
 				velocity.x = 0
 				velocity.z = 2 if velocity.z>0 else -2
-			print(move_dir,":",velocity)
 			velocity -= wall_normal
 		else:
 			is_wall_running = false
@@ -211,7 +212,7 @@ func check_wall(dir):
 	ray.set_target_position(dir)
 	ray.force_raycast_update()
 	var collided = ray.get_collider()
-	if collided is StaticBody3D:
+	if collided is StaticBody3D or collided is GridMap:
 		return [collided,(ray.get_collision_point()-get_global_position()).length(),ray.get_collision_normal()]
 	return null
 func select_wall():
@@ -226,11 +227,12 @@ func select_wall():
 	if is_wall['up']:
 		if result:
 			result = is_wall['up'] if is_wall['up'][1] < result[1] else result
-			if result == is_wall['up']:
+			if result == is_wall['up'] and is_wall_running:
 				shadow_pivot.set_rotation(Vector3(deg_to_rad(30),0,0))
 		else:
 			result = is_wall['up']
-			shadow_pivot.set_rotation(Vector3(deg_to_rad(30),0,0))
+			if is_wall_running:
+				shadow_pivot.set_rotation(Vector3(deg_to_rad(30),0,0))
 	return result
 func _on_wallrun_timer_timeout():
 	is_wall_running = false
