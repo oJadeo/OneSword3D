@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://col76xvpahd84"]
+
+[ext_resource type="MeshLibrary" uid="uid://cd2soyvt78lhq" path="res://Level/Tiles_Set/Ml_test_mesh_lib.tres" id="1_ro2tn"]
+[ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="2_gj8qt"]
+
+[sub_resource type="Environment" id="Environment_qi4dj"]
+background_mode = 1
+background_color = Color(0.317647, 0.541176, 0.713726, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+ambient_light_sky_contribution = 0.17
+tonemap_mode = 2
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_i83qw"]
+
+[node name="S_test_grid" type="Node3D"]
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1, 3.09086e-08, -3.09086e-08, -3.32541, 2.1958, 0)
+light_energy = 0.2
+shadow_enabled = true
+directional_shadow_mode = 0
+
+[node name="DirectionalLight3d2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -3.32541, 2.1958, 0)
+light_energy = 0.2
+shadow_enabled = true
+directional_shadow_mode = 0
+
+[node name="DirectionalLight3d3" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, -3.32541, 2.1958, 16)
+light_energy = 0.2
+shadow_enabled = true
+directional_shadow_mode = 0
+
+[node name="DirectionalLight3d4" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-1, 6.18172e-08, -6.18172e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, -3.32541, 2.1958, 16)
+light_energy = 0.2
+shadow_enabled = true
+directional_shadow_mode = 0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qi4dj")
+
+[node name="Player_Character" parent="." instance=ExtResource("2_gj8qt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.927861, 0.662999, 0)
+
+[node name="playerSpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.85271, 0.54779, 0.350131)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_i83qw")
+
+[node name="GridMap" type="GridMap" parent="NavigationRegion3D"]
+mesh_library = ExtResource("1_ro2tn")
+cell_size = Vector3(0.25, 0.25, 0.25)
+data = {
+"cells": PackedInt32Array(0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 65534, 0, 9, 0, 393216, 9, 1, 393216, 10, 1, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 12, 1, 393216, 11, 1, 393216, 13, 1, 393216, 14, 0, 393216, 14, 65535, 393216, 14, 65534, 393216, 13, 65534, 393216, 12, 65534, 393216, 12, 65535, 0, 13, 65535, 0, 11, 65535, 0, 11, 65534, 393216, 131082, 65534, 262144, 131081, 65534, 262144, 131078, 65534, 262144, 131077, 65534, 262144, 131076, 65534, 262144, 131080, 65534, 262144, 131079, 65534, 262144, 131101, 6, 1, 196612, 65534, 0, 196613, 65534, 0, 196614, 65534, 0, 196615, 65534, 0, 196616, 65534, 0, 196617, 65534, 0, 196618, 65534, 0, 65546, 65534, 0, 65545, 65534, 0, 65544, 65534, 0, 65543, 65534, 0, 65542, 65534, 0, 65541, 65534, 0, 65540, 65534, 0, 65535, 65534, 0, 65535, 65535, 0, 65535, 0, 0, 65535, 1, 0, 10, 65533, 0, 9, 65533, 0, 0, 65535, 0, 1, 65535, 0, 1, 65534, 0, 2, 65535, 0, 2, 0, 0, 2, 1, 0, 1, 0, 0, 3, 1, 0, 3, 0, 0, 3, 65535, 0, 3, 65534, 0, 2, 65534, 0)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
