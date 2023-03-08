@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nwml2qbaciu4"
-path="res://.godot/imported/test1.png-e6d1c199ae66f718b8e8b5630332c772.ctex"
+uid="uid://dm3xqrctfblgx"
+path="res://.godot/imported/2_2.png-9748d7efc5fba6555f0b179aeb03f300.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level/Tiles_Set/test1.png"
-dest_files=["res://.godot/imported/test1.png-e6d1c199ae66f718b8e8b5630332c772.ctex"]
+source_file="res://Level/Tiles_Set/test_set/2_2.png"
+dest_files=["res://.godot/imported/2_2.png-9748d7efc5fba6555f0b179aeb03f300.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=0
