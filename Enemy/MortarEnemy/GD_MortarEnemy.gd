@@ -18,7 +18,10 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var animation = $AnimationPlayer
 @onready var health = 5
 @onready var sprite = $Sprite3d
+
+@export var mortarRange : int=3
 func _ready():
+	$PlayerDetection/CollisionShape3D.get_shape().set_radius(mortarRange)
 	animation.play("idle")
 	
 func _physics_process(delta):
