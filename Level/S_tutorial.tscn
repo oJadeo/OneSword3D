@@ -471,7 +471,7 @@ mesh = SubResource("PlaneMesh_jfb1i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.301, 1.45581, -28.2456)
 
 [node name="RangeDummy" parent="." instance=ExtResource("7_2olbv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 1.69, -28)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 1.65, -28)
 
 [editable path="WalkFloor/S_rotate_camera"]
 [editable path="Danger_Area"]
