@@ -14,6 +14,7 @@ func _physics_process(delta):
 	handle_input()
 	handle_move(delta)
 	handle_atk()
+	handle_block()
 	handle_animation()
 
 # input variable
@@ -44,12 +45,7 @@ func handle_input():
 	input_frame["just_jump"] = Input.is_action_just_pressed("Jump")
 	input_frame["dash"] = Input.is_action_pressed("Dash")
 	input_frame["wall_run"]  = Input.is_action_pressed("WallRun")
-	if Input.is_action_pressed("Deflect"):
-		deflecting = true
-	elif Input.is_action_just_released("Deflect"):
-		deflecting = false
-		on_deflect_animation_end()
-		
+
 	if input_frame["rotate_cw"]:
 		rotate(Vector3(0,1,0),deg_to_rad(-90))
 	if input_frame["rotate_ccw"]:
@@ -292,6 +288,12 @@ func on_deflect_animation_end():
 	perfect_deflect = false
 @onready var recharge_block_timer = $RechargeBlockTimer
 @onready var regen_timer = $RegenTimer
+func handle_block():
+	if Input.is_action_pressed("Deflect") and is_on_floor() and not is_dashing and not is_wall_running and not slaming:
+		deflecting = true
+	elif Input.is_action_just_released("Deflect"):
+		deflecting = false
+		on_deflect_animation_end()
 func regen_blockBar():
 	while is_regen and blockBar < MAX_BLOCK_BAR:
 		blockBar += 1
