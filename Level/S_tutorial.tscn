@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bauw8p53hdcvr"]
+[gd_scene load_steps=44 format=3 uid="uid://bauw8p53hdcvr"]
 
 [ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_22sqt"]
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="2_x0ik1"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b0yg8hhtv3vsc" path="res://Level/Tiles/Set_Spawn/S_setSpawn.tscn" id="4_s5ym2"]
 [ext_resource type="PackedScene" uid="uid://c44ydipygu3hq" path="res://Enemy/Dummy/MeleeDummy/S_MeleeDummy.tscn" id="5_xx5vb"]
 [ext_resource type="PackedScene" uid="uid://bjd6kko4hof" path="res://Level/Tiles/Load_Area/S_Load_Area.tscn" id="6_nupbw"]
+[ext_resource type="PackedScene" uid="uid://bgpw7dcb666m3" path="res://Enemy/Dummy/Rangedummy/S_RangeDummy.tscn" id="7_2olbv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_l2faq"]
 
@@ -171,10 +172,10 @@ angle = 90
 shape = SubResource("BoxShape3D_c0fhi")
 
 [node name="playerSpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0.448, -0.813)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.6725, 0.448, -27.9531)
 
 [node name="Player_Character" parent="." instance=ExtResource("1_22sqt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005, 0.713779, -0.813)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.9984, 2.78201, -28.2082)
 enable_wallrun = false
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
@@ -468,6 +469,9 @@ mesh = SubResource("PlaneMesh_jfb1i")
 
 [node name="TutorialLoadArea#1" parent="." instance=ExtResource("6_nupbw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.301, 1.45581, -28.2456)
+
+[node name="RangeDummy" parent="." instance=ExtResource("7_2olbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 1.65, -28)
 
 [editable path="WalkFloor/S_rotate_camera"]
 [editable path="Danger_Area"]
