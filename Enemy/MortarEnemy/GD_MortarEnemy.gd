@@ -52,7 +52,7 @@ func attack_finish():
 	if ammo > 0 and not reloading and player != null and player.is_on_floor():
 		new_ball = ball.instantiate()
 		new_ball.init(player,global_position)
-		get_owner().add_child(new_ball)
+		get_parent_node_3d().add_child(new_ball)
 		#new_bomb = bomb.instantiate()
 		#get_owner().add_child(new_bomb)
 		#new_bomb.init(player.global_position,global_position)

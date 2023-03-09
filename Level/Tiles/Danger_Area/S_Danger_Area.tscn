@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Level/Tiles/Danger_Area/GD_Danger_Area.gd" id="1_dsxk2"]
 
 [node name="Danger_Area" type="Area3D"]
-collision_mask = 2
+collision_mask = 3
 script = ExtResource("1_dsxk2")
 
 [node name="triggerCollision" type="CollisionShape3D" parent="."]

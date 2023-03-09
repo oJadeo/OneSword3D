@@ -7,6 +7,8 @@
 radius = 2.5
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kxam1"]
+radius = 0.3
+height = 1.25
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ri6bj"]
 animation = &"Attack/range_enemy_attack_down_right"
@@ -1448,8 +1450,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_38lqq"]
-radius = 0.097
-height = 0.333
+radius = 0.068
+height = 0.3
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_pto3n"]
 radius = 2.0
@@ -1478,7 +1480,7 @@ collision_mask = 2
 shape = SubResource("SphereShape3D_5h51k")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.235, 0, 0, 0, 0.235, 0, 0, 0, 0.235, 0, 0, 0)
+transform = Transform3D(0.235, 0, 0, 0, 0.235, 0, 0, 0, 0.235, 0, -0.0278984, 0)
 shape = SubResource("CapsuleShape3D_kxam1")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
@@ -1505,6 +1507,7 @@ collision_layer = 128
 collision_mask = 520
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0378214, 0)
 shape = SubResource("CapsuleShape3D_38lqq")
 
 [node name="AttackRange" type="Area3D" parent="."]
