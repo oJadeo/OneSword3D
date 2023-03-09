@@ -18,7 +18,7 @@ func _physics_process(delta):
 		position.y += .1
 	
 func init(p,position):
-	global_position = position
+	set_global_position(position)
 	player = p
 
 func _on_timer_timeout():
