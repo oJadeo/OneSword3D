@@ -351,7 +351,7 @@ func handle_animation():
 			animationState.travel("Wall_run_left")
 		else:
 			animationState.travel("Wall_run_right")
-	if deflecting and not is_dashing:
+	if deflecting and not is_dashing and is_on_floor():
 		animationState.travel("Block")
 	if is_dashing:
 		animationState.travel("Dash")
