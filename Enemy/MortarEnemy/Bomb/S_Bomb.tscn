@@ -24,7 +24,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Area3D/Hitbox/boom:frame_coords")
+tracks/1/path = NodePath("../Hitbox/Hitbox/boom:frame_coords")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -32,6 +32,37 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lmhbg"]
+resource_name = "boom"
+length = 0.250004
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Hitbox/Hitbox/boom:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0416667, 0.0833333, 0.125, 0.166667, 0.208333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"bomb_fin"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_6nqcf"]
@@ -65,37 +96,6 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_lmhbg"]
-resource_name = "boom"
-length = 0.250004
-step = 0.0416667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Area3D/Hitbox/boom:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0416667, 0.0833333, 0.125, 0.166667, 0.208333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("..")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.25),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"bomb_fin"
-}]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8d8an"]
 _data = {
 "RESET": SubResource("Animation_wcxkj"),
@@ -124,14 +124,14 @@ texture_filter = 0
 texture = ExtResource("2_wbe6x")
 hframes = 5
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Hitbox" type="Area3D" parent="."]
 collision_layer = 64
 collision_mask = 16
 
-[node name="Hitbox" type="CollisionShape3D" parent="Area3D"]
+[node name="Hitbox" type="CollisionShape3D" parent="Hitbox"]
 shape = SubResource("SphereShape3D_aw33r")
 
-[node name="boom" type="Sprite3D" parent="Area3D/Hitbox"]
+[node name="boom" type="Sprite3D" parent="Hitbox/Hitbox"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 billboard = 1
 texture_filter = 0

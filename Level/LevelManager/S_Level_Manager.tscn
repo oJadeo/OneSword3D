@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmos11qvx4oxm"]
+
+[ext_resource type="PackedScene" uid="uid://58c6txyswrfv" path="res://Level/LevelManager/TransitionScreen/S_Transition_Screen.tscn" id="1_q0qtk"]
+[ext_resource type="Script" path="res://Level/LevelManager/GD_Level_Manager.gd" id="1_thsif"]
+[ext_resource type="PackedScene" uid="uid://sgh0h744cqyy" path="res://Level/Level_Scene/S_Level_3_A.tscn" id="3_7xo7n"]
+
+[node name="LevelManager" type="Node3D"]
+script = ExtResource("1_thsif")
+
+[node name="TransitionScreen" parent="." instance=ExtResource("1_q0qtk")]
+
+[node name="currentScene" type="Node3D" parent="."]
+
+[node name="S_level_3_A" parent="currentScene" instance=ExtResource("3_7xo7n")]
+
+[node name="CollisionShape3D" parent="currentScene/S_level_3_A/SpawnAfterDeath2/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56696, 0)
+
+[connection signal="transitioned" from="TransitionScreen" to="." method="_on_transition_screen_transitioned"]
+[connection signal="loadNewArea" from="currentScene/S_level_3_A/SpawnAfterDeath2/Area3D" to="." method="_on_area_3d_load_new_area"]
+
+[editable path="currentScene/S_level_3_A"]
+[editable path="currentScene/S_level_3_A/Danger_Area"]
+[editable path="currentScene/S_level_3_A/S_rotate_camera2"]
+[editable path="currentScene/S_level_3_A/S_Set_Spawn"]
+[editable path="currentScene/S_level_3_A/S_rotate_camera"]
+[editable path="currentScene/S_level_3_A/S_depth_bxo"]
+[editable path="currentScene/S_level_3_A/Area1/NavigationRegion3D/MeshInstance3D2/S_depth_bxo2"]
+[editable path="currentScene/S_level_3_A/Area1/NavigationRegion3D/MeshInstance3D4/S_depth_bxo"]
+[editable path="currentScene/S_level_3_A/Area1/NavigationRegion3D/MeshInstance3D5/S_depth_bxo3"]
+[editable path="currentScene/S_level_3_A/Area1/NavigationRegion3D/MeshInstance3D10/S_depth_bxo2"]
+[editable path="currentScene/S_level_3_A/Area1/NavigationRegion3D/MeshInstance3D6/S_depth_bxo"]
+[editable path="currentScene/S_level_3_A/Area1/NavigationRegion3D/MeshInstance3D7/S_depth_bxo2"]
+[editable path="currentScene/S_level_3_A/Area1/NavigationRegion3D/MeshInstance3D8/S_depth_bxo"]
+[editable path="currentScene/S_level_3_A/Area1/NavigationRegion3D/MeshInstance3D9/S_depth_bxo2"]
+[editable path="currentScene/S_level_3_A/Area1/Wall4/S_depth_bxo"]
+[editable path="currentScene/S_level_3_A/S_rotate_camera3"]
+[editable path="currentScene/S_level_3_A/Area2/NavigationRegion3D/JumpBox"]
+[editable path="currentScene/S_level_3_A/Area2/NavigationRegion3D/JumpBox2"]
+[editable path="currentScene/S_level_3_A/Area2/NavigationRegion3D/JumpBox3"]
+[editable path="currentScene/S_level_3_A/SpawnAfterDeath2/Area3D"]

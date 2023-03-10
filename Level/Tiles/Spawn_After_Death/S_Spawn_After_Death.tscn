@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://k7gmuhpof4p2"]
+
+[ext_resource type="Script" path="res://Level/Tiles/Spawn_After_Death/GD_Spawn_After_Death.gd" id="1_vt4ms"]
+
+[node name="SpawnAfterDeath" type="Node3D"]
+script = ExtResource("1_vt4ms")

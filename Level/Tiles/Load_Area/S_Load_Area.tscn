@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjd6kko4hof"]
+
+[ext_resource type="Script" path="res://Level/Tiles/Load_Area/GD_Load_Area.gd" id="1_nruhq"]
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_g5pt2"]
+
+[node name="Area3D" type="Area3D"]
+collision_mask = 2
+script = ExtResource("1_nruhq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("HeightMapShape3D_g5pt2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

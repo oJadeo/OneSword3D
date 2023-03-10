@@ -10,7 +10,7 @@ func _rotate_camera_on_body_entered(body):
 			if delay:
 				await get_tree().create_timer(0.25).timeout
 			#body.rotate(Vector3(0,1,0),deg_to_rad(angle))
-			body.set_rotation(Vector3(0,deg_to_rad(angle),0))
+			body.set_target_rotation(deg_to_rad(angle))
 			get_tree().call_group("Enemy","set_rotation",Vector3(0,deg_to_rad(angle),0))
 
 

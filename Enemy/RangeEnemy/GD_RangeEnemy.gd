@@ -54,7 +54,9 @@ func _physics_process(delta):
 				animationTree.set("parameters/Attack/blend_position",direction)
 			if danger or finding_new_pos:
 				if danger :
-					velocity  = -((player.global_position - global_position).normalized() * fleeSpeed)
+					nav_agent.set_target_position(global_position-((player.global_position - global_position).normalized()))
+					if nav_agent.is_target_reachable():
+						velocity  = -((player.global_position - global_position).normalized() * fleeSpeed)
 				if finding_new_pos :
 					velocity.x = find_new_pos_direction.x
 					velocity.z = find_new_pos_direction.z
@@ -68,8 +70,8 @@ func _physics_process(delta):
 	
 func spawn_bullet():
 	new_bullet = bullet.instantiate()
-	var bulletDirection_x = player.global_position.x - global_position.x
-	var bulletDirection_z = player.global_position.z - global_position.z
+	var bulletDirection_x = player.get_global_position().x - get_global_position().x
+	var bulletDirection_z = player.get_global_position().z - get_global_position().z
 	add_child(new_bullet)
 	new_bullet.init(bulletDirection_x,bulletDirection_z,0,0,2)
 

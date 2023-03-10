@@ -29,6 +29,7 @@ func _process(delta):
 		activate = true
 
 func trigger():
+	print("yay")
 	var node = get_node(activater)
 	if node and node.has_method('activate'):
 		node.activate()
@@ -45,3 +46,7 @@ func respawn():
 			new_enemy.set_position(pos)
 	
 	activate = false
+	if activater:
+		var node = get_node(activater)
+		if node and node.has_method('deactivate'):
+			node.deactivate()
