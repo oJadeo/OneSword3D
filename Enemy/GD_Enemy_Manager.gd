@@ -46,6 +46,7 @@ func respawn():
 			new_enemy.set_position(pos)
 	
 	activate = false
-	var node = get_node(activater)
-	if node and node.has_method('deactivate'):
-		node.deactivate()
+	if activater:
+		var node = get_node(activater)
+		if node and node.has_method('deactivate'):
+			node.deactivate()
