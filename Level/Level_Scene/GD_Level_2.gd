@@ -9,8 +9,3 @@ func _ready():
 # Called every frame. 'deltamove_and_slide()' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	get_tree().call_group("Enemy","update_target_location",player.get_global_position())
-
-
-
-func _on_area_3d_load_new_area():
-	pass # Replace with function body.

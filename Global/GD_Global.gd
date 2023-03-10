@@ -1,7 +1,9 @@
 extends Node
 
-var y_deg
+signal InputType_changed
 
+var y_deg
+var input_mkb = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -10,6 +12,16 @@ func _ready():
 func _process(delta):
 	pass
 	
+func _input(event):
+	if (event is InputEventMouseButton or event is InputEventKey) and not input_mkb :
+		input_mkb = true
+		emit_signal("InputType_changed",input_mkb)
+		print("Mouse Keyboard")
+	if (event is InputEventJoypadButton or event is InputEventJoypadMotion) and input_mkb:
+		input_mkb = false
+		emit_signal("InputType_changed",input_mkb)
+		print("Controller")
+
 func cal_sprite_direction(dir):
 	if abs(y_deg - 0) < 0.1:
 		return Vector2(-dir.x,dir.z)
@@ -19,7 +31,7 @@ func cal_sprite_direction(dir):
 		return Vector2(dir.x,-dir.z)
 	elif abs(y_deg + 90) < 0.1:
 		return Vector2(-dir.z,-dir.x)
-	print("Error Camera Rotation from global",y_deg)
+	return Vector2(0,0)
 
 func cal_camera_direction(_y_deg):
 	y_deg = _y_deg
