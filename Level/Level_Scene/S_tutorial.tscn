@@ -1,0 +1,482 @@
+[gd_scene load_steps=43 format=3 uid="uid://bauw8p53hdcvr"]
+
+[ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_22sqt"]
+[ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="2_x0ik1"]
+[ext_resource type="PackedScene" uid="uid://wycb6glgigjg" path="res://Level/Tiles/Rotate_Camera/S_rotate_camera.tscn" id="3_v204k"]
+[ext_resource type="PackedScene" uid="uid://b0yg8hhtv3vsc" path="res://Level/Tiles/Set_Spawn/S_setSpawn.tscn" id="4_s5ym2"]
+[ext_resource type="PackedScene" uid="uid://c44ydipygu3hq" path="res://Enemy/Dummy/MeleeDummy/S_MeleeDummy.tscn" id="5_xx5vb"]
+[ext_resource type="PackedScene" uid="uid://bjd6kko4hof" path="res://Level/Tiles/Load_Area/S_Load_Area.tscn" id="6_nupbw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_l2faq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f0xh6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6gebk"]
+lightmap_size_hint = Vector2i(54, 36)
+material = SubResource("StandardMaterial3D_f0xh6")
+size = Vector3(5, 0.5, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5ix41"]
+size = Vector3(5, 0.5, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c0fhi"]
+size = Vector3(5, 1, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ms6be"]
+size = Vector3(68.0897, 0.314632, 92.677)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bgr7e"]
+lightmap_size_hint = Vector2i(54, 36)
+material = SubResource("StandardMaterial3D_f0xh6")
+size = Vector3(5, 0.5, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1lu34"]
+size = Vector3(5, 0.5, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s1fsn"]
+lightmap_size_hint = Vector2i(54, 36)
+material = SubResource("StandardMaterial3D_f0xh6")
+size = Vector3(2, 0.5, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lqi07"]
+size = Vector3(2, 0.5, 2)
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_ip0gw"]
+map_width = 5
+map_depth = 5
+map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cqx5m"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_osnuj"]
+material = SubResource("StandardMaterial3D_cqx5m")
+size = Vector2(8, 8)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rr0nj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hy4wf"]
+lightmap_size_hint = Vector2i(54, 36)
+material = SubResource("StandardMaterial3D_f0xh6")
+size = Vector3(7, 0.5, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n5t2n"]
+size = Vector3(7, 0.5, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wk8as"]
+size = Vector3(2, 1, 2)
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_his2v"]
+map_width = 5
+map_depth = 5
+map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xer5c"]
+material = SubResource("StandardMaterial3D_cqx5m")
+size = Vector2(8, 8)
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_oj3td"]
+map_width = 7
+map_depth = 5
+map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vtsbl"]
+material = SubResource("StandardMaterial3D_cqx5m")
+size = Vector2(12, 8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_t2g3c"]
+lightmap_size_hint = Vector2i(54, 36)
+material = SubResource("StandardMaterial3D_f0xh6")
+size = Vector3(2, 0.5, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w63bc"]
+size = Vector3(2, 0.5, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_encco"]
+size = Vector3(2, 1, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fm7kk"]
+lightmap_size_hint = Vector2i(54, 36)
+material = SubResource("StandardMaterial3D_f0xh6")
+size = Vector3(2, 0.5, 15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lwoiy"]
+size = Vector3(2, 0.5, 15)
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_1bo1h"]
+map_width = 5
+map_depth = 5
+map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vj3b6"]
+material = SubResource("StandardMaterial3D_cqx5m")
+size = Vector2(8, 8)
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_dp60y"]
+map_width = 5
+map_depth = 5
+map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ji35a"]
+material = SubResource("StandardMaterial3D_cqx5m")
+size = Vector2(8, 8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_utwdi"]
+lightmap_size_hint = Vector2i(54, 36)
+material = SubResource("StandardMaterial3D_f0xh6")
+size = Vector3(2, 0.5, 23)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bh5qi"]
+size = Vector3(2, 0.5, 23)
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_lt01u"]
+map_width = 5
+map_depth = 5
+map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lm6u0"]
+material = SubResource("StandardMaterial3D_cqx5m")
+size = Vector2(8, 8)
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_w3nt8"]
+map_width = 5
+map_depth = 5
+map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jfb1i"]
+material = SubResource("StandardMaterial3D_cqx5m")
+size = Vector2(8, 8)
+
+[node name="S_tutorial" type="Node3D"]
+
+[node name="WalkFloor" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00466037, 0.194322, -0.812584)
+physics_material_override = SubResource("PhysicsMaterial_l2faq")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="WalkFloor"]
+mesh = SubResource("BoxMesh_6gebk")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="WalkFloor"]
+shape = SubResource("BoxShape3D_5ix41")
+
+[node name="MovementTutorial" type="Label3D" parent="WalkFloor"]
+transform = Transform3D(1, 3.90799e-14, -3.90799e-14, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0.064458, 0.704176, -0.662104)
+text = "Press WASD to MOVE"
+
+[node name="S_rotate_camera" parent="WalkFloor" instance=ExtResource("3_v204k")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.00041604, 0.247678, -0.00466037)
+angle = 90
+
+[node name="CollisionShape3D" parent="WalkFloor/S_rotate_camera" index="0"]
+shape = SubResource("BoxShape3D_c0fhi")
+
+[node name="playerSpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0.448, -0.813)
+
+[node name="Player_Character" parent="." instance=ExtResource("1_22sqt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005, 0.713779, -0.813)
+enable_wallrun = false
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.936754, 0.349891, 0.00821962, -0.23383, 0.608208, 0.758556, 0.260412, -0.712503, 0.651556, 6.37917, 2.1958, -0.00355339)
+light_energy = 0.61
+shadow_enabled = true
+directional_shadow_mode = 0
+
+[node name="Danger_Area" parent="." instance=ExtResource("2_x0ik1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2391, -1.18546, -3.97562)
+
+[node name="triggerCollision" parent="Danger_Area" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6244, -0.218655, -15.5231)
+shape = SubResource("BoxShape3D_ms6be")
+
+[node name="JumpFloor1" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00466037, 0.194322, -5.81422)
+physics_material_override = SubResource("PhysicsMaterial_l2faq")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="JumpFloor1"]
+mesh = SubResource("BoxMesh_bgr7e")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="JumpFloor1"]
+shape = SubResource("BoxShape3D_1lu34")
+
+[node name="JumpingTutorial" type="Label3D" parent="JumpFloor1"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0.647235, -0.986288)
+text = "Press SPACEBAR to JUMP"
+
+[node name="JumpFloor2" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00466037, 0.693101, -9.31989)
+physics_material_override = SubResource("PhysicsMaterial_l2faq")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="JumpFloor2"]
+mesh = SubResource("BoxMesh_s1fsn")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="JumpFloor2"]
+shape = SubResource("BoxShape3D_lqi07")
+
+[node name="JumpFloor3" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00466037, 1.19287, -11.3268)
+physics_material_override = SubResource("PhysicsMaterial_l2faq")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="JumpFloor3"]
+mesh = SubResource("BoxMesh_s1fsn")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="JumpFloor3"]
+shape = SubResource("BoxShape3D_lqi07")
+
+[node name="JumpFloor4" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00466037, 1.69186, -13.3238)
+physics_material_override = SubResource("PhysicsMaterial_l2faq")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="JumpFloor4"]
+mesh = SubResource("BoxMesh_s1fsn")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="JumpFloor4"]
+shape = SubResource("BoxShape3D_lqi07")
+
+[node name="S_Set_Spawn" parent="." instance=ExtResource("4_s5ym2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95295, -13.3149)
+
+[node name="triggerCollision" parent="S_Set_Spawn" index="0"]
+shape = SubResource("HeightMapShape3D_ip0gw")
+
+[node name="triggerMesh" parent="S_Set_Spawn" index="1"]
+mesh = SubResource("PlaneMesh_osnuj")
+
+[node name="JumpFloor5" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00466037, 1.69186, -15.7883)
+physics_material_override = SubResource("PhysicsMaterial_l2faq")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="JumpFloor5"]
+mesh = SubResource("BoxMesh_s1fsn")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="JumpFloor5"]
+shape = SubResource("BoxShape3D_lqi07")
+
+[node name="JumpFloor6" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00466037, 1.69186, -18.2729)
+physics_material_override = SubResource("PhysicsMaterial_l2faq")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="JumpFloor6"]
+mesh = SubResource("BoxMesh_s1fsn")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="JumpFloor6"]
+shape = SubResource("BoxShape3D_lqi07")
+
+[node name="DashFloor" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00451422, 1.69186, -23.3096)
+physics_material_override = SubResource("PhysicsMaterial_rr0nj")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="DashFloor"]
+mesh = SubResource("BoxMesh_hy4wf")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="DashFloor"]
+shape = SubResource("BoxShape3D_n5t2n")
+
+[node name="DashTutorial" type="Label3D" parent="DashFloor"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -1.03038, 0.752556, -1.07905)
+text = "Press SHIFT to DASH
+Dash RECHARGES Overtime"
+
+[node name="S_rotate_camera" parent="DashFloor" instance=ExtResource("3_v204k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.492482, 0)
+angle = 90
+delay = true
+
+[node name="CollisionShape3D" parent="DashFloor/S_rotate_camera" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50416, 0.25983, 1.0943e-07)
+shape = SubResource("BoxShape3D_wk8as")
+
+[node name="S_Set_Spawn2" parent="." instance=ExtResource("4_s5ym2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00240421, 1.95243, -25.8156)
+
+[node name="triggerCollision" parent="S_Set_Spawn2" index="0"]
+shape = SubResource("HeightMapShape3D_his2v")
+
+[node name="triggerMesh" parent="S_Set_Spawn2" index="1"]
+mesh = SubResource("PlaneMesh_xer5c")
+
+[node name="S_Set_Spawn3" parent="." instance=ExtResource("4_s5ym2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.525703, 1.95429, -28.2911)
+
+[node name="triggerCollision" parent="S_Set_Spawn3" index="0"]
+shape = SubResource("HeightMapShape3D_oj3td")
+
+[node name="triggerMesh" parent="S_Set_Spawn3" index="1"]
+mesh = SubResource("PlaneMesh_vtsbl")
+
+[node name="JumpDashFloor1" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.01413, 1.69186, -28.2889)
+physics_material_override = SubResource("PhysicsMaterial_l2faq")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="JumpDashFloor1"]
+mesh = SubResource("BoxMesh_t2g3c")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="JumpDashFloor1"]
+shape = SubResource("BoxShape3D_w63bc")
+
+[node name="S_rotate_camera" parent="JumpDashFloor1" instance=ExtResource("3_v204k")]
+delay = true
+
+[node name="CollisionShape3D" parent="JumpDashFloor1/S_rotate_camera" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.734419, -0.000743151)
+shape = SubResource("BoxShape3D_encco")
+
+[node name="JumpDashTutorial" type="Label3D" parent="JumpDashFloor1"]
+transform = Transform3D(-4.37114e-08, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1, 3.09086e-08, -3.09086e-08, 1.24513, 0.554783, 7.15256e-07)
+text = "Try combining JUMP and DASH!"
+
+[node name="JumpDashFloor2" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.96477, 1.69186, -28.2947)
+physics_material_override = SubResource("PhysicsMaterial_l2faq")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="JumpDashFloor2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00421715, 0, 0)
+mesh = SubResource("BoxMesh_s1fsn")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="JumpDashFloor2"]
+shape = SubResource("BoxShape3D_lqi07")
+
+[node name="JumpDashFloor3" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.97393, 1.69186, -28.2947)
+physics_material_override = SubResource("PhysicsMaterial_l2faq")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="JumpDashFloor3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00421715, 0, 0)
+mesh = SubResource("BoxMesh_s1fsn")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="JumpDashFloor3"]
+shape = SubResource("BoxShape3D_lqi07")
+
+[node name="JumpDashFloor4" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.97393, 1.69186, -28.2947)
+physics_material_override = SubResource("PhysicsMaterial_l2faq")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="JumpDashFloor4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00421715, 0, 0)
+mesh = SubResource("BoxMesh_s1fsn")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="JumpDashFloor4"]
+shape = SubResource("BoxShape3D_lqi07")
+
+[node name="AttackFloor1" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17.5055, 1.69186, -28.2907)
+physics_material_override = SubResource("PhysicsMaterial_l2faq")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="AttackFloor1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00421715, 0, 0)
+mesh = SubResource("BoxMesh_fm7kk")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="AttackFloor1"]
+shape = SubResource("BoxShape3D_lwoiy")
+
+[node name="AttackTutorial" type="Label3D" parent="AttackFloor1"]
+transform = Transform3D(-4.37114e-08, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1, 3.09086e-08, -3.09086e-08, 1.24233, 0.54931, -4.60099)
+text = "Press LMB to ATTACK"
+
+[node name="AttackDummy" type="Label3D" parent="AttackFloor1"]
+transform = Transform3D(-4.37114e-08, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1, 3.09086e-08, -3.09086e-08, 1.22864, 0.566825, 0)
+text = "Try ATTACKING the Dummy!"
+
+[node name="SlamTutorial" type="Label3D" parent="AttackFloor1"]
+transform = Transform3D(-4.37114e-08, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1, 3.09086e-08, -3.09086e-08, 1.3226, 0.570482, 5.03505)
+text = "ATTACKING while AIRBORNE will 
+activate the SLAM ATTACK"
+
+[node name="MeleeDummy" parent="AttackFloor1" instance=ExtResource("5_xx5vb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.394187, 0)
+
+[node name="S_Set_Spawn4" parent="." instance=ExtResource("4_s5ym2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0337, 1.95754, -28.2826)
+
+[node name="triggerCollision" parent="S_Set_Spawn4" index="0"]
+shape = SubResource("HeightMapShape3D_1bo1h")
+
+[node name="triggerMesh" parent="S_Set_Spawn4" index="1"]
+mesh = SubResource("PlaneMesh_vj3b6")
+
+[node name="S_Set_Spawn5" parent="." instance=ExtResource("4_s5ym2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5418, 1.958, -28.283)
+
+[node name="triggerCollision" parent="S_Set_Spawn5" index="0"]
+shape = SubResource("HeightMapShape3D_dp60y")
+
+[node name="triggerMesh" parent="S_Set_Spawn5" index="1"]
+mesh = SubResource("PlaneMesh_ji35a")
+
+[node name="SlamAttackFloor1" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 36.5438, 1.19817, -28.2947)
+physics_material_override = SubResource("PhysicsMaterial_l2faq")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="SlamAttackFloor1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00421715, 0, 0)
+mesh = SubResource("BoxMesh_utwdi")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="SlamAttackFloor1"]
+shape = SubResource("BoxShape3D_bh5qi")
+
+[node name="MeleeDummy" parent="SlamAttackFloor1" instance=ExtResource("5_xx5vb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.550297, -11.1242)
+
+[node name="Block" type="Label3D" parent="SlamAttackFloor1"]
+transform = Transform3D(-4.37114e-08, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1, 3.09086e-08, -3.09086e-08, 1.3276, 0.488447, -4.41846)
+text = "HOLD RMB To BLOCK
+BLOCK RECHARGES when NOT blocking for a certain times"
+
+[node name="BlockDummy" type="Label3D" parent="SlamAttackFloor1"]
+transform = Transform3D(-4.37114e-08, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1, 3.09086e-08, -3.09086e-08, 1.38345, 0.488447, -0.0225601)
+text = "Try BLOCKING the ATTACK!"
+
+[node name="ParryTutorial" type="Label3D" parent="SlamAttackFloor1"]
+transform = Transform3D(-4.37114e-08, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1, 3.09086e-08, -3.09086e-08, 1.4199, 0.596679, 3.71096)
+text = "Attacking when enemy's attack 
+is going to hit you will cause PARRY. 
+Which has special effect for each enemy's attack "
+
+[node name="ParryDummy" type="Label3D" parent="SlamAttackFloor1"]
+transform = Transform3D(-4.37114e-08, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1, 3.09086e-08, -3.09086e-08, 1.58327, 0.311319, 7.86248)
+text = "Try PARRYING the attack!"
+
+[node name="SlamAttackDivider" type="StaticBody3D" parent="SlamAttackFloor1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00794411, 0.501752, -9.68649)
+physics_material_override = SubResource("PhysicsMaterial_l2faq")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="SlamAttackFloor1/SlamAttackDivider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00421715, 0, 0)
+mesh = SubResource("BoxMesh_s1fsn")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="SlamAttackFloor1/SlamAttackDivider"]
+shape = SubResource("BoxShape3D_lqi07")
+
+[node name="S_Set_Spawn6" parent="." instance=ExtResource("4_s5ym2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9105, 1.46949, -28.283)
+
+[node name="triggerCollision" parent="S_Set_Spawn6" index="0"]
+shape = SubResource("HeightMapShape3D_lt01u")
+
+[node name="triggerMesh" parent="S_Set_Spawn6" index="1"]
+mesh = SubResource("PlaneMesh_lm6u0")
+
+[node name="S_Set_Spawn7" parent="." instance=ExtResource("4_s5ym2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.3382, 1.469, -28.283)
+
+[node name="triggerCollision" parent="S_Set_Spawn7" index="0"]
+shape = SubResource("HeightMapShape3D_w3nt8")
+
+[node name="triggerMesh" parent="S_Set_Spawn7" index="1"]
+mesh = SubResource("PlaneMesh_jfb1i")
+
+[node name="TutorialLoadArea#1" parent="." instance=ExtResource("6_nupbw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.301, 1.45581, -28.2456)
+
+[editable path="WalkFloor/S_rotate_camera"]
+[editable path="Danger_Area"]
+[editable path="S_Set_Spawn"]
+[editable path="DashFloor/S_rotate_camera"]
+[editable path="S_Set_Spawn2"]
+[editable path="S_Set_Spawn3"]
+[editable path="JumpDashFloor1/S_rotate_camera"]
+[editable path="S_Set_Spawn4"]
+[editable path="S_Set_Spawn5"]
+[editable path="S_Set_Spawn6"]
+[editable path="S_Set_Spawn7"]

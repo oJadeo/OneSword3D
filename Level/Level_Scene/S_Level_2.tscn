@@ -19,11 +19,11 @@ cell_height = 0.05
 agent_height = 0.5
 agent_radius = 0.1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxrbg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwsha"]
 uv1_offset = Vector3(0.5, 0, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_xfebi"]
-material = SubResource("StandardMaterial3D_mxrbg")
+material = SubResource("StandardMaterial3D_pwsha")
 size = Vector3(4, 1, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6mmjm"]
