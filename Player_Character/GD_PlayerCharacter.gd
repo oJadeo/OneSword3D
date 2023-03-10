@@ -16,6 +16,7 @@ func _physics_process(delta):
 	handle_atk()
 	handle_block()
 	handle_animation()
+	handle_rotation(delta)
 
 # input variable
 var input_frame = {
@@ -367,5 +368,11 @@ func respawn():
 func _on_iframe_timer_timeout():
 	iFrame = false
 	
+@export var tar_rot :float = 0
+func set_target_rotation(new_tar_rot):
+	tar_rot = new_tar_rot
+func handle_rotation(delta):
+	rotation.y = lerp_angle(rotation.y,tar_rot,5.0*delta)
+
 func set_draw_flag(draw):
 	$Sprite3d.set_draw_flag(3,draw)
