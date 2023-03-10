@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://n88kt3qi66lc" path="res://Level/Tiles/Depth_test_box/S_depth_bxo.tscn" id="3_0va1l"]
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="3_kms13"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxrbg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwsha"]
 uv1_offset = Vector3(0.5, 0, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_xfebi"]
-material = SubResource("StandardMaterial3D_mxrbg")
+material = SubResource("StandardMaterial3D_pwsha")
 size = Vector3(4, 1, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6mmjm"]
