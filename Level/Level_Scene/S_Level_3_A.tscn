@@ -430,7 +430,6 @@ shape = SubResource("ConcavePolygonShape3D_wu013")
 
 [node name="S_rotate_camera2" parent="." instance=ExtResource("4_f7fa7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.96746, 2.26253, -3.97299)
-delay = true
 
 [node name="CollisionShape3D" parent="S_rotate_camera2" index="0"]
 transform = Transform3D(1, -3.42727e-07, -2.79397e-09, 1.04308e-07, 1, 0, -1.30385e-08, 3.72529e-09, 1, -0.303391, 0, -0.153654)
@@ -448,7 +447,6 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 [node name="S_rotate_camera" parent="." instance=ExtResource("4_f7fa7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.65969, 2.19862, -4.05363)
 angle = 90
-delay = true
 
 [node name="CollisionShape3D" parent="S_rotate_camera" index="0"]
 shape = SubResource("BoxShape3D_sqh6j")
@@ -612,6 +610,7 @@ transform = Transform3D(-0.080724, 0.0779758, 0.993682, 0.971561, -0.216492, 0.0
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Area1"]
 transform = Transform3D(-0.0807239, 0.971562, 0.222603, 0.0779757, -0.216492, 0.973165, 0.99368, 0.0959155, -0.0582821, -33.3127, 28.6245, 9.95323)
 navigation_mesh = SubResource("NavigationMesh_u5xgr")
+navigation_layers = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area1/NavigationRegion3D"]
 transform = Transform3D(1, 1.11022e-16, 3.7253e-09, -6.24501e-17, 1, 4.44089e-16, -2.23518e-08, 1.49012e-08, 1, 9.53674e-07, -3.7998e-06, 4.89882)
