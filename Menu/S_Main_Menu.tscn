@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://f8ugyrvsmwsh"]
+
+[ext_resource type="Script" path="res://Menu/GD_Main_Menu.gd" id="1_iknjf"]
+
+[node name="Main_Menu" type="CanvasLayer"]
+script = ExtResource("1_iknjf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+clip_contents = true
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 276.0
+offset_top = 27.0
+offset_right = 364.0
+offset_bottom = 53.0
+text = "Main Menu"
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 294.0
+offset_top = 134.0
+offset_right = 340.0
+offset_bottom = 165.0
+text = "Start"
+
+[node name="exitButton" type="Button" parent="."]
+offset_left = 298.0
+offset_top = 199.0
+offset_right = 335.0
+offset_bottom = 230.0
+text = "Exit
+"
+
+[node name="settingButton" type="Button" parent="."]
+offset_left = 285.0
+offset_top = 165.0
+offset_right = 348.0
+offset_bottom = 196.0
+text = "Setting"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="exitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="settingButton" to="." method="_on_setting_button_pressed"]
