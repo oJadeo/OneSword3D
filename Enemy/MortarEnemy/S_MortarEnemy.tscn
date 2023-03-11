@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://va72w2qcgl45" path="res://Enemy/MortarEnemy/Enemy-03.png" id="2_51ca7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7clb8"]
+resource_local_to_scene = true
 radius = 3.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k6ee0"]
