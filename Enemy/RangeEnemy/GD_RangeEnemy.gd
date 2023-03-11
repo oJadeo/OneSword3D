@@ -56,6 +56,7 @@ func _physics_process(delta):
 				if danger :
 					nav_agent.set_target_position(global_position-((player.global_position - global_position).normalized()))
 					if nav_agent.is_target_reachable():
+						print("call")
 						velocity  = -((player.global_position - global_position).normalized() * fleeSpeed)
 				if finding_new_pos :
 					velocity.x = find_new_pos_direction.x

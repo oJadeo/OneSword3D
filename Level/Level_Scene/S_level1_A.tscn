@@ -279,6 +279,7 @@ directional_shadow_mode = 0
 
 [node name="Player_Character" parent="." instance=ExtResource("1_01jm0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.133092, 0.899712, 0.000781536)
+enable_wallrun = false
 
 [node name="playerSpawnPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.141563, 0.329993, -0.0237501)
