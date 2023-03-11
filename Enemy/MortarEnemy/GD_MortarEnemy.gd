@@ -21,9 +21,13 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @export var mortarRange : int=3
 func _ready():
-	$PlayerDetection/CollisionShape3D.get_shape().set_radius(mortarRange)
 	animation.play("idle")
+	set_range(mortarRange)
 	
+	
+func set_range(range):
+	$PlayerDetection/CollisionShape3D.get_shape().set_radius(range)
+
 func _physics_process(delta):
 	if isHit :
 		sprite.set_modulate(Color(0.8,0,0))
