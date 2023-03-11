@@ -151,7 +151,6 @@ shape = SubResource("BoxShape3D_kl0tw")
 
 [node name="JumpBox" parent="NavigationRegion3D" instance=ExtResource("6_ye3xk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.778496, 0.230513, -0.0940797)
-visible = false
 jump_force = 4
 
 [node name="CollisionShape3D" parent="NavigationRegion3D/JumpBox" index="0"]
