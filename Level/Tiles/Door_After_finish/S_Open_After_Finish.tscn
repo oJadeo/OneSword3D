@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyw2cqik2ikme"]
+
+[ext_resource type="Script" path="res://Level/Tiles/Door_After_finish/GD_Open_After_Finish.gd" id="1_bss4d"]
+
+[node name="S_Open_After_Finish" type="Node3D"]
+script = ExtResource("1_bss4d")
