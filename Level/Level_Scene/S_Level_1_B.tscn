@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://t42l2qqhitx5"]
+[gd_scene load_steps=63 format=3 uid="uid://cu2xlyd2px1nr"]
 
 [ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_7ofo5"]
 [ext_resource type="Script" path="res://Level/Testing/GD_Test_Level_with_nav.gd" id="1_jc2jx"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cwgktljjh2rqs" path="res://Enemy/MeleeEnemy/S_MeleeEnemy.tscn" id="5_1n0ha"]
 [ext_resource type="Script" path="res://Level/Tiles/Spawn_After_Death/GD_Spawn_After_Death.gd" id="5_5w7pm"]
 [ext_resource type="PackedScene" uid="uid://n88kt3qi66lc" path="res://Level/Tiles/Depth_test_box/S_depth_bxo.tscn" id="7_vuecn"]
-[ext_resource type="Script" path="res://Level/Tiles/NextLevel.gd" id="10_plgv2"]
+[ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="11_aqb45"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_xt6t8"]
 size = Vector3(1.5, 0.25, 1.5)
@@ -21,6 +21,9 @@ data = PackedVector3Array(-0.75, 0.125, 0.75, 0.75, 0.125, 0.75, -0.75, -0.125, 
 size = Vector3(1.66439, 1, 2.08006)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2girc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mhalu"]
+size = Vector3(1.14162, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_h2hce"]
 size = Vector3(3, 7, 1)
@@ -152,9 +155,6 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 [sub_resource type="BoxShape3D" id="BoxShape3D_two6c"]
 size = Vector3(1, 2.28304, 1.06393)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_mhalu"]
-size = Vector3(1.14162, 1, 1)
-
 [sub_resource type="BoxMesh" id="BoxMesh_4dwev"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vjuph"]
@@ -165,6 +165,8 @@ size = Vector3(1.5, 0.25, 1.5)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_55b2x"]
 data = PackedVector3Array(-0.75, 0.125, 0.75, 0.75, 0.125, 0.75, -0.75, -0.125, 0.75, 0.75, 0.125, 0.75, 0.75, -0.125, 0.75, -0.75, -0.125, 0.75, 0.75, 0.125, -0.75, -0.75, 0.125, -0.75, 0.75, -0.125, -0.75, -0.75, 0.125, -0.75, -0.75, -0.125, -0.75, 0.75, -0.125, -0.75, 0.75, 0.125, 0.75, 0.75, 0.125, -0.75, 0.75, -0.125, 0.75, 0.75, 0.125, -0.75, 0.75, -0.125, -0.75, 0.75, -0.125, 0.75, -0.75, 0.125, -0.75, -0.75, 0.125, 0.75, -0.75, -0.125, -0.75, -0.75, 0.125, 0.75, -0.75, -0.125, 0.75, -0.75, -0.125, -0.75, 0.75, 0.125, 0.75, -0.75, 0.125, 0.75, 0.75, 0.125, -0.75, -0.75, 0.125, 0.75, -0.75, 0.125, -0.75, 0.75, 0.125, -0.75, -0.75, -0.125, 0.75, 0.75, -0.125, 0.75, -0.75, -0.125, -0.75, 0.75, -0.125, 0.75, 0.75, -0.125, -0.75, -0.75, -0.125, -0.75)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ijvam"]
 
 [node name="S_Level_1_B" type="Node3D"]
 script = ExtResource("1_jc2jx")
@@ -179,7 +181,8 @@ shadow_enabled = true
 directional_shadow_mode = 0
 
 [node name="Player_Character" parent="." instance=ExtResource("1_7ofo5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.661205, 2.31735, -0.546281)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.688886, 1.88736, -0.600249)
+enable_wallrun = false
 
 [node name="Platform" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.624904, 1.50548, -0.61428)
@@ -225,6 +228,13 @@ angle = 180
 [node name="CollisionShape3D" parent="S_rotate_camera2" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5247)
 shape = SubResource("BoxShape3D_2girc")
+
+[node name="S_rotate_camera3" parent="." instance=ExtResource("3_fb5xy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.718216, 1.63048, -0.635838)
+
+[node name="CollisionShape3D" parent="S_rotate_camera3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0325172)
+shape = SubResource("BoxShape3D_mhalu")
 
 [node name="MeshInstance3D13" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95704, -2.3752, -1.02471)
@@ -411,6 +421,17 @@ shape = SubResource("ConcavePolygonShape3D_r3kdf")
 [node name="Melee_Area2" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 12.5719, 0.637562, 14.4556)
 
+[node name="JumpBox2" parent="Melee_Area2" instance=ExtResource("4_5iaxa")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.31888, 2.43529, 2.48602)
+jump_force = 4
+
+[node name="CollisionShape3D" parent="Melee_Area2/JumpBox2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00758, -0.553935, -0.0501986)
+
+[node name="NavigationLink3D" type="NavigationLink3D" parent="Melee_Area2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.24449, 2.30463, -2.19112)
+end_position = Vector3(0.706, 0.719, 0.083)
+
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Melee_Area2"]
 navigation_mesh = SubResource("NavigationMesh_c1g4j")
 
@@ -464,6 +485,17 @@ skeleton = NodePath("../../../MeshInstance3D8")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Melee_Area2/NavigationRegion3D/MeshInstance3D26/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_2tjwu")
 
+[node name="JumpBox" parent="Melee_Area2" instance=ExtResource("4_5iaxa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90735e-06, 0, -2.42948)
+jump_force = 4
+
+[node name="CollisionShape3D" parent="Melee_Area2/JumpBox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.41076, 1.94795, 0.280901)
+
+[node name="NavigationLink3D2" type="NavigationLink3D" parent="Melee_Area2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.47407, 2.25771, 2.71043)
+end_position = Vector3(0.545, 0.787, -0.067)
+
 [node name="MeshInstance3D10" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.064, 0.180647, -0.151482)
 mesh = SubResource("BoxMesh_eqf55")
@@ -501,13 +533,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0787, -0.5, -1.00121)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.999147, 0, 0)
 shape = SubResource("BoxShape3D_two6c")
 
-[node name="S_rotate_camera3" parent="." instance=ExtResource("3_fb5xy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.718216, 1.63048, -0.635838)
-
-[node name="CollisionShape3D" parent="S_rotate_camera3" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0325172)
-shape = SubResource("BoxShape3D_mhalu")
-
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0323, 0, -1.05923)
 mesh = SubResource("BoxMesh_4dwev")
@@ -519,7 +544,7 @@ shape = SubResource("ConcavePolygonShape3D_vjuph")
 
 [node name="NextLevel" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.83241, 3.81129, 16.3207)
-script = ExtResource("10_plgv2")
+script = ExtResource("5_5w7pm")
 
 [node name="Platform2" type="MeshInstance3D" parent="NextLevel"]
 mesh = SubResource("BoxMesh_bi654")
@@ -530,9 +555,19 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NextLevel/Platform2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_55b2x")
 
+[node name="Danger_Area" parent="." instance=ExtResource("11_aqb45")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78284, 0, 2.62556)
+
+[node name="triggerCollision" parent="Danger_Area" index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.43003, -4.15505, 2.46595)
+shape = SubResource("WorldBoundaryShape3D_ijvam")
+
 [editable path="S_rotate_camera"]
 [editable path="S_rotate_camera2"]
+[editable path="S_rotate_camera3"]
 [editable path="Area1/JumpBox2"]
 [editable path="Area1/JumpBox"]
+[editable path="Melee_Area2/JumpBox2"]
+[editable path="Melee_Area2/JumpBox"]
 [editable path="S_depth_bxo"]
-[editable path="S_rotate_camera3"]
+[editable path="Danger_Area"]
