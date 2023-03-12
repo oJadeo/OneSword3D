@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Enemy/MeleeEnemy/GD_MeleeEnemy.gd" id="2_quxdm"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2e6xd"]
-radius = 4.80529
+radius = 10.7209
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m4qv1"]
 
@@ -395,6 +395,18 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprite3d:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.435294, 0.364706, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a5f12"]
@@ -1149,6 +1161,18 @@ tracks/3/keys = {
 "method": &"blocking_recovery"
 }]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite3d:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.916667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 0.435294, 0.364706, 1), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_kxk1j"]
 resource_name = "melee_enemy_block_down_right"
@@ -1202,6 +1226,18 @@ tracks/3/keys = {
 "args": [],
 "method": &"blocking_recovery"
 }]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite3d:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.916667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 0.435294, 0.364706, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_7wh64"]
@@ -1257,6 +1293,18 @@ tracks/3/keys = {
 "method": &"blocking_recovery"
 }]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite3d:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.958334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 0.435294, 0.364706, 1), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_6l288"]
 resource_name = "melee_enemy_block_right"
@@ -1310,6 +1358,18 @@ tracks/3/keys = {
 "args": [],
 "method": &"blocking_recovery"
 }]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite3d:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.916667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 0.435294, 0.364706, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_08b17"]
@@ -1365,6 +1425,18 @@ tracks/3/keys = {
 "method": &"blocking_recovery"
 }]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite3d:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.916667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 0.435294, 0.364706, 1), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_vddaa"]
 resource_name = "melee_enemy_block_up_right"
@@ -1418,6 +1490,18 @@ tracks/3/keys = {
 "args": [],
 "method": &"blocking_recovery"
 }]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite3d:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.916667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 0.435294, 0.364706, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h25pp"]
@@ -2070,6 +2154,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite3d:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_8pme8"]
 resource_name = "melee_enemy_idle_down_right"
@@ -2108,6 +2204,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite3d:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_k66wp"]
@@ -2148,6 +2256,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite3d:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_3lhc4"]
 resource_name = "melee_enemy_idle_right"
@@ -2186,6 +2306,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite3d:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_y32t4"]
@@ -2226,6 +2358,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite3d:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_sn5a2"]
 resource_name = "melee_enemy_idle_up_right"
@@ -2264,6 +2408,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite3d:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2jd2r"]
@@ -3077,6 +3233,7 @@ height = 0.497486
 script = ExtResource("2_quxdm")
 
 [node name="Sprite3d" type="Sprite3D" parent="."]
+modulate = Color(1, 0.435294, 0.364706, 1)
 billboard = 1
 double_sided = false
 no_depth_test = true
@@ -3087,7 +3244,6 @@ vframes = 24
 
 [node name="PlayerDetection" type="Area3D" parent="."]
 transform = Transform3D(0.235, 0, 0, 0, 0.235, 0, 0, 0, 0.235, 0, 0, 0)
-visible = false
 collision_layer = 0
 collision_mask = 2
 
