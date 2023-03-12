@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://r0xq7fbbomfi"]
+[gd_scene load_steps=101 format=3 uid="uid://r0xq7fbbomfi"]
 
 [ext_resource type="PackedScene" uid="uid://wycb6glgigjg" path="res://Level/Tiles/Rotate_Camera/S_rotate_camera.tscn" id="1_lpy4m"]
 [ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_uyn8b"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c44ydipygu3hq" path="res://Enemy/Dummy/MeleeDummy/S_MeleeDummy.tscn" id="5_ywgci"]
 [ext_resource type="PackedScene" uid="uid://bgpw7dcb666m3" path="res://Enemy/Dummy/Rangedummy/S_RangeDummy.tscn" id="6_lehfe"]
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="7_at722"]
+[ext_resource type="MeshLibrary" uid="uid://igtk5abse8xh" path="res://Level/Tiles_Set/mesh_lib/set_proto.tres" id="8_6y358"]
 
 [sub_resource type="Environment" id="Environment_uvupg"]
 background_mode = 1
@@ -16,8 +17,117 @@ ambient_light_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
 ambient_light_sky_contribution = 0.17
 tonemap_mode = 2
 
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_5sevv"]
+map_width = 5
+map_depth = 5
+map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cqx5m"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_s76aj"]
+material = SubResource("StandardMaterial3D_cqx5m")
+size = Vector2(8, 8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jmfq3"]
+size = Vector3(2, 4, 4)
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_v2cri"]
+map_width = 5
+map_depth = 5
+map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bkopx"]
+material = SubResource("StandardMaterial3D_cqx5m")
+size = Vector2(8, 8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7wuxd"]
+size = Vector3(2, 4, 2)
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_84ajb"]
+map_width = 5
+map_depth = 5
+map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kedib"]
+material = SubResource("StandardMaterial3D_cqx5m")
+size = Vector2(8, 8)
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_fg5lo"]
+map_width = 5
+map_depth = 5
+map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_j3p12"]
+material = SubResource("StandardMaterial3D_cqx5m")
+size = Vector2(8, 8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b66lr"]
+size = Vector3(1, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ehwq6"]
+size = Vector3(1, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fpsmt"]
+size = Vector3(4, 4, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_884ct"]
+size = Vector3(1, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yy461"]
+size = Vector3(8, 0.25, 0.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lb4db"]
+size = Vector3(6.25, 0.25, 0.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2wgi1"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cac4s"]
+size = Vector3(1, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mwow5"]
+size = Vector3(6, 3, 6)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_f5udf"]
+vertices = PackedVector3Array(-0.4, 0.1, -2.85, 0.4, 0.1, -2.85, 0.45, 0.1, -3.1, -0.45, 0.1, -3.1, 1.4, 0.1, -3.4, -1.9, 0.1, -3.4, -0.45, 0.1, -3.1, 0.45, 0.1, -3.1, 0.45, 0.1, -3.1, 1.4, 0.1, -3.1, 1.4, 0.1, -3.4, -1.9, 0.1, -3.4, -1.9, 0.1, -3.1, -0.45, 0.1, -3.1, 2.4, 0.1, 2.05, -2.4, 0.1, 2.05, -2.9, 0.1, 2.1, -2.9, 0.1, 2.4, 2.9, 0.1, 2.4, 2.9, 0.1, 2.1, 2.4, 0.1, -1.55, 2.4, 0.1, -1.95, 0.45, 0.1, -2.4, -0.45, 0.1, -2.4, 2.4, 0.1, -1.55, 2.9, 0.1, -1.6, 2.9, 0.1, -1.9, 2.4, 0.1, -1.95, 2.4, 0.1, -1.95, 2.4, 0.1, -2.4, 0.45, 0.1, -2.4, 0.45, 0.1, -2.4, 0.4, 0.1, -2.85, -0.4, 0.1, -2.85, -0.45, 0.1, -2.4, -0.45, 0.1, -2.4, -2.4, 0.1, -2.4, -2.4, 0.1, 2.05, 2.4, 0.1, 2.05, 2.4, 0.1, -1.55)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5), PackedInt32Array(10, 9, 8), PackedInt32Array(13, 12, 11), PackedInt32Array(19, 18, 14), PackedInt32Array(14, 18, 15), PackedInt32Array(15, 18, 16), PackedInt32Array(16, 18, 17), PackedInt32Array(21, 20, 22), PackedInt32Array(22, 20, 23), PackedInt32Array(25, 24, 26), PackedInt32Array(26, 24, 27), PackedInt32Array(30, 29, 28), PackedInt32Array(32, 31, 33), PackedInt32Array(33, 31, 34), PackedInt32Array(35, 39, 36), PackedInt32Array(36, 39, 38), PackedInt32Array(36, 38, 37)]
+cell_size = 0.05
+cell_height = 0.05
+agent_height = 0.5
+agent_radius = 0.1
+agent_max_climb = 0.1
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxrbg"]
 uv1_offset = Vector3(0.5, 0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ohjhh"]
+material = SubResource("StandardMaterial3D_mxrbg")
+size = Vector3(8, 0.25, 0.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bw3wx"]
+size = Vector3(8, 0.25, 0.25)
+
+[sub_resource type="BoxMesh" id="BoxMesh_73gp8"]
+material = SubResource("StandardMaterial3D_mxrbg")
+size = Vector3(6, 0.25, 0.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7swuc"]
+size = Vector3(6, 0.25, 0.25)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0rapf"]
+material = SubResource("StandardMaterial3D_mxrbg")
+size = Vector3(2, 0.25, 0.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mqm2y"]
+size = Vector3(2, 0.25, 0.25)
+
+[sub_resource type="BoxMesh" id="BoxMesh_h11up"]
+material = SubResource("StandardMaterial3D_mxrbg")
+size = Vector3(1, 3, 8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hrbyl"]
+size = Vector3(1, 3, 8)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ot2ec"]
 material = SubResource("StandardMaterial3D_mxrbg")
@@ -25,9 +135,6 @@ size = Vector3(6, 1, 6)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gkuhd"]
 size = Vector3(6, 1, 6)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_mwow5"]
-size = Vector3(6, 3, 6)
 
 [sub_resource type="BoxMesh" id="BoxMesh_jj14j"]
 material = SubResource("StandardMaterial3D_mxrbg")
@@ -63,9 +170,6 @@ size = Vector3(1, 4, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wd5ta"]
 size = Vector3(1, 4, 2)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_884ct"]
-size = Vector3(1, 2, 2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_5owfp"]
 material = SubResource("StandardMaterial3D_mxrbg")
@@ -238,148 +342,34 @@ size = Vector3(1, 1, 8)
 [sub_resource type="BoxShape3D" id="BoxShape3D_eytam"]
 size = Vector3(1, 1, 8)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_fpsmt"]
-size = Vector3(4, 4, 2)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_jmfq3"]
-size = Vector3(2, 4, 4)
-
-[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_v2cri"]
-map_width = 5
-map_depth = 5
-map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cqx5m"]
-albedo_color = Color(0, 0, 1, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_bkopx"]
-material = SubResource("StandardMaterial3D_cqx5m")
-size = Vector2(8, 8)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_7wuxd"]
-size = Vector3(2, 4, 2)
-
-[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_84ajb"]
-map_width = 5
-map_depth = 5
-map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_kedib"]
-material = SubResource("StandardMaterial3D_cqx5m")
-size = Vector2(8, 8)
-
-[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_fg5lo"]
-map_width = 5
-map_depth = 5
-map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_j3p12"]
-material = SubResource("StandardMaterial3D_cqx5m")
-size = Vector2(8, 8)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_b66lr"]
-size = Vector3(1, 2, 2)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ehwq6"]
-size = Vector3(1, 2, 2)
-
-[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_5sevv"]
-map_width = 5
-map_depth = 5
-map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_s76aj"]
-material = SubResource("StandardMaterial3D_cqx5m")
-size = Vector2(8, 8)
-
-[sub_resource type="BoxMesh" id="BoxMesh_h11up"]
-material = SubResource("StandardMaterial3D_mxrbg")
-size = Vector3(1, 3, 8)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_hrbyl"]
-size = Vector3(1, 3, 8)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_cac4s"]
-size = Vector3(1, 2, 2)
-
-[sub_resource type="BoxMesh" id="BoxMesh_ohjhh"]
-material = SubResource("StandardMaterial3D_mxrbg")
-size = Vector3(8, 0.25, 0.25)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_bw3wx"]
-size = Vector3(8, 0.25, 0.25)
-
-[sub_resource type="BoxMesh" id="BoxMesh_73gp8"]
-material = SubResource("StandardMaterial3D_mxrbg")
-size = Vector3(6, 0.25, 0.25)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_7swuc"]
-size = Vector3(6, 0.25, 0.25)
-
-[sub_resource type="BoxMesh" id="BoxMesh_0rapf"]
-material = SubResource("StandardMaterial3D_mxrbg")
-size = Vector3(2, 0.25, 0.25)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_mqm2y"]
-size = Vector3(2, 0.25, 0.25)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_yy461"]
-size = Vector3(8, 0.25, 0.25)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_lb4db"]
-size = Vector3(6.25, 0.25, 0.25)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2wgi1"]
-size = Vector3(100, 1, 100)
-
 [node name="S_Tutorial_2" type="Node3D"]
 
-[node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_uvupg")
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(-4.37114e-08, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1, 3.09086e-08, -3.09086e-08, -3.32541, 2.1958, 0)
 light_energy = 0.2
 shadow_enabled = true
 directional_shadow_mode = 0
 
-[node name="DirectionalLight3d2" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3d2" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -3.32541, 2.1958, 0)
 light_energy = 0.2
 shadow_enabled = true
 directional_shadow_mode = 0
 
-[node name="DirectionalLight3d3" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3d3" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, -3.32541, 2.1958, 16)
 light_energy = 0.2
 shadow_enabled = true
 directional_shadow_mode = 0
 
-[node name="DirectionalLight3d4" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-1, 6.18172e-08, -6.18172e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, -3.32541, 2.1958, 16)
+[node name="DirectionalLight3d4" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-1, 6.18173e-08, -6.18173e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, -3.32541, 2.1958, 16)
 light_energy = 0.2
 shadow_enabled = true
 directional_shadow_mode = 0
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_uvupg")
-
-[node name="MoveFloor" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MoveFloor"]
-mesh = SubResource("BoxMesh_ot2ec")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MoveFloor"]
-shape = SubResource("BoxShape3D_gkuhd")
-
-[node name="S_rotate_camera" parent="MoveFloor" instance=ExtResource("1_lpy4m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21746, 0)
-
-[node name="CollisionShape3D" parent="MoveFloor/S_rotate_camera" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.780205, 0)
-shape = SubResource("BoxShape3D_mwow5")
-
-[node name="Label3D" type="Label3D" parent="MoveFloor"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1.30538, -0.272169)
-text = "PRESS WASD TO MOVE"
 
 [node name="Player_Character" parent="." instance=ExtResource("1_uyn8b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.401128, 0)
@@ -388,672 +378,734 @@ enable_wallrun = false
 [node name="playerSpawnPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39878, 0)
 
-[node name="MoveWallW" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.51742, 1.96455, 0)
+[node name="Addon" type="Node3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MoveWallW"]
-mesh = SubResource("BoxMesh_jj14j")
+[node name="S_Set_Spawn4" parent="Addon" instance=ExtResource("4_1mufb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.8459, -2.97171, 24.5255)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MoveWallW"]
-shape = SubResource("BoxShape3D_xu2tm")
+[node name="triggerCollision" parent="Addon/S_Set_Spawn4" index="0"]
+shape = SubResource("HeightMapShape3D_5sevv")
 
-[node name="MoveWallN" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00654244, 1.96455, -3.46905)
+[node name="triggerMesh" parent="Addon/S_Set_Spawn4" index="1"]
+mesh = SubResource("PlaneMesh_s76aj")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MoveWallN"]
-mesh = SubResource("BoxMesh_gy7ns")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MoveWallN"]
-shape = SubResource("BoxShape3D_hq0h4")
-
-[node name="MoveWallE1" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1.965, -2.23)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MoveWallE1"]
-mesh = SubResource("BoxMesh_iv881")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MoveWallE1"]
-shape = SubResource("BoxShape3D_28iho")
-
-[node name="MoveWallE2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1.965, 1.748)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MoveWallE2"]
-mesh = SubResource("BoxMesh_iv881")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MoveWallE2"]
-shape = SubResource("BoxShape3D_28iho")
-
-[node name="MoveWallE3" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -0.5, -0.03)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MoveWallE3"]
-mesh = SubResource("BoxMesh_nnbgh")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MoveWallE3"]
-shape = SubResource("BoxShape3D_i05ag")
-
-[node name="MoveWallE4" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 2.953, 0.011)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MoveWallE4"]
-mesh = SubResource("BoxMesh_1ma7q")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MoveWallE4"]
-shape = SubResource("BoxShape3D_wd5ta")
-
-[node name="S_depth_bxo" parent="." instance=ExtResource("2_jfj7t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.50986, 0.501089, 0)
-
-[node name="CollisionShape3D" parent="S_depth_bxo" index="0"]
-shape = SubResource("BoxShape3D_884ct")
-
-[node name="MoveToJumpWall" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.96158, 1.96455, -1.48383)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MoveToJumpWall"]
-mesh = SubResource("BoxMesh_gy7ns")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MoveToJumpWall"]
-shape = SubResource("BoxShape3D_hq0h4")
-
-[node name="MoveToJumpFloor" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.98992, -0.5, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MoveToJumpFloor"]
-mesh = SubResource("BoxMesh_5owfp")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MoveToJumpFloor"]
-shape = SubResource("BoxShape3D_j7btg")
-
-[node name="MoveToJumpWall2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.45153, 1.96455, -2.49262)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MoveToJumpWall2"]
-mesh = SubResource("BoxMesh_of2jb")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MoveToJumpWall2"]
-shape = SubResource("BoxShape3D_gwn8d")
-
-[node name="MoveToJumpFloor2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9222, -0.5, -1.99717)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MoveToJumpFloor2"]
-mesh = SubResource("BoxMesh_5owfp")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MoveToJumpFloor2"]
-shape = SubResource("BoxShape3D_j7btg")
-
-[node name="MoveToJumpWall3" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9396, 1.9672, -3.48285)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MoveToJumpWall3"]
-mesh = SubResource("BoxMesh_lruou")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MoveToJumpWall3"]
-shape = SubResource("BoxShape3D_bii6t")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4216, 0.243554, -1.99574)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("BoxMesh_qt812")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("BoxShape3D_ssyqw")
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4261, 0.742508, -1.99574)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
-mesh = SubResource("BoxMesh_qt812")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
-shape = SubResource("BoxShape3D_ssyqw")
-
-[node name="StaticBody3D3" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4315, 1.24229, -1.99574)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3"]
-mesh = SubResource("BoxMesh_qt812")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
-shape = SubResource("BoxShape3D_ssyqw")
-
-[node name="StaticBody3D4" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.4319, 1.74446, -1.99574)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D4"]
-mesh = SubResource("BoxMesh_qt812")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4"]
-shape = SubResource("BoxShape3D_ssyqw")
-
-[node name="JumpWall1" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.91, 2.98058, -3.48285)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="JumpWall1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0056057, 0, 0)
-mesh = SubResource("BoxMesh_japwb")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="JumpWall1"]
-shape = SubResource("BoxShape3D_skpta")
-
-[node name="JumpWall2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4523, 2.98058, -3.48285)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="JumpWall2"]
-mesh = SubResource("BoxMesh_slfqb")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="JumpWall2"]
-shape = SubResource("BoxShape3D_i5gok")
-
-[node name="JumpWall3" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4514, 2.98058, 4.50983)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="JumpWall3"]
-mesh = SubResource("BoxMesh_xudnx")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="JumpWall3"]
-shape = SubResource("BoxShape3D_mees6")
-
-[node name="StaticBody3D5" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9286, 1.74446, 4.5154)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D5"]
-mesh = SubResource("BoxMesh_x7y7f")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D5"]
-shape = SubResource("BoxShape3D_kpscc")
-
-[node name="StaticBody3D6" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9286, 1.74446, 13.0781)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D6"]
-mesh = SubResource("BoxMesh_4nch4")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D6"]
-shape = SubResource("BoxShape3D_qgww1")
-
-[node name="StaticBody3D7" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9286, 1.24734, 14.0836)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D7"]
-mesh = SubResource("BoxMesh_4nch4")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D7"]
-shape = SubResource("BoxShape3D_qgww1")
-
-[node name="StaticBody3D8" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9286, 0.748927, 15.8167)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D8"]
-mesh = SubResource("BoxMesh_4nch4")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D8"]
-shape = SubResource("BoxShape3D_qgww1")
-
-[node name="StaticBody3D9" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9286, 0.748927, 17.4076)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D9"]
-mesh = SubResource("BoxMesh_4nch4")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D9"]
-shape = SubResource("BoxShape3D_qgww1")
-
-[node name="StaticBody3D10" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.437, 0.765766, 19.4935)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D10"]
-mesh = SubResource("BoxMesh_m8584")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D10"]
-shape = SubResource("BoxShape3D_am47b")
-
-[node name="StaticBody3D11" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.2136, 0.765766, 19.4949)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D11"]
-mesh = SubResource("BoxMesh_cqaib")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D11"]
-shape = SubResource("BoxShape3D_kgrqp")
-
-[node name="StaticBody3D12" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.0011, 0.765766, 19.4949)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D12"]
-mesh = SubResource("BoxMesh_ckfpj")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D12"]
-shape = SubResource("BoxShape3D_r8sk0")
-
-[node name="StaticBody3D13" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.7711, 0.765766, 19.4949)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D13"]
-mesh = SubResource("BoxMesh_ed7ny")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D13"]
-shape = SubResource("BoxShape3D_2igft")
-
-[node name="StaticBody3D14" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.2637, 0.271145, 19.4949)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D14"]
-mesh = SubResource("BoxMesh_ckfpj")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D14"]
-shape = SubResource("BoxShape3D_r8sk0")
-
-[node name="StaticBody3D15" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.2692, -0.2321, 19.4949)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D15"]
-mesh = SubResource("BoxMesh_ckfpj")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D15"]
-shape = SubResource("BoxShape3D_r8sk0")
-
-[node name="StaticBody3D16" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.2855, -0.727863, 19.4949)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D16"]
-mesh = SubResource("BoxMesh_ckfpj")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D16"]
-shape = SubResource("BoxShape3D_r8sk0")
-
-[node name="StaticBody3D17" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.2944, -1.2313, 19.4949)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D17"]
-mesh = SubResource("BoxMesh_ckfpj")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D17"]
-shape = SubResource("BoxShape3D_r8sk0")
-
-[node name="StaticBody3D18" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.2877, -1.73802, 19.4949)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D18"]
-mesh = SubResource("BoxMesh_ckfpj")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D18"]
-shape = SubResource("BoxShape3D_r8sk0")
-
-[node name="StaticBody3D19" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.2826, -2.2468, 19.4949)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D19"]
-mesh = SubResource("BoxMesh_ckfpj")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D19"]
-shape = SubResource("BoxShape3D_r8sk0")
-
-[node name="StaticBody3D20" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.2991, -2.75063, 19.4949)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D20"]
-mesh = SubResource("BoxMesh_ckfpj")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D20"]
-shape = SubResource("BoxShape3D_r8sk0")
-
-[node name="StaticBody3D21" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.3054, -3.2461, 19.5209)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D21"]
-mesh = SubResource("BoxMesh_5sif1")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D21"]
-shape = SubResource("BoxShape3D_0lerl")
-
-[node name="StaticBody3D22" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.8125, -3.2461, 22.5406)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D22"]
-mesh = SubResource("BoxMesh_jt2ml")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D22"]
-shape = SubResource("BoxShape3D_r5t6s")
-
-[node name="StaticBody3D23" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.2555, -3.2461, 22.5406)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D23"]
-mesh = SubResource("BoxMesh_up6ys")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D23"]
-shape = SubResource("BoxShape3D_gs7ra")
-
-[node name="JumpWall4" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4514, 2.98058, 10.9866)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="JumpWall4"]
-mesh = SubResource("BoxMesh_xudnx")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="JumpWall4"]
-shape = SubResource("BoxShape3D_mees6")
-
-[node name="JumpWall5" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.31, -0.52, 17.989)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="JumpWall5"]
-mesh = SubResource("BoxMesh_qehmc")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="JumpWall5"]
-shape = SubResource("BoxShape3D_lwpy0")
-
-[node name="JumpWall6" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.3207, -5.51235, 24.069)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="JumpWall6"]
-mesh = SubResource("BoxMesh_h6mkm")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="JumpWall6"]
-shape = SubResource("BoxShape3D_uoisc")
-
-[node name="JumpWall7" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.0551, -0.495192, 25.5389)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="JumpWall7"]
-mesh = SubResource("BoxMesh_pokv4")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="JumpWall7"]
-shape = SubResource("BoxShape3D_wdpww")
-
-[node name="JumpWall8" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.0551, -0.495192, 21.5575)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="JumpWall8"]
-mesh = SubResource("BoxMesh_pokv4")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="JumpWall8"]
-shape = SubResource("BoxShape3D_wdpww")
-
-[node name="JumpWall9" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.3102, 0.486125, 21.5899)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="JumpWall9"]
-mesh = SubResource("BoxMesh_ttgif")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="JumpWall9"]
-shape = SubResource("BoxShape3D_u48at")
-
-[node name="JumpWall10" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.0551, 0.5023, 19.528)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="JumpWall10"]
-mesh = SubResource("BoxMesh_bkd1p")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="JumpWall10"]
-shape = SubResource("BoxShape3D_vpaxk")
-
-[node name="JumpWall11" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.2448, -0.521259, 17.0436)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="JumpWall11"]
-mesh = SubResource("BoxMesh_frnl8")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="JumpWall11"]
-shape = SubResource("BoxShape3D_qvecl")
-
-[node name="JumpWall12" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.5171, -0.528946, 23.5344)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="JumpWall12"]
-mesh = SubResource("BoxMesh_tfbkj")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="JumpWall12"]
-shape = SubResource("BoxShape3D_jlguq")
-
-[node name="JumpWall13" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.1228, -2.50041, 21.5331)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="JumpWall13"]
-mesh = SubResource("BoxMesh_5o6e7")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="JumpWall13"]
-shape = SubResource("BoxShape3D_eytam")
-
-[node name="S_rotate_camera" parent="." instance=ExtResource("1_lpy4m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9437, 2.48866, -2.06723)
-delay = true
-
-[node name="CollisionShape3D" parent="S_rotate_camera" index="0"]
-shape = SubResource("BoxShape3D_fpsmt")
-
-[node name="S_rotate_camera2" parent="." instance=ExtResource("1_lpy4m")]
+[node name="S_rotate_camera2" parent="Addon" instance=ExtResource("1_lpy4m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9619, 2.47668, -2.42441)
 angle = -90
 delay = true
 
-[node name="CollisionShape3D" parent="S_rotate_camera2" index="0"]
+[node name="CollisionShape3D" parent="Addon/S_rotate_camera2" index="0"]
 shape = SubResource("BoxShape3D_jmfq3")
 
-[node name="S_Set_Spawn" parent="." instance=ExtResource("4_1mufb")]
+[node name="S_Set_Spawn" parent="Addon" instance=ExtResource("4_1mufb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9143, 2.02157, 8.43745)
 
-[node name="triggerCollision" parent="S_Set_Spawn" index="0"]
+[node name="triggerCollision" parent="Addon/S_Set_Spawn" index="0"]
 shape = SubResource("HeightMapShape3D_v2cri")
 
-[node name="triggerMesh" parent="S_Set_Spawn" index="1"]
+[node name="triggerMesh" parent="Addon/S_Set_Spawn" index="1"]
 mesh = SubResource("PlaneMesh_bkopx")
 
-[node name="S_rotate_camera4" parent="." instance=ExtResource("1_lpy4m")]
+[node name="S_rotate_camera4" parent="Addon" instance=ExtResource("1_lpy4m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9619, 2.47668, 8.737)
 angle = -90
 
-[node name="CollisionShape3D" parent="S_rotate_camera4" index="0"]
+[node name="CollisionShape3D" parent="Addon/S_rotate_camera4" index="0"]
 shape = SubResource("BoxShape3D_jmfq3")
 
-[node name="S_rotate_camera3" parent="." instance=ExtResource("1_lpy4m")]
+[node name="S_rotate_camera3" parent="Addon" instance=ExtResource("1_lpy4m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9619, 2.47668, 18.492)
 angle = -90
 delay = true
 
-[node name="CollisionShape3D" parent="S_rotate_camera3" index="0"]
+[node name="CollisionShape3D" parent="Addon/S_rotate_camera3" index="0"]
 shape = SubResource("BoxShape3D_jmfq3")
 
-[node name="S_rotate_camera5" parent="." instance=ExtResource("1_lpy4m")]
+[node name="S_rotate_camera5" parent="Addon" instance=ExtResource("1_lpy4m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9586, 2.47668, 19.4863)
 delay = true
 
-[node name="CollisionShape3D" parent="S_rotate_camera5" index="0"]
+[node name="CollisionShape3D" parent="Addon/S_rotate_camera5" index="0"]
 shape = SubResource("BoxShape3D_7wuxd")
 
-[node name="S_Set_Spawn2" parent="." instance=ExtResource("4_1mufb")]
+[node name="S_Set_Spawn2" parent="Addon" instance=ExtResource("4_1mufb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.5693, 1.04225, 19.4929)
 
-[node name="triggerCollision" parent="S_Set_Spawn2" index="0"]
+[node name="triggerCollision" parent="Addon/S_Set_Spawn2" index="0"]
 shape = SubResource("HeightMapShape3D_84ajb")
 
-[node name="triggerMesh" parent="S_Set_Spawn2" index="1"]
+[node name="triggerMesh" parent="Addon/S_Set_Spawn2" index="1"]
 mesh = SubResource("PlaneMesh_kedib")
 
-[node name="S_Set_Spawn3" parent="." instance=ExtResource("4_1mufb")]
+[node name="S_Set_Spawn3" parent="Addon" instance=ExtResource("4_1mufb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.6079, -2.89552, 24.5989)
 
-[node name="triggerCollision" parent="S_Set_Spawn3" index="0"]
+[node name="triggerCollision" parent="Addon/S_Set_Spawn3" index="0"]
 shape = SubResource("HeightMapShape3D_fg5lo")
 
-[node name="triggerMesh" parent="S_Set_Spawn3" index="1"]
+[node name="triggerMesh" parent="Addon/S_Set_Spawn3" index="1"]
 mesh = SubResource("PlaneMesh_j3p12")
 
-[node name="S_depth_bxo2" parent="." instance=ExtResource("2_jfj7t")]
+[node name="S_depth_bxo2" parent="Addon" instance=ExtResource("2_jfj7t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.3428, -2.02708, 19.5418)
 
-[node name="CollisionShape3D" parent="S_depth_bxo2" index="0"]
+[node name="CollisionShape3D" parent="Addon/S_depth_bxo2" index="0"]
 shape = SubResource("BoxShape3D_b66lr")
 
-[node name="S_depth_bxo3" parent="." instance=ExtResource("2_jfj7t")]
+[node name="S_depth_bxo3" parent="Addon" instance=ExtResource("2_jfj7t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.057, -1.98654, 18.5438)
 
-[node name="CollisionShape3D" parent="S_depth_bxo3" index="0"]
+[node name="CollisionShape3D" parent="Addon/S_depth_bxo3" index="0"]
 shape = SubResource("BoxShape3D_ehwq6")
 
-[node name="JumpWall14" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.3497, -2.50041, 21.5331)
+[node name="S_rotate_camera" parent="Addon" instance=ExtResource("1_lpy4m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9437, 2.48866, -2.06723)
+delay = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="JumpWall14"]
-mesh = SubResource("BoxMesh_5o6e7")
+[node name="CollisionShape3D" parent="Addon/S_rotate_camera" index="0"]
+shape = SubResource("BoxShape3D_fpsmt")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="JumpWall14"]
-shape = SubResource("BoxShape3D_eytam")
+[node name="S_depth_bxo" parent="Addon" instance=ExtResource("2_jfj7t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.50986, 0.501089, 0)
 
-[node name="S_Set_Spawn4" parent="." instance=ExtResource("4_1mufb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.8459, -2.97171, 24.5255)
+[node name="CollisionShape3D" parent="Addon/S_depth_bxo" index="0"]
+shape = SubResource("BoxShape3D_884ct")
 
-[node name="triggerCollision" parent="S_Set_Spawn4" index="0"]
-shape = SubResource("HeightMapShape3D_5sevv")
+[node name="S_depth_bxo5" parent="Addon" instance=ExtResource("2_jfj7t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.99, 0.116, 0.624044)
 
-[node name="triggerMesh" parent="S_Set_Spawn4" index="1"]
-mesh = SubResource("PlaneMesh_s76aj")
+[node name="CollisionShape3D" parent="Addon/S_depth_bxo5" index="0"]
+shape = SubResource("BoxShape3D_yy461")
 
-[node name="MeleeDummy" parent="." instance=ExtResource("5_ywgci")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.8179, -2.81641, 25.4165)
+[node name="S_depth_bxo6" parent="Addon" instance=ExtResource("2_jfj7t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.993, 0.116, -1.37617)
 
-[node name="MeleeDummy2" parent="." instance=ExtResource("5_ywgci")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.0093, -2.81641, 25.4165)
+[node name="CollisionShape3D" parent="Addon/S_depth_bxo6" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.123214, 0, 0)
+shape = SubResource("BoxShape3D_lb4db")
 
-[node name="MeleeDummy3" parent="." instance=ExtResource("5_ywgci")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.8179, -2.81641, 22.5868)
+[node name="Danger_Area" parent="Addon" instance=ExtResource("7_at722")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.7726, -4.72304, 0)
 
-[node name="MeleeDummy4" parent="." instance=ExtResource("5_ywgci")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.9961, -2.81641, 22.6523)
+[node name="triggerCollision" parent="Addon/Danger_Area" index="0"]
+shape = SubResource("BoxShape3D_2wgi1")
 
-[node name="MeleeDummy5" parent="." instance=ExtResource("5_ywgci")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.8179, -2.81641, 19.6575)
-
-[node name="MeleeDummy6" parent="." instance=ExtResource("5_ywgci")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.9961, -2.81641, 19.723)
-
-[node name="RangeDummy" parent="." instance=ExtResource("6_lehfe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.4413, -2.78732, 22.9083)
-
-[node name="JumpWall15" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.5171, 0.478994, 21.4929)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="JumpWall15"]
-mesh = SubResource("BoxMesh_h11up")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="JumpWall15"]
-shape = SubResource("BoxShape3D_hrbyl")
-
-[node name="S_depth_bxo4" parent="." instance=ExtResource("2_jfj7t")]
+[node name="S_depth_bxo4" parent="Addon" instance=ExtResource("2_jfj7t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.2419, -2.9961, 18.6337)
 
-[node name="CollisionShape3D" parent="S_depth_bxo4" index="0"]
+[node name="CollisionShape3D" parent="Addon/S_depth_bxo4" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.715271, 0.991244, -0.0957355)
 shape = SubResource("BoxShape3D_cac4s")
 
-[node name="JUMP" type="Label3D" parent="."]
+[node name="S_rotate_camera6" parent="Addon" instance=ExtResource("1_lpy4m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.71746, 0)
+
+[node name="CollisionShape3D" parent="Addon/S_rotate_camera6" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.780205, 0)
+shape = SubResource("BoxShape3D_mwow5")
+
+[node name="Dummies" type="Node3D" parent="."]
+
+[node name="MeleeDummy" parent="Dummies" instance=ExtResource("5_ywgci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.8179, -2.81641, 25.4165)
+
+[node name="MeleeDummy2" parent="Dummies" instance=ExtResource("5_ywgci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.0093, -2.81641, 25.4165)
+
+[node name="MeleeDummy3" parent="Dummies" instance=ExtResource("5_ywgci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.8179, -2.81641, 22.5868)
+
+[node name="MeleeDummy4" parent="Dummies" instance=ExtResource("5_ywgci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.9961, -2.81641, 22.6523)
+
+[node name="MeleeDummy5" parent="Dummies" instance=ExtResource("5_ywgci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.8179, -2.81641, 19.6575)
+
+[node name="MeleeDummy6" parent="Dummies" instance=ExtResource("5_ywgci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.9961, -2.81641, 19.723)
+
+[node name="RangeDummy" parent="Dummies" instance=ExtResource("6_lehfe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.4413, -2.78732, 22.9083)
+
+[node name="Label" type="Node3D" parent="."]
+
+[node name="JUMP" type="Label3D" parent="Label"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 16.0953, 0.761857, -2.80248)
 text = "PRESS SPACEBAR TO JUMP"
 
-[node name="SPAWNPOINT" type="Label3D" parent="."]
+[node name="SPAWNPOINT" type="Label3D" parent="Label"]
 transform = Transform3D(-4.37114e-08, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1, 3.09086e-08, -3.09086e-08, 23.6043, 2.61203, 8.41085)
 text = "This is SPAWNPOINT
 You'll be brought back here if you're dead"
 
-[node name="DASH" type="Label3D" parent="."]
+[node name="DASH" type="Label3D" parent="Label"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 25.6895, 1.80825, 18.6968)
 text = "Press SHIFT to DASH
 Dash Recharges Overtime"
 
-[node name="DASH2" type="Label3D" parent="."]
+[node name="DASH2" type="Label3D" parent="Label"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 34.2741, 1.80825, 18.6968)
 text = "Try DASH after JUMP!"
 
-[node name="ATTACK" type="Label3D" parent="."]
+[node name="ATTACK" type="Label3D" parent="Label"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 64.8629, -2.10766, 18.1536)
 text = "Press LMB to ATTACK"
 
-[node name="ATTACK2" type="Label3D" parent="."]
+[node name="ATTACK2" type="Label3D" parent="Label"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 64.8629, -2.10766, 23.278)
 text = "Press ATTACK when
 in the air will trigger
 SLAM ATTACK"
 
-[node name="ATTACK3" type="Label3D" parent="."]
+[node name="ATTACK3" type="Label3D" parent="Label"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 64.8965, -2.64806, 25.9448)
 text = "Try attacking the Dummy!"
 
-[node name="BLOCK" type="Label3D" parent="."]
+[node name="BLOCK" type="Label3D" parent="Label"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 75.5636, -2.10766, 20.2806)
 text = "HOLD RMB to Block 
 Block recharge when 
 not Blocking"
 
-[node name="PARRY" type="Label3D" parent="."]
+[node name="PARRY" type="Label3D" parent="Label"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 75.5636, -2.10766, 23.1167)
 text = "Attacking when enemy's
 attack is going to hit you
 result in PARRY"
 
-[node name="MoveToJumpFloor3" type="StaticBody3D" parent="."]
+[node name="Label3D" type="Label3D" parent="Label"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0.80538, -0.272169)
+text = "PRESS WASD TO MOVE"
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1, -0.000357701, 0.000382301, 0.000357704, 1, -7.11953e-06, -0.000382299, 7.23845e-06, 1, 0, 0, 0)
+navigation_mesh = SubResource("NavigationMesh_f5udf")
+
+[node name="GridMap" type="GridMap" parent="NavigationRegion3D"]
+transform = Transform3D(1, -1.47903e-10, 0, 3.1094e-10, 1, 5.00222e-12, 3.20142e-10, 0, 1, 0, 0, 0)
+mesh_library = ExtResource("8_6y358")
+cell_size = Vector3(0.5, 0.5, 0.5)
+cell_scale = 0.25
+data = {
+"cells": PackedInt32Array(-6, 4, 1048576, -5, 4, 655361, -4, 4, 655361, -3, 4, 655361, -2, 4, 655361, -1, 4, 655361, -65536, 4, 655361, -65535, 4, 655361, -65534, 4, 655361, -65533, 4, 655361, -65532, 4, 655361, -65532, 3, 655361, -65531, 4, 1441792, -5, 65531, 655361, -5, 65532, 655361, -5, 65533, 655361, -5, 65534, 655361, -5, 65535, 655361, -4, 65535, 655361, -4, 0, 655361, -4, 1, 655361, -4, 2, 655361, -5, 2, 655361, -5, 1, 655361, -5, 0, 655361, -5, 3, 655361, -4, 3, 655361, -3, 3, 655361, -2, 3, 655361, -1, 3, 655361, -65536, 3, 655361, -65535, 3, 655361, -65534, 3, 655361, -65533, 3, 655361, -65532, 2, 655361, -65532, 1, 655361, -65532, 0, 655361, -65532, 65535, 655361, -65532, 65534, 655361, -65532, 65533, 655361, -65532, 65532, 655361, -65531, 65532, 1441792, -65532, 65531, 655361, -65533, 65531, 655361, -65534, 65531, 655361, -65535, 65531, 655361, -65536, 65531, 655361, -1, 65531, 655361, -2, 65531, 655361, -3, 65531, 655361, -4, 65531, 655361, -4, 65532, 655361, -4, 65533, 655361, -4, 65534, 655361, -3, 65534, 655361, -3, 65533, 655361, -3, 65532, 655361, -2, 65532, 655361, -2, 65533, 655361, -3, 65535, 655361, -2, 65534, 655361, -3, 0, 655361, -3, 1, 655361, -3, 2, 655361, -2, 2, 655361, -2, 1, 655361, -2, 0, 655361, -2, 65535, 655361, -1, 65534, 655361, -1, 65535, 655361, -1, 0, 655361, -1, 1, 655361, -1, 2, 655361, -1, 65533, 655361, -65536, 65533, 655361, -65536, 65532, 655361, -65536, 65530, 0, -1, 65530, 0, -1, 65532, 655361, -65536, 65535, 655361, -65536, 65534, 655361, -65535, 65532, 655361, -65535, 65533, 655361, -65535, 65534, 655361, -65535, 65535, 655361, -65535, 0, 655361, -65535, 1, 655361, -65535, 2, 655361, -65536, 0, 655361, -65536, 1, 655361, -65534, 0, 655361, -65534, 65535, 655361, -65534, 65534, 655361, -65533, 65534, 655361, -65533, 65533, 655361, -65534, 65533, 655361, -65533, 65532, 655361, -65534, 65532, 655361, -65533, 0, 655361, -65533, 1, 655361, -65533, 2, 655361, -65533, 65535, 655361, -65534, 1, 655361, -65534, 2, 655361, -65536, 2, 655361, -65531, 5, 655363, -6, 5, 1048579, -6, 65530, 3, -65531, 65530, 1441795, -65531, 3, 1441792, -65531, 2, 1441792, -65531, 1, 1, -65531, 0, 1, -65531, 65535, 1, -65530, 65533, 1441792, -65531, 65533, 1441792, -65531, 65531, 1441792, -65531, 65534, 1, -65530, 0, 1, -65530, 65534, 0, -65532, 5, 655360, -65533, 5, 655360, -65534, 5, 655360, -65535, 5, 655360, -65536, 5, 655360, -1, 5, 655360, -2, 5, 655360, -3, 5, 655360, -4, 5, 655360, -5, 5, 655360, -7, 4, 1441792, -6, 3, 1048576, -6, 2, 1048576, -6, 1, 1048576, -6, 0, 1048576, -6, 65535, 1048576, -6, 65534, 1048576, -6, 65533, 1048576, -6, 65532, 1048576, -6, 65531, 1048576, -5, 65530, 0, -4, 65530, 0, -65535, 65530, 0, -65534, 65530, 0, -65533, 65530, 0, -65532, 65530, 0, -2, 65530, 0, -3, 65530, 0, -65530, 5, 1048579, -65544, 5, 1048579, -8, 5, 1048579, 65528, 5, 1048579, 65528, 4, 1048576, 131064, 5, 1048579, 196600, 5, 1048579, 262136, 5, 1048579, 327672, 5, 1048579, 393208, 5, 1048579, 458744, 5, 1048579, 524280, 5, 1048579, 589816, 5, 1048579, 655352, 5, 1048579, 6, 5, 1048579, 65542, 5, 1048579, 131078, 5, 1048579, 196614, 5, 1048579, 262150, 5, 1048579, 327686, 5, 1048579, 393222, 5, 1048579, 458758, 5, 1048579, 524294, 5, 1048579, 589830, 5, 1048579, -131066, 5, 1048579, -131065, 5, 655363, -65529, 5, 655363, 7, 5, 655363, 65543, 5, 655363, 131079, 5, 655363, 196615, 5, 655363, 327687, 5, 655363, 393223, 5, 655363, 458759, 5, 655363, 524295, 5, 655363, 589831, 5, 655363, -65543, 5, 655363, -7, 5, 655363, 65529, 5, 655363, 131065, 5, 655363, 196601, 5, 655363, 262137, 5, 655363, 327673, 5, 655363, 393209, 5, 655363, 458745, 5, 655363, 524281, 5, 655363, 655353, 5, 655363, 589817, 5, 655363, 655353, 65530, 1441795, 589817, 65530, 1441795, 524281, 65530, 1441795, 524281, 65531, 1441792, 458745, 65530, 1441795, 393209, 65530, 1441795, 327673, 65530, 1441795, 262137, 65530, 1441795, 196601, 65530, 1441795, 131065, 65530, 1441795, 65529, 65530, 1441795, 655352, 65530, 3, 589816, 65530, 3, 524280, 65530, 3, 458744, 65530, 3, 393208, 65530, 3, 327672, 65530, 3, 262136, 65530, 3, 196600, 65530, 3, 131064, 65530, 3, 65528, 65530, 3, -8, 65530, 3, -65544, 65530, 3, -65544, 4, 1048576, -65544, 3, 1048576, -65544, 2, 1048576, -65544, 1, 1048576, -65544, 0, 1048576, -65544, 65535, 1048576, -65544, 65534, 1048576, -65544, 65531, 1048576, -65544, 65532, 1048576, -65544, 65533, 1048576, -8, 4, 1048576, -8, 3, 1048576, -8, 2, 1048576, -8, 1, 1048576, -8, 0, 1048576, -8, 65535, 1048576, -8, 65534, 1048576, 65528, 65534, 1048576, 65528, 65533, 1048576, 65528, 65532, 1048576, 65528, 65531, 1048576, -8, 65531, 1048576, -8, 65532, 1048576, -8, 65533, 1048576, 65528, 3, 1048576, 131064, 3, 1048576, 131064, 4, 1048576, 196600, 4, 1048576, 262136, 4, 1048576, 262136, 3, 1048576, 327672, 3, 1048576, 393208, 3, 1048576, 458744, 3, 1048576, 458744, 4, 1048576, 524280, 4, 1048576, 589816, 4, 1048576, 655352, 4, 1048576, 655352, 3, 1048576, 655352, 2, 1048576, 655352, 1, 1048576, 655352, 0, 1048576, 655352, 65535, 1048576, 655352, 65534, 1048576, 655352, 65533, 1048576, 655352, 65532, 1048576, 655352, 65531, 1048576, 589816, 65531, 1048576, 589816, 65532, 1048576, 589816, 65533, 1048576, 589816, 65534, 1048576, 589816, 65535, 1048576, 589816, 0, 1048576, 589816, 1, 1048576, 589816, 2, 1048576, 589816, 3, 1048576, 524280, 3, 1048576, 524280, 2, 1048576, 524280, 1, 1048576, 524280, 0, 1048576, 524280, 65535, 1048576, 524280, 65534, 1048576, 524280, 65533, 1048576, 524280, 65532, 1048576, 458744, 65532, 1048576, 458744, 65531, 1048576, 524280, 65531, 1048576, 393208, 65531, 1048576, 393208, 65532, 1048576, 327672, 65531, 1048576, 262136, 65531, 1048576, 262136, 65532, 1048576, 327672, 65532, 1048576, 196600, 65531, 1048576, 131064, 65531, 1048576, 196600, 65532, 1048576, 131064, 65532, 1048576, 131064, 65534, 1048576, 196600, 65534, 1048576, 196600, 65535, 1048576, 262136, 65535, 1048576, 327672, 65535, 1048576, 327672, 65534, 1048576, 393208, 65534, 1048576, 393208, 65533, 1048576, 327672, 65533, 1048576, 262136, 65533, 1048576, 196600, 65533, 1048576, 131064, 65533, 1048576, 262136, 65534, 1048576, 458744, 65533, 1048576, 458744, 65534, 1048576, 262136, 0, 1048576, 262136, 1, 1048576, 327672, 1, 1048576, 393208, 1, 1048576, 393208, 0, 1048576, 131064, 65535, 1048576, 131064, 0, 1048576, 65528, 0, 1048576, 65528, 1, 1048576, 131064, 1, 1048576, 131064, 2, 1048576, 196600, 2, 1048576, 393208, 65535, 1048576, 196600, 1, 1048576, 196600, 0, 1048576, 327672, 0, 1048576, 458744, 1, 1048576, 458744, 2, 1048576, 327672, 2, 1048576, 262136, 2, 1048576, 393208, 2, 1048576, 458744, 65535, 1048576, 458744, 0, 1048576, 65528, 65535, 1048576, 65528, 2, 1048576, 327672, 4, 1048576, 393208, 4, 1048576, 196600, 3, 1048576, 655353, 4, 1441792, 655353, 3, 1441792, 655353, 2, 1441792, 655353, 1, 1441792, 655353, 0, 1441792, 655353, 65535, 1441792, 655353, 65534, 1441792, 655353, 65533, 1441792, 655353, 65532, 1441792, 589817, 65532, 1441792, 589817, 65531, 1441792, 655353, 65531, 1441792, 458745, 65531, 1441792, 393209, 65531, 1441792, 327673, 65531, 1441792, 262137, 65531, 1441792, 196601, 65531, 1441792, 131065, 65531, 1441792, 65529, 65531, 1441792, -7, 65530, 1441795, -7, 65531, 1441792, -7, 65532, 1441792, -7, 65533, 1441792, 65529, 65533, 1441792, 65529, 65534, 1441792, 65529, 65535, 1441792, 65529, 0, 1441792, 65529, 1, 1441792, 65529, 2, 1441792, 65529, 3, 1441792, 65529, 4, 1441792, -7, 3, 1441792, -7, 2, 1441792, -7, 1, 1441792, -7, 0, 1441792, -7, 65535, 1441792, -7, 65534, 1441792, 65529, 65532, 1441792, 131065, 65532, 1441792, 196601, 65532, 1441792, 262137, 65532, 1441792, 327673, 65532, 1441792, 393209, 65532, 1441792, 458745, 65532, 1441792, 524281, 65532, 1441792, 589817, 65533, 1441792, 524281, 65533, 1441792, 458745, 65533, 1441792, 393209, 65533, 1441792, 327673, 65533, 1441792, 262137, 65533, 1441792, 196601, 65533, 1441792, 131065, 65533, 1441792, 131065, 65534, 1441792, 196601, 65534, 1441792, 262137, 65534, 1441792, 327673, 65534, 1441792, 393209, 65534, 1441792, 458745, 65534, 1441792, 524281, 65534, 1441792, 589817, 65534, 1441792, 589817, 65535, 1441792, 524281, 65535, 1441792, 458745, 65535, 1441792, 393209, 65535, 1441792, 327673, 65535, 1441792, 262137, 65535, 1441792, 196601, 65535, 1441792, 196601, 0, 1441792, 131065, 0, 1441792, 131065, 65535, 1441792, 131065, 1, 1441792, 131065, 2, 1441792, 196601, 2, 1441792, 196601, 1, 1441792, 262137, 1, 1441792, 262137, 0, 1441792, 327673, 0, 1441792, 196601, 3, 1441792, 131065, 3, 1441792, 131065, 4, 1441792, 196601, 4, 1441792, 262137, 4, 1441792, 262137, 3, 1441792, 262137, 2, 1441792, 327673, 1, 1441792, 393209, 0, 1441792, 458745, 0, 1441792, 458745, 1, 1441792, 393209, 1, 1441792, 393209, 2, 1441792, 327673, 2, 1441792, 327673, 3, 1441792, 327673, 4, 1441792, 393209, 4, 1441792, 458745, 4, 1441792, 458745, 3, 1441792, 458745, 2, 1441792, 524281, 0, 1441792, 589817, 0, 1441792, 589817, 1, 1441792, 524281, 1, 1441792, 524281, 2, 1441792, 393209, 3, 1441792, 524281, 4, 1441792, 524281, 3, 1441792, 589817, 3, 1441792, 589817, 2, 1441792, 589817, 4, 1441792, 65543, 2, 1441795, 7, 2, 1441795, -65529, 2, 1441795, -131065, 2, 1441795, -65529, 65533, 655363, 7, 65533, 655363, 65543, 65533, 655363, -65530, 2, 3, 6, 2, 3, 65542, 2, 3, 65542, 65533, 1048579, 6, 65533, 1048579, 6, 4, 1048576, 6, 3, 1048576, 65542, 3, 1048576, 65542, 4, 1048576, 131078, 4, 1048576, 131078, 3, 1048576, 131078, 2, 1048576, 196614, 2, 1048576, 196614, 3, 1048576, 196614, 4, 1048576, 196614, 1, 1048576, 196614, 0, 1048576, 196614, 65535, 1048576, 196614, 65534, 1048576, 131078, 65535, 1048576, 131078, 0, 1048576, 131078, 1, 1048576, 131078, 65534, 1048576, 131078, 65533, 1048576, 131078, 65532, 1048576, 131078, 65531, 1048576, 196614, 65531, 1048576, 196614, 65532, 1048576, 196614, 65533, 1048576, 196614, 65530, 3, 131078, 65530, 3, 65542, 65531, 1048576, 65542, 65532, 1048576, 65542, 65530, 3, 6, 65530, 3, 6, 65531, 1048576, 6, 65532, 1048576, -65530, 65532, 1048576, -65530, 65531, 1048576, -65530, 65530, 3, 262150, 65530, 3, 262150, 65531, 1048576, 262150, 65532, 1048576, 262150, 65533, 1048576, 262150, 65534, 1048576, 262150, 65535, 1048576, 262150, 0, 1048576, 262150, 1, 1048576, 262150, 2, 1048576, 262150, 3, 1048576, 262150, 4, 1048576, 327686, 4, 1048576, 327686, 3, 1048576, 327686, 2, 1048576, 327686, 1, 1048576, 327686, 0, 1048576, 327686, 65535, 1048576, 327686, 65534, 1048576, 327686, 65533, 1048576, 327686, 65532, 1048576, 327686, 65531, 1048576, 327686, 65530, 3, 393222, 65530, 3, 393222, 65531, 1048576, 393222, 65532, 1048576, 393222, 65533, 1048576, 393222, 65534, 1048576, 393222, 65535, 1048576, 393222, 0, 1048576, 393222, 1, 1048576, 393222, 2, 1048576, 393222, 3, 1048576, 393222, 4, 1048576, 458758, 4, 1048576, 458758, 3, 1048576, 458758, 2, 1048576, 458758, 1, 1048576, 458758, 0, 1048576, 458758, 65535, 1048576, 458758, 65534, 1048576, 458758, 65533, 1048576, 458758, 65532, 1048576, 458758, 65531, 1048576, 458758, 65530, 3, 524294, 65530, 3, 524294, 65531, 1048576, 524294, 65532, 1048576, 524294, 65533, 1048576, 524294, 65534, 1048576, 524294, 65535, 1048576, 524294, 0, 1048576, 524294, 1, 1048576, 524294, 2, 1048576, 524294, 3, 1048576, 524294, 4, 1048576, 589830, 4, 1048576, 589830, 3, 1048576, 589830, 2, 1048576, 589830, 1, 1048576, 589830, 0, 1048576, 589830, 65535, 1048576, 589830, 65534, 1048576, 589830, 65533, 1048576, 589830, 65532, 1048576, 589830, 65531, 1048576, 589830, 65530, 3, 589831, 65530, 1441795, 589831, 65531, 1441792, 589831, 65532, 1441792, 589831, 65533, 1441792, 589831, 65534, 1441792, 589831, 65535, 1441792, 589831, 0, 1441792, 589831, 1, 1441792, 589831, 2, 1441792, 589831, 3, 1441792, 589831, 4, 1441792, 524295, 4, 1441792, 458759, 4, 1441792, 458759, 3, 1441792, 524295, 3, 1441792, 524295, 2, 1441792, 524295, 1, 1441792, 524295, 0, 1441792, 524295, 65535, 1441792, 458759, 65535, 1441792, 458759, 65534, 1441792, 458759, 65533, 1441792, 458759, 65532, 1441792, 458759, 65531, 1441792, 458759, 65530, 1441795, 524295, 65530, 1441795, 524295, 65531, 1441792, 524295, 65532, 1441792, 524295, 65533, 1441792, 458759, 0, 1441792, 458759, 1, 1441792, 458759, 2, 1441792, 393223, 2, 1441792, 393223, 1, 1441792, 393223, 0, 1441792, 393223, 65535, 1441792, 393223, 65534, 1441792, 524295, 65534, 1441792, 393223, 65533, 1441792, 393223, 65532, 1441792, 393223, 65531, 1441792, 393223, 65530, 1441795, 327687, 65530, 1441795, 327687, 65531, 1441792, 327687, 65532, 1441792, 327687, 65533, 1441792, 327687, 65534, 1441792, 327687, 65535, 1441792, 327687, 0, 1441792, 327687, 1, 1441792, 327687, 2, 1441792, 393223, 3, 1441792, 393223, 4, 1441792, 327687, 4, 1441792, 327687, 3, 1441792, 262151, 3, 1441792, 262151, 4, 1441792, 262151, 2, 1441792, 262151, 1, 1441792, 262151, 0, 1441792, 262151, 65535, 1441792, 262151, 65534, 1441792, 262151, 65533, 1441792, 262151, 65532, 1441792, 262151, 65531, 1441792, 262151, 65530, 1441795, 196615, 65530, 1441795, 131079, 65530, 1441795, 131079, 65531, 1441792, 131079, 65532, 1441792, 131079, 65533, 1441792, 131079, 65534, 1441792, 196615, 65531, 1441792, 196615, 65532, 1441792, 196615, 65533, 1441792, 196615, 65534, 1441792, 196615, 65535, 1441792, 196615, 0, 1441792, 196615, 1, 1441792, 131079, 0, 1441792, 131079, 65535, 1441792, 131079, 1, 1441792, 131079, 2, 1441792, 131079, 3, 1441792, 196615, 2, 1441792, 196615, 3, 1441792, 196615, 4, 1441792, 131079, 4, 1441792, 65543, 4, 1441792, 7, 4, 1441792, -65529, 4, 1441792, 7, 3, 1441792, -131065, 4, 1441792, -131065, 3, 1441792, -65529, 3, 1441792, 65543, 3, 1441792, -65529, 65532, 1441792, -65529, 65531, 1441792, -65529, 65530, 1441795, 7, 65530, 1441795, 7, 65531, 1441792, 7, 65532, 1441792, 65543, 65531, 1441792, 65543, 65530, 1441795, 65543, 65532, 1441792, 262151, 5, 655363, -65530, 1, 655360, -65529, 1, 655360, -65529, 65534, 0, -65530, 65535, 1, -65529, 65535, 1, -65529, 0, 1, -65543, 65530, 1441795, -131066, 65533, 1048579, -131065, 65533, 655363, -131065, 65530, 1441795, -131065, 65531, 1441792, -131065, 65532, 1441792, -131066, 65532, 1048576, -131066, 65531, 1048576, -131066, 65530, 3, 655354, 65529, 1048579, -6, 65529, 1048579, 589829, 65529, 655363, 5, 65529, 655363, 589829, 65528, 1441795, 655354, 65528, 3, 589828, 65528, 0, 589827, 65528, 0, 589826, 65528, 0, 589825, 65528, 0, 589824, 65528, 0, 655359, 65528, 0, 655358, 65528, 0, 655357, 65528, 0, 655356, 65528, 0, 655355, 65528, 0, 589819, 65528, 0, 524283, 65528, 0, 458747, 65528, 0, 393211, 65528, 0, 327675, 65528, 0, 262139, 65528, 0, 196603, 65528, 0, 131067, 65528, 0, 65531, 65528, 0, 65532, 65528, 0, 65533, 65528, 0, 65534, 65528, 0, 65535, 65528, 0, 0, 65528, 0, 1, 65528, 0, 2, 65528, 0, 3, 65528, 0, 4, 65528, 0, 65540, 65528, 0, 131076, 65528, 0, 196612, 65528, 0, 262148, 65528, 0, 327684, 65528, 0, 393220, 65528, 0, 458756, 65528, 0, 524292, 65528, 0, 524291, 65528, 0, 458755, 65528, 0, 393219, 65528, 0, 327683, 65528, 0, 262147, 65528, 0, 196611, 65528, 0, 131075, 65528, 0, 65539, 65528, 0, 65536, 65528, 0, 131071, 65528, 0, 131070, 65528, 0, 131069, 65528, 0, 131068, 65528, 0, 196604, 65528, 0, 262140, 65528, 0, 327676, 65528, 0, 327677, 65528, 0, 327678, 65528, 0, 327679, 65528, 0, 262144, 65528, 0, 262145, 65528, 0, 196609, 65528, 0, 196610, 65528, 0, 131074, 65528, 0, 65538, 65528, 0, 65537, 65528, 0, 131072, 65528, 0, 131073, 65528, 0, 196606, 65528, 0, 196605, 65528, 0, 262142, 65528, 0, 262143, 65528, 0, 196608, 65528, 0, 196607, 65528, 0, 262146, 65528, 0, 327682, 65528, 0, 393218, 65528, 0, 458754, 65528, 0, 524290, 65528, 0, 458753, 65528, 0, 393217, 65528, 0, 393216, 65528, 0, 327680, 65528, 0, 327681, 65528, 0, 458752, 65528, 0, 524287, 65528, 0, 458751, 65528, 0, 393215, 65528, 0, 524289, 65528, 0, 524288, 65528, 0, 589823, 65528, 0, 524286, 65528, 0, 458749, 65528, 0, 393214, 65528, 0, 589822, 65528, 0, 589821, 65528, 0, 524284, 65528, 0, 393212, 65528, 0, 393213, 65528, 0, 458750, 65528, 0, 524285, 65528, 0, 458748, 65528, 0, 589820, 65528, 0, 262141, 65528, 0, 524293, 65528, 1441795, 458757, 65528, 1441795, 393221, 65528, 1441795, 327685, 65528, 1441795, 262149, 65528, 1441795, 196613, 65528, 1441795, 131077, 65528, 1441795, 65541, 65528, 1441795, 5, 65528, 1441795, 589818, 65528, 3, 524282, 65528, 3, 458746, 65528, 3, 393210, 65528, 3, 327674, 65528, 3, 262138, 65528, 3, 196602, 65528, 3, 131066, 65528, 3, 65530, 65528, 3, 524293, 65529, 655363, 458757, 65529, 655363, 393221, 65529, 655363, 327685, 65529, 655363, 262149, 65529, 655363, 196613, 65529, 655363, 65541, 65529, 655363, 131077, 65529, 655363, 589818, 65529, 1048579, 524282, 65529, 1048579, 458746, 65529, 1048579, 393210, 65529, 1048579, 327674, 65529, 1048579, 262138, 65529, 1048579, 196602, 65529, 1048579, 131066, 65529, 1048579, 65530, 65529, 1048579, 65531, 65529, 655360, 65532, 65529, 655360, 65533, 65529, 655360, 65534, 65529, 655360, -2, 65529, 655360, -1, 65529, 655360, -65536, 65529, 655360, 0, 65529, 655360, 1, 65529, 655360, 2, 65529, 655360, 3, 65529, 655360, -65533, 65529, 655360, -65532, 65529, 655360, 4, 65529, 655360, 65535, 65529, 655360, 131067, 65529, 655360, 131068, 65529, 655360, 131069, 65529, 655360, 131070, 65529, 655360, 131071, 65529, 655360, 65536, 65529, 655360, 65537, 65529, 655360, 65538, 65529, 655360, 65539, 65529, 655360, 65540, 65529, 655360, 196603, 65529, 655360, 262139, 65529, 655360, 196604, 65529, 655360, 262140, 65529, 655360, 196605, 65529, 655360, 262141, 65529, 655360, 196606, 65529, 655360, 262142, 65529, 655360, 196607, 65529, 655360, 262143, 65529, 655360, 131072, 65529, 655360, 196608, 65529, 655360, 131073, 65529, 655360, 196609, 65529, 655360, 131074, 65529, 655360, 196610, 65529, 655360, 131075, 65529, 655360, 196611, 65529, 655360, 131076, 65529, 655360, 196612, 65529, 655360, 262148, 65529, 655360, 262147, 65529, 655360, 262146, 65529, 655360, 262145, 65529, 655360, 262144, 65529, 655360, 327679, 65529, 655360, 327678, 65529, 655360, 327677, 65529, 655360, 327676, 65529, 655360, 327675, 65529, 655360, 393211, 65529, 655360, 393212, 65529, 655360, 393213, 65529, 655360, 393214, 65529, 655360, 393215, 65529, 655360, 327680, 65529, 655360, 327681, 65529, 655360, 327682, 65529, 655360, 327683, 65529, 655360, 327684, 65529, 655360, 393220, 65529, 655360, 458756, 65529, 655360, 524292, 65529, 655360, 589828, 65529, 655360, 589827, 65529, 655360, 589826, 65529, 655360, 524290, 65529, 655360, 458754, 65529, 655360, 458755, 65529, 655360, 393219, 65529, 655360, 524291, 65529, 655360, 458753, 65529, 655360, 393217, 65529, 655360, 393218, 65529, 655360, 524289, 65529, 655360, 524288, 65529, 655360, 589823, 65529, 655360, 524287, 65529, 655360, 458752, 65529, 655360, 589825, 65529, 655360, 589824, 65529, 655360, 655359, 65529, 655360, 655358, 65529, 655360, 655357, 65529, 655360, 589821, 65529, 655360, 589820, 65529, 655360, 524284, 65529, 655360, 524285, 65529, 655360, 524286, 65529, 655360, 589822, 65529, 655360, 655356, 65529, 655360, 655355, 65529, 655360, 589819, 65529, 655360, 524283, 65529, 655360, 458748, 65529, 655360, 458749, 65529, 655360, 458750, 65529, 655360, 458751, 65529, 655360, 393216, 65529, 655360, 458747, 65529, 655360, 8, 65533, 1048579, 65544, 65533, 1048579, 131080, 65533, 1048579, 196616, 65533, 1048579, 262152, 65533, 1048579, 327688, 65533, 1048579, 393224, 65533, 1048579, 458760, 65533, 1048579, 524296, 65533, 1048579, 589832, 65533, 1048579, 9, 65533, 655360, 65545, 65533, 655360, 131081, 65533, 655360, 196617, 65533, 655360, 262153, 65533, 655360, 327689, 65533, 655360, 393225, 65533, 655360, 458761, 65533, 655360, 524297, 65533, 655360, 589833, 65533, 655360, 10, 65533, 655360, 65546, 65533, 655360, 131082, 65533, 655360, 196618, 65533, 655360, 262154, 65533, 655360, 327690, 65533, 655360, 393226, 65533, 655360, 458762, 65533, 655360, 524298, 65533, 655360, 589834, 65533, 655360, 11, 65533, 655360, 65547, 65533, 655360, 131083, 65533, 655360, 196619, 65533, 655360, 262155, 65533, 655360, 327691, 65533, 655360, 393227, 65533, 655360, 458763, 65533, 655360, 524299, 65533, 655360, 589835, 65533, 655360, 12, 65533, 655360, 65548, 65533, 655360, 131084, 65533, 655360, 196620, 65533, 655360, 262156, 65533, 655360, 327692, 65533, 655360, 393228, 65533, 655360, 458764, 65533, 655360, 524300, 65533, 655360, 589836, 65533, 655360, 13, 65533, 655360, 65549, 65533, 655360, 131085, 65533, 655360, 196621, 65533, 655360, 262157, 65533, 655360, 327693, 65533, 655360, 393229, 65533, 655360, 458765, 65533, 655360, 524301, 65533, 655360, 589837, 65533, 655360, 14, 65533, 655360, 65550, 65533, 655360, 131086, 65533, 655360, 196622, 65533, 655360, 262158, 65533, 655360, 327694, 65533, 655360, 393230, 65533, 655360, 458766, 65533, 655360, 524302, 65533, 655360, 589838, 65533, 655360, 15, 65533, 655360, 65551, 65533, 655360, 131087, 65533, 655360, 196623, 65533, 655360, 262159, 65533, 655360, 327695, 65533, 655360, 393231, 65533, 655360, 458767, 65533, 655360, 524303, 65533, 655360, 589839, 65533, 655360, 16, 65533, 655360, 65552, 65533, 655360, 131088, 65533, 655360, 196624, 65533, 655360, 262160, 65533, 655360, 327696, 65533, 655360, 393232, 65533, 655360, 458768, 65533, 655360, 524304, 65533, 655360, 589840, 65533, 655360, 17, 65533, 655360, 65553, 65533, 655360, 131089, 65533, 655360, 196625, 65533, 655360, 262161, 65533, 655360, 327697, 65533, 655360, 393233, 65533, 655360, 458769, 65533, 655360, 524305, 65533, 655360, 589841, 65533, 655360, 18, 65533, 655360, 65554, 65533, 655360, 131090, 65533, 655360, 196626, 65533, 655360, 262162, 65533, 655360, 327698, 65533, 655360, 393234, 65533, 655360, 458770, 65533, 655360, 524306, 65533, 655360, 589842, 65533, 655360, 19, 65533, 655363, 65555, 65533, 655363, 131091, 65533, 655363, 196627, 65533, 655363, 262163, 65533, 655363, 327699, 65533, 655363, 393235, 65533, 655363, 458771, 65533, 655363, 524307, 65533, 655363, 589843, 65533, 655363, 8, 65532, 3, 65544, 65532, 3, 131080, 65532, 3, 196616, 65532, 3, 262152, 65532, 3, 327688, 65532, 3, 393224, 65532, 3, 458760, 65532, 3, 524296, 65532, 3, 589832, 65532, 3, 9, 65532, 0, 65545, 65532, 0, 131081, 65532, 0, 196617, 65532, 0, 262153, 65532, 0, 327689, 65532, 0, 393225, 65532, 0, 458761, 65532, 0, 524297, 65532, 0, 589833, 65532, 0, 10, 65532, 0, 65546, 65532, 0, 131082, 65532, 0, 196618, 65532, 0, 262154, 65532, 0, 327690, 65532, 0, 393226, 65532, 0, 458762, 65532, 0, 524298, 65532, 0, 589834, 65532, 0, 11, 65532, 0, 65547, 65532, 0, 131083, 65532, 0, 196619, 65532, 0, 262155, 65532, 0, 327691, 65532, 0, 393227, 65532, 0, 458763, 65532, 0, 524299, 65532, 0, 589835, 65532, 0, 12, 65532, 0, 65548, 65532, 0, 131084, 65532, 0, 196620, 65532, 0, 262156, 65532, 0, 327692, 65532, 0, 393228, 65532, 0, 458764, 65532, 0, 524300, 65532, 0, 589836, 65532, 0, 13, 65532, 0, 65549, 65532, 0, 131085, 65532, 0, 196621, 65532, 0, 262157, 65532, 0, 327693, 65532, 0, 393229, 65532, 0, 458765, 65532, 0, 524301, 65532, 0, 589837, 65532, 0, 14, 65532, 0, 65550, 65532, 0, 131086, 65532, 0, 196622, 65532, 0, 262158, 65532, 0, 327694, 65532, 0, 393230, 65532, 0, 458766, 65532, 0, 524302, 65532, 0, 589838, 65532, 0, 15, 65532, 0, 65551, 65532, 0, 131087, 65532, 0, 196623, 65532, 0, 262159, 65532, 0, 327695, 65532, 0, 393231, 65532, 0, 458767, 65532, 0, 524303, 65532, 0, 589839, 65532, 0, 16, 65532, 0, 65552, 65532, 0, 131088, 65532, 0, 196624, 65532, 0, 262160, 65532, 0, 327696, 65532, 0, 393232, 65532, 0, 458768, 65532, 0, 524304, 65532, 0, 589840, 65532, 0, 17, 65532, 0, 65553, 65532, 0, 131089, 65532, 0, 196625, 65532, 0, 262161, 65532, 0, 327697, 65532, 0, 393233, 65532, 0, 458769, 65532, 0, 524305, 65532, 0, 589841, 65532, 0, 18, 65532, 0, 65554, 65532, 0, 131090, 65532, 0, 196626, 65532, 0, 262162, 65532, 0, 327698, 65532, 0, 393234, 65532, 0, 458770, 65532, 0, 524306, 65532, 0, 589842, 65532, 655361, 19, 65532, 1441792, 65555, 65532, 1441792, 131091, 65532, 1441792, 196627, 65532, 1441792, 262163, 65532, 1441792, 327699, 65532, 1441792, 393235, 65532, 1441792, 458771, 65532, 1441792, 524307, 65532, 1441792, 589843, 65532, 1441792, 589842, 65528, 3, 524306, 65528, 3, 458770, 65528, 3, 393234, 65528, 3, 327698, 65528, 3, 262162, 65528, 3, 196626, 65528, 3, 131090, 65528, 3, 65554, 65528, 3, 18, 65528, 3, 589842, 65531, 1048576, 589842, 65530, 1048576, 589842, 65529, 1048576, 524306, 65531, 1048576, 524306, 65530, 1048576, 524306, 65529, 1048576, 458770, 65529, 1048576, 458770, 65530, 1048576, 458770, 65531, 1048576, 393234, 65531, 1048576, 393234, 65530, 1048576, 393234, 65529, 1048576, 327698, 65531, 1048576, 327698, 65530, 1048576, 327698, 65529, 1048576, 262162, 65530, 1048576, 262162, 65531, 1048576, 262162, 65529, 1048576, 196626, 65529, 1048576, 196626, 65530, 1048576, 196626, 65531, 1048576, 131090, 65531, 1048576, 131090, 65530, 1048576, 131090, 65529, 1048576, 65554, 65529, 1048576, 65554, 65530, 1048576, 65554, 65531, 1048576, 18, 65531, 1048576, 18, 65530, 1048576, 18, 65529, 1048576, -65518, 65529, 1048576, -65518, 65530, 1048576, -131054, 65530, 1048576, -131054, 65531, 1048576, -131054, 65532, 1048576, -65518, 65532, 1048576, -65518, 65531, 1048576, -131054, 65533, 1048576, -65518, 65533, 1048576, -131054, 65529, 1048576, -65518, 65528, 3, -131054, 65528, 3, -65528, 65533, 655360, -65527, 65533, 655360, -65526, 65533, 655360, -65525, 65533, 655360, -65524, 65533, 655360, -65523, 65533, 655360, -65522, 65533, 655360, -65521, 65533, 655360, -65520, 65533, 655360, -65519, 65533, 655360, -131055, 65533, 655360, -131056, 65533, 655360, -131057, 65533, 655360, -131058, 65533, 655360, -131059, 65533, 655360, -131060, 65533, 655360, -131061, 65533, 655360, -131062, 65533, 655360, -131063, 65533, 655360, -131064, 65533, 655360, -65527, 65532, 0, -65526, 65532, 0, -65525, 65532, 0, -65524, 65532, 0, -65523, 65532, 0, -65522, 65532, 0, -65521, 65532, 0, -65520, 65532, 0, -131056, 65532, 0, -131057, 65532, 0, -131058, 65532, 0, -131059, 65532, 0, -131060, 65532, 0, -131061, 65532, 0, -131062, 65532, 0, -131063, 65532, 0, -65519, 65532, 0, -131055, 65532, 0, -131064, 65532, 3, -65528, 65532, 3, 589843, 65531, 1441792, 589843, 65530, 1441792, 589844, 65529, 655360, 589845, 65529, 655360, 589843, 65528, 0, 589844, 65528, 0, 589845, 65528, 0, 589843, 65529, 1, 524307, 65531, 1441792, 458771, 65531, 1441792, 458771, 65530, 1441792, 458771, 65529, 1441792, 524307, 65530, 1441792, 524307, 65529, 1441792, 393235, 65529, 1441792, 393235, 65530, 1441792, 393235, 65531, 1441792, 327699, 65531, 1441792, 262163, 65531, 1441792, 262163, 65530, 1441792, 327699, 65530, 1441792, 327699, 65529, 1441792, 262163, 65529, 1441792, 196627, 65529, 1441792, 196627, 65531, 1441792, 131091, 65531, 1441792, 131091, 65530, 1441792, 131091, 65529, 1441792, 196627, 65530, 1441792, 65555, 65530, 1441792, 65555, 65529, 1441792, 19, 65529, 1441792, -65517, 65529, 1441792, -65517, 65530, 1441792, -65517, 65531, 1441792, -65517, 65532, 1441792, 65555, 65531, 1441792, 19, 65530, 1441792, 19, 65531, 1441792, 65555, 65528, 0, 131091, 65528, 0, 196627, 65528, 0, 262163, 65528, 0, 524307, 65528, 0, 458771, 65528, 0, 393235, 65528, 0, 327699, 65528, 0, 19, 65528, 0, -131053, 65528, 0, -131052, 65528, 0, -131051, 65528, 0, -131050, 65528, 0, -131049, 65528, 0, -131048, 65528, 0, -131047, 65528, 0, -131046, 65528, 0, -131045, 65528, 0, -131044, 65528, 0, -65508, 65528, 0, -65507, 65528, 0, -65506, 65528, 0, -65505, 65528, 0, -65504, 65528, 0, -65503, 65528, 0, -131039, 65528, 0, -131038, 65528, 0, -65502, 65528, 0, -65501, 65528, 0, -131037, 65528, 0, -131040, 65528, 0, -131041, 65528, 0, -131042, 65528, 0, -131043, 65528, 0, -65511, 65528, 0, -65512, 65528, 0, -65513, 65528, 0, -65514, 65528, 0, -65515, 65528, 0, -65516, 65528, 0, 20, 65528, 0, -65517, 65528, 0, -65510, 65528, 0, -65509, 65528, 0, 65556, 65528, 0, 131092, 65528, 0, 196628, 65528, 0, 262164, 65528, 0, 327700, 65528, 0, 393236, 65528, 0, 458772, 65528, 0, 524308, 65528, 0, 21, 65528, 0, 65557, 65528, 0, 131093, 65528, 0, 196629, 65528, 0, 262165, 65528, 0, 327701, 65528, 0, 393237, 65528, 0, 458773, 65528, 0, 524309, 65528, 0, 22, 65528, 0, 65558, 65528, 0, 131094, 65528, 0, 196630, 65528, 0, 262166, 65528, 0, 327702, 65528, 0, 393238, 65528, 0, 458774, 65528, 0, 524310, 65528, 0, 23, 65528, 0, 65559, 65528, 0, 131095, 65528, 0, 196631, 65528, 0, 262167, 65528, 0, 327703, 65528, 0, 393239, 65528, 0, 458775, 65528, 0, 524311, 65528, 0, 24, 65528, 0, 65560, 65528, 0, 131096, 65528, 0, 196632, 65528, 0, 262168, 65528, 0, 327704, 65528, 0, 393240, 65528, 0, 458776, 65528, 0, 524312, 65528, 0, 25, 65528, 0, 65561, 65528, 0, 131097, 65528, 0, 196633, 65528, 0, 262169, 65528, 0, 327705, 65528, 0, 393241, 65528, 0, 458777, 65528, 0, 524313, 65528, 0, 26, 65528, 0, 65562, 65528, 0, 131098, 65528, 0, 196634, 65528, 0, 262170, 65528, 0, 327706, 65528, 0, 393242, 65528, 0, 458778, 65528, 0, 524314, 65528, 0, 27, 65528, 0, 65563, 65528, 0, 131099, 65528, 0, 196635, 65528, 0, 262171, 65528, 0, 327707, 65528, 0, 393243, 65528, 0, 458779, 65528, 0, 524315, 65528, 0, 28, 65528, 0, 65564, 65528, 0, 131100, 65528, 0, 196636, 65528, 0, 262172, 65528, 0, 327708, 65528, 0, 393244, 65528, 0, 458780, 65528, 0, 524316, 65528, 0, 29, 65528, 0, 65565, 65528, 0, 131101, 65528, 0, 196637, 65528, 0, 262173, 65528, 0, 327709, 65528, 0, 393245, 65528, 0, 458781, 65528, 0, 524317, 65528, 0, 30, 65528, 0, 65566, 65528, 0, 131102, 65528, 0, 196638, 65528, 0, 262174, 65528, 0, 327710, 65528, 0, 393246, 65528, 0, 458782, 65528, 0, 524318, 65528, 0, 31, 65528, 0, 65567, 65528, 0, 131103, 65528, 0, 196639, 65528, 0, 262175, 65528, 0, 327711, 65528, 0, 393247, 65528, 0, 458783, 65528, 0, 524319, 65528, 0, 32, 65528, 0, 65568, 65528, 0, 131104, 65528, 0, 196640, 65528, 0, 262176, 65528, 0, 327712, 65528, 0, 393248, 65528, 0, 458784, 65528, 0, 524320, 65528, 0, 33, 65528, 0, 65569, 65528, 0, 131105, 65528, 0, 196641, 65528, 0, 262177, 65528, 0, 327713, 65528, 0, 393249, 65528, 0, 458785, 65528, 0, 524321, 65528, 0, 34, 65528, 0, 65570, 65528, 0, 131106, 65528, 0, 196642, 65528, 0, 262178, 65528, 0, 327714, 65528, 0, 393250, 65528, 0, 458786, 65528, 0, 524322, 65528, 0, 35, 65528, 0, 65571, 65528, 0, 131107, 65528, 0, 196643, 65528, 0, 262179, 65528, 0, 327715, 65528, 0, 393251, 65528, 0, 458787, 65528, 0, 524323, 65528, 0, -65516, 65529, 655360, 20, 65529, 655360, 65556, 65529, 655360, 131092, 65529, 655360, 196628, 65529, 655360, 262164, 65529, 655360, 327700, 65529, 655360, 393236, 65529, 655360, 458772, 65529, 655360, 524308, 65529, 655360, -65515, 65529, 655360, 21, 65529, 655360, 65557, 65529, 655360, 131093, 65529, 655360, 196629, 65529, 655360, 262165, 65529, 655360, 327701, 65529, 655360, 393237, 65529, 655360, 458773, 65529, 655360, 524309, 65529, 655360, -65514, 65529, 655360, 22, 65529, 655360, 65558, 65529, 655360, 131094, 65529, 655360, 196630, 65529, 655360, 262166, 65529, 655360, 327702, 65529, 655360, 393238, 65529, 655360, 458774, 65529, 655360, 524310, 65529, 655360, -65513, 65529, 655360, 23, 65529, 655360, 65559, 65529, 655360, 131095, 65529, 655360, 196631, 65529, 655360, 262167, 65529, 655360, 327703, 65529, 655360, 393239, 65529, 655360, 458775, 65529, 655360, 524311, 65529, 655360, -65512, 65529, 655360, 24, 65529, 655360, 65560, 65529, 655360, 131096, 65529, 655360, 196632, 65529, 655360, 262168, 65529, 655360, 327704, 65529, 655360, 393240, 65529, 655360, 458776, 65529, 655360, 524312, 65529, 655360, -65511, 65529, 655360, 25, 65529, 655360, 65561, 65529, 655360, 131097, 65529, 655360, 196633, 65529, 655360, 262169, 65529, 655360, 327705, 65529, 655360, 393241, 65529, 655360, 458777, 65529, 655360, 524313, 65529, 655360, -65510, 65529, 655360, 26, 65529, 655360, 65562, 65529, 655360, 131098, 65529, 655360, 196634, 65529, 655360, 262170, 65529, 655360, 327706, 65529, 655360, 393242, 65529, 655360, 458778, 65529, 655360, 524314, 65529, 655360, -65509, 65529, 655360, 27, 65529, 655360, 65563, 65529, 655360, 131099, 65529, 655360, 196635, 65529, 655360, 262171, 65529, 655360, 327707, 65529, 655360, 393243, 65529, 655360, 458779, 65529, 655360, 524315, 65529, 655360, -65508, 65529, 655360, 28, 65529, 655360, 65564, 65529, 655360, 131100, 65529, 655360, 196636, 65529, 655360, 262172, 65529, 655360, 327708, 65529, 655360, 393244, 65529, 655360, 458780, 65529, 655360, 524316, 65529, 655360, -65507, 65529, 655360, 29, 65529, 655360, 65565, 65529, 655360, 131101, 65529, 655360, 196637, 65529, 655360, 262173, 65529, 655360, 327709, 65529, 655360, 393245, 65529, 655360, 458781, 65529, 655360, 524317, 65529, 655360, -65506, 65529, 655360, 30, 65529, 655360, 65566, 65529, 655360, 131102, 65529, 655360, 196638, 65529, 655360, 262174, 65529, 655360, 327710, 65529, 655360, 393246, 65529, 655360, 458782, 65529, 655360, 524318, 65529, 655360, -65505, 65529, 655360, 31, 65529, 655360, 65567, 65529, 655360, 131103, 65529, 655360, 196639, 65529, 655360, 262175, 65529, 655360, 327711, 65529, 655360, 393247, 65529, 655360, 458783, 65529, 655360, 524319, 65529, 655360, -65504, 65529, 655360, 32, 65529, 655360, 65568, 65529, 655360, 131104, 65529, 655360, 196640, 65529, 655360, 262176, 65529, 655360, 327712, 65529, 655360, 393248, 65529, 655360, 458784, 65529, 655360, 524320, 65529, 655360, -65503, 65529, 655360, 33, 65529, 655360, 65569, 65529, 655360, 131105, 65529, 655360, 196641, 65529, 655360, 262177, 65529, 655360, 327713, 65529, 655360, 393249, 65529, 655360, 458785, 65529, 655360, 524321, 65529, 655360, -65502, 65529, 655360, 34, 65529, 655360, 65570, 65529, 655360, 131106, 65529, 655360, 196642, 65529, 655360, 262178, 65529, 655360, 327714, 65529, 655360, 393250, 65529, 655360, 458786, 65529, 655360, 524322, 65529, 655360, -65501, 65529, 655360, 35, 65529, 655360, 65571, 65529, 655360, 131107, 65529, 655360, 196643, 65529, 655360, 262179, 65529, 655360, 327715, 65529, 655360, 393251, 65529, 655360, 458787, 65529, 655360, 524323, 65529, 655360, 589846, 65529, 655360, 589847, 65529, 655360, 589848, 65529, 655360, 589849, 65529, 655360, 589850, 65529, 655360, 589851, 65529, 655360, 589852, 65529, 655360, 589853, 65529, 655360, 589854, 65529, 655360, 589855, 65529, 655360, 589856, 65529, 655360, 589857, 65529, 655360, 589858, 65529, 655360, 589859, 65529, 655360, 589846, 65528, 0, 589847, 65528, 0, 589848, 65528, 0, 589849, 65528, 0, 589850, 65528, 0, 589851, 65528, 0, 589852, 65528, 0, 589853, 65528, 0, 589854, 65528, 0, 589855, 65528, 0, 589856, 65528, 0, 589857, 65528, 0, 589858, 65528, 0, 589859, 65528, 0, 655396, 65529, 1048579, 720933, 65529, 1048579, 786470, 65529, 1048579, 852007, 65529, 1048579, 852017, 65528, 1441795, 852007, 65528, 3, 786470, 65528, 3, 720933, 65528, 3, 655396, 65528, 3, 49, 65528, 1441795, 65585, 65528, 1441795, 131121, 65528, 1441795, 196657, 65528, 1441795, 262193, 65528, 1441795, 327729, 65528, 1441795, 393265, 65528, 1441795, 458801, 65528, 1441795, 524337, 65528, 1441795, 589873, 65528, 1441795, 655409, 65528, 1441795, 720945, 65528, 1441795, 786481, 65528, 1441795, -65496, 65528, 0, 40, 65528, 0, 65576, 65528, 0, 131112, 65528, 0, 196648, 65528, 0, 262184, 65528, 0, 327720, 65528, 0, 393256, 65528, 0, 458792, 65528, 0, 524328, 65528, 0, 589864, 65528, 0, 655400, 65528, 0, 720936, 65528, 0, 786472, 65528, 0, 852008, 65528, 0, -65495, 65528, 0, 41, 65528, 0, 65577, 65528, 0, 131113, 65528, 0, 196649, 65528, 0, 262185, 65528, 0, 327721, 65528, 0, 393257, 65528, 0, 458793, 65528, 0, 524329, 65528, 0, 589865, 65528, 0, 655401, 65528, 0, 720937, 65528, 0, 786473, 65528, 0, 852009, 65528, 0, -65494, 65528, 0, 42, 65528, 0, 65578, 65528, 0, 131114, 65528, 0, 196650, 65528, 0, 262186, 65528, 0, 327722, 65528, 0, 393258, 65528, 0, 458794, 65528, 0, 524330, 65528, 0, 589866, 65528, 0, 655402, 65528, 0, 720938, 65528, 0, 786474, 65528, 0, 852010, 65528, 0, -65493, 65528, 0, 43, 65528, 0, 65579, 65528, 0, 131115, 65528, 0, 196651, 65528, 0, 262187, 65528, 0, 327723, 65528, 0, 393259, 65528, 0, 458795, 65528, 0, 524331, 65528, 0, 589867, 65528, 0, 655403, 65528, 0, 720939, 65528, 0, 786475, 65528, 0, 852011, 65528, 0, -65492, 65528, 0, 44, 65528, 0, 65580, 65528, 0, 131116, 65528, 0, 196652, 65528, 0, 262188, 65528, 0, 327724, 65528, 0, 393260, 65528, 0, 458796, 65528, 0, 524332, 65528, 0, 589868, 65528, 0, 655404, 65528, 0, 720940, 65528, 0, 786476, 65528, 0, 852012, 65528, 0, -65491, 65528, 0, 45, 65528, 0, 65581, 65528, 0, 131117, 65528, 0, 196653, 65528, 0, 262189, 65528, 0, 327725, 65528, 0, 393261, 65528, 0, 458797, 65528, 0, 524333, 65528, 0, 589869, 65528, 0, 655405, 65528, 0, 720941, 65528, 0, 786477, 65528, 0, 852013, 65528, 0, -65490, 65528, 0, 46, 65528, 0, 65582, 65528, 0, 131118, 65528, 0, 196654, 65528, 0, 262190, 65528, 0, 327726, 65528, 0, 393262, 65528, 0, 458798, 65528, 0, 524334, 65528, 0, 589870, 65528, 0, 655406, 65528, 0, 720942, 65528, 0, 786478, 65528, 0, 852014, 65528, 0, -65489, 65528, 0, 47, 65528, 0, 65583, 65528, 0, 131119, 65528, 0, 196655, 65528, 0, 262191, 65528, 0, 327727, 65528, 0, 393263, 65528, 0, 458799, 65528, 0, 524335, 65528, 0, 589871, 65528, 0, 655407, 65528, 0, 720943, 65528, 0, 786479, 65528, 0, 852015, 65528, 0, -65488, 65528, 0, 48, 65528, 0, 65584, 65528, 0, 131120, 65528, 0, 196656, 65528, 0, 262192, 65528, 0, 327728, 65528, 0, 393264, 65528, 0, 458800, 65528, 0, 524336, 65528, 0, 589872, 65528, 0, 655408, 65528, 0, 720944, 65528, 0, 786480, 65528, 0, 852016, 65528, 0, -65497, 65528, 0, 39, 65528, 0, 65575, 65528, 0, 131111, 65528, 0, 196647, 65528, 0, 262183, 65528, 0, 327719, 65528, 0, 393255, 65528, 0, 458791, 65528, 0, 524327, 65528, 0, 589863, 65528, 0, 655399, 65528, 0, 720935, 65528, 0, 786471, 65528, 0, -65498, 65528, 0, 38, 65528, 0, 65574, 65528, 0, 131110, 65528, 0, 196646, 65528, 0, 262182, 65528, 0, 327718, 65528, 0, 393254, 65528, 0, 458790, 65528, 0, 524326, 65528, 0, 589862, 65528, 0, 655398, 65528, 0, 720934, 65528, 0, -65499, 65528, 0, 37, 65528, 0, 65573, 65528, 0, 131109, 65528, 0, 196645, 65528, 0, 262181, 65528, 0, 327717, 65528, 0, 393253, 65528, 0, 458789, 65528, 0, 524325, 65528, 0, 589861, 65528, 0, 655397, 65528, 0, -65500, 65528, 0, 36, 65528, 0, 65572, 65528, 0, 131108, 65528, 0, 196644, 65528, 0, 262180, 65528, 0, 327716, 65528, 0, 393252, 65528, 0, 458788, 65528, 0, 524324, 65528, 0, 589860, 65528, 0, 40, 65529, 655360, 65576, 65529, 655360, 131112, 65529, 655360, 196648, 65529, 655360, 262184, 65529, 655360, 327720, 65529, 655360, 393256, 65529, 655360, 458792, 65529, 655360, 524328, 65529, 655360, 589864, 65529, 655360, 655400, 65529, 655360, 720936, 65529, 655360, 786472, 65529, 655360, 852008, 65529, 655360, 41, 65529, 655360, 65577, 65529, 655360, 131113, 65529, 655360, 196649, 65529, 655360, 262185, 65529, 655360, 327721, 65529, 655360, 393257, 65529, 655360, 458793, 65529, 655360, 524329, 65529, 655360, 589865, 65529, 655360, 655401, 65529, 655360, 720937, 65529, 655360, 786473, 65529, 655360, 852009, 65529, 655360, 42, 65529, 655360, 65578, 65529, 655360, 131114, 65529, 655360, 196650, 65529, 655360, 262186, 65529, 655360, 327722, 65529, 655360, 393258, 65529, 655360, 458794, 65529, 655360, 524330, 65529, 655360, 589866, 65529, 655360, 655402, 65529, 655360, 720938, 65529, 655360, 786474, 65529, 655360, 852010, 65529, 655360, 43, 65529, 655360, 65579, 65529, 655360, 131115, 65529, 655360, 196651, 65529, 655360, 262187, 65529, 655360, 327723, 65529, 655360, 393259, 65529, 655360, 458795, 65529, 655360, 524331, 65529, 655360, 589867, 65529, 655360, 655403, 65529, 655360, 720939, 65529, 655360, 786475, 65529, 655360, 852011, 65529, 655360, 44, 65529, 655360, 65580, 65529, 655360, 131116, 65529, 655360, 196652, 65529, 655360, 262188, 65529, 655360, 327724, 65529, 655360, 393260, 65529, 655360, 458796, 65529, 655360, 524332, 65529, 655360, 589868, 65529, 655360, 655404, 65529, 655360, 720940, 65529, 655360, 786476, 65529, 655360, 852012, 65529, 655360, 45, 65529, 655360, 65581, 65529, 655360, 131117, 65529, 655360, 196653, 65529, 655360, 262189, 65529, 655360, 327725, 65529, 655360, 393261, 65529, 655360, 458797, 65529, 655360, 524333, 65529, 655360, 589869, 65529, 655360, 655405, 65529, 655360, 720941, 65529, 655360, 786477, 65529, 655360, 852013, 65529, 655360, 46, 65529, 655360, 65582, 65529, 655360, 131118, 65529, 655360, 196654, 65529, 655360, 262190, 65529, 655360, 327726, 65529, 655360, 393262, 65529, 655360, 458798, 65529, 655360, 524334, 65529, 655360, 589870, 65529, 655360, 655406, 65529, 655360, 720942, 65529, 655360, 786478, 65529, 655360, 852014, 65529, 655360, 47, 65529, 655360, 65583, 65529, 655360, 131119, 65529, 655360, 196655, 65529, 655360, 262191, 65529, 655360, 327727, 65529, 655360, 393263, 65529, 655360, 458799, 65529, 655360, 524335, 65529, 655360, 589871, 65529, 655360, 655407, 65529, 655360, 720943, 65529, 655360, 786479, 65529, 655360, 852015, 65529, 655360, -65497, 65529, 655360, 39, 65529, 655360, 65575, 65529, 655360, 131111, 65529, 655360, 196647, 65529, 655360, 262183, 65529, 655360, 327719, 65529, 655360, 393255, 65529, 655360, 458791, 65529, 655360, 524327, 65529, 655360, 589863, 65529, 655360, 655399, 65529, 655360, 720935, 65529, 655360, 786471, 65529, 655360, -65498, 65529, 655360, 38, 65529, 655360, 65574, 65529, 655360, 131110, 65529, 655360, 196646, 65529, 655360, 262182, 65529, 655360, 327718, 65529, 655360, 393254, 65529, 655360, 458790, 65529, 655360, 524326, 65529, 655360, 589862, 65529, 655360, 655398, 65529, 655360, 720934, 65529, 655360, -65499, 65529, 655360, 37, 65529, 655360, 65573, 65529, 655360, 131109, 65529, 655360, 196645, 65529, 655360, 262181, 65529, 655360, 327717, 65529, 655360, 393253, 65529, 655360, 458789, 65529, 655360, 524325, 65529, 655360, 589861, 65529, 655360, 655397, 65529, 655360, -65500, 65529, 655360, 36, 65529, 655360, 65572, 65529, 655360, 131108, 65529, 655360, 196644, 65529, 655360, 262180, 65529, 655360, 327716, 65529, 655360, 393252, 65529, 655360, 458788, 65529, 655360, 524324, 65529, 655360, 589860, 65529, 655360, -65487, 65528, 1441795, -65488, 65529, 1441793, 48, 65529, 1441793, 65584, 65529, 1441793, 131120, 65529, 1441793, 196656, 65529, 1441793, 262192, 65529, 1441793, 327728, 65529, 1441793, 393264, 65529, 1441793, 458800, 65529, 1441793, 524336, 65529, 1441793, 589872, 65529, 1441793, 655408, 65529, 1441793, 720944, 65529, 1441793, 786480, 65529, 1441793, 852016, 65529, 1441793, -65487, 65529, 1441792, 49, 65529, 1441792, 65585, 65529, 1441792, 131121, 65529, 1441792, 196657, 65529, 1441792, 262193, 65529, 1441792, 327729, 65529, 1441792, 393265, 65529, 1441792, 458801, 65529, 1441792, 524337, 65529, 1441792, 589873, 65529, 1441792, 655409, 65529, 1441792, 720945, 65529, 1441792, 786481, 65529, 1441792, 852017, 65529, 1441792, -65528, 65534, 0, -65528, 65535, 1, -65528, 0, 1, -65528, 1, 655360, -65527, 65534, 0, -65527, 65535, 1, -65527, 0, 1, -65527, 1, 655360, -65526, 65534, 0, -65526, 65535, 1, -65526, 0, 1, -65526, 1, 655360, -65525, 65534, 0, -65525, 65535, 1, -65525, 0, 1, -65525, 1, 655360, -65524, 65534, 0, -65524, 65535, 1, -65524, 0, 1, -65524, 1, 655360, -65523, 65534, 0, -65523, 65535, 1, -65523, 0, 1, -65523, 1, 655360, -65522, 65534, 0, -65522, 65535, 1, -65522, 0, 1, -65522, 1, 655360, -65521, 65534, 0, -65521, 65535, 1, -65521, 0, 1, -65521, 1, 655360, -65520, 65534, 0, -65520, 65535, 1, -65520, 0, 1, -65520, 1, 655360, -65519, 65534, 0, -65519, 65535, 1, -65519, 0, 1, -65519, 1, 655360, -65518, 65534, 0, -65518, 65535, 1, -65518, 0, 1, -65518, 1, 655360, -65517, 65534, 0, -65517, 65535, 1, -65517, 0, 1, -65517, 1, 655360, -65516, 65534, 1441793, -65516, 65535, 1, -65516, 0, 1, -65516, 1, 655360, -65515, 65534, 1441793, -65515, 65535, 1, -65515, 0, 1, -65515, 1, 655360, -65514, 65534, 1441793, -65514, 65535, 1441793, -65514, 0, 1441793, -65513, 0, 1441792, -65513, 65535, 1441792, -65513, 65534, 1441792, -65514, 1, 655360, -65513, 1, 655363, -65516, 65530, 3, -65516, 65531, 1048576, -65516, 65532, 1048576, -65516, 65533, 1048576, -65515, 65530, 0, -65514, 65530, 0, -65513, 65530, 0, -65512, 65530, 0, -65511, 65530, 0, -65510, 65530, 0, -65509, 65530, 0, -65508, 65530, 0, -65507, 65530, 0, -65506, 65530, 0, -65505, 65530, 0, -65504, 65530, 0, -65503, 65530, 0, -65502, 65530, 0, -65513, 65533, 655360, -65512, 65533, 655360, -65511, 65533, 655360, -65510, 65533, 655360, -65509, 65533, 655360, -65508, 65533, 655360, -65507, 65533, 655360, -65506, 65533, 655360, -65505, 65533, 655360, -65504, 65533, 655360, -65503, 65533, 655360, -65502, 65533, 655360, -65515, 65533, 655361, -65514, 65533, 655361, -65515, 65531, 655361, -65515, 65532, 655361, -65514, 65531, 655361, -65514, 65532, 655361, -65513, 65531, 655361, -65513, 65532, 655361, -65512, 65531, 655361, -65512, 65532, 655361, -65511, 65531, 655361, -65511, 65532, 655361, -65510, 65531, 655361, -65510, 65532, 655361, -65509, 65531, 655361, -65509, 65532, 655361, -65508, 65531, 655361, -65508, 65532, 655361, -65507, 65531, 655361, -65507, 65532, 655361, -65506, 65531, 655361, -65506, 65532, 655361, -65505, 65531, 655361, -65505, 65532, 655361, -65504, 65531, 655361, -65504, 65532, 655361, -65503, 65531, 655361, -65503, 65532, 655361, -65502, 65531, 655361, -65502, 65532, 655361, -131064, 65534, 0, -131064, 65535, 1, -131064, 0, 1, -131064, 1, 655360, -131063, 65534, 0, -131063, 65535, 1, -131063, 0, 1, -131063, 1, 655360, -131062, 65534, 0, -131062, 65535, 1, -131062, 0, 1, -131062, 1, 655360, -131061, 65534, 0, -131061, 65535, 1, -131061, 0, 1, -131061, 1, 655360, -131060, 65534, 0, -131060, 65535, 1, -131060, 0, 1, -131060, 1, 655360, -131059, 65534, 0, -131059, 65535, 1, -131059, 0, 1, -131059, 1, 655360, -131058, 65534, 0, -131058, 65535, 1, -131058, 0, 1, -131058, 1, 655360, -131057, 65534, 0, -131057, 65535, 1, -131057, 0, 1, -131057, 1, 655360, -131056, 65534, 0, -131056, 65535, 1, -131056, 0, 1, -131056, 1, 655360, -131055, 65534, 0, -131055, 65535, 1, -131055, 0, 1, -131055, 1, 655360, -131054, 65534, 0, -131054, 65535, 1, -131054, 0, 1, -131054, 1, 655360, -131053, 65530, 1441792, -131053, 65531, 1441792, -131053, 65532, 1441792, -131053, 65534, 0, -131053, 65535, 1, -131053, 0, 1, -131053, 1, 655360, -131052, 65530, 3, -131052, 65531, 1048576, -131052, 65532, 1048576, -131052, 65533, 1048576, -131052, 65534, 1441793, -131052, 65535, 1, -131052, 0, 1, -131052, 1, 655360, -131051, 65530, 0, -131051, 65531, 655361, -131051, 65532, 655361, -131051, 65533, 655361, -131051, 65534, 1441793, -131051, 65535, 1, -131051, 0, 1, -131051, 1, 655360, -131050, 65530, 0, -131050, 65531, 655361, -131050, 65532, 655361, -131050, 65533, 655361, -131050, 65534, 1441793, -131050, 65535, 1441793, -131050, 0, 1441793, -131050, 1, 655360, -131049, 65530, 0, -131049, 65531, 655361, -131049, 65532, 655361, -131049, 65533, 655360, -131049, 65534, 1441792, -131049, 65535, 1441792, -131049, 0, 1441792, -131049, 1, 655363, -131048, 65530, 0, -131048, 65531, 655361, -131048, 65532, 655361, -131048, 65533, 655360, -131047, 65530, 0, -131047, 65531, 655361, -131047, 65532, 655361, -131047, 65533, 655360, -131046, 65530, 0, -131046, 65531, 655361, -131046, 65532, 655361, -131046, 65533, 655360, -131045, 65530, 0, -131045, 65531, 655361, -131045, 65532, 655361, -131045, 65533, 655360, -131044, 65530, 0, -131044, 65531, 655361, -131044, 65532, 655361, -131044, 65533, 655360, -131043, 65530, 0, -131043, 65531, 655361, -131043, 65532, 655361, -131043, 65533, 655360, -131042, 65530, 0, -131042, 65531, 655361, -131042, 65532, 655361, -131042, 65533, 655360, -131041, 65530, 0, -131041, 65531, 655361, -131041, 65532, 655361, -131041, 65533, 655360, -131040, 65530, 0, -131040, 65531, 655361, -131040, 65532, 655361, -131040, 65533, 655360, -131039, 65530, 0, -131039, 65531, 655361, -131039, 65532, 655361, -131039, 65533, 655360, -131038, 65530, 0, -131038, 65531, 655361, -131038, 65532, 655361, -131038, 65533, 655360, -65501, 65532, 1441792, -65501, 65531, 1441792, -131037, 65531, 1441792, -131037, 65532, 1441792, -131037, 65530, 1441795, -65501, 65530, 1441795, -131037, 65533, 655363, -65501, 65533, 655363, 36, 65531, 1048576, 36, 65532, 1048576, 37, 65532, 1441792, 37, 65531, 1441792, 37, 65533, 655363, 37, 65530, 1441795, 36, 65533, 1048579, 36, 65530, 3, 38, 65530, 3, 38, 65531, 1048576, 38, 65532, 1048576, 38, 65533, 1048579, 39, 65530, 1441795, 39, 65531, 1441792, 39, 65532, 1441792, 39, 65533, 655363, -65500, 65530, 3, -65500, 65531, 1048576, -65500, 65532, 1048576, -65500, 65533, 1048579, -65499, 65530, 1441795, -65499, 65531, 1441792, -65499, 65532, 1441792, -65499, 65533, 655363, 65574, 65530, 3, 65574, 65531, 1048576, 65574, 65532, 1048576, 65574, 65533, 1048579, 65575, 65530, 1441795, 65575, 65531, 1441792, 65575, 65532, 1441792, 65575, 65533, 655363, 65576, 65530, 3, 65576, 65531, 1048576, 65576, 65532, 1048576, 65576, 65533, 1048579, 65577, 65530, 1441795, 65577, 65531, 1441792, 65577, 65532, 1441792, 65577, 65533, 655363, 131112, 65530, 3, 131112, 65531, 1048576, 131112, 65532, 1048576, 131112, 65533, 1048579, 131113, 65530, 1441795, 131113, 65531, 1441792, 131113, 65532, 1441792, 131113, 65533, 655363, 131114, 65530, 3, 131114, 65531, 1048576, 131114, 65532, 1048576, 131114, 65533, 1048579, 131115, 65530, 1441795, 131115, 65531, 1441792, 131115, 65532, 1441792, 131115, 65533, 655363, 196650, 65530, 3, 196650, 65531, 1048576, 196650, 65532, 1048576, 196650, 65533, 1048579, 196651, 65530, 1441795, 196651, 65531, 1441792, 196651, 65532, 1441792, 196651, 65533, 655363, 196652, 65530, 3, 196652, 65531, 1048576, 196652, 65532, 1048576, 196652, 65533, 1048579, 196653, 65530, 1441795, 196653, 65531, 1441792, 196653, 65532, 1441792, 196653, 65533, 655363, 852016, 65533, 1048576, 852016, 65534, 1048576, 852016, 65535, 1048576, 852016, 0, 1048576, 852016, 1, 1048576, 786480, 1, 1048576, 786480, 2, 1048576, 786480, 3, 1048576, 786480, 4, 1048576, 852016, 4, 1048576, 852016, 3, 1048576, 852016, 2, 1048576)
+}
+metadata/_editor_floor_ = Vector3(48, 3, -5)
+
+[node name="Mesh" type="Node3D" parent="."]
+
+[node name="MoveToJumpFloor3" type="StaticBody3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.99, 0.116, 0.875)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MoveToJumpFloor3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/MoveToJumpFloor3"]
 mesh = SubResource("BoxMesh_ohjhh")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MoveToJumpFloor3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/MoveToJumpFloor3"]
 shape = SubResource("BoxShape3D_bw3wx")
 
-[node name="MoveToJumpFloor4" type="StaticBody3D" parent="."]
+[node name="MoveToJumpFloor4" type="StaticBody3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.993, 0.116, -1.121)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MoveToJumpFloor4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/MoveToJumpFloor4"]
 mesh = SubResource("BoxMesh_73gp8")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MoveToJumpFloor4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/MoveToJumpFloor4"]
 shape = SubResource("BoxShape3D_7swuc")
 
-[node name="MoveToJumpFloor5" type="StaticBody3D" parent="."]
+[node name="MoveToJumpFloor5" type="StaticBody3D" parent="Mesh"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.868, 0.116, -0.251)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MoveToJumpFloor5"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/MoveToJumpFloor5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00222206)
 mesh = SubResource("BoxMesh_0rapf")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MoveToJumpFloor5"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/MoveToJumpFloor5"]
 shape = SubResource("BoxShape3D_mqm2y")
 
-[node name="S_depth_bxo5" parent="." instance=ExtResource("2_jfj7t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.99, 0.116, 0.624044)
+[node name="JumpWall15" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.5171, 0.478994, 21.4929)
 
-[node name="CollisionShape3D" parent="S_depth_bxo5" index="0"]
-shape = SubResource("BoxShape3D_yy461")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/JumpWall15"]
+mesh = SubResource("BoxMesh_h11up")
 
-[node name="S_depth_bxo6" parent="." instance=ExtResource("2_jfj7t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.993, 0.116, -1.37617)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/JumpWall15"]
+shape = SubResource("BoxShape3D_hrbyl")
 
-[node name="CollisionShape3D" parent="S_depth_bxo6" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.123214, 0, 0)
-shape = SubResource("BoxShape3D_lb4db")
+[node name="MoveFloor" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+visible = false
 
-[node name="Danger_Area" parent="." instance=ExtResource("7_at722")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.7726, -4.72304, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/MoveFloor"]
+mesh = SubResource("BoxMesh_ot2ec")
 
-[node name="triggerCollision" parent="Danger_Area" index="0"]
-shape = SubResource("BoxShape3D_2wgi1")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/MoveFloor"]
+shape = SubResource("BoxShape3D_gkuhd")
 
-[editable path="MoveFloor/S_rotate_camera"]
-[editable path="S_depth_bxo"]
-[editable path="S_rotate_camera"]
-[editable path="S_rotate_camera2"]
-[editable path="S_Set_Spawn"]
-[editable path="S_rotate_camera4"]
-[editable path="S_rotate_camera3"]
-[editable path="S_rotate_camera5"]
-[editable path="S_Set_Spawn2"]
-[editable path="S_Set_Spawn3"]
-[editable path="S_depth_bxo2"]
-[editable path="S_depth_bxo3"]
-[editable path="S_Set_Spawn4"]
-[editable path="S_depth_bxo4"]
-[editable path="S_depth_bxo5"]
-[editable path="S_depth_bxo6"]
-[editable path="Danger_Area"]
+[node name="MoveWallW" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.51742, 1.96455, 0)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/MoveWallW"]
+mesh = SubResource("BoxMesh_jj14j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/MoveWallW"]
+shape = SubResource("BoxShape3D_xu2tm")
+
+[node name="MoveWallN" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00654244, 1.96455, -3.46905)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/MoveWallN"]
+mesh = SubResource("BoxMesh_gy7ns")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/MoveWallN"]
+shape = SubResource("BoxShape3D_hq0h4")
+
+[node name="MoveWallE1" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1.965, -2.23)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/MoveWallE1"]
+mesh = SubResource("BoxMesh_iv881")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/MoveWallE1"]
+shape = SubResource("BoxShape3D_28iho")
+
+[node name="MoveWallE2" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1.965, 1.748)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/MoveWallE2"]
+mesh = SubResource("BoxMesh_iv881")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/MoveWallE2"]
+shape = SubResource("BoxShape3D_28iho")
+
+[node name="MoveWallE3" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -0.5, -0.03)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/MoveWallE3"]
+mesh = SubResource("BoxMesh_nnbgh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/MoveWallE3"]
+shape = SubResource("BoxShape3D_i05ag")
+
+[node name="MoveWallE4" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 2.953, 0.011)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/MoveWallE4"]
+mesh = SubResource("BoxMesh_1ma7q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/MoveWallE4"]
+shape = SubResource("BoxShape3D_wd5ta")
+
+[node name="MoveToJumpWall" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.96158, 1.96455, -1.48383)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/MoveToJumpWall"]
+mesh = SubResource("BoxMesh_gy7ns")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/MoveToJumpWall"]
+shape = SubResource("BoxShape3D_hq0h4")
+
+[node name="MoveToJumpFloor" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.98992, -0.5, 0)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/MoveToJumpFloor"]
+mesh = SubResource("BoxMesh_5owfp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/MoveToJumpFloor"]
+shape = SubResource("BoxShape3D_j7btg")
+
+[node name="MoveToJumpWall2" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.45153, 1.96455, -2.49262)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/MoveToJumpWall2"]
+mesh = SubResource("BoxMesh_of2jb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/MoveToJumpWall2"]
+shape = SubResource("BoxShape3D_gwn8d")
+
+[node name="MoveToJumpFloor2" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9222, -0.5, -1.99717)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/MoveToJumpFloor2"]
+visible = false
+mesh = SubResource("BoxMesh_5owfp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/MoveToJumpFloor2"]
+shape = SubResource("BoxShape3D_j7btg")
+
+[node name="MoveToJumpWall3" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9396, 1.9672, -3.48285)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/MoveToJumpWall3"]
+mesh = SubResource("BoxMesh_lruou")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/MoveToJumpWall3"]
+shape = SubResource("BoxShape3D_bii6t")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4216, 0.243554, -1.99574)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/StaticBody3D"]
+mesh = SubResource("BoxMesh_qt812")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D"]
+shape = SubResource("BoxShape3D_ssyqw")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4261, 0.742508, -1.99574)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/StaticBody3D2"]
+mesh = SubResource("BoxMesh_qt812")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D2"]
+shape = SubResource("BoxShape3D_ssyqw")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4315, 1.24229, -1.99574)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/StaticBody3D3"]
+mesh = SubResource("BoxMesh_qt812")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D3"]
+shape = SubResource("BoxShape3D_ssyqw")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.4319, 1.74446, -1.99574)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/StaticBody3D4"]
+mesh = SubResource("BoxMesh_qt812")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D4"]
+shape = SubResource("BoxShape3D_ssyqw")
+
+[node name="JumpWall1" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.91, 2.98058, -3.48285)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/JumpWall1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0056057, 0, 0)
+mesh = SubResource("BoxMesh_japwb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/JumpWall1"]
+shape = SubResource("BoxShape3D_skpta")
+
+[node name="JumpWall2" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4523, 2.98058, -3.48285)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/JumpWall2"]
+mesh = SubResource("BoxMesh_slfqb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/JumpWall2"]
+shape = SubResource("BoxShape3D_i5gok")
+
+[node name="JumpWall3" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4514, 2.98058, 4.50983)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/JumpWall3"]
+mesh = SubResource("BoxMesh_xudnx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/JumpWall3"]
+shape = SubResource("BoxShape3D_mees6")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9286, 1.74446, 4.5154)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/StaticBody3D5"]
+mesh = SubResource("BoxMesh_x7y7f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D5"]
+shape = SubResource("BoxShape3D_kpscc")
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9286, 1.74446, 13.0781)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/StaticBody3D6"]
+mesh = SubResource("BoxMesh_4nch4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D6"]
+shape = SubResource("BoxShape3D_qgww1")
+
+[node name="StaticBody3D7" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9286, 1.24734, 14.0836)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/StaticBody3D7"]
+mesh = SubResource("BoxMesh_4nch4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D7"]
+shape = SubResource("BoxShape3D_qgww1")
+
+[node name="StaticBody3D8" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9286, 0.748927, 15.8167)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/StaticBody3D8"]
+mesh = SubResource("BoxMesh_4nch4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D8"]
+shape = SubResource("BoxShape3D_qgww1")
+
+[node name="StaticBody3D9" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9286, 0.748927, 17.4076)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/StaticBody3D9"]
+mesh = SubResource("BoxMesh_4nch4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D9"]
+shape = SubResource("BoxShape3D_qgww1")
+
+[node name="StaticBody3D10" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.437, 0.765766, 19.4935)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/StaticBody3D10"]
+mesh = SubResource("BoxMesh_m8584")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D10"]
+shape = SubResource("BoxShape3D_am47b")
+
+[node name="StaticBody3D11" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.2136, 0.765766, 19.4949)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/StaticBody3D11"]
+mesh = SubResource("BoxMesh_cqaib")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D11"]
+shape = SubResource("BoxShape3D_kgrqp")
+
+[node name="StaticBody3D12" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.0011, 0.765766, 19.4949)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/StaticBody3D12"]
+mesh = SubResource("BoxMesh_ckfpj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D12"]
+shape = SubResource("BoxShape3D_r8sk0")
+
+[node name="StaticBody3D13" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.7711, 0.765766, 19.4949)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/StaticBody3D13"]
+mesh = SubResource("BoxMesh_ed7ny")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D13"]
+shape = SubResource("BoxShape3D_2igft")
+
+[node name="StaticBody3D14" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.2637, 0.271145, 19.4949)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/StaticBody3D14"]
+mesh = SubResource("BoxMesh_ckfpj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D14"]
+shape = SubResource("BoxShape3D_r8sk0")
+
+[node name="StaticBody3D15" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.2692, -0.2321, 19.4949)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/StaticBody3D15"]
+mesh = SubResource("BoxMesh_ckfpj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D15"]
+shape = SubResource("BoxShape3D_r8sk0")
+
+[node name="StaticBody3D16" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.2855, -0.727863, 19.4949)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/StaticBody3D16"]
+mesh = SubResource("BoxMesh_ckfpj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D16"]
+shape = SubResource("BoxShape3D_r8sk0")
+
+[node name="StaticBody3D17" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.2944, -1.2313, 19.4949)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/StaticBody3D17"]
+mesh = SubResource("BoxMesh_ckfpj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D17"]
+shape = SubResource("BoxShape3D_r8sk0")
+
+[node name="StaticBody3D18" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.2877, -1.73802, 19.4949)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/StaticBody3D18"]
+mesh = SubResource("BoxMesh_ckfpj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D18"]
+shape = SubResource("BoxShape3D_r8sk0")
+
+[node name="StaticBody3D19" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.2826, -2.2468, 19.4949)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/StaticBody3D19"]
+mesh = SubResource("BoxMesh_ckfpj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D19"]
+shape = SubResource("BoxShape3D_r8sk0")
+
+[node name="StaticBody3D20" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.2991, -2.75063, 19.4949)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/StaticBody3D20"]
+mesh = SubResource("BoxMesh_ckfpj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D20"]
+shape = SubResource("BoxShape3D_r8sk0")
+
+[node name="StaticBody3D21" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.3054, -3.2461, 19.5209)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/StaticBody3D21"]
+mesh = SubResource("BoxMesh_5sif1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D21"]
+shape = SubResource("BoxShape3D_0lerl")
+
+[node name="StaticBody3D22" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.8125, -3.2461, 22.5406)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/StaticBody3D22"]
+mesh = SubResource("BoxMesh_jt2ml")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D22"]
+shape = SubResource("BoxShape3D_r5t6s")
+
+[node name="StaticBody3D23" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.2555, -3.2461, 22.5406)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/StaticBody3D23"]
+mesh = SubResource("BoxMesh_up6ys")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D23"]
+shape = SubResource("BoxShape3D_gs7ra")
+
+[node name="JumpWall4" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4514, 2.98058, 10.9866)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/JumpWall4"]
+mesh = SubResource("BoxMesh_xudnx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/JumpWall4"]
+shape = SubResource("BoxShape3D_mees6")
+
+[node name="JumpWall5" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.31, -0.52, 17.989)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/JumpWall5"]
+mesh = SubResource("BoxMesh_qehmc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/JumpWall5"]
+shape = SubResource("BoxShape3D_lwpy0")
+
+[node name="JumpWall6" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.3207, -5.51235, 24.069)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/JumpWall6"]
+mesh = SubResource("BoxMesh_h6mkm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/JumpWall6"]
+shape = SubResource("BoxShape3D_uoisc")
+
+[node name="JumpWall7" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.0551, -0.495192, 25.5389)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/JumpWall7"]
+mesh = SubResource("BoxMesh_pokv4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/JumpWall7"]
+shape = SubResource("BoxShape3D_wdpww")
+
+[node name="JumpWall8" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.0551, -0.495192, 21.5575)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/JumpWall8"]
+mesh = SubResource("BoxMesh_pokv4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/JumpWall8"]
+shape = SubResource("BoxShape3D_wdpww")
+
+[node name="JumpWall9" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.3102, 0.486125, 21.5899)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/JumpWall9"]
+mesh = SubResource("BoxMesh_ttgif")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/JumpWall9"]
+shape = SubResource("BoxShape3D_u48at")
+
+[node name="JumpWall10" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.0551, 0.5023, 19.528)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/JumpWall10"]
+mesh = SubResource("BoxMesh_bkd1p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/JumpWall10"]
+shape = SubResource("BoxShape3D_vpaxk")
+
+[node name="JumpWall11" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.2448, -0.521259, 17.0436)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/JumpWall11"]
+mesh = SubResource("BoxMesh_frnl8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/JumpWall11"]
+shape = SubResource("BoxShape3D_qvecl")
+
+[node name="JumpWall12" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.5171, -0.528946, 23.5344)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/JumpWall12"]
+mesh = SubResource("BoxMesh_tfbkj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/JumpWall12"]
+shape = SubResource("BoxShape3D_jlguq")
+
+[node name="JumpWall13" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.1228, -2.50041, 21.5331)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/JumpWall13"]
+mesh = SubResource("BoxMesh_5o6e7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/JumpWall13"]
+shape = SubResource("BoxShape3D_eytam")
+
+[node name="JumpWall14" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.3497, -2.50041, 21.5331)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/JumpWall14"]
+mesh = SubResource("BoxMesh_5o6e7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/JumpWall14"]
+shape = SubResource("BoxShape3D_eytam")
+
+[editable path="Addon/S_Set_Spawn4"]
+[editable path="Addon/S_rotate_camera2"]
+[editable path="Addon/S_Set_Spawn"]
+[editable path="Addon/S_rotate_camera4"]
+[editable path="Addon/S_rotate_camera3"]
+[editable path="Addon/S_rotate_camera5"]
+[editable path="Addon/S_Set_Spawn2"]
+[editable path="Addon/S_Set_Spawn3"]
+[editable path="Addon/S_depth_bxo2"]
+[editable path="Addon/S_depth_bxo3"]
+[editable path="Addon/S_rotate_camera"]
+[editable path="Addon/S_depth_bxo"]
+[editable path="Addon/S_depth_bxo5"]
+[editable path="Addon/S_depth_bxo6"]
+[editable path="Addon/Danger_Area"]
+[editable path="Addon/S_depth_bxo4"]
+[editable path="Addon/S_rotate_camera6"]

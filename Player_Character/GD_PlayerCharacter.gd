@@ -47,12 +47,12 @@ func handle_input():
 	input_frame["dash"] = Input.is_action_pressed("Dash")
 	input_frame["wall_run"]  = Input.is_action_pressed("WallRun")
 
-	if input_frame["rotate_cw"]:
-		rotate(Vector3(0,1,0),deg_to_rad(-90))
-	if input_frame["rotate_ccw"]:
-		rotate(Vector3(0,1,0),deg_to_rad(90))
-	if input_frame["respawn"]:
-		respawn()
+	#if input_frame["rotate_cw"]:
+	#	rotate(Vector3(0,1,0),deg_to_rad(-90))
+	#if input_frame["rotate_ccw"]:
+	#	rotate(Vector3(0,1,0),deg_to_rad(90))
+	#if input_frame["respawn"]:
+	#	respawn()
 	
 
 #Exploring variable
