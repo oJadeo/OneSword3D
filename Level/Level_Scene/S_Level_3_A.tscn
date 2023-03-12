@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://sgh0h744cqyy"]
+[gd_scene load_steps=82 format=3 uid="uid://i65ct1vrwmwp"]
 
 [ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_cenjm"]
 [ext_resource type="Script" path="res://Level/Testing/GD_Test_Level_with_nav.gd" id="1_g55to"]
@@ -67,8 +67,10 @@ size = Vector3(1, 1, 4)
 data = PackedVector3Array(-0.5, 0.5, 2, 0.5, 0.5, 2, -0.5, -0.5, 2, 0.5, 0.5, 2, 0.5, -0.5, 2, -0.5, -0.5, 2, 0.5, 0.5, -2, -0.5, 0.5, -2, 0.5, -0.5, -2, -0.5, 0.5, -2, -0.5, -0.5, -2, 0.5, -0.5, -2, 0.5, 0.5, 2, 0.5, 0.5, -2, 0.5, -0.5, 2, 0.5, 0.5, -2, 0.5, -0.5, -2, 0.5, -0.5, 2, -0.5, 0.5, -2, -0.5, 0.5, 2, -0.5, -0.5, -2, -0.5, 0.5, 2, -0.5, -0.5, 2, -0.5, -0.5, -2, 0.5, 0.5, 2, -0.5, 0.5, 2, 0.5, 0.5, -2, -0.5, 0.5, 2, -0.5, 0.5, -2, 0.5, 0.5, -2, -0.5, -0.5, 2, 0.5, -0.5, 2, -0.5, -0.5, -2, 0.5, -0.5, 2, 0.5, -0.5, -2, -0.5, -0.5, -2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hjl3u"]
+size = Vector3(2.01031, 2.61987, 1.85935)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sqh6j"]
+size = Vector3(1, 2.25126, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1nhul"]
 size = Vector3(1.5, 3, 1)
@@ -298,6 +300,9 @@ size = Vector3(10, 7, 0.5)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_p4bjw"]
 data = PackedVector3Array(-5, 3.5, 0.25, 5, 3.5, 0.25, -5, -3.5, 0.25, 5, 3.5, 0.25, 5, -3.5, 0.25, -5, -3.5, 0.25, 5, 3.5, -0.25, -5, 3.5, -0.25, 5, -3.5, -0.25, -5, 3.5, -0.25, -5, -3.5, -0.25, 5, -3.5, -0.25, 5, 3.5, 0.25, 5, 3.5, -0.25, 5, -3.5, 0.25, 5, 3.5, -0.25, 5, -3.5, -0.25, 5, -3.5, 0.25, -5, 3.5, -0.25, -5, 3.5, 0.25, -5, -3.5, -0.25, -5, 3.5, 0.25, -5, -3.5, 0.25, -5, -3.5, -0.25, 5, 3.5, 0.25, -5, 3.5, 0.25, 5, 3.5, -0.25, -5, 3.5, 0.25, -5, 3.5, -0.25, 5, 3.5, -0.25, -5, -3.5, 0.25, 5, -3.5, 0.25, -5, -3.5, -0.25, 5, -3.5, 0.25, 5, -3.5, -0.25, -5, -3.5, -0.25)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_xxpne"]
+size = Vector3(12.2383, 7, 10)
+
 [sub_resource type="BoxMesh" id="BoxMesh_110m3"]
 size = Vector3(1, 0.25, 1)
 
@@ -435,7 +440,7 @@ shape = SubResource("ConcavePolygonShape3D_wu013")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.96746, 2.26253, -3.97299)
 
 [node name="CollisionShape3D" parent="S_rotate_camera2" index="0"]
-transform = Transform3D(1, -3.42727e-07, -2.79397e-09, 1.04308e-07, 1, 0, -1.30385e-08, 3.72529e-09, 1, -0.303391, 0, -0.153654)
+transform = Transform3D(1, -3.42727e-07, -2.79397e-09, 1.04308e-07, 1, 0, -1.30385e-08, 3.72529e-09, 1, -0.303391, -0.00585866, -0.153654)
 shape = SubResource("BoxShape3D_hjl3u")
 
 [node name="S_Set_Spawn" parent="." instance=ExtResource("2_3jevg")]
@@ -452,6 +457,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.65969, 2.19862, -4.05363)
 angle = 90
 
 [node name="CollisionShape3D" parent="S_rotate_camera" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.222824, 0)
 shape = SubResource("BoxShape3D_sqh6j")
 
 [node name="S_depth_bxo" parent="." instance=ExtResource("5_xjd4r")]
@@ -930,6 +936,13 @@ skeleton = NodePath("../../PreArea1/Wall")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area2/Wall9/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_p4bjw")
 
+[node name="S_depth_bxo" parent="Area2" instance=ExtResource("5_xjd4r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22287, -19.9813)
+
+[node name="CollisionShape3D" parent="Area2/S_depth_bxo" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4905, -0.628432, -1.74091)
+shape = SubResource("BoxShape3D_xxpne")
+
 [node name="S_Enemy_Manager2" parent="." instance=ExtResource("7_e5k1j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21.7016)
 activater = NodePath("../SpawnAfterDeath2")
@@ -939,7 +952,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.454
 mortarRange = 5
 
 [node name="MeleeEnemy" parent="S_Enemy_Manager2" instance=ExtResource("5_4m2oi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.23593, 0.186063, -2.68711)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34881, 0.186063, -3.98738)
 
 [node name="MeleeEnemy2" parent="S_Enemy_Manager2" instance=ExtResource("5_4m2oi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.94021, 0.0289303, -4.60871)
@@ -980,6 +993,13 @@ angle = 90
 [node name="CollisionShape3D" parent="S_rotate_camera4" index="0"]
 shape = SubResource("BoxShape3D_acy3d")
 
+[node name="S_rotate_camera5" parent="." instance=ExtResource("4_f7fa7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19135, 1.31804, 3.55498)
+
+[node name="CollisionShape3D" parent="S_rotate_camera5" index="0"]
+transform = Transform3D(1, -3.42727e-07, -2.79397e-09, 1.04308e-07, 1, 0, -1.30385e-08, 3.72529e-09, 1, -0.303391, -0.00585866, -0.461518)
+shape = SubResource("BoxShape3D_hjl3u")
+
 [editable path="Danger_Area"]
 [editable path="S_rotate_camera2"]
 [editable path="S_Set_Spawn"]
@@ -998,5 +1018,7 @@ shape = SubResource("BoxShape3D_acy3d")
 [editable path="Area2/NavigationRegion3D/JumpBox"]
 [editable path="Area2/NavigationRegion3D/JumpBox2"]
 [editable path="Area2/NavigationRegion3D/JumpBox3"]
+[editable path="Area2/S_depth_bxo"]
 [editable path="SpawnAfterDeath2/Area3D"]
 [editable path="S_rotate_camera4"]
+[editable path="S_rotate_camera5"]

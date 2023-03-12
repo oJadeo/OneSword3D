@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=3 uid="uid://r0xq7fbbomfi"]
+[gd_scene load_steps=101 format=3 uid="uid://ds3ro1rdoagxe"]
 
 [ext_resource type="PackedScene" uid="uid://wycb6glgigjg" path="res://Level/Tiles/Rotate_Camera/S_rotate_camera.tscn" id="1_lpy4m"]
 [ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_uyn8b"]
