@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Enemy/MeleeEnemy/GD_MeleeEnemy.gd" id="2_quxdm"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2e6xd"]
-radius = 4.80529
+radius = 10.7209
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m4qv1"]
 
@@ -3087,7 +3087,6 @@ vframes = 24
 
 [node name="PlayerDetection" type="Area3D" parent="."]
 transform = Transform3D(0.235, 0, 0, 0, 0.235, 0, 0, 0, 0.235, 0, 0, 0)
-visible = false
 collision_layer = 0
 collision_mask = 2
 
