@@ -10,25 +10,198 @@ offset_right = 640.0
 offset_bottom = 360.0
 color = Color(0, 0, 0, 1)
 
-[node name="Label2" type="Label" parent="."]
-offset_left = 278.0
-offset_top = 126.0
-offset_right = 353.0
-offset_bottom = 152.0
-text = "หน้านี้ปุกกะปุ๋ยทำ"
-
-[node name="Label" type="Label" parent="."]
-offset_left = 308.0
-offset_top = 46.0
-offset_right = 363.0
-offset_bottom = 72.0
-text = "Setting"
-
 [node name="Back" type="Button" parent="."]
-offset_left = 415.0
-offset_top = 228.0
-offset_right = 460.0
-offset_bottom = 259.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -60.0
+offset_right = -45.0
+offset_bottom = -29.0
+grow_horizontal = 0
+grow_vertical = 0
 text = "Back"
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 40.0
+offset_bottom = 66.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
+text = "Setting
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -231.0
+offset_top = -90.0
+offset_right = 231.0
+offset_bottom = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Input1" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Input1"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Move Up"
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/Input1"]
+layout_mode = 2
+text = "Space"
+
+[node name="Input2" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Input2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Move Down"
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/Input2"]
+layout_mode = 2
+text = "Space"
+
+[node name="Input3" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Input3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Move Left"
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/Input3"]
+layout_mode = 2
+text = "W"
+
+[node name="Input4" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Input4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Move Right"
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/Input4"]
+layout_mode = 2
+text = "W"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Input5" type="HBoxContainer" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2/Input5"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Jump"
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer2/Input5"]
+layout_mode = 2
+text = "W"
+
+[node name="Input6" type="HBoxContainer" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2/Input6"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Dash"
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer2/Input6"]
+layout_mode = 2
+text = "W"
+
+[node name="Input7" type="HBoxContainer" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2/Input7"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Wall Run"
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer2/Input7"]
+layout_mode = 2
+text = "Space"
+
+[node name="Input8" type="HBoxContainer" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2/Input8"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Attack"
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer2/Input8"]
+layout_mode = 2
+text = "W"
+
+[node name="Input9" type="HBoxContainer" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2/Input9"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Block"
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer2/Input9"]
+layout_mode = 2
+text = "W"
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -13.0
+offset_right = 43.5
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press a key"
+
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Input1/Button" to="." method="_on_button_Move_Up_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Input2/Button" to="." method="_on_button_Move_down_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Input3/Button" to="." method="_on_button_Move_Left_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Input4/Button" to="." method="_on_button_Move_Right_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/Input5/Button" to="." method="_on_button_Jump_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/Input6/Button" to="." method="_on_button_Dash_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/Input7/Button" to="." method="_on_button_Wall_Run_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/Input8/Button" to="." method="_on_button_Attack_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/Input9/Button" to="." method="_on_button_Block_pressed"]
