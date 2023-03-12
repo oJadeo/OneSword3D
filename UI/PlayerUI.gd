@@ -5,18 +5,38 @@ extends Node
 @onready var secondDashCharge = $Control/DashCharge/secondDashCharge
 @onready var thirdDashCharge = $Control/DashCharge/thirdDashCharge
 # Called when the node enters the scene tree for the first time.
-@onready var menu = $MenuButton
-@onready var MainMenu = $"Main Menu"
-@onready var LevelSelect = $"Level Select"
-@onready var closeMenu = $Close
-@onready var ExitGame = $"Exit Game"
+@onready var buttonList = $ButtonList
 @onready var pauseCanvas = $ColorRect
+
+var current = 0
+var menuOpen = false
+
 func _ready():
 	hidePauseMenu()
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("Menu_Toggle") :
+		menuOpen = !menuOpen
+		get_tree().paused = menuOpen
+		if menuOpen :
+			showPauseMenu()
+		else :
+			hidePauseMenu()
+			
+	elif Input.is_action_just_pressed("Move_Down") or Input.is_action_just_pressed("Move_Up") and menuOpen :
+		if Input.is_action_just_pressed("Move_Down") :
+			current += 1
+		elif  Input.is_action_just_pressed("Move_Up") :
+			current -= 1
+		current = current%4
+		buttonList.get_children()[current].grab_focus()
+		
+	elif Input.is_action_just_pressed("Menu_Accept") and menuOpen :
+		buttonList.get_children()[current].emit_signal("pressed")
+		
+	elif Input.is_action_just_pressed("Menu_Back") and menuOpen :
+		buttonList.get_children()[0].emit_signal("pressed")
+	
 
 func _on_player_character_blockbar_changed(blockBar):
 	blockProgressBar.value = blockBar
@@ -41,30 +61,17 @@ func _on_player_character_dash_charge_changed(dash_charge):
 
 
 func hidePauseMenu():
-	menu.show()
-	MainMenu.hide()
-	LevelSelect.hide()
-	closeMenu.hide()
-	ExitGame.hide()
+	buttonList.hide()
 	pauseCanvas.hide()
 
 func showPauseMenu():
-	menu.hide()
-	MainMenu.show()
-	LevelSelect.show()
-	closeMenu.show()
-	ExitGame.show()
+	buttonList.show()
 	pauseCanvas.show()
+	buttonList.get_children()[current].grab_focus()
 
-func _on_menu_button_pressed():
-	get_tree().paused = true
-	showPauseMenu()
-
-
-func _on_close_pressed():
-	hidePauseMenu()
+func _on_continue_pressed():
 	get_tree().paused = false
-
+	hidePauseMenu()
 
 func _on_main_menu_pressed():
 	get_tree().change_scene_to_file("res://Menu/S_Main_Menu.tscn")
@@ -74,7 +81,8 @@ func _on_level_select_pressed():
 	get_tree().change_scene_to_file("res://Menu/S_Level_Select.tscn")
 	get_tree().paused = false
 
-
 func _on_exit_game_pressed():
 	get_tree().paused = false
 	get_tree().quit()
+
+
