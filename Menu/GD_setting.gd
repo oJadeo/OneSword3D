@@ -104,7 +104,7 @@ var currentInputMappedController = {
 func _ready():
 	if Input.get_joy_name(0) == "PS4 Controller":
 		currentControllerType = controllerType.PS4
-	if Input.get_joy_name(0) == "Xbox Series Controller":
+	if Input.get_joy_name(0) == "XInput Gamepad":
 		currentControllerType = controllerType.XBOX
 	loadConfigFileForDisplay()
 	container.visible = true
@@ -164,8 +164,11 @@ func displayInputController(input_dict:Dictionary):
 			print(input_dict[actionsName[action.get_child(0).text]])
 			if input_dict[actionsName[action.get_child(0).text]] != 999:
 				action.get_child(1).text = PS4_button[input_dict[actionsName[action.get_child(0).text]]]
-			else:
-				pass
+	elif currentControllerType == controllerType.XBOX:
+		for action in secondCol.get_children():
+			print(input_dict[actionsName[action.get_child(0).text]])
+			if input_dict[actionsName[action.get_child(0).text]] != 999:
+				action.get_child(1).text = xbox_button[input_dict[actionsName[action.get_child(0).text]]]
 func _on_controller_button_pressed():
 	if currentControllerType == null:
 		pass
@@ -243,6 +246,7 @@ func getInputMaped():
 
 func _input(event):
 	if edit:
+		print(event)
 		var targetEvent
 		if currentMode == mode.KEYBOARD:
 			if event is InputEventKey:
