@@ -8,16 +8,15 @@ func _ready():
 	buttonList.get_children()[current].grab_focus()
 
 func _process(delta):
-	if Input.is_action_just_pressed("Menu_Down") or Input.is_action_just_pressed("Menu_Up") :
-		if Input.is_action_just_pressed("Menu_Down") :
-			current += 1
-		elif  Input.is_action_just_pressed("Menu_Up") :
-			current -= 1
-		current = current%5
-		buttonList.get_children()[current].grab_focus()
-		
-	if Input.is_action_just_pressed("Menu_Accept") :
-		buttonList.get_children()[current].emit_signal("pressed")
+	#if Input.is_action_just_pressed("Move_Down") or Input.is_action_just_pressed("Move_Up") :
+		#if Input.is_action_just_pressed("Move_Down") :
+			#current += 1
+		#elif  Input.is_action_just_pressed("Move_Up") :
+			#current -= 1
+		#current = current%5
+		#buttonList.get_children()[current].grab_focus()
+	#if Input.is_action_just_pressed("Menu_Accept") :
+		#buttonList.get_children()[current].emit_signal("pressed")
 	if Input.is_action_just_pressed("Menu_Back"):
 		buttonList.get_children()[4].emit_signal("pressed")
 
