@@ -16,7 +16,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var reloadTimer = $ReloadTimer
 @onready var redTimer = $RedTimer
 @onready var animation = $AnimationPlayer
-@onready var health = 5
+@onready var health = 3
 @onready var sprite = $Sprite3d
 
 @export var mortarRange : int=3

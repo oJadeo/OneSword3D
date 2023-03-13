@@ -7,7 +7,7 @@ extends Node3D
 
 var deflected = false
 var direction = Vector2.ZERO
-var speed = 0.025
+var speed = 0.0175
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	collision.disabled = true
