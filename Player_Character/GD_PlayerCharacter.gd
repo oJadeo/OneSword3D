@@ -319,7 +319,7 @@ func _on_regen_timer_timeout():
 #@onready var dash = $Dash
 @onready var playerSpawnPoint = $"../playerSpawnPoint"
 func handle_animation():
-	if input_frame["direction"] != Vector2.ZERO and not deflecting:
+	if input_frame["direction"] != Vector2.ZERO and not deflecting and not attacking:
 		animationTree.set("parameters/Run/blend_position",input_frame["direction"])
 		animationTree.set("parameters/Idle/blend_position",input_frame["direction"])
 		animationTree.set("parameters/Block/blend_position",input_frame["direction"])
