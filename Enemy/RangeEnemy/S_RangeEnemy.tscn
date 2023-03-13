@@ -239,7 +239,7 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Color(1, 1, 1, 1)]
 }
 tracks/3/type = "method"
@@ -307,7 +307,7 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Color(1, 1, 1, 1)]
 }
 tracks/3/type = "method"
@@ -375,7 +375,7 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Color(1, 1, 1, 1)]
 }
 tracks/3/type = "method"
@@ -443,7 +443,7 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Color(1, 1, 1, 1)]
 }
 tracks/3/type = "method"
@@ -511,7 +511,7 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Color(1, 1, 1, 1)]
 }
 tracks/3/type = "method"
@@ -647,31 +647,31 @@ tracks/1/keys = {
 "update": 1,
 "values": [Vector2i(0, 3)]
 }
-tracks/2/type = "value"
+tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite3d:modulate")
+tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(1),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"on_blocking_finish"
 }]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite3d:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 0.435294, 0.364706, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_qldxf"]
@@ -707,10 +707,10 @@ tracks/2/path = NodePath("Sprite3d:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 0.435294, 0.364706, 1), Color(1, 1, 1, 1)]
 }
 tracks/3/type = "method"
 tracks/3/imported = false
@@ -760,10 +760,10 @@ tracks/2/path = NodePath("Sprite3d:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 0.435294, 0.364706, 1), Color(1, 1, 1, 1)]
 }
 tracks/3/type = "method"
 tracks/3/imported = false
@@ -813,10 +813,10 @@ tracks/2/path = NodePath("Sprite3d:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 0.435294, 0.364706, 1), Color(1, 1, 1, 1)]
 }
 tracks/3/type = "method"
 tracks/3/imported = false
@@ -866,10 +866,10 @@ tracks/2/path = NodePath("Sprite3d:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 0.435294, 0.364706, 1), Color(1, 1, 1, 1)]
 }
 tracks/3/type = "method"
 tracks/3/imported = false
@@ -919,10 +919,10 @@ tracks/2/path = NodePath("Sprite3d:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 0.435294, 0.364706, 1), Color(1, 1, 1, 1)]
 }
 tracks/3/type = "method"
 tracks/3/imported = false
@@ -1472,11 +1472,11 @@ hframes = 3
 vframes = 12
 frame = 27
 
-[node name="PlayerDetection" type="Area3D" parent="."]
+[node name="PlayerDetection" type="Area3D" parent="Sprite3d"]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3d" type="CollisionShape3D" parent="PlayerDetection"]
+[node name="CollisionShape3d" type="CollisionShape3D" parent="Sprite3d/PlayerDetection"]
 shape = SubResource("SphereShape3D_5h51k")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
@@ -1534,8 +1534,8 @@ navigation_layers = 2
 
 [node name="bulletPoint" type="Node3D" parent="Marker3D"]
 
-[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
-[connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
+[connection signal="body_entered" from="Sprite3d/PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="Sprite3d/PlayerDetection" to="." method="_on_player_detection_body_exited"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
