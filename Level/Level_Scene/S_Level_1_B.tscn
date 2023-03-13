@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3]
+[gd_scene load_steps=64 format=3 uid="uid://cr0iyf4jjx6at"]
 
 [ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_7ofo5"]
 [ext_resource type="Script" path="res://Level/Testing/GD_Test_Level_with_nav.gd" id="1_jc2jx"]
@@ -18,7 +18,7 @@ size = Vector3(1.5, 0.25, 1.5)
 data = PackedVector3Array(-0.75, 0.125, 0.75, 0.75, 0.125, 0.75, -0.75, -0.125, 0.75, 0.75, 0.125, 0.75, 0.75, -0.125, 0.75, -0.75, -0.125, 0.75, 0.75, 0.125, -0.75, -0.75, 0.125, -0.75, 0.75, -0.125, -0.75, -0.75, 0.125, -0.75, -0.75, -0.125, -0.75, 0.75, -0.125, -0.75, 0.75, 0.125, 0.75, 0.75, 0.125, -0.75, 0.75, -0.125, 0.75, 0.75, 0.125, -0.75, 0.75, -0.125, -0.75, 0.75, -0.125, 0.75, -0.75, 0.125, -0.75, -0.75, 0.125, 0.75, -0.75, -0.125, -0.75, -0.75, 0.125, 0.75, -0.75, -0.125, 0.75, -0.75, -0.125, -0.75, 0.75, 0.125, 0.75, -0.75, 0.125, 0.75, 0.75, 0.125, -0.75, -0.75, 0.125, 0.75, -0.75, 0.125, -0.75, 0.75, 0.125, -0.75, -0.75, -0.125, 0.75, 0.75, -0.125, 0.75, -0.75, -0.125, -0.75, 0.75, -0.125, 0.75, 0.75, -0.125, -0.75, -0.75, -0.125, -0.75)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mw7c7"]
-size = Vector3(1.66439, 1, 2.08006)
+size = Vector3(1.66439, 3.19104, 2.08006)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2girc"]
 
@@ -153,7 +153,7 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_two6c"]
-size = Vector3(1, 2.28304, 1.06393)
+size = Vector3(1, 4.8611, 1.06393)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4dwev"]
 
@@ -167,6 +167,14 @@ size = Vector3(1.5, 0.25, 1.5)
 data = PackedVector3Array(-0.75, 0.125, 0.75, 0.75, 0.125, 0.75, -0.75, -0.125, 0.75, 0.75, 0.125, 0.75, 0.75, -0.125, 0.75, -0.75, -0.125, 0.75, 0.75, 0.125, -0.75, -0.75, 0.125, -0.75, 0.75, -0.125, -0.75, -0.75, 0.125, -0.75, -0.75, -0.125, -0.75, 0.75, -0.125, -0.75, 0.75, 0.125, 0.75, 0.75, 0.125, -0.75, 0.75, -0.125, 0.75, 0.75, 0.125, -0.75, 0.75, -0.125, -0.75, 0.75, -0.125, 0.75, -0.75, 0.125, -0.75, -0.75, 0.125, 0.75, -0.75, -0.125, -0.75, -0.75, 0.125, 0.75, -0.75, -0.125, 0.75, -0.75, -0.125, -0.75, 0.75, 0.125, 0.75, -0.75, 0.125, 0.75, 0.75, 0.125, -0.75, -0.75, 0.125, 0.75, -0.75, 0.125, -0.75, 0.75, 0.125, -0.75, -0.75, -0.125, 0.75, 0.75, -0.125, 0.75, -0.75, -0.125, -0.75, 0.75, -0.125, 0.75, 0.75, -0.125, -0.75, -0.75, -0.125, -0.75)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ijvam"]
+
+[sub_resource type="Environment" id="Environment_qiut7"]
+background_mode = 1
+background_color = Color(0.317647, 0.541176, 0.713726, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+ambient_light_sky_contribution = 0.17
+tonemap_mode = 2
 
 [node name="S_Level_1_B" type="Node3D"]
 script = ExtResource("1_jc2jx")
@@ -218,7 +226,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5331, -0.5, -0.0224413)
 angle = -90
 
 [node name="CollisionShape3D" parent="S_rotate_camera" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0503635, -0.0208573, -0.471537)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.183867, -0.0208573, -0.471537)
 shape = SubResource("BoxShape3D_mw7c7")
 
 [node name="S_rotate_camera2" parent="." instance=ExtResource("3_fb5xy")]
@@ -228,6 +236,7 @@ angle = 180
 [node name="CollisionShape3D" parent="S_rotate_camera2" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5247)
 shape = SubResource("BoxShape3D_2girc")
+disabled = true
 
 [node name="S_rotate_camera3" parent="." instance=ExtResource("3_fb5xy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.718216, 1.63048, -0.635838)
@@ -561,6 +570,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78284, 0, 2.62556)
 [node name="triggerCollision" parent="Danger_Area" index="0"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.43003, -4.15505, 2.46595)
 shape = SubResource("WorldBoundaryShape3D_ijvam")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qiut7")
 
 [editable path="S_rotate_camera"]
 [editable path="S_rotate_camera2"]

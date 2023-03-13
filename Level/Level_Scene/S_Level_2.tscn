@@ -1,4 +1,4 @@
-[gd_scene load_steps=132 format=3 uid="uid://b6baxegk360xs"]
+[gd_scene load_steps=134 format=3 uid="uid://b6baxegk360xs"]
 
 [ext_resource type="Script" path="res://Level/Level_Scene/GD_Level_2.gd" id="1_l36ga"]
 [ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_q4yf2"]
@@ -24,6 +24,13 @@ agent_radius = 0.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwsha"]
 uv1_offset = Vector3(0.5, 0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8lrb7"]
+material = SubResource("StandardMaterial3D_pwsha")
+size = Vector3(8, 1, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nw7vi"]
+size = Vector3(8, 1, 4)
 
 [sub_resource type="BoxMesh" id="BoxMesh_xfebi"]
 material = SubResource("StandardMaterial3D_pwsha")
@@ -417,7 +424,7 @@ size = Vector3(2, 3, 4.75)
 size = Vector3(1, 1, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pn25d"]
-size = Vector3(11, 4.91933, 1)
+size = Vector3(11, 9.32022, 3.2131)
 
 [sub_resource type="Environment" id="Environment_2lxyd"]
 background_mode = 1
@@ -436,13 +443,17 @@ navigation_mesh = SubResource("NavigationMesh_kvyrc")
 [node name="Wallrun" type="Node3D" parent="NavigationRegion3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Wallrun"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.93009, -0.5, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Wallrun/StaticBody3D"]
-mesh = SubResource("BoxMesh_xfebi")
+mesh = SubResource("BoxMesh_8lrb7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Wallrun/StaticBody3D"]
-shape = SubResource("BoxShape3D_6mmjm")
+shape = SubResource("BoxShape3D_nw7vi")
+
+[node name="Label3D" type="Label3D" parent="NavigationRegion3D/Wallrun/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -0.200858, 1.36712, -0.687319)
+text = "Hold CTRL when moving near wall to WALL RUN"
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="NavigationRegion3D/Wallrun"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.5, 0)
@@ -587,6 +598,10 @@ mesh = SubResource("BoxMesh_hq5gv")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Wallrun/StaticBody3D14"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
 shape = SubResource("BoxShape3D_fjnsy")
+
+[node name="Label3D" type="Label3D" parent="NavigationRegion3D/Wallrun/StaticBody3D14"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -4.85025, 0.83202, -1.97318)
+text = "Press Jump while Wallrunning to gain extra jumping distance"
 
 [node name="Danger_Area" parent="NavigationRegion3D" instance=ExtResource("3_kms13")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
@@ -1533,14 +1548,14 @@ shape = SubResource("BoxShape3D_ic74l")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.7653, 0, 41.2938)
 
 [node name="CollisionShape3D" parent="NavigationRegion3D/Mortar+Range/S_depth_bxo" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.478065, 1.5399, -1.27641)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.478065, 3.70286, -0.182396)
 shape = SubResource("BoxShape3D_pn25d")
 
 [node name="Player_Character" parent="." instance=ExtResource("1_q4yf2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.302786, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.49831, 0.302786, 0)
 
 [node name="playerSpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.17625, 0.329982, 30.0999)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.50299, 0.329982, 0.0035916)
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1, 3.09086e-08, -3.09086e-08, -3.32541, 2.1958, 0)

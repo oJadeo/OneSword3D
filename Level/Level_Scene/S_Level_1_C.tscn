@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3]
+[gd_scene load_steps=46 format=3 uid="uid://dv62q73pop6q6"]
 
 [ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_qbn0u"]
 [ext_resource type="Script" path="res://Level/Testing/GD_Test_Level_with_nav.gd" id="1_ygvf2"]
@@ -30,7 +30,10 @@ data = PackedVector3Array(-1.5, 5, 0.5, 1.5, 5, 0.5, -1.5, -5, 0.5, 1.5, 5, 0.5,
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wg44n"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_mwp4o"]
+[sub_resource type="BoxMesh" id="BoxMesh_tum5u"]
+size = Vector3(6.741, 8, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o1ms3"]
 size = Vector3(6.741, 8, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_1twl3"]
@@ -99,19 +102,27 @@ size = Vector3(1, 2, 1)
 data = PackedVector3Array(-0.5, 1, 0.5, 0.5, 1, 0.5, -0.5, -1, 0.5, 0.5, 1, 0.5, 0.5, -1, 0.5, -0.5, -1, 0.5, 0.5, 1, -0.5, -0.5, 1, -0.5, 0.5, -1, -0.5, -0.5, 1, -0.5, -0.5, -1, -0.5, 0.5, -1, -0.5, 0.5, 1, 0.5, 0.5, 1, -0.5, 0.5, -1, 0.5, 0.5, 1, -0.5, 0.5, -1, -0.5, 0.5, -1, 0.5, -0.5, 1, -0.5, -0.5, 1, 0.5, -0.5, -1, -0.5, -0.5, 1, 0.5, -0.5, -1, 0.5, -0.5, -1, -0.5, 0.5, 1, 0.5, -0.5, 1, 0.5, 0.5, 1, -0.5, -0.5, 1, 0.5, -0.5, 1, -0.5, 0.5, 1, -0.5, -0.5, -1, 0.5, 0.5, -1, 0.5, -0.5, -1, -0.5, 0.5, -1, 0.5, 0.5, -1, -0.5, -0.5, -1, -0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ajnbf"]
-size = Vector3(3.12401, 1, 0.824107)
+size = Vector3(3.12401, 1.88205, 2.30288)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h84nk"]
-size = Vector3(0.277949, 0.924504, 0.230575)
+size = Vector3(0.277949, 0.977415, 0.79108)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4sai6"]
-size = Vector3(1.00336, 1.82818, 1)
+size = Vector3(1.00336, 1.82818, 1.64)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dctxb"]
-size = Vector3(7.96861, 1.56272, 0.318039)
+size = Vector3(7.96861, 4.51835, 1.60112)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gfsu5"]
 size = Vector3(3.8812, 1.26011, 0.392033)
+
+[sub_resource type="Environment" id="Environment_jyic6"]
+background_mode = 1
+background_color = Color(0.317647, 0.541176, 0.713726, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+ambient_light_sky_contribution = 0.17
+tonemap_mode = 2
 
 [node name="S_Level_1_C" type="Node3D"]
 script = ExtResource("1_ygvf2")
@@ -128,13 +139,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6466, 4.94217, 0.980194)
 activater = NodePath("../NextLevel")
 
 [node name="MeleeEnemy4" parent="S_Enemy_Manager" instance=ExtResource("3_xplb2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.98158, -0.836839, -2.45229)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.77688, -0.836839, -3.10643)
 
 [node name="RangeEnemy3" parent="S_Enemy_Manager" instance=ExtResource("4_pw4ps")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62701, -0.690002, -3.65167)
 
 [node name="RangeEnemy2" parent="S_Enemy_Manager" instance=ExtResource("4_pw4ps")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08573, -0.176652, -1.87344)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26921, -0.176652, -2.34214)
 
 [node name="RangeEnemy" parent="S_Enemy_Manager" instance=ExtResource("4_pw4ps")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03853, -0.666661, 2.67054)
@@ -143,7 +154,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03853, -0.666661, 2.67054)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6793, -1.41959, 4.53027)
 
 [node name="MeleeEnemy2" parent="S_Enemy_Manager" instance=ExtResource("3_xplb2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.858168, -0.743261, 1.60849)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.858168, -0.294572, 0.427927)
 
 [node name="MeleeEnemy" parent="S_Enemy_Manager" instance=ExtResource("3_xplb2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3062, -0.25609, 0)
@@ -194,8 +205,13 @@ shape = SubResource("ConcavePolygonShape3D_wg44n")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="Start"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.37938, 0, -1.00917)
-mesh = SubResource("BoxMesh_mwp4o")
+mesh = SubResource("BoxMesh_tum5u")
 skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Start/MeshInstance3D4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Start/MeshInstance3D4/StaticBody3D"]
+shape = SubResource("BoxShape3D_o1ms3")
 
 [node name="StartPath" type="MeshInstance3D" parent="Start"]
 mesh = SubResource("BoxMesh_1twl3")
@@ -360,28 +376,28 @@ shape = SubResource("ConcavePolygonShape3D_bseni")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.65822, 0, 1.8797)
 
 [node name="CollisionShape3D" parent="S_depth_bxo" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.21211, 3.46143, 0.841625)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.21211, 3.46143, 0.388093)
 shape = SubResource("BoxShape3D_ajnbf")
 
 [node name="S_depth_bxo2" parent="." instance=ExtResource("7_2jy6n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9742, 4.21073, 0)
 
 [node name="CollisionShape3D" parent="S_depth_bxo2" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.441133, -0.299057, 1.0354)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.460305, -0.299057, 0.718556)
 shape = SubResource("BoxShape3D_h84nk")
 
 [node name="S_depth_bxo3" parent="." instance=ExtResource("7_2jy6n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7609, 4.821, 0)
 
 [node name="CollisionShape3D" parent="S_depth_bxo3" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.406538, -0.789945, 2.42077)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.406538, -0.789945, 1.62545)
 shape = SubResource("BoxShape3D_4sai6")
 
 [node name="S_depth_bxo4" parent="." instance=ExtResource("7_2jy6n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3508, 4.38898, -6.10655)
 
 [node name="CollisionShape3D" parent="S_depth_bxo4" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30102, -0.82724, 2.24319)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30102, -0.82724, 1.65824)
 shape = SubResource("BoxShape3D_dctxb")
 
 [node name="S_depth_bxo5" parent="." instance=ExtResource("7_2jy6n")]
@@ -472,6 +488,9 @@ jump_force = 4
 [node name="JumpBox20" parent="Jumpbox" instance=ExtResource("9_1o16i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9992, 3.36016, 1.52588)
 jump_force = 4
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jyic6")
 
 [editable path="Danger_Area"]
 [editable path="S_depth_bxo"]
