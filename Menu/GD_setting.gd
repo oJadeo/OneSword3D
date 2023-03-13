@@ -245,7 +245,7 @@ func getInputMaped():
 			print(InputMap.action_get_events(action))
 
 func _input(event):
-	if edit:
+	if edit :
 		print(event)
 		var targetEvent
 		if currentMode == mode.KEYBOARD:
@@ -277,22 +277,22 @@ func _input(event):
 					container.visible = true
 					#saveButton.grab_focus()
 				displayInputKeyboard(currentInputMappedKeyboard)
+			keyboardButton.grab_focus()
 		if currentMode == mode.CONTROLLER:
-				if event is InputEventJoypadButton:
-				#print(event.button_index)
-					var duplicate = false
-					for e in currentInputMappedController:
-						if currentInputMappedController[e] == event.button_index:
-							print(currentInputMappedController[e])
-							duplicate = true
-					print(duplicate)
-					if (event.button_index not in cannotMappedController and not duplicate):
-						currentInputMappedController[currentAction] = event.button_index
-						edit = false
-						inputPanel.visible = false
-						container.visible = true
-					displayInputController(currentInputMappedController)
-		saveButton.grab_focus()			
+			if event is InputEventJoypadButton and event.is_pressed():
+			#print(event.button_index)
+				var duplicate = false
+				for e in currentInputMappedController:
+					if currentInputMappedController[e] == event.button_index:
+						print(currentInputMappedController[e])
+						duplicate = true
+				if (event.button_index not in cannotMappedController and not duplicate):
+					currentInputMappedController[currentAction] = event.button_index
+					edit = false
+					inputPanel.visible = false
+					container.visible = true
+				displayInputController(currentInputMappedController)
+			controllerButton.grab_focus()		
 
 func setupInput(inputKeyboard:Dictionary,inputController:Dictionary):
 	for action in inputKeyboard:
