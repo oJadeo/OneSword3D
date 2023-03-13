@@ -65,8 +65,8 @@ size = Vector2(8, 8)
 [sub_resource type="BoxShape3D" id="BoxShape3D_b66lr"]
 size = Vector3(1, 2, 2)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ehwq6"]
-size = Vector3(1, 2, 2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_a7o18"]
+size = Vector3(2, 2, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fpsmt"]
 size = Vector3(4, 4, 2)
@@ -83,8 +83,8 @@ size = Vector3(6.25, 0.5, 0.5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_2wgi1"]
 size = Vector3(100, 1, 100)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_cac4s"]
-size = Vector3(1, 2, 2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_r66at"]
+size = Vector3(2, 2, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mwow5"]
 size = Vector3(6, 3, 6)
@@ -137,7 +137,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39878, 0)
 [node name="Addon" type="Node3D" parent="."]
 
 [node name="S_Set_Spawn4" parent="Addon" instance=ExtResource("4_1mufb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.8459, -2.97171, 24.5255)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.9969, -2.79522, 24.5255)
 
 [node name="triggerCollision" parent="Addon/S_Set_Spawn4" index="0"]
 shape = SubResource("HeightMapShape3D_5sevv")
@@ -154,7 +154,7 @@ delay = true
 shape = SubResource("BoxShape3D_jmfq3")
 
 [node name="S_Set_Spawn" parent="Addon" instance=ExtResource("4_1mufb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9143, 2.02157, 8.43745)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9143, 2.10423, 8.43745)
 
 [node name="triggerCollision" parent="Addon/S_Set_Spawn" index="0"]
 shape = SubResource("HeightMapShape3D_v2cri")
@@ -188,7 +188,7 @@ delay = true
 shape = SubResource("BoxShape3D_7wuxd")
 
 [node name="S_Set_Spawn2" parent="Addon" instance=ExtResource("4_1mufb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.5693, 1.04225, 19.4929)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.5693, 1.21113, 19.4929)
 
 [node name="triggerCollision" parent="Addon/S_Set_Spawn2" index="0"]
 shape = SubResource("HeightMapShape3D_84ajb")
@@ -197,7 +197,7 @@ shape = SubResource("HeightMapShape3D_84ajb")
 mesh = SubResource("PlaneMesh_kedib")
 
 [node name="S_Set_Spawn3" parent="Addon" instance=ExtResource("4_1mufb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.6079, -2.89552, 24.5989)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.5727, -2.76948, 24.5989)
 
 [node name="triggerCollision" parent="Addon/S_Set_Spawn3" index="0"]
 shape = SubResource("HeightMapShape3D_fg5lo")
@@ -216,7 +216,8 @@ shape = SubResource("BoxShape3D_b66lr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.057, -1.98654, 18.5438)
 
 [node name="CollisionShape3D" parent="Addon/S_depth_bxo3" index="0"]
-shape = SubResource("BoxShape3D_ehwq6")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.354805, 0, 0)
+shape = SubResource("BoxShape3D_a7o18")
 
 [node name="S_rotate_camera" parent="Addon" instance=ExtResource("1_lpy4m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9437, 2.48866, -2.06723)
@@ -255,8 +256,8 @@ shape = SubResource("BoxShape3D_2wgi1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.2419, -2.9961, 18.6337)
 
 [node name="CollisionShape3D" parent="Addon/S_depth_bxo4" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.715271, 0.991244, -0.0957355)
-shape = SubResource("BoxShape3D_cac4s")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.715271, 0.991244, -0.163685)
+shape = SubResource("BoxShape3D_r66at")
 
 [node name="S_rotate_camera6" parent="Addon" instance=ExtResource("1_lpy4m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.71746, 0)
@@ -286,7 +287,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.8179, -2.81641, 19.6575)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.9961, -2.81641, 19.723)
 
 [node name="RangeDummy" parent="Dummies" instance=ExtResource("6_lehfe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.4413, -2.78732, 22.9083)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.3016, -2.78732, 22.9083)
 
 [node name="Label" type="Node3D" parent="."]
 
