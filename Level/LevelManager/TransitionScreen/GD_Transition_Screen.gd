@@ -5,7 +5,7 @@ signal transitioned
 @onready var animationPlayer = $AnimationPlayer
 
 func _ready():
-	animationPlayer.play("fade_to_normal")
+	animationPlayer.play("fade_to_black")
 func transition():
 	animationPlayer.play("fade_to_black")
 
