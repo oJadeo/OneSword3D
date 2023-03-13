@@ -23,7 +23,7 @@ var input_frame = {
 	"direction" : Vector2.ZERO,
 	"jump" : false,
 	"attack" : false,
-	"deflect" : false,
+	"block" : false,
 	"dash" : false,
 	"rotate_cw" : false,
 	"rotate_ccw" : false,
@@ -38,7 +38,7 @@ func handle_input():
 	if input_frame["direction"] != Vector2.ZERO:
 		last_direction = (transform.basis * Vector3(input_frame["direction"] .x,0, input_frame["direction"] .y)).normalized()
 	input_frame["attack"] = Input.is_action_just_pressed("Attack")
-	input_frame["deflect"] = Input.is_action_pressed("Deflect")
+	input_frame["block"] = Input.is_action_pressed("Block")
 	input_frame["rotate_cw"] = Input.is_action_just_pressed("Rotate_CW")
 	input_frame["rotate_ccw"] = Input.is_action_just_pressed("Rotate_CCW")
 	input_frame["respawn"] = Input.is_action_pressed("Respawn")
@@ -290,9 +290,9 @@ func on_deflect_animation_end():
 @onready var recharge_block_timer = $RechargeBlockTimer
 @onready var regen_timer = $RegenTimer
 func handle_block():
-	if Input.is_action_pressed("Deflect") and is_on_floor() and not is_dashing and not is_wall_running and not slaming:
+	if Input.is_action_pressed("Block") and is_on_floor() and not is_dashing and not is_wall_running and not slaming:
 		deflecting = true
-	elif Input.is_action_just_released("Deflect"):
+	elif Input.is_action_just_released("Block"):
 		deflecting = false
 		on_deflect_animation_end()
 func regen_blockBar():

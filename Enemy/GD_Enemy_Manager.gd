@@ -31,7 +31,6 @@ func _process(delta):
 		activate = true
 
 func trigger():
-	print("yay")
 	var node = get_node(activater)
 	if node and node.has_method('activate'):
 		node.activate()

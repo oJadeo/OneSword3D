@@ -8,7 +8,8 @@ def extract(filename,size):
     im = Image.open(filename+'.png') # Can be many different formats.
     pixel = im.load()
     width, height = im.size
-    os.mkdir(filename)
+    if not os.path.exists(filename):
+        os.mkdir(filename)
     new_im = Image.new('RGBA', (size,size), color=0)
     new_pixel = new_im.load()
     for i in range(width//size):
