@@ -23,19 +23,19 @@ func _process(delta):
 		else :
 			hidePauseMenu()
 			
-	elif Input.is_action_just_pressed("Move_Down") or Input.is_action_just_pressed("Move_Up") and menuOpen :
-		if Input.is_action_just_pressed("Move_Down") :
-			current += 1
-		elif  Input.is_action_just_pressed("Move_Up") :
-			current -= 1
-		current = current%4
-		buttonList.get_children()[current].grab_focus()
+	#elif Input.is_action_just_pressed("Move_Down") or Input.is_action_just_pressed("Move_Up") and menuOpen :
+		#if Input.is_action_just_pressed("Move_Down") :
+			#current += 1
+		#elif  Input.is_action_just_pressed("Move_Up") :
+			#current -= 1
+		#current = current%4
+		#buttonList.get_children()[current].grab_focus()
 		
-	elif Input.is_action_just_pressed("Menu_Accept") and menuOpen :
-		buttonList.get_children()[current].emit_signal("pressed")
+	#elif Input.is_action_just_pressed("Menu_Accept") and menuOpen :
+		#buttonList.get_children()[current].emit_signal("pressed")
 		
-	elif Input.is_action_just_pressed("Menu_Back") and menuOpen :
-		buttonList.get_children()[0].emit_signal("pressed")
+	#elif Input.is_action_just_pressed("Menu_Back") and menuOpen :
+		#buttonList.get_children()[0].emit_signal("pressed")
 	
 
 func _on_player_character_blockbar_changed(blockBar):
@@ -63,12 +63,12 @@ func _on_player_character_dash_charge_changed(dash_charge):
 func hidePauseMenu():
 	buttonList.hide()
 	pauseCanvas.hide()
-
+	
 func showPauseMenu():
 	buttonList.show()
 	pauseCanvas.show()
 	buttonList.get_children()[current].grab_focus()
-
+	
 func _on_continue_pressed():
 	get_tree().paused = false
 	hidePauseMenu()
