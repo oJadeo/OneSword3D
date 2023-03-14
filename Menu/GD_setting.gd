@@ -11,7 +11,6 @@ extends CanvasLayer
 @onready var seperateContainer = $VBoxContainer/HBoxContainer/VBoxContainer3
 @onready var keyboardButton = $VBoxContainer/HBoxContainer2/Keyboard
 @onready var controllerButton = $VBoxContainer/HBoxContainer2/Controller
-@onready var saveButton = $VBoxContainer/Save
 
 var currentAction
 var edit = false
@@ -76,6 +75,18 @@ var xbox_button= {
 	14 : "Dpad Right"	
 }
 
+var defaultInputKeyboard = {
+	"Attack" : 1,
+	"Jump" : 32,
+	"Dash" : 4194325,
+	"Move_Up" : 87,
+	"Move_Down" : 83,
+	"Move_Left" : 65,
+	"Move_Right" : 68,
+	"WallRun" : 4194326,
+	"Block" : 2
+}
+
 var currentInputMappedKeyboard = {
 	"Attack" : 1,
 	"Jump" : 32,
@@ -86,6 +97,18 @@ var currentInputMappedKeyboard = {
 	"Move_Right" : 68,
 	"WallRun" : 4194326,
 	"Block" : 2
+}
+
+var defaultInputController = {
+	"Attack" : 2,
+	"Jump" : 0,
+	"Dash" : 1,
+	"Move_Up" : 999,
+	"Move_Down" : 999,
+	"Move_Left" : 999,
+	"Move_Right" : 999,
+	"WallRun" : 9,
+	"Block" : 10
 }
 
 var currentInputMappedController = {
@@ -104,7 +127,7 @@ var currentInputMappedController = {
 func _ready():
 	if Input.get_joy_name(0) == "PS4 Controller":
 		currentControllerType = controllerType.PS4
-	if Input.get_joy_name(0) == "Xbox Series Controller":
+	if Input.get_joy_name(0) == "XInput Gamepad":
 		currentControllerType = controllerType.XBOX
 	loadConfigFileForDisplay()
 	container.visible = true
@@ -164,8 +187,11 @@ func displayInputController(input_dict:Dictionary):
 			print(input_dict[actionsName[action.get_child(0).text]])
 			if input_dict[actionsName[action.get_child(0).text]] != 999:
 				action.get_child(1).text = PS4_button[input_dict[actionsName[action.get_child(0).text]]]
-			else:
-				pass
+	elif currentControllerType == controllerType.XBOX:
+		for action in secondCol.get_children():
+			print(input_dict[actionsName[action.get_child(0).text]])
+			if input_dict[actionsName[action.get_child(0).text]] != 999:
+				action.get_child(1).text = xbox_button[input_dict[actionsName[action.get_child(0).text]]]
 func _on_controller_button_pressed():
 	if currentControllerType == null:
 		pass
@@ -235,14 +261,17 @@ func _on_button_Block_pressed():
 	container.visible = false
 	inputPanel.visible = true
 
-func getInputMaped():
-	var actions = InputMap.get_actions()
-	for action in actions:
-		if action in gameActions:
-			print(InputMap.action_get_events(action))
+func _on_button_default_pressed():
+	currentInputMappedKeyboard = defaultInputKeyboard
+	currentInputMappedController = defaultInputController
+	if currentMode == mode.KEYBOARD:
+		displayInputKeyboard(currentInputMappedKeyboard)
+	elif currentMode == mode.CONTROLLER:
+		displayInputController(currentInputMappedController)
 
 func _input(event):
-	if edit:
+	if edit :
+		print(event)
 		var targetEvent
 		if currentMode == mode.KEYBOARD:
 			if event is InputEventKey:
@@ -273,22 +302,22 @@ func _input(event):
 					container.visible = true
 					#saveButton.grab_focus()
 				displayInputKeyboard(currentInputMappedKeyboard)
+			keyboardButton.grab_focus()
 		if currentMode == mode.CONTROLLER:
-				if event is InputEventJoypadButton:
-				#print(event.button_index)
-					var duplicate = false
-					for e in currentInputMappedController:
-						if currentInputMappedController[e] == event.button_index:
-							print(currentInputMappedController[e])
-							duplicate = true
-					print(duplicate)
-					if (event.button_index not in cannotMappedController and not duplicate):
-						currentInputMappedController[currentAction] = event.button_index
-						edit = false
-						inputPanel.visible = false
-						container.visible = true
-					displayInputController(currentInputMappedController)
-		saveButton.grab_focus()			
+			if event is InputEventJoypadButton and event.is_pressed():
+			#print(event.button_index)
+				var duplicate = false
+				for e in currentInputMappedController:
+					if currentInputMappedController[e] == event.button_index:
+						print(currentInputMappedController[e])
+						duplicate = true
+				if (event.button_index not in cannotMappedController and not duplicate):
+					currentInputMappedController[currentAction] = event.button_index
+					edit = false
+					inputPanel.visible = false
+					container.visible = true
+				displayInputController(currentInputMappedController)
+			controllerButton.grab_focus()		
 
 func setupInput(inputKeyboard:Dictionary,inputController:Dictionary):
 	for action in inputKeyboard:

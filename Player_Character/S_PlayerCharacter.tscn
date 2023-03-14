@@ -2323,7 +2323,7 @@ graph_offset = Vector2(-240, -80.0541)
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_ggkns"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ykq3n"]
-size = Vector3(0.4, 0.1, 0.4)
+size = Vector3(0.4, 0.135999, 0.4)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r3dmx"]
 radius = 0.07
@@ -2392,12 +2392,12 @@ collision_layer = 8
 collision_mask = 4736
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="NormalAtk/Hitbox"]
+visible = false
 shape = SubResource("BoxShape3D_ykq3n")
 disabled = true
 
 [node name="SlamAtk" type="Marker3D" parent="."]
 transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0, 0, 0)
-visible = false
 
 [node name="Hitbox" type="Area3D" parent="SlamAtk"]
 collision_layer = 8
@@ -2405,7 +2405,6 @@ collision_mask = 4800
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="SlamAtk/Hitbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.16, -0.1)
-visible = false
 shape = SubResource("BoxShape3D_ykq3n")
 disabled = true
 
