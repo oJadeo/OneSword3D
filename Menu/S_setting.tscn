@@ -173,7 +173,15 @@ text = "Block"
 layout_mode = 2
 text = "W"
 
-[node name="Save" type="Button" parent="VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Default"
+
+[node name="Save" type="Button" parent="VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Save"
@@ -212,4 +220,5 @@ text = "Press a key"
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer2/Input7/Button" to="." method="_on_button_Wall_Run_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer2/Input8/Button" to="." method="_on_button_Attack_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer2/Input9/Button" to="." method="_on_button_Block_pressed"]
-[connection signal="pressed" from="VBoxContainer/Save" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/Button" to="." method="_on_button_default_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/Save" to="." method="_on_back_pressed"]

@@ -11,7 +11,6 @@ extends CanvasLayer
 @onready var seperateContainer = $VBoxContainer/HBoxContainer/VBoxContainer3
 @onready var keyboardButton = $VBoxContainer/HBoxContainer2/Keyboard
 @onready var controllerButton = $VBoxContainer/HBoxContainer2/Controller
-@onready var saveButton = $VBoxContainer/Save
 
 var currentAction
 var edit = false
@@ -76,6 +75,18 @@ var xbox_button= {
 	14 : "Dpad Right"	
 }
 
+var defaultInputKeyboard = {
+	"Attack" : 1,
+	"Jump" : 32,
+	"Dash" : 4194325,
+	"Move_Up" : 87,
+	"Move_Down" : 83,
+	"Move_Left" : 65,
+	"Move_Right" : 68,
+	"WallRun" : 4194326,
+	"Block" : 2
+}
+
 var currentInputMappedKeyboard = {
 	"Attack" : 1,
 	"Jump" : 32,
@@ -86,6 +97,18 @@ var currentInputMappedKeyboard = {
 	"Move_Right" : 68,
 	"WallRun" : 4194326,
 	"Block" : 2
+}
+
+var defaultInputController = {
+	"Attack" : 2,
+	"Jump" : 0,
+	"Dash" : 1,
+	"Move_Up" : 999,
+	"Move_Down" : 999,
+	"Move_Left" : 999,
+	"Move_Right" : 999,
+	"WallRun" : 9,
+	"Block" : 10
 }
 
 var currentInputMappedController = {
@@ -238,11 +261,13 @@ func _on_button_Block_pressed():
 	container.visible = false
 	inputPanel.visible = true
 
-func getInputMaped():
-	var actions = InputMap.get_actions()
-	for action in actions:
-		if action in gameActions:
-			print(InputMap.action_get_events(action))
+func _on_button_default_pressed():
+	currentInputMappedKeyboard = defaultInputKeyboard
+	currentInputMappedController = defaultInputController
+	if currentMode == mode.KEYBOARD:
+		displayInputKeyboard(currentInputMappedKeyboard)
+	elif currentMode == mode.CONTROLLER:
+		displayInputController(currentInputMappedController)
 
 func _input(event):
 	if edit :
