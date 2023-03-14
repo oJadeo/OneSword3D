@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dv62q73pop6q6"]
+[gd_scene load_steps=47 format=3 uid="uid://dv62q73pop6q6"]
 
 [ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_qbn0u"]
 [ext_resource type="Script" path="res://Level/Testing/GD_Test_Level_with_nav.gd" id="1_ygvf2"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="5_wcpl5"]
 [ext_resource type="Script" path="res://Level/Tiles/Spawn_After_Death/GD_Spawn_After_Death.gd" id="6_6bbqw"]
 [ext_resource type="PackedScene" uid="uid://n88kt3qi66lc" path="res://Level/Tiles/Depth_test_box/S_depth_bxo.tscn" id="7_2jy6n"]
+[ext_resource type="PackedScene" uid="uid://bjd6kko4hof" path="res://Level/Tiles/Load_Area/S_Load_Area.tscn" id="8_h1gvx"]
 [ext_resource type="PackedScene" uid="uid://6dnu7ywfbvge" path="res://Level/Navigation/S_JumpBox.tscn" id="9_1o16i"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7ixnn"]
@@ -372,6 +373,9 @@ skeleton = NodePath("../../Start/StartPath")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NextLevel/Platform2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_bseni")
 
+[node name="Area3D" parent="NextLevel" instance=ExtResource("8_h1gvx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.211754, 0)
+
 [node name="S_depth_bxo" parent="." instance=ExtResource("7_2jy6n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.65822, 0, 1.8797)
 
@@ -493,6 +497,7 @@ jump_force = 4
 environment = SubResource("Environment_jyic6")
 
 [editable path="Danger_Area"]
+[editable path="NextLevel/Area3D"]
 [editable path="S_depth_bxo"]
 [editable path="S_depth_bxo2"]
 [editable path="S_depth_bxo3"]
