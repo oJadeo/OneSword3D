@@ -497,7 +497,6 @@ jump_force = 4
 environment = SubResource("Environment_jyic6")
 
 [editable path="Danger_Area"]
-[editable path="NextLevel/Area3D"]
 [editable path="S_depth_bxo"]
 [editable path="S_depth_bxo2"]
 [editable path="S_depth_bxo3"]
