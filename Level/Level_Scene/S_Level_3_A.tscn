@@ -446,12 +446,6 @@ shape = SubResource("BoxShape3D_hjl3u")
 [node name="S_Set_Spawn" parent="." instance=ExtResource("2_3jevg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.64167, 2.20178, -4.12447)
 
-[node name="triggerCollision" parent="S_Set_Spawn" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="triggerMesh" parent="S_Set_Spawn" index="1"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-
 [node name="S_rotate_camera" parent="." instance=ExtResource("4_f7fa7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.65969, 2.19862, -4.05363)
 angle = 90
@@ -973,9 +967,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.87548, 0.587122, -17.206)
 [node name="Area3D" parent="SpawnAfterDeath2" instance=ExtResource("13_iap28")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.495231, 0)
 
-[node name="CollisionShape3D" parent="SpawnAfterDeath2/Area3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.135207, 0)
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SpawnAfterDeath2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.315695, 0)
 mesh = SubResource("BoxMesh_110m3")
@@ -1004,7 +995,6 @@ shape = SubResource("BoxShape3D_hjl3u")
 
 [editable path="Danger_Area"]
 [editable path="S_rotate_camera2"]
-[editable path="S_Set_Spawn"]
 [editable path="S_rotate_camera"]
 [editable path="S_depth_bxo"]
 [editable path="Area1/NavigationRegion3D/MeshInstance3D2/S_depth_bxo2"]
@@ -1021,6 +1011,5 @@ shape = SubResource("BoxShape3D_hjl3u")
 [editable path="Area2/NavigationRegion3D/JumpBox2"]
 [editable path="Area2/NavigationRegion3D/JumpBox3"]
 [editable path="Area2/S_depth_bxo"]
-[editable path="SpawnAfterDeath2/Area3D"]
 [editable path="S_rotate_camera4"]
 [editable path="S_rotate_camera5"]

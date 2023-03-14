@@ -537,7 +537,7 @@ mesh = SubResource("BoxMesh_yl1te")
 shape = SubResource("ConcavePolygonShape3D_rgt6i")
 
 [node name="S_Set_Spawn2" parent="." instance=ExtResource("2_60cgf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4251, 2.70702, 10.4081)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4251, 2.45702, 10.4081)
 
 [node name="S_depth_bxo" parent="." instance=ExtResource("7_vuecn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0787, -0.5, -1.00121)
@@ -589,5 +589,4 @@ environment = SubResource("Environment_qiut7")
 [editable path="Melee_Area2/JumpBox2"]
 [editable path="Melee_Area2/JumpBox"]
 [editable path="S_depth_bxo"]
-[editable path="NextLevel/Area3D"]
 [editable path="Danger_Area"]
