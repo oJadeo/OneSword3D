@@ -308,10 +308,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5412, 1.18344, 0)
 activater = NodePath("../NextLevel")
 
 [node name="RangeEnemy2" parent="S_Enemy_Manager2" instance=ExtResource("6_a6c6f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.50747, 1.33296, 6.81644)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.491428, 1.33296, 8.40205)
 
 [node name="RangeEnemy" parent="S_Enemy_Manager2" instance=ExtResource("6_a6c6f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.932814, 1.80713, 5.078)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.97331, 1.80713, 5.47279)
 
 [node name="StartPath" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66142, 0, 0)
