@@ -1,5 +1,6 @@
-[gd_scene load_steps=31 format=3 uid="uid://r0xq7fbbomfi"]
+[gd_scene load_steps=32 format=3 uid="uid://r0xq7fbbomfi"]
 
+[ext_resource type="PackedScene" uid="uid://bjd6kko4hof" path="res://Level/Tiles/Load_Area/S_Load_Area.tscn" id="1_erua6"]
 [ext_resource type="PackedScene" uid="uid://wycb6glgigjg" path="res://Level/Tiles/Rotate_Camera/S_rotate_camera.tscn" id="1_lpy4m"]
 [ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_uyn8b"]
 [ext_resource type="PackedScene" uid="uid://n88kt3qi66lc" path="res://Level/Tiles/Depth_test_box/S_depth_bxo.tscn" id="2_jfj7t"]
@@ -99,6 +100,9 @@ agent_radius = 0.1
 agent_max_climb = 0.1
 
 [node name="S_Tutorial_2" type="Node3D"]
+
+[node name="Area3D" parent="." instance=ExtResource("1_erua6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.4049, -2.58054, 18.6575)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_uvupg")
@@ -344,7 +348,7 @@ transform = Transform3D(1, -0.000357701, 0.000382301, 0.000357704, 1, -7.11953e-
 navigation_mesh = SubResource("NavigationMesh_f5udf")
 
 [node name="GridMap" type="GridMap" parent="NavigationRegion3D"]
-transform = Transform3D(1, -1.47903e-10, 0, 9.22125e-10, 1, 1.45519e-11, 9.31323e-10, 0, 1, 0, 0, 0)
+transform = Transform3D(1, -1.47903e-10, 0, 1.00944e-09, 1, 1.59162e-11, 1.01863e-09, 0, 1, 0, 0, 0)
 mesh_library = ExtResource("8_6y358")
 cell_size = Vector3(0.5, 0.5, 0.5)
 cell_scale = 0.25
@@ -353,6 +357,7 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(146, -7, 55)
 
+[editable path="Area3D"]
 [editable path="Addon/S_Set_Spawn4"]
 [editable path="Addon/S_rotate_camera2"]
 [editable path="Addon/S_Set_Spawn"]
