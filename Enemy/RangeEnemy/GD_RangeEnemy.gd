@@ -52,16 +52,15 @@ func _physics_process(delta):
 				velocity = Vector3.ZERO
 				animationTree.set("parameters/Reload/blend_position",direction)
 				animationTree.set("parameters/Attack/blend_position",direction)
-			if danger or finding_new_pos:
-				if danger :
-					nav_agent.set_target_position(global_position-((player.global_position - global_position).normalized()))
-					if nav_agent.is_target_reachable():
-						print("call")
-						velocity  = -((player.global_position - global_position).normalized() * fleeSpeed)
-				if finding_new_pos :
-					velocity.x = find_new_pos_direction.x
-					velocity.z = find_new_pos_direction.z
-					velocity = velocity.normalized()*moveSpeed
+			if danger :
+				nav_agent.set_target_position(global_position-((player.global_position - global_position).normalized()))
+				if nav_agent.is_target_reachable():
+					velocity  = -((player.global_position - global_position).normalized() * fleeSpeed)
+			if finding_new_pos :
+				velocity.x = find_new_pos_direction.x
+				velocity.z = find_new_pos_direction.z
+				velocity = velocity.normalized()*moveSpeed
+				print("velocity",velocity)
 			else:
 				velocity = Vector3.ZERO
 	if not is_on_floor():
@@ -147,7 +146,7 @@ func update_target_location(location):
 			can_shoot = false
 			var new_pos  = Vector3.ZERO
 			finding_new_pos = false
-			var length = 100
+			var length = 0
 			for i in range(-3,3,1):
 				for j in range(-3,3,1):
 					var a = i / 2.0
@@ -157,7 +156,7 @@ func update_target_location(location):
 						if new_collider.name == "Player_Character":
 							var target_pos = location-ray.get_global_position()
 							var new_legnth = target_pos.length()
-							if new_legnth < length:
+							if new_legnth > length:
 								nav_agent.set_target_position(ray.get_global_position())
 								if nav_agent.is_target_reachable():
 									length = new_legnth
