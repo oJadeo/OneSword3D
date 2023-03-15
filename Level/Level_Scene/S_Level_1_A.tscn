@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://ca6dqiorp54dl"]
+[gd_scene load_steps=79 format=3 uid="uid://ca6dqiorp54dl"]
 
 [ext_resource type="Script" path="res://Level/Testing/GD_Test_Level_with_nav.gd" id="1_de2r7"]
 [ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="2_13tau"]
@@ -18,13 +18,6 @@
 map_width = 4
 map_depth = 4
 map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cqx5m"]
-albedo_color = Color(0, 0, 1, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_xgw5l"]
-material = SubResource("StandardMaterial3D_cqx5m")
-size = Vector2(6, 6)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4hxi7"]
 size = Vector3(1.50418, 1, 1.32256)
@@ -261,17 +254,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0989, 1.87923, 1.3766)
 [node name="triggerCollision" parent="S_Set_Spawn" index="0"]
 shape = SubResource("HeightMapShape3D_ltg8j")
 
-[node name="triggerMesh" parent="S_Set_Spawn" index="1"]
-mesh = SubResource("PlaneMesh_xgw5l")
-
 [node name="S_Set_Spawn2" parent="." instance=ExtResource("3_ttjp4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0989, 1.87923, 1.3766)
-
-[node name="triggerCollision" parent="S_Set_Spawn2" index="0"]
-shape = SubResource("HeightMapShape3D_ltg8j")
-
-[node name="triggerMesh" parent="S_Set_Spawn2" index="1"]
-mesh = SubResource("PlaneMesh_xgw5l")
 
 [node name="S_rotate_camera" parent="." instance=ExtResource("4_w3iai")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.13, 2.08051, 1.29276)
@@ -618,10 +602,7 @@ shape = SubResource("ConcavePolygonShape3D_w4yn6")
 script = ExtResource("8_0t1yc")
 
 [node name="Area3D" parent="NextLevel" instance=ExtResource("10_qswwu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.97, 2.22437, 1.08648)
-
-[node name="CollisionShape3D" parent="NextLevel/Area3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.717319, 0.711492, 0.356926)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.1833, 2.85777, 1.39708)
 
 [node name="Platform" type="MeshInstance3D" parent="NextLevel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.1948, 2.68765, 1.49167)
@@ -680,11 +661,9 @@ environment = SubResource("Environment_mw5ii")
 
 [editable path="Danger_Area"]
 [editable path="S_Set_Spawn"]
-[editable path="S_Set_Spawn2"]
 [editable path="S_rotate_camera"]
 [editable path="S_rotate_camera2"]
 [editable path="S_rotate_camera3"]
-[editable path="NextLevel/Area3D"]
 [editable path="S_depth_bxo"]
 [editable path="S_depth_bxo2"]
 [editable path="S_depth_bxo4"]
