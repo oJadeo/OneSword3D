@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bu3lr7md4wmr0"]
+[gd_scene load_steps=7 format=3 uid="uid://bu3lr7md4wmr0"]
 
 [ext_resource type="Texture2D" uid="uid://dnmlq1wmg0t7x" path="res://Enemy/MortarEnemy/Ball/ball.png" id="1_8n2p4"]
 [ext_resource type="Script" path="res://Enemy/MortarEnemy/Ball/GD_Ball.gd" id="1_awcsf"]
+[ext_resource type="PackedScene" uid="uid://qyyepg4wdy5e" path="res://Enemy/MortarEnemy/Bomb/S_Bomb.tscn" id="2_0kqwl"]
 
 [sub_resource type="Animation" id="Animation_4vqln"]
 length = 0.001
@@ -44,6 +45,7 @@ _data = {
 
 [node name="Ball" type="Node3D"]
 script = ExtResource("1_awcsf")
+bomb = ExtResource("2_0kqwl")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 billboard = 1

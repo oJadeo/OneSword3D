@@ -24,7 +24,7 @@ var player_pos
 @onready var playerDetectionCollision = $PlayerDetection/CollisionShape3d
 @onready var animationTree = $AnimationTree
 @onready var animationState = animationTree.get("parameters/playback")
-@onready var bullet = preload("res://Enemy/RangeEnemy/Bullet/S_Bullet.tscn")
+@export var bullet: Resource
 
 @onready var ray = $RayCast3D
 @onready var nav_agent = $NavigationAgent3D

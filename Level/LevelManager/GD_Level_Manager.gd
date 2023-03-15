@@ -1,12 +1,11 @@
 extends Node3D
-
-const S_Tutorial = preload("res://Level/Level_Scene/S_tutorial_2.tscn")
-const S_level_1_A = preload("res://Level/Level_Scene/S_level_1_A.tscn")
-const S_level_1_B = preload("res://Level/Level_Scene/S_Level_1_B.tscn")
-const S_level_1_C = preload("res://Level/Level_Scene/S_Level_1_C.tscn")
-const S_level_2 = preload("res://Level/Level_Scene/S_Level_2.tscn")
-const S_level_3_A = preload("res://Level/Level_Scene/S_Level_3_A.tscn")
-const S_level_3_B = preload("res://Level/Level_Scene/S_Level_3_B.tscn")
+@export var S_Tutorial: Resource
+@export var S_level_1_A: Resource
+@export var S_level_1_B: Resource
+@export var S_level_1_C: Resource
+@export var S_level_2: Resource
+@export var S_level_3_A: Resource
+@export var S_level_3_B: Resource
 @onready var transitionScreen = $TransitionScreen
 @onready var currentScene = $currentScene
 

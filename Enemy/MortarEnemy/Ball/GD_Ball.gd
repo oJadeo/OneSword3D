@@ -3,7 +3,8 @@ extends Node3D
 @onready var animation = $AnimationPlayer
 @onready var timer = $Timer
 @onready var destroyTimer = $DestroyTimer
-@onready var bomb = preload("res://Enemy/MortarEnemy/Bomb/S_Bomb.tscn")
+
+@export var bomb: Resource
 @onready var sprite = $Sprite3D
 var player
 var down = false
