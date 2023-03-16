@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name MortarEnemy
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 
 var ammo = 3

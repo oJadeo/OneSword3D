@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name RangeEnemy
 
 enum {
 	IDLE,
@@ -56,13 +57,13 @@ func _physics_process(delta):
 				nav_agent.set_target_position(global_position-((player.global_position - global_position).normalized()))
 				if nav_agent.is_target_reachable():
 					velocity  = -((player.global_position - global_position).normalized() * fleeSpeed)
-			if finding_new_pos :
-				velocity.x = find_new_pos_direction.x
-				velocity.z = find_new_pos_direction.z
-				velocity = velocity.normalized()*moveSpeed
-				print("velocity",velocity)
-			else:
-				velocity = Vector3.ZERO
+			if not can_shoot:
+				if finding_new_pos :
+					velocity.x = find_new_pos_direction.x
+					velocity.z = find_new_pos_direction.z
+					velocity = velocity.normalized()*moveSpeed
+				else:
+					velocity = Vector3.ZERO
 	if not is_on_floor():
 		velocity.y -= gravity
 	move_and_slide()
