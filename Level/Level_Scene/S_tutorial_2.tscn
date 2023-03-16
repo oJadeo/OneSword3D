@@ -64,6 +64,7 @@ agent_max_climb = 0.1
 
 [node name="Area3D" parent="." instance=ExtResource("1_erua6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.6549, -2.83054, 18.4075)
+default_on = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_uvupg")

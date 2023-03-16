@@ -2347,6 +2347,7 @@ billboard = 1
 double_sided = false
 no_depth_test = true
 texture_filter = 0
+render_priority = 5
 texture = ExtResource("2_ug3k3")
 hframes = 4
 vframes = 36
