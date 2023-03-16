@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+class_name MeleeEnemy
 enum {
 	IDLE,
 	DRAW_WEAPON,

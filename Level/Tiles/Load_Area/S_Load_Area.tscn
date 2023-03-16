@@ -5,7 +5,7 @@
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_g5pt2"]
 
-[node name="Area3D" type="Area3D"]
+[node name="Transporter" type="Area3D"]
 collision_mask = 2
 script = ExtResource("1_nruhq")
 
@@ -13,7 +13,7 @@ script = ExtResource("1_nruhq")
 shape = SubResource("HeightMapShape3D_g5pt2")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+axis = 1
 double_sided = false
 texture_filter = 0
 texture = ExtResource("2_yhabv")

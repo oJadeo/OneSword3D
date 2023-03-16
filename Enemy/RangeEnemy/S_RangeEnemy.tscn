@@ -1,7 +1,8 @@
-[gd_scene load_steps=69 format=3 uid="uid://dfynijq7m2hnq"]
+[gd_scene load_steps=70 format=3 uid="uid://dfynijq7m2hnq"]
 
 [ext_resource type="Texture2D" uid="uid://daplr4okhkkfr" path="res://Enemy/RangeEnemy/Enemy_02.png" id="1_1brmb"]
 [ext_resource type="Script" path="res://Enemy/RangeEnemy/GD_RangeEnemy.gd" id="1_12nk7"]
+[ext_resource type="PackedScene" uid="uid://mmhjxo44u7lc" path="res://Enemy/RangeEnemy/Bullet/S_Bullet.tscn" id="2_81ff4"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5h51k"]
 radius = 2.5
@@ -1461,6 +1462,7 @@ radius = 0.6
 
 [node name="RangeEnemy" type="CharacterBody3D" groups=["Enemy", "Range"]]
 script = ExtResource("1_12nk7")
+bullet = ExtResource("2_81ff4")
 
 [node name="Sprite3d" type="Sprite3D" parent="."]
 billboard = 1

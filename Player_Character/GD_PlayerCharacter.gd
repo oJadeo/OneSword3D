@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+class_name PlayerCharacter
 #signals
 signal Blockbar_changed
 signal DashCharge_changed
