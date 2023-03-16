@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name MortarEnemy
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 
 var ammo = 3
@@ -8,8 +9,8 @@ var isHit = false
 var new_bomb
 var new_ball
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-@onready var bomb = preload("res://Enemy/MortarEnemy/Bomb/S_Bomb.tscn")
-@onready  var ball = preload("res://Enemy/MortarEnemy/Ball/S_Ball.tscn")
+@export var bomb: Resource
+@export var ball: Resource
 
 @onready var attackTimer = $AttackTimer
 @onready var reloadLoopTimer = $ReloadLoopTimer

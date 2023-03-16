@@ -1,14 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjd6kko4hof"]
+[gd_scene load_steps=4 format=3 uid="uid://bjd6kko4hof"]
 
 [ext_resource type="Script" path="res://Level/Tiles/Load_Area/GD_Load_Area.gd" id="1_nruhq"]
+[ext_resource type="Texture2D" uid="uid://3sxpgthrtk8x" path="res://Level/Tiles_Set/Proto_sp_tile1.png" id="2_yhabv"]
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_g5pt2"]
 
-[node name="Area3D" type="Area3D"]
+[node name="Transporter" type="Area3D"]
 collision_mask = 2
 script = ExtResource("1_nruhq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("HeightMapShape3D_g5pt2")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+axis = 1
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_yhabv")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

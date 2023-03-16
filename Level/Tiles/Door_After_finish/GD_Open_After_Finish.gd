@@ -10,7 +10,7 @@ func _ready():
 	
 func _process(delta):
 	if target_pos != global_position:
-		global_position = lerp(global_position,target_pos,delta)
+		global_position = lerp(global_position,target_pos,delta*0.5)
 func activate():
 	target_pos = start_pos+move
 func deactivate():

@@ -14,14 +14,13 @@ func _ready():
 		enemy_list[enemy] = []
 	enemy_list['MortarRange'] = {}
 	for child in get_children():
-		if child.is_in_group("Melee"):
+		if child is MeleeEnemy:
 			enemy_list['MeleeEnemy'].append(child.get_position())
-		if child.is_in_group("Range"):
+		if child is RangeEnemy:
 			enemy_list['RangeEnemy'].append(child.get_position())
-		if child.is_in_group("Mortar"):
+		if child is MortarEnemy:
 			enemy_list['MortarEnemy'].append(child.get_position())
 			enemy_list['MortarRange'][child.get_position()]=child.mortarRange
-	print(enemy_list)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
