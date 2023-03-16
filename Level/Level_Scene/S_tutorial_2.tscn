@@ -292,6 +292,11 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(146, -7, 55)
 
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 86.3609, -2.3333, 20.9038)
+text = "Teleporter Below
+You'll be teleported to new area when stepped on"
+
 [editable path="Addon/S_rotate_camera2"]
 [editable path="Addon/S_rotate_camera4"]
 [editable path="Addon/S_rotate_camera3"]
