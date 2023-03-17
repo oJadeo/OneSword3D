@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://i65ct1vrwmwp"]
+[gd_scene load_steps=84 format=3 uid="uid://i65ct1vrwmwp"]
 
 [ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_cenjm"]
 [ext_resource type="Script" path="res://Level/Testing/GD_Test_Level_with_nav.gd" id="1_g55to"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="2_hqby4"]
 [ext_resource type="PackedScene" uid="uid://dgwyiwbgx7iyb" path="res://Enemy/MortarEnemy/S_MortarEnemy.tscn" id="2_o30eu"]
 [ext_resource type="PackedScene" uid="uid://wycb6glgigjg" path="res://Level/Tiles/Rotate_Camera/S_rotate_camera.tscn" id="4_f7fa7"]
+[ext_resource type="Material" uid="uid://obry81r6xbi1" path="res://Level/Level_Scene/mat/mat_base.tres" id="4_wq0uk"]
 [ext_resource type="PackedScene" uid="uid://cwgktljjh2rqs" path="res://Enemy/MeleeEnemy/S_MeleeEnemy.tscn" id="5_4m2oi"]
+[ext_resource type="Material" uid="uid://delp1py61dkvl" path="res://Level/Level_Scene/mat/mat_wall.tres" id="5_8mcnl"]
 [ext_resource type="PackedScene" uid="uid://n88kt3qi66lc" path="res://Level/Tiles/Depth_test_box/S_depth_bxo.tscn" id="5_xjd4r"]
 [ext_resource type="PackedScene" uid="uid://dfynijq7m2hnq" path="res://Enemy/RangeEnemy/S_RangeEnemy.tscn" id="6_nj8gr"]
 [ext_resource type="PackedScene" uid="uid://b27w0gqoqaeui" path="res://Enemy/S_Enemy_Manager.tscn" id="7_e5k1j"]
@@ -18,30 +20,35 @@
 size = Vector3(30, 1, 40)
 
 [sub_resource type="BoxMesh" id="BoxMesh_6c2br"]
+material = ExtResource("4_wq0uk")
 size = Vector3(1.5, 0.25, 5)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rq6vw"]
 data = PackedVector3Array(-0.75, 0.125, 2.5, 0.75, 0.125, 2.5, -0.75, -0.125, 2.5, 0.75, 0.125, 2.5, 0.75, -0.125, 2.5, -0.75, -0.125, 2.5, 0.75, 0.125, -2.5, -0.75, 0.125, -2.5, 0.75, -0.125, -2.5, -0.75, 0.125, -2.5, -0.75, -0.125, -2.5, 0.75, -0.125, -2.5, 0.75, 0.125, 2.5, 0.75, 0.125, -2.5, 0.75, -0.125, 2.5, 0.75, 0.125, -2.5, 0.75, -0.125, -2.5, 0.75, -0.125, 2.5, -0.75, 0.125, -2.5, -0.75, 0.125, 2.5, -0.75, -0.125, -2.5, -0.75, 0.125, 2.5, -0.75, -0.125, 2.5, -0.75, -0.125, -2.5, 0.75, 0.125, 2.5, -0.75, 0.125, 2.5, 0.75, 0.125, -2.5, -0.75, 0.125, 2.5, -0.75, 0.125, -2.5, 0.75, 0.125, -2.5, -0.75, -0.125, 2.5, 0.75, -0.125, 2.5, -0.75, -0.125, -2.5, 0.75, -0.125, 2.5, 0.75, -0.125, -2.5, -0.75, -0.125, -2.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_wupoo"]
+material = ExtResource("4_wq0uk")
 size = Vector3(1, 0.25, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_sqau1"]
 data = PackedVector3Array(-0.5, 0.125, 0.5, 0.5, 0.125, 0.5, -0.5, -0.125, 0.5, 0.5, 0.125, 0.5, 0.5, -0.125, 0.5, -0.5, -0.125, 0.5, 0.5, 0.125, -0.5, -0.5, 0.125, -0.5, 0.5, -0.125, -0.5, -0.5, 0.125, -0.5, -0.5, -0.125, -0.5, 0.5, -0.125, -0.5, 0.5, 0.125, 0.5, 0.5, 0.125, -0.5, 0.5, -0.125, 0.5, 0.5, 0.125, -0.5, 0.5, -0.125, -0.5, 0.5, -0.125, 0.5, -0.5, 0.125, -0.5, -0.5, 0.125, 0.5, -0.5, -0.125, -0.5, -0.5, 0.125, 0.5, -0.5, -0.125, 0.5, -0.5, -0.125, -0.5, 0.5, 0.125, 0.5, -0.5, 0.125, 0.5, 0.5, 0.125, -0.5, -0.5, 0.125, 0.5, -0.5, 0.125, -0.5, 0.5, 0.125, -0.5, -0.5, -0.125, 0.5, 0.5, -0.125, 0.5, -0.5, -0.125, -0.5, 0.5, -0.125, 0.5, 0.5, -0.125, -0.5, -0.5, -0.125, -0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_70utl"]
+material = ExtResource("4_wq0uk")
 size = Vector3(1, 0.25, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_durgk"]
 data = PackedVector3Array(-0.5, 0.125, 0.5, 0.5, 0.125, 0.5, -0.5, -0.125, 0.5, 0.5, 0.125, 0.5, 0.5, -0.125, 0.5, -0.5, -0.125, 0.5, 0.5, 0.125, -0.5, -0.5, 0.125, -0.5, 0.5, -0.125, -0.5, -0.5, 0.125, -0.5, -0.5, -0.125, -0.5, 0.5, -0.125, -0.5, 0.5, 0.125, 0.5, 0.5, 0.125, -0.5, 0.5, -0.125, 0.5, 0.5, 0.125, -0.5, 0.5, -0.125, -0.5, 0.5, -0.125, 0.5, -0.5, 0.125, -0.5, -0.5, 0.125, 0.5, -0.5, -0.125, -0.5, -0.5, 0.125, 0.5, -0.5, -0.125, 0.5, -0.5, -0.125, -0.5, 0.5, 0.125, 0.5, -0.5, 0.125, 0.5, 0.5, 0.125, -0.5, -0.5, 0.125, 0.5, -0.5, 0.125, -0.5, 0.5, 0.125, -0.5, -0.5, -0.125, 0.5, 0.5, -0.125, 0.5, -0.5, -0.125, -0.5, 0.5, -0.125, 0.5, 0.5, -0.125, -0.5, -0.5, -0.125, -0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_t2f5t"]
+material = ExtResource("4_wq0uk")
 size = Vector3(5, 0.25, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_s2fad"]
 data = PackedVector3Array(-2.5, 0.125, 0.5, 2.5, 0.125, 0.5, -2.5, -0.125, 0.5, 2.5, 0.125, 0.5, 2.5, -0.125, 0.5, -2.5, -0.125, 0.5, 2.5, 0.125, -0.5, -2.5, 0.125, -0.5, 2.5, -0.125, -0.5, -2.5, 0.125, -0.5, -2.5, -0.125, -0.5, 2.5, -0.125, -0.5, 2.5, 0.125, 0.5, 2.5, 0.125, -0.5, 2.5, -0.125, 0.5, 2.5, 0.125, -0.5, 2.5, -0.125, -0.5, 2.5, -0.125, 0.5, -2.5, 0.125, -0.5, -2.5, 0.125, 0.5, -2.5, -0.125, -0.5, -2.5, 0.125, 0.5, -2.5, -0.125, 0.5, -2.5, -0.125, -0.5, 2.5, 0.125, 0.5, -2.5, 0.125, 0.5, 2.5, 0.125, -0.5, -2.5, 0.125, 0.5, -2.5, 0.125, -0.5, 2.5, 0.125, -0.5, -2.5, -0.125, 0.5, 2.5, -0.125, 0.5, -2.5, -0.125, -0.5, 2.5, -0.125, 0.5, 2.5, -0.125, -0.5, -2.5, -0.125, -0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_fti4n"]
+material = ExtResource("5_8mcnl")
 size = Vector3(9, 10, 0.5)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bkplt"]
@@ -54,6 +61,7 @@ data = PackedVector3Array(-4.5, 5, 0.25, 4.5, 5, 0.25, -4.5, -5, 0.25, 4.5, 5, 0
 size = Vector3(1, 3, 0.5)
 
 [sub_resource type="PrismMesh" id="PrismMesh_54qrm"]
+material = ExtResource("4_wq0uk")
 left_to_right = 1.0
 size = Vector3(4, 1, 1)
 
@@ -61,6 +69,7 @@ size = Vector3(4, 1, 1)
 data = PackedVector3Array(2, 0.5, 0.5, 2, -0.5, 0.5, -2, -0.5, 0.5, 2, 0.5, -0.5, -2, -0.5, -0.5, 2, -0.5, -0.5, 2, 0.5, 0.5, 2, 0.5, -0.5, 2, -0.5, 0.5, 2, 0.5, -0.5, 2, -0.5, -0.5, 2, -0.5, 0.5, 2, 0.5, -0.5, 2, 0.5, 0.5, -2, -0.5, -0.5, 2, 0.5, 0.5, -2, -0.5, 0.5, -2, -0.5, -0.5, -2, -0.5, 0.5, 2, -0.5, 0.5, -2, -0.5, -0.5, 2, -0.5, 0.5, 2, -0.5, -0.5, -2, -0.5, -0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_gkmwq"]
+material = ExtResource("4_wq0uk")
 size = Vector3(1, 1, 4)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wu013"]
@@ -174,12 +183,14 @@ func _on_red_timer_timeout():
 data = PackedVector3Array(-4.5, 5, 0.25, 4.5, 5, 0.25, -4.5, -5, 0.25, 4.5, 5, 0.25, 4.5, -5, 0.25, -4.5, -5, 0.25, 4.5, 5, -0.25, -4.5, 5, -0.25, 4.5, -5, -0.25, -4.5, 5, -0.25, -4.5, -5, -0.25, 4.5, -5, -0.25, 4.5, 5, 0.25, 4.5, 5, -0.25, 4.5, -5, 0.25, 4.5, 5, -0.25, 4.5, -5, -0.25, 4.5, -5, 0.25, -4.5, 5, -0.25, -4.5, 5, 0.25, -4.5, -5, -0.25, -4.5, 5, 0.25, -4.5, -5, 0.25, -4.5, -5, -0.25, 4.5, 5, 0.25, -4.5, 5, 0.25, 4.5, 5, -0.25, -4.5, 5, 0.25, -4.5, 5, -0.25, 4.5, 5, -0.25, -4.5, -5, 0.25, 4.5, -5, 0.25, -4.5, -5, -0.25, 4.5, -5, 0.25, 4.5, -5, -0.25, -4.5, -5, -0.25)
 
 [sub_resource type="BoxMesh" id="BoxMesh_7d68o"]
+material = ExtResource("4_wq0uk")
 size = Vector3(2.5, 0.15, 1.5)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ytqpx"]
 data = PackedVector3Array(-1.25, 0.075, 0.75, 1.25, 0.075, 0.75, -1.25, -0.075, 0.75, 1.25, 0.075, 0.75, 1.25, -0.075, 0.75, -1.25, -0.075, 0.75, 1.25, 0.075, -0.75, -1.25, 0.075, -0.75, 1.25, -0.075, -0.75, -1.25, 0.075, -0.75, -1.25, -0.075, -0.75, 1.25, -0.075, -0.75, 1.25, 0.075, 0.75, 1.25, 0.075, -0.75, 1.25, -0.075, 0.75, 1.25, 0.075, -0.75, 1.25, -0.075, -0.75, 1.25, -0.075, 0.75, -1.25, 0.075, -0.75, -1.25, 0.075, 0.75, -1.25, -0.075, -0.75, -1.25, 0.075, 0.75, -1.25, -0.075, 0.75, -1.25, -0.075, -0.75, 1.25, 0.075, 0.75, -1.25, 0.075, 0.75, 1.25, 0.075, -0.75, -1.25, 0.075, 0.75, -1.25, 0.075, -0.75, 1.25, 0.075, -0.75, -1.25, -0.075, 0.75, 1.25, -0.075, 0.75, -1.25, -0.075, -0.75, 1.25, -0.075, 0.75, 1.25, -0.075, -0.75, -1.25, -0.075, -0.75)
 
 [sub_resource type="BoxMesh" id="BoxMesh_hsi4y"]
+material = ExtResource("4_wq0uk")
 size = Vector3(1, 0.15, 1.5)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_12tof"]
@@ -192,6 +203,7 @@ data = PackedVector3Array(-0.5, 0.075, 0.75, 0.5, 0.075, 0.75, -0.5, -0.075, 0.7
 data = PackedVector3Array(-0.5, 0.075, 0.75, 0.5, 0.075, 0.75, -0.5, -0.075, 0.75, 0.5, 0.075, 0.75, 0.5, -0.075, 0.75, -0.5, -0.075, 0.75, 0.5, 0.075, -0.75, -0.5, 0.075, -0.75, 0.5, -0.075, -0.75, -0.5, 0.075, -0.75, -0.5, -0.075, -0.75, 0.5, -0.075, -0.75, 0.5, 0.075, 0.75, 0.5, 0.075, -0.75, 0.5, -0.075, 0.75, 0.5, 0.075, -0.75, 0.5, -0.075, -0.75, 0.5, -0.075, 0.75, -0.5, 0.075, -0.75, -0.5, 0.075, 0.75, -0.5, -0.075, -0.75, -0.5, 0.075, 0.75, -0.5, -0.075, 0.75, -0.5, -0.075, -0.75, 0.5, 0.075, 0.75, -0.5, 0.075, 0.75, 0.5, 0.075, -0.75, -0.5, 0.075, 0.75, -0.5, 0.075, -0.75, 0.5, 0.075, -0.75, -0.5, -0.075, 0.75, 0.5, -0.075, 0.75, -0.5, -0.075, -0.75, 0.5, -0.075, 0.75, 0.5, -0.075, -0.75, -0.5, -0.075, -0.75)
 
 [sub_resource type="BoxMesh" id="BoxMesh_mmcw2"]
+material = ExtResource("4_wq0uk")
 size = Vector3(1.5, 7, 0.5)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wxj5o"]
@@ -203,12 +215,14 @@ polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 4), PackedInt32Arr
 agent_radius = 0.2
 
 [sub_resource type="BoxMesh" id="BoxMesh_7tmcc"]
+material = ExtResource("5_8mcnl")
 size = Vector3(10, 1.5, 0.25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fj7dr"]
 size = Vector3(10, 1.5, 0.25)
 
 [sub_resource type="BoxMesh" id="BoxMesh_q157t"]
+material = ExtResource("5_8mcnl")
 size = Vector3(5, 1, 0.25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wlpau"]
@@ -218,12 +232,14 @@ size = Vector3(1, 1, 0.25)
 data = PackedVector3Array(-2.5, 0.5, 0.125, 2.5, 0.5, 0.125, -2.5, -0.5, 0.125, 2.5, 0.5, 0.125, 2.5, -0.5, 0.125, -2.5, -0.5, 0.125, 2.5, 0.5, -0.125, -2.5, 0.5, -0.125, 2.5, -0.5, -0.125, -2.5, 0.5, -0.125, -2.5, -0.5, -0.125, 2.5, -0.5, -0.125, 2.5, 0.5, 0.125, 2.5, 0.5, -0.125, 2.5, -0.5, 0.125, 2.5, 0.5, -0.125, 2.5, -0.5, -0.125, 2.5, -0.5, 0.125, -2.5, 0.5, -0.125, -2.5, 0.5, 0.125, -2.5, -0.5, -0.125, -2.5, 0.5, 0.125, -2.5, -0.5, 0.125, -2.5, -0.5, -0.125, 2.5, 0.5, 0.125, -2.5, 0.5, 0.125, 2.5, 0.5, -0.125, -2.5, 0.5, 0.125, -2.5, 0.5, -0.125, 2.5, 0.5, -0.125, -2.5, -0.5, 0.125, 2.5, -0.5, 0.125, -2.5, -0.5, -0.125, 2.5, -0.5, 0.125, 2.5, -0.5, -0.125, -2.5, -0.5, -0.125)
 
 [sub_resource type="BoxMesh" id="BoxMesh_74fon"]
+material = ExtResource("5_8mcnl")
 size = Vector3(1, 1, 0.25)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0ytvk"]
 data = PackedVector3Array(-0.5, 0.5, 0.125, 0.5, 0.5, 0.125, -0.5, -0.5, 0.125, 0.5, 0.5, 0.125, 0.5, -0.5, 0.125, -0.5, -0.5, 0.125, 0.5, 0.5, -0.125, -0.5, 0.5, -0.125, 0.5, -0.5, -0.125, -0.5, 0.5, -0.125, -0.5, -0.5, -0.125, 0.5, -0.5, -0.125, 0.5, 0.5, 0.125, 0.5, 0.5, -0.125, 0.5, -0.5, 0.125, 0.5, 0.5, -0.125, 0.5, -0.5, -0.125, 0.5, -0.5, 0.125, -0.5, 0.5, -0.125, -0.5, 0.5, 0.125, -0.5, -0.5, -0.125, -0.5, 0.5, 0.125, -0.5, -0.5, 0.125, -0.5, -0.5, -0.125, 0.5, 0.5, 0.125, -0.5, 0.5, 0.125, 0.5, 0.5, -0.125, -0.5, 0.5, 0.125, -0.5, 0.5, -0.125, 0.5, 0.5, -0.125, -0.5, -0.5, 0.125, 0.5, -0.5, 0.125, -0.5, -0.5, -0.125, 0.5, -0.5, 0.125, 0.5, -0.5, -0.125, -0.5, -0.5, -0.125)
 
 [sub_resource type="BoxMesh" id="BoxMesh_xoinm"]
+material = ExtResource("5_8mcnl")
 size = Vector3(4, 1, 0.25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0w7px"]
@@ -233,6 +249,7 @@ size = Vector3(4, 1, 1.2814)
 data = PackedVector3Array(-2, 0.5, 0.125, 2, 0.5, 0.125, -2, -0.5, 0.125, 2, 0.5, 0.125, 2, -0.5, 0.125, -2, -0.5, 0.125, 2, 0.5, -0.125, -2, 0.5, -0.125, 2, -0.5, -0.125, -2, 0.5, -0.125, -2, -0.5, -0.125, 2, -0.5, -0.125, 2, 0.5, 0.125, 2, 0.5, -0.125, 2, -0.5, 0.125, 2, 0.5, -0.125, 2, -0.5, -0.125, 2, -0.5, 0.125, -2, 0.5, -0.125, -2, 0.5, 0.125, -2, -0.5, -0.125, -2, 0.5, 0.125, -2, -0.5, 0.125, -2, -0.5, -0.125, 2, 0.5, 0.125, -2, 0.5, 0.125, 2, 0.5, -0.125, -2, 0.5, 0.125, -2, 0.5, -0.125, 2, 0.5, -0.125, -2, -0.5, 0.125, 2, -0.5, 0.125, -2, -0.5, -0.125, 2, -0.5, 0.125, 2, -0.5, -0.125, -2, -0.5, -0.125)
 
 [sub_resource type="BoxMesh" id="BoxMesh_85x5t"]
+material = ExtResource("5_8mcnl")
 size = Vector3(2, 1, 0.25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_coiy5"]
@@ -242,24 +259,29 @@ size = Vector3(2, 1, 1)
 data = PackedVector3Array(-1, 0.5, 0.125, 1, 0.5, 0.125, -1, -0.5, 0.125, 1, 0.5, 0.125, 1, -0.5, 0.125, -1, -0.5, 0.125, 1, 0.5, -0.125, -1, 0.5, -0.125, 1, -0.5, -0.125, -1, 0.5, -0.125, -1, -0.5, -0.125, 1, -0.5, -0.125, 1, 0.5, 0.125, 1, 0.5, -0.125, 1, -0.5, 0.125, 1, 0.5, -0.125, 1, -0.5, -0.125, 1, -0.5, 0.125, -1, 0.5, -0.125, -1, 0.5, 0.125, -1, -0.5, -0.125, -1, 0.5, 0.125, -1, -0.5, 0.125, -1, -0.5, -0.125, 1, 0.5, 0.125, -1, 0.5, 0.125, 1, 0.5, -0.125, -1, 0.5, 0.125, -1, 0.5, -0.125, 1, 0.5, -0.125, -1, -0.5, 0.125, 1, -0.5, 0.125, -1, -0.5, -0.125, 1, -0.5, 0.125, 1, -0.5, -0.125, -1, -0.5, -0.125)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ru0ui"]
+material = ExtResource("5_8mcnl")
 size = Vector3(2, 1, 0.25)
 
 [sub_resource type="BoxMesh" id="BoxMesh_8m0s7"]
+material = ExtResource("5_8mcnl")
 size = Vector3(2, 1, 0.25)
 
 [sub_resource type="BoxMesh" id="BoxMesh_hotk4"]
+material = ExtResource("5_8mcnl")
 size = Vector3(2, 1, 0.25)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tcanu"]
 data = PackedVector3Array(-1, 0.5, 0.125, 1, 0.5, 0.125, -1, -0.5, 0.125, 1, 0.5, 0.125, 1, -0.5, 0.125, -1, -0.5, 0.125, 1, 0.5, -0.125, -1, 0.5, -0.125, 1, -0.5, -0.125, -1, 0.5, -0.125, -1, -0.5, -0.125, 1, -0.5, -0.125, 1, 0.5, 0.125, 1, 0.5, -0.125, 1, -0.5, 0.125, 1, 0.5, -0.125, 1, -0.5, -0.125, 1, -0.5, 0.125, -1, 0.5, -0.125, -1, 0.5, 0.125, -1, -0.5, -0.125, -1, 0.5, 0.125, -1, -0.5, 0.125, -1, -0.5, -0.125, 1, 0.5, 0.125, -1, 0.5, 0.125, 1, 0.5, -0.125, -1, 0.5, 0.125, -1, 0.5, -0.125, 1, 0.5, -0.125, -1, -0.5, 0.125, 1, -0.5, 0.125, -1, -0.5, -0.125, 1, -0.5, 0.125, 1, -0.5, -0.125, -1, -0.5, -0.125)
 
 [sub_resource type="BoxMesh" id="BoxMesh_po61c"]
+material = ExtResource("4_wq0uk")
 size = Vector3(10, 1, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mtey6"]
 size = Vector3(10, 1, 10)
 
 [sub_resource type="BoxMesh" id="BoxMesh_1qu52"]
+material = ExtResource("5_8mcnl")
 size = Vector3(20, 7, 0.5)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ps1aa"]
@@ -283,18 +305,21 @@ agent_max_climb = 0.1
 size = Vector3(10, 1, 10)
 
 [sub_resource type="BoxMesh" id="BoxMesh_6iku3"]
+material = ExtResource("4_wq0uk")
 size = Vector3(7, 0.5, 7)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hwwpt"]
 size = Vector3(7, 0.5, 7)
 
 [sub_resource type="BoxMesh" id="BoxMesh_grcqp"]
+material = ExtResource("4_wq0uk")
 size = Vector3(5, 0.5, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1vogl"]
 size = Vector3(5, 0.5, 5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_6xhwr"]
+material = ExtResource("5_8mcnl")
 size = Vector3(10, 7, 0.5)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_p4bjw"]
@@ -304,21 +329,22 @@ data = PackedVector3Array(-5, 3.5, 0.25, 5, 3.5, 0.25, -5, -3.5, 0.25, 5, 3.5, 0
 size = Vector3(12.2383, 7, 10)
 
 [sub_resource type="BoxMesh" id="BoxMesh_110m3"]
+material = ExtResource("4_wq0uk")
 size = Vector3(1, 0.25, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3gd0n"]
 data = PackedVector3Array(-0.5, 0.125, 0.5, 0.5, 0.125, 0.5, -0.5, -0.125, 0.5, 0.5, 0.125, 0.5, 0.5, -0.125, 0.5, -0.5, -0.125, 0.5, 0.5, 0.125, -0.5, -0.5, 0.125, -0.5, 0.5, -0.125, -0.5, -0.5, 0.125, -0.5, -0.5, -0.125, -0.5, 0.5, -0.125, -0.5, 0.5, 0.125, 0.5, 0.5, 0.125, -0.5, 0.5, -0.125, 0.5, 0.5, 0.125, -0.5, 0.5, -0.125, -0.5, 0.5, -0.125, 0.5, -0.5, 0.125, -0.5, -0.5, 0.125, 0.5, -0.5, -0.125, -0.5, -0.5, 0.125, 0.5, -0.5, -0.125, 0.5, -0.5, -0.125, -0.5, 0.5, 0.125, 0.5, -0.5, 0.125, 0.5, 0.5, 0.125, -0.5, -0.5, 0.125, 0.5, -0.5, 0.125, -0.5, 0.5, 0.125, -0.5, -0.5, -0.125, 0.5, 0.5, -0.125, 0.5, -0.5, -0.125, -0.5, 0.5, -0.125, 0.5, 0.5, -0.125, -0.5, -0.5, -0.125, -0.5)
 
-[sub_resource type="Environment" id="Environment_of58a"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_acy3d"]
+size = Vector3(1.5, 2, 1.5)
+
+[sub_resource type="Environment" id="Environment_37h0h"]
 background_mode = 1
 background_color = Color(0.317647, 0.541176, 0.713726, 1)
 ambient_light_source = 3
 ambient_light_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
 ambient_light_sky_contribution = 0.17
 tonemap_mode = 2
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_acy3d"]
-size = Vector3(1.5, 2, 1.5)
 
 [node name="S_level_3_A" type="Node3D"]
 script = ExtResource("1_g55to")
@@ -335,18 +361,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0127678, 1.42754, 3.24401)
 
 [node name="playerSpawnPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.139163, 0.562266, 2.953)
-
-[node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.0972838, 0.99487, 0.0277364, -0.118204, -0.0161217, 0.992858, 0.988212, -0.0998676, 0.116029, 10.7649, 8.06423, -0.33927)
-light_energy = 0.2
-shadow_enabled = true
-directional_shadow_mode = 0
-
-[node name="DirectionalLight3d2" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.080724, 0.0779758, 0.993682, 0.971561, -0.216492, 0.0959155, 0.222603, 0.973165, -0.0582822, -4.6712, 37.7756, -39.6048)
-light_energy = 0.2
-shadow_enabled = true
-directional_shadow_mode = 0
 
 [node name="PreArea1" type="Node3D" parent="."]
 transform = Transform3D(-0.080724, 0.0779758, 0.993682, 0.971561, -0.216492, 0.0959155, 0.222603, 0.973166, -0.0582822, -4.6712, 37.7756, -39.6048)
@@ -762,6 +776,7 @@ skeleton = NodePath("../MeshInstance3D")
 [node name="StaticBody3D" type="StaticBody3D" parent="Area1/NavigationRegion3D/MeshInstance3D9"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area1/NavigationRegion3D/MeshInstance3D9/StaticBody3D"]
+transform = Transform3D(1, 0, 0, -2.84217e-14, 1, 4.09383e-16, 0, -6.88807e-18, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_40mdr")
 
 [node name="S_depth_bxo2" parent="Area1/NavigationRegion3D/MeshInstance3D9" instance=ExtResource("5_xjd4r")]
@@ -976,9 +991,6 @@ mesh = SubResource("BoxMesh_110m3")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnAfterDeath2/MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_3gd0n")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_of58a")
-
 [node name="S_rotate_camera4" parent="." instance=ExtResource("4_f7fa7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.43699, 4.6641, -25.465)
 angle = 90
@@ -992,6 +1004,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19135, 1.31804, 3.55498)
 [node name="CollisionShape3D" parent="S_rotate_camera5" index="0"]
 transform = Transform3D(1, -3.42727e-07, -2.79397e-09, 1.04308e-07, 1, 0, -1.30385e-08, 3.72529e-09, 1, -0.303391, -0.00585866, -0.461518)
 shape = SubResource("BoxShape3D_hjl3u")
+
+[node name="lighting" type="Node3D" parent="."]
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="lighting"]
+transform = Transform3D(-4.37114e-08, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1, 3.09086e-08, -3.09086e-08, -3.32541, 2.1958, 0)
+light_energy = 0.2
+shadow_enabled = true
+directional_shadow_mode = 0
+
+[node name="DirectionalLight3d2" type="DirectionalLight3D" parent="lighting"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -3.32541, 2.1958, 0)
+light_energy = 0.2
+shadow_enabled = true
+directional_shadow_mode = 0
+
+[node name="DirectionalLight3d3" type="DirectionalLight3D" parent="lighting"]
+transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, -3.32541, 2.1958, 16)
+light_energy = 0.2
+shadow_enabled = true
+directional_shadow_mode = 0
+
+[node name="DirectionalLight3d4" type="DirectionalLight3D" parent="lighting"]
+transform = Transform3D(-1, 6.18173e-08, -6.18173e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, -3.32541, 2.1958, 16)
+light_energy = 0.2
+shadow_enabled = true
+directional_shadow_mode = 0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="lighting"]
+environment = SubResource("Environment_37h0h")
 
 [editable path="Danger_Area"]
 [editable path="S_rotate_camera2"]
