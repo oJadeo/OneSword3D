@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dv62q73pop6q6"]
+[gd_scene load_steps=49 format=3 uid="uid://dv62q73pop6q6"]
 
 [ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_qbn0u"]
 [ext_resource type="Script" path="res://Level/Testing/GD_Test_Level_with_nav.gd" id="1_ygvf2"]
@@ -7,12 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://dfynijq7m2hnq" path="res://Enemy/RangeEnemy/S_RangeEnemy.tscn" id="4_pw4ps"]
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="5_wcpl5"]
 [ext_resource type="PackedScene" uid="uid://n88kt3qi66lc" path="res://Level/Tiles/Depth_test_box/S_depth_bxo.tscn" id="7_2jy6n"]
+[ext_resource type="Material" uid="uid://obry81r6xbi1" path="res://Level/Level_Scene/mat/mat_base.tres" id="7_htioq"]
+[ext_resource type="Material" uid="uid://delp1py61dkvl" path="res://Level/Level_Scene/mat/mat_wall.tres" id="8_50gba"]
 [ext_resource type="PackedScene" uid="uid://bjd6kko4hof" path="res://Level/Tiles/Load_Area/S_Load_Area.tscn" id="8_h1gvx"]
 [ext_resource type="PackedScene" uid="uid://6dnu7ywfbvge" path="res://Level/Navigation/S_JumpBox.tscn" id="9_1o16i"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7ixnn"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_bral8"]
+material = ExtResource("7_htioq")
 left_to_right = 1.0
 size = Vector3(4, 3, 1)
 
@@ -20,29 +23,34 @@ size = Vector3(4, 3, 1)
 data = PackedVector3Array(2, 1.5, 0.5, 2, -1.5, 0.5, -2, -1.5, 0.5, 2, 1.5, -0.5, -2, -1.5, -0.5, 2, -1.5, -0.5, 2, 1.5, 0.5, 2, 1.5, -0.5, 2, -1.5, 0.5, 2, 1.5, -0.5, 2, -1.5, -0.5, 2, -1.5, 0.5, 2, 1.5, -0.5, 2, 1.5, 0.5, -2, -1.5, -0.5, 2, 1.5, 0.5, -2, -1.5, 0.5, -2, -1.5, -0.5, -2, -1.5, 0.5, 2, -1.5, 0.5, -2, -1.5, -0.5, 2, -1.5, 0.5, 2, -1.5, -0.5, -2, -1.5, -0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_5s87d"]
+material = ExtResource("7_htioq")
 size = Vector3(3, 10, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ed7tk"]
 data = PackedVector3Array(-1.5, 5, 0.5, 1.5, 5, 0.5, -1.5, -5, 0.5, 1.5, 5, 0.5, 1.5, -5, 0.5, -1.5, -5, 0.5, 1.5, 5, -0.5, -1.5, 5, -0.5, 1.5, -5, -0.5, -1.5, 5, -0.5, -1.5, -5, -0.5, 1.5, -5, -0.5, 1.5, 5, 0.5, 1.5, 5, -0.5, 1.5, -5, 0.5, 1.5, 5, -0.5, 1.5, -5, -0.5, 1.5, -5, 0.5, -1.5, 5, -0.5, -1.5, 5, 0.5, -1.5, -5, -0.5, -1.5, 5, 0.5, -1.5, -5, 0.5, -1.5, -5, -0.5, 1.5, 5, 0.5, -1.5, 5, 0.5, 1.5, 5, -0.5, -1.5, 5, 0.5, -1.5, 5, -0.5, 1.5, 5, -0.5, -1.5, -5, 0.5, 1.5, -5, 0.5, -1.5, -5, -0.5, 1.5, -5, 0.5, 1.5, -5, -0.5, -1.5, -5, -0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_p83dy"]
+material = ExtResource("7_htioq")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wg44n"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_tum5u"]
+material = ExtResource("8_50gba")
 size = Vector3(6.741, 8, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o1ms3"]
 size = Vector3(6.741, 8, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_1twl3"]
+material = ExtResource("7_htioq")
 size = Vector3(4, 1, 4)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_c6ldw"]
 data = PackedVector3Array(-2, 0.5, 2, 2, 0.5, 2, -2, -0.5, 2, 2, 0.5, 2, 2, -0.5, 2, -2, -0.5, 2, 2, 0.5, -2, -2, 0.5, -2, 2, -0.5, -2, -2, 0.5, -2, -2, -0.5, -2, 2, -0.5, -2, 2, 0.5, 2, 2, 0.5, -2, 2, -0.5, 2, 2, 0.5, -2, 2, -0.5, -2, 2, -0.5, 2, -2, 0.5, -2, -2, 0.5, 2, -2, -0.5, -2, -2, 0.5, 2, -2, -0.5, 2, -2, -0.5, -2, 2, 0.5, 2, -2, 0.5, 2, 2, 0.5, -2, -2, 0.5, 2, -2, 0.5, -2, 2, 0.5, -2, -2, -0.5, 2, 2, -0.5, 2, -2, -0.5, -2, 2, -0.5, 2, 2, -0.5, -2, -2, -0.5, -2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_e2swh"]
+material = ExtResource("7_htioq")
 size = Vector3(1.5, 0.25, 1.5)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bseni"]
@@ -54,48 +62,56 @@ polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Arr
 agent_radius = 0.2
 
 [sub_resource type="BoxMesh" id="BoxMesh_3bkhl"]
+material = ExtResource("7_htioq")
 size = Vector3(4, 1, 4)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_42owr"]
 data = PackedVector3Array(-2, 0.5, 2, 2, 0.5, 2, -2, -0.5, 2, 2, 0.5, 2, 2, -0.5, 2, -2, -0.5, 2, 2, 0.5, -2, -2, 0.5, -2, 2, -0.5, -2, -2, 0.5, -2, -2, -0.5, -2, 2, -0.5, -2, 2, 0.5, 2, 2, 0.5, -2, 2, -0.5, 2, 2, 0.5, -2, 2, -0.5, -2, 2, -0.5, 2, -2, 0.5, -2, -2, 0.5, 2, -2, -0.5, -2, -2, 0.5, 2, -2, -0.5, 2, -2, -0.5, -2, 2, 0.5, 2, -2, 0.5, 2, 2, 0.5, -2, -2, 0.5, 2, -2, 0.5, -2, 2, 0.5, -2, -2, -0.5, 2, 2, -0.5, 2, -2, -0.5, -2, 2, -0.5, 2, 2, -0.5, -2, -2, -0.5, -2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_hhlev"]
+material = ExtResource("7_htioq")
 size = Vector3(12, 1, 12)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_hdh5f"]
 data = PackedVector3Array(-6, 0.5, 6, 6, 0.5, 6, -6, -0.5, 6, 6, 0.5, 6, 6, -0.5, 6, -6, -0.5, 6, 6, 0.5, -6, -6, 0.5, -6, 6, -0.5, -6, -6, 0.5, -6, -6, -0.5, -6, 6, -0.5, -6, 6, 0.5, 6, 6, 0.5, -6, 6, -0.5, 6, 6, 0.5, -6, 6, -0.5, -6, 6, -0.5, 6, -6, 0.5, -6, -6, 0.5, 6, -6, -0.5, -6, -6, 0.5, 6, -6, -0.5, 6, -6, -0.5, -6, 6, 0.5, 6, -6, 0.5, 6, 6, 0.5, -6, -6, 0.5, 6, -6, 0.5, -6, 6, 0.5, -6, -6, -0.5, 6, 6, -0.5, 6, -6, -0.5, -6, 6, -0.5, 6, 6, -0.5, -6, -6, -0.5, -6)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2lhs5"]
+material = ExtResource("7_htioq")
 size = Vector3(8, 1, 8)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_cvsuu"]
 data = PackedVector3Array(-4, 0.5, 4, 4, 0.5, 4, -4, -0.5, 4, 4, 0.5, 4, 4, -0.5, 4, -4, -0.5, 4, 4, 0.5, -4, -4, 0.5, -4, 4, -0.5, -4, -4, 0.5, -4, -4, -0.5, -4, 4, -0.5, -4, 4, 0.5, 4, 4, 0.5, -4, 4, -0.5, 4, 4, 0.5, -4, 4, -0.5, -4, 4, -0.5, 4, -4, 0.5, -4, -4, 0.5, 4, -4, -0.5, -4, -4, 0.5, 4, -4, -0.5, 4, -4, -0.5, -4, 4, 0.5, 4, -4, 0.5, 4, 4, 0.5, -4, -4, 0.5, 4, -4, 0.5, -4, 4, 0.5, -4, -4, -0.5, 4, 4, -0.5, 4, -4, -0.5, -4, 4, -0.5, 4, 4, -0.5, -4, -4, -0.5, -4)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2kjer"]
+material = ExtResource("8_50gba")
 size = Vector3(0.5, 2, 3)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_cxvng"]
 data = PackedVector3Array(-0.25, 1, 1.5, 0.25, 1, 1.5, -0.25, -1, 1.5, 0.25, 1, 1.5, 0.25, -1, 1.5, -0.25, -1, 1.5, 0.25, 1, -1.5, -0.25, 1, -1.5, 0.25, -1, -1.5, -0.25, 1, -1.5, -0.25, -1, -1.5, 0.25, -1, -1.5, 0.25, 1, 1.5, 0.25, 1, -1.5, 0.25, -1, 1.5, 0.25, 1, -1.5, 0.25, -1, -1.5, 0.25, -1, 1.5, -0.25, 1, -1.5, -0.25, 1, 1.5, -0.25, -1, -1.5, -0.25, 1, 1.5, -0.25, -1, 1.5, -0.25, -1, -1.5, 0.25, 1, 1.5, -0.25, 1, 1.5, 0.25, 1, -1.5, -0.25, 1, 1.5, -0.25, 1, -1.5, 0.25, 1, -1.5, -0.25, -1, 1.5, 0.25, -1, 1.5, -0.25, -1, -1.5, 0.25, -1, 1.5, 0.25, -1, -1.5, -0.25, -1, -1.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_3ac6t"]
+material = ExtResource("8_50gba")
 size = Vector3(1, 5, 0.5)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_hvo0t"]
 data = PackedVector3Array(-0.5, 2.5, 0.25, 0.5, 2.5, 0.25, -0.5, -2.5, 0.25, 0.5, 2.5, 0.25, 0.5, -2.5, 0.25, -0.5, -2.5, 0.25, 0.5, 2.5, -0.25, -0.5, 2.5, -0.25, 0.5, -2.5, -0.25, -0.5, 2.5, -0.25, -0.5, -2.5, -0.25, 0.5, -2.5, -0.25, 0.5, 2.5, 0.25, 0.5, 2.5, -0.25, 0.5, -2.5, 0.25, 0.5, 2.5, -0.25, 0.5, -2.5, -0.25, 0.5, -2.5, 0.25, -0.5, 2.5, -0.25, -0.5, 2.5, 0.25, -0.5, -2.5, -0.25, -0.5, 2.5, 0.25, -0.5, -2.5, 0.25, -0.5, -2.5, -0.25, 0.5, 2.5, 0.25, -0.5, 2.5, 0.25, 0.5, 2.5, -0.25, -0.5, 2.5, 0.25, -0.5, 2.5, -0.25, 0.5, 2.5, -0.25, -0.5, -2.5, 0.25, 0.5, -2.5, 0.25, -0.5, -2.5, -0.25, 0.5, -2.5, 0.25, 0.5, -2.5, -0.25, -0.5, -2.5, -0.25)
 
 [sub_resource type="BoxMesh" id="BoxMesh_oxhpk"]
+material = ExtResource("8_50gba")
 size = Vector3(3, 1, 0.25)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8q67l"]
 data = PackedVector3Array(-1.5, 0.5, 0.125, 1.5, 0.5, 0.125, -1.5, -0.5, 0.125, 1.5, 0.5, 0.125, 1.5, -0.5, 0.125, -1.5, -0.5, 0.125, 1.5, 0.5, -0.125, -1.5, 0.5, -0.125, 1.5, -0.5, -0.125, -1.5, 0.5, -0.125, -1.5, -0.5, -0.125, 1.5, -0.5, -0.125, 1.5, 0.5, 0.125, 1.5, 0.5, -0.125, 1.5, -0.5, 0.125, 1.5, 0.5, -0.125, 1.5, -0.5, -0.125, 1.5, -0.5, 0.125, -1.5, 0.5, -0.125, -1.5, 0.5, 0.125, -1.5, -0.5, -0.125, -1.5, 0.5, 0.125, -1.5, -0.5, 0.125, -1.5, -0.5, -0.125, 1.5, 0.5, 0.125, -1.5, 0.5, 0.125, 1.5, 0.5, -0.125, -1.5, 0.5, 0.125, -1.5, 0.5, -0.125, 1.5, 0.5, -0.125, -1.5, -0.5, 0.125, 1.5, -0.5, 0.125, -1.5, -0.5, -0.125, 1.5, -0.5, 0.125, 1.5, -0.5, -0.125, -1.5, -0.5, -0.125)
 
 [sub_resource type="BoxMesh" id="BoxMesh_x0st7"]
+material = ExtResource("8_50gba")
 size = Vector3(0.25, 1, 2)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tyyws"]
 data = PackedVector3Array(-0.125, 0.5, 1, 0.125, 0.5, 1, -0.125, -0.5, 1, 0.125, 0.5, 1, 0.125, -0.5, 1, -0.125, -0.5, 1, 0.125, 0.5, -1, -0.125, 0.5, -1, 0.125, -0.5, -1, -0.125, 0.5, -1, -0.125, -0.5, -1, 0.125, -0.5, -1, 0.125, 0.5, 1, 0.125, 0.5, -1, 0.125, -0.5, 1, 0.125, 0.5, -1, 0.125, -0.5, -1, 0.125, -0.5, 1, -0.125, 0.5, -1, -0.125, 0.5, 1, -0.125, -0.5, -1, -0.125, 0.5, 1, -0.125, -0.5, 1, -0.125, -0.5, -1, 0.125, 0.5, 1, -0.125, 0.5, 1, 0.125, 0.5, -1, -0.125, 0.5, 1, -0.125, 0.5, -1, 0.125, 0.5, -1, -0.125, -0.5, 1, 0.125, -0.5, 1, -0.125, -0.5, -1, 0.125, -0.5, 1, 0.125, -0.5, -1, -0.125, -0.5, -1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_un6fj"]
+material = ExtResource("8_50gba")
 size = Vector3(1, 2, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ymru0"]
@@ -116,7 +132,7 @@ size = Vector3(7.96861, 4.51835, 1.60112)
 [sub_resource type="BoxShape3D" id="BoxShape3D_gfsu5"]
 size = Vector3(3.8812, 1.26011, 0.392033)
 
-[sub_resource type="Environment" id="Environment_jyic6"]
+[sub_resource type="Environment" id="Environment_mfly1"]
 background_mode = 1
 background_color = Color(0.317647, 0.541176, 0.713726, 1)
 ambient_light_source = 3
@@ -164,12 +180,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3062, -0.25609, 0)
 [node name="triggerCollision" parent="Danger_Area" index="0"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 10.0181, -2.14609, 0)
 shape = SubResource("WorldBoundaryShape3D_7ixnn")
-
-[node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.0972838, 0.99487, 0.0277364, -0.118204, -0.0161217, 0.992858, 0.988212, -0.0998676, 0.116029, 22.7437, 12.2574, 1.06356)
-light_energy = 0.2
-shadow_enabled = true
-directional_shadow_mode = 0
 
 [node name="Start" type="Node3D" parent="."]
 
@@ -491,8 +501,34 @@ jump_force = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9992, 3.36016, 1.52588)
 jump_force = 4
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_jyic6")
+[node name="lighting" type="Node3D" parent="."]
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="lighting"]
+transform = Transform3D(-4.37114e-08, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1, 3.09086e-08, -3.09086e-08, -3.32541, 2.1958, 0)
+light_energy = 0.2
+shadow_enabled = true
+directional_shadow_mode = 0
+
+[node name="DirectionalLight3d2" type="DirectionalLight3D" parent="lighting"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -3.32541, 2.1958, 0)
+light_energy = 0.2
+shadow_enabled = true
+directional_shadow_mode = 0
+
+[node name="DirectionalLight3d3" type="DirectionalLight3D" parent="lighting"]
+transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, -3.32541, 2.1958, 16)
+light_energy = 0.2
+shadow_enabled = true
+directional_shadow_mode = 0
+
+[node name="DirectionalLight3d4" type="DirectionalLight3D" parent="lighting"]
+transform = Transform3D(-1, 6.18173e-08, -6.18173e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, -3.32541, 2.1958, 16)
+light_energy = 0.2
+shadow_enabled = true
+directional_shadow_mode = 0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="lighting"]
+environment = SubResource("Environment_mfly1")
 
 [editable path="Danger_Area"]
 [editable path="S_depth_bxo"]
