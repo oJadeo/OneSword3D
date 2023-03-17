@@ -979,9 +979,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.693919, 0.578929, 2.28729)
 [node name="SpawnAfterDeath2" parent="." instance=ExtResource("11_wrgcm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.87548, 0.587122, -17.206)
 
-[node name="Area3D" parent="SpawnAfterDeath2" instance=ExtResource("13_iap28")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.495231, 0)
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SpawnAfterDeath2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.315695, 0)
 mesh = SubResource("BoxMesh_110m3")
@@ -990,6 +987,9 @@ mesh = SubResource("BoxMesh_110m3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnAfterDeath2/MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_3gd0n")
+
+[node name="Transporter" parent="SpawnAfterDeath2" instance=ExtResource("13_iap28")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.470524, 0)
 
 [node name="S_rotate_camera4" parent="." instance=ExtResource("4_f7fa7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.43699, 4.6641, -25.465)

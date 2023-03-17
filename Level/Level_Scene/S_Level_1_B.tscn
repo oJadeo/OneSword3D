@@ -577,9 +577,6 @@ shape = SubResource("ConcavePolygonShape3D_vjuph")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.83241, 3.81129, 16.3207)
 script = ExtResource("5_5w7pm")
 
-[node name="Area3D" parent="NextLevel" instance=ExtResource("10_24eq8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.201604, 0)
-
 [node name="Platform2" type="MeshInstance3D" parent="NextLevel"]
 mesh = SubResource("BoxMesh_bi654")
 skeleton = NodePath("../..")
@@ -588,6 +585,9 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NextLevel/Platform2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_55b2x")
+
+[node name="Transporter" parent="NextLevel" instance=ExtResource("10_24eq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.155659, 0)
 
 [node name="Danger_Area" parent="." instance=ExtResource("11_aqb45")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78284, 0, 2.62556)

@@ -62,10 +62,6 @@ agent_max_climb = 0.1
 
 [node name="S_Tutorial_2" type="Node3D"]
 
-[node name="Area3D" parent="." instance=ExtResource("1_erua6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.4049, -2.83054, 21.6575)
-default_on = true
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_uvupg")
 
@@ -296,6 +292,9 @@ metadata/_editor_floor_ = Vector3(146, -7, 55)
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 86.3609, -2.3333, 20.9038)
 text = "Teleporter Below
 You'll be teleported to new area when stepped on"
+
+[node name="Transporter" parent="." instance=ExtResource("1_erua6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.1337, -2.86272, 21.6835)
 
 [editable path="Addon/S_rotate_camera2"]
 [editable path="Addon/S_rotate_camera4"]

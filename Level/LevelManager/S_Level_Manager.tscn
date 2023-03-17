@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dmos11qvx4oxm"]
+[gd_scene load_steps=11 format=3 uid="uid://dmos11qvx4oxm"]
 
 [ext_resource type="PackedScene" uid="uid://58c6txyswrfv" path="res://Level/LevelManager/TransitionScreen/S_Transition_Screen.tscn" id="1_q0qtk"]
 [ext_resource type="Script" path="res://Level/LevelManager/GD_Level_Manager.gd" id="1_thsif"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b6baxegk360xs" path="res://Level/Level_Scene/S_Level_2.tscn" id="6_cum1h"]
 [ext_resource type="PackedScene" uid="uid://i65ct1vrwmwp" path="res://Level/Level_Scene/S_Level_3_A.tscn" id="7_dw1xp"]
 [ext_resource type="PackedScene" uid="uid://b1xkxb3ygaydx" path="res://Level/Level_Scene/S_Level_3_B.tscn" id="8_qjvcn"]
+[ext_resource type="PackedScene" uid="uid://b0yua74dbmywr" path="res://Level/Level_Scene/S_Level_Final_Demo.tscn" id="9_ywr1g"]
 
 [node name="LevelManager" type="Node3D"]
 script = ExtResource("1_thsif")
@@ -19,6 +20,7 @@ S_level_1_C = ExtResource("5_q0kmb")
 S_level_2 = ExtResource("6_cum1h")
 S_level_3_A = ExtResource("7_dw1xp")
 S_level_3_B = ExtResource("8_qjvcn")
+S_Level_Final_Demo = ExtResource("9_ywr1g")
 
 [node name="TransitionScreen" parent="." instance=ExtResource("1_q0qtk")]
 

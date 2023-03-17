@@ -6,6 +6,7 @@ extends Node3D
 @export var S_level_2: Resource
 @export var S_level_3_A: Resource
 @export var S_level_3_B: Resource
+@export var S_Level_Final_Demo: Resource
 @onready var transitionScreen = $TransitionScreen
 @onready var currentScene = $currentScene
 
@@ -29,4 +30,7 @@ func _on_transition_screen_transitioned():
 		
 	if (GdLevelGlobal.current_level == 5):
 		currentScene.add_child(S_level_3_B.instantiate())
+	
+	if (GdLevelGlobal.current_level == 6):
+		currentScene.add_child(S_Level_Final_Demo.instantiate())
 
