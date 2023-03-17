@@ -1,12 +1,12 @@
 extends Node3D
-
-const S_Tutorial = preload("res://Level/Level_Scene/S_tutorial_2.tscn")
-const S_level_1_A = preload("res://Level/Level_Scene/S_level_1_A.tscn")
-const S_level_1_B = preload("res://Level/Level_Scene/S_Level_1_B.tscn")
-const S_level_1_C = preload("res://Level/Level_Scene/S_Level_1_C.tscn")
-const S_level_2 = preload("res://Level/Level_Scene/S_Level_2.tscn")
-const S_level_3_A = preload("res://Level/Level_Scene/S_Level_3_A.tscn")
-const S_level_3_B = preload("res://Level/Level_Scene/S_Level_3_B.tscn")
+@export var S_Tutorial: Resource
+@export var S_level_1_A: Resource
+@export var S_level_1_B: Resource
+@export var S_level_1_C: Resource
+@export var S_level_2: Resource
+@export var S_level_3_A: Resource
+@export var S_level_3_B: Resource
+@export var S_Level_Final_Demo: Resource
 @onready var transitionScreen = $TransitionScreen
 @onready var currentScene = $currentScene
 
@@ -30,4 +30,7 @@ func _on_transition_screen_transitioned():
 		
 	if (GdLevelGlobal.current_level == 5):
 		currentScene.add_child(S_level_3_B.instantiate())
+	
+	if (GdLevelGlobal.current_level == 6):
+		currentScene.add_child(S_Level_Final_Demo.instantiate())
 

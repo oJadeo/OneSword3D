@@ -1,7 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://dgwyiwbgx7iyb"]
+[gd_scene load_steps=14 format=3 uid="uid://dgwyiwbgx7iyb"]
 
 [ext_resource type="Script" path="res://Enemy/MortarEnemy/GD_MortarEnemy.gd" id="1_f2w7y"]
 [ext_resource type="Texture2D" uid="uid://va72w2qcgl45" path="res://Enemy/MortarEnemy/Enemy-03.png" id="2_51ca7"]
+[ext_resource type="PackedScene" uid="uid://qyyepg4wdy5e" path="res://Enemy/MortarEnemy/Bomb/S_Bomb.tscn" id="2_gqtu4"]
+[ext_resource type="PackedScene" uid="uid://bu3lr7md4wmr0" path="res://Enemy/MortarEnemy/Ball/S_Ball.tscn" id="3_vxu66"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7clb8"]
 resource_local_to_scene = true
@@ -125,6 +127,8 @@ height = 0.4
 
 [node name="MortarEnemy" type="CharacterBody3D" groups=["Mortar"]]
 script = ExtResource("1_f2w7y")
+bomb = ExtResource("2_gqtu4")
+ball = ExtResource("3_vxu66")
 
 [node name="Sprite3d" type="Sprite3D" parent="."]
 modulate = Color(0.784314, 0.784314, 0.784314, 1)

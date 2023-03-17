@@ -267,7 +267,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9059, 1.9836, 10.4354)
 angle = 180
 
 [node name="CollisionShape3D" parent="PreFight/S_rotate_camera2" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4721, -3.90018, -0.149046)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4721, -0.493185, -0.149046)
 shape = SubResource("BoxShape3D_x054m")
 
 [node name="Fighting Area" type="Node3D" parent="."]
@@ -303,7 +303,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_nuote")
 
 [node name="S_Set_Spawn" parent="Fighting Area" instance=ExtResource("8_3vucd")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -2.35145, 2.59807, 7.96822)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35145, 2.59807, 7.96822)
 
 [node name="S_rotate_camera" parent="Fighting Area" instance=ExtResource("7_x17iu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.718704, 0, 3.34127)
@@ -489,11 +489,8 @@ mesh = SubResource("BoxMesh_a708v")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnAfterDeath/MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_wwvqi")
 
-[node name="Area3D" parent="SpawnAfterDeath/MeshInstance3D" instance=ExtResource("8_2gd4g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192678, 0.294324, 0.764029)
-
-[node name="CollisionShape3D" parent="SpawnAfterDeath/MeshInstance3D/Area3D" index="0"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.245085, 0, -0.651268)
+[node name="Transporter" parent="SpawnAfterDeath" instance=ExtResource("8_2gd4g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.280172, 1.27888, -0.748285)
 
 [node name="S_Enemy_Manager" parent="." instance=ExtResource("3_7x0n0")]
 activater = NodePath("../SpawnAfterDeath")
@@ -521,7 +518,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94565, 0, 2.09786)
 [editable path="PreFight/S_rotate_camera"]
 [editable path="PreFight/S_rotate_camera3"]
 [editable path="PreFight/S_rotate_camera2"]
-[editable path="Fighting Area/S_Set_Spawn"]
 [editable path="Fighting Area/S_rotate_camera"]
 [editable path="Fighting Area/S_rotate_camera3"]
 [editable path="Fighting Area/S_rotate_camera2"]
@@ -531,4 +527,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94565, 0, 2.09786)
 [editable path="Fighting Area/S_rotate_camera4"]
 [editable path="Fighting Area/NavigationRegion3D/JumpBox"]
 [editable path="SpawnAfterDeath"]
-[editable path="SpawnAfterDeath/MeshInstance3D/Area3D"]

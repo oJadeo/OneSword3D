@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+class_name PlayerCharacter
 #signals
 signal Blockbar_changed
 signal DashCharge_changed
@@ -51,8 +51,8 @@ func handle_input():
 	#	rotate(Vector3(0,1,0),deg_to_rad(-90))
 	#if input_frame["rotate_ccw"]:
 	#	rotate(Vector3(0,1,0),deg_to_rad(90))
-	if input_frame["respawn"]: #Fix this back when finished testing
-		respawn()
+	#if input_frame["respawn"]: #Fix this back when finished testing
+		#respawn()
 	
 
 #Exploring variable
