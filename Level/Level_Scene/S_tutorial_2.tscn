@@ -295,6 +295,7 @@ You'll be teleported to new area when stepped on"
 
 [node name="Transporter" parent="." instance=ExtResource("1_erua6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.1337, -2.86272, 21.6835)
+default_on = true
 
 [editable path="Addon/S_rotate_camera2"]
 [editable path="Addon/S_rotate_camera4"]
