@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0yua74dbmywr"]
+[gd_scene load_steps=8 format=3 uid="uid://b0yua74dbmywr"]
 
 [ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_5gfxn"]
+[ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="2_ujtmv"]
 
 [sub_resource type="Environment" id="Environment_63jx7"]
 background_mode = 1
@@ -19,6 +20,9 @@ size = Vector3(8, 1, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_01tyf"]
 size = Vector3(8, 1, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ex21"]
+size = Vector3(20, 1, 20)
 
 [node name="S_Level_Final_Demo" type="Node3D"]
 
@@ -69,3 +73,11 @@ enable_wallrun = false
 
 [node name="playerSpawnPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14243, 0.425246, 0)
+
+[node name="Danger_Area" parent="." instance=ExtResource("2_ujtmv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58752, -3.02539, 0)
+
+[node name="triggerCollision" parent="Danger_Area" index="0"]
+shape = SubResource("BoxShape3D_0ex21")
+
+[editable path="Danger_Area"]
