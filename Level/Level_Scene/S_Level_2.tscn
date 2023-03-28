@@ -3,11 +3,14 @@
 [ext_resource type="Script" path="res://Level/Level_Scene/GD_Level_2.gd" id="1_l36ga"]
 [ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_q4yf2"]
 [ext_resource type="PackedScene" uid="uid://wycb6glgigjg" path="res://Level/Tiles/Rotate_Camera/S_rotate_camera.tscn" id="1_v3t3e"]
+[ext_resource type="Material" uid="uid://dorqgxuxcc7go" path="res://Level/Level_Scene/mat/mat_base_lower.tres" id="2_71dhw"]
+[ext_resource type="Material" uid="uid://delp1py61dkvl" path="res://Level/Level_Scene/mat/mat_wall.tres" id="2_mogh2"]
 [ext_resource type="PackedScene" uid="uid://n88kt3qi66lc" path="res://Level/Tiles/Depth_test_box/S_depth_bxo.tscn" id="3_0va1l"]
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="3_kms13"]
 [ext_resource type="PackedScene" uid="uid://dgwyiwbgx7iyb" path="res://Enemy/MortarEnemy/S_MortarEnemy.tscn" id="4_ayccb"]
 [ext_resource type="PackedScene" uid="uid://b0yg8hhtv3vsc" path="res://Level/Tiles/Set_Spawn/S_setSpawn.tscn" id="4_hoxe6"]
 [ext_resource type="PackedScene" uid="uid://b27w0gqoqaeui" path="res://Enemy/S_Enemy_Manager.tscn" id="5_jpk7l"]
+[ext_resource type="Material" uid="uid://obry81r6xbi1" path="res://Level/Level_Scene/mat/mat_base.tres" id="6_jx54o"]
 [ext_resource type="PackedScene" uid="uid://cwgktljjh2rqs" path="res://Enemy/MeleeEnemy/S_MeleeEnemy.tscn" id="7_jv23f"]
 [ext_resource type="PackedScene" uid="uid://6dnu7ywfbvge" path="res://Level/Navigation/S_JumpBox.tscn" id="9_hbruu"]
 [ext_resource type="PackedScene" uid="uid://k7gmuhpof4p2" path="res://Level/Tiles/Spawn_After_Death/S_Spawn_After_Death.tscn" id="10_gp3or"]
@@ -40,28 +43,22 @@ size = Vector3(4, 1, 4)
 [sub_resource type="BoxShape3D" id="BoxShape3D_6mmjm"]
 size = Vector3(4, 1, 4)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k5yio"]
-albedo_color = Color(0.713726, 0.717647, 0.717647, 1)
-
 [sub_resource type="BoxMesh" id="BoxMesh_d4gsx"]
-material = SubResource("StandardMaterial3D_k5yio")
+material = ExtResource("2_71dhw")
 size = Vector3(3, 1, 6)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j1bq5"]
 size = Vector3(3, 1, 6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhgi6"]
-albedo_color = Color(1, 0.498039, 0.498039, 1)
-
 [sub_resource type="BoxMesh" id="BoxMesh_kwlup"]
-material = SubResource("StandardMaterial3D_jhgi6")
+material = ExtResource("2_mogh2")
 size = Vector3(25, 4, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s1yix"]
 size = Vector3(25, 4, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_yeoyw"]
-material = SubResource("StandardMaterial3D_jhgi6")
+material = ExtResource("2_mogh2")
 size = Vector3(7, 3, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_25x56"]
@@ -78,7 +75,7 @@ size = Vector3(1, 1, 5)
 size = Vector3(1, 1, 5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_e3tv7"]
-material = SubResource("StandardMaterial3D_k5yio")
+material = ExtResource("2_71dhw")
 size = Vector3(4, 1, 6)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ays11"]
@@ -127,14 +124,14 @@ size = Vector3(10, 1, 4)
 size = Vector3(100, 1, 100)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ctvnw"]
-material = SubResource("StandardMaterial3D_jhgi6")
+material = ExtResource("2_mogh2")
 size = Vector3(8, 5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_st175"]
 size = Vector3(8, 5, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_e2msr"]
-material = SubResource("StandardMaterial3D_jhgi6")
+material = ExtResource("2_mogh2")
 size = Vector3(7.5, 5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r66i5"]
@@ -157,10 +154,8 @@ size = Vector3(1, 1, 3)
 [sub_resource type="BoxShape3D" id="BoxShape3D_fmgl0"]
 size = Vector3(3, 1, 3)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mj55"]
-
 [sub_resource type="BoxMesh" id="BoxMesh_h6ueo"]
-material = SubResource("StandardMaterial3D_7mj55")
+material = ExtResource("6_jx54o")
 size = Vector3(2.5, 1, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cylnp"]
@@ -170,28 +165,28 @@ size = Vector3(2.5, 1, 4)
 size = Vector3(2.5, 0.5, 2.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_5rtl8"]
-material = SubResource("StandardMaterial3D_7mj55")
+material = ExtResource("6_jx54o")
 size = Vector3(2.5, 1, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6kb2j"]
 size = Vector3(2.5, 1, 5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_bbcqe"]
-material = SubResource("StandardMaterial3D_7mj55")
+material = ExtResource("6_jx54o")
 size = Vector3(4, 1, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ttdv8"]
 size = Vector3(4, 1, 3)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ds61a"]
-material = SubResource("StandardMaterial3D_7mj55")
+material = ExtResource("6_jx54o")
 size = Vector3(4, 1, 3.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cav61"]
 size = Vector3(4, 1, 3.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_chaci"]
-material = SubResource("StandardMaterial3D_jhgi6")
+material = ExtResource("2_mogh2")
 size = Vector3(5, 3, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pveed"]
@@ -208,56 +203,56 @@ size = Vector3(2, 1, 3)
 size = Vector3(2, 1, 3)
 
 [sub_resource type="BoxMesh" id="BoxMesh_p1p5x"]
-material = SubResource("StandardMaterial3D_7mj55")
+material = ExtResource("6_jx54o")
 size = Vector3(7.5, 1, 7.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_riaa1"]
 size = Vector3(7.5, 1, 7.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_bql7e"]
-material = SubResource("StandardMaterial3D_7mj55")
+material = ExtResource("6_jx54o")
 size = Vector3(2.5, 1, 2.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lxf8t"]
 size = Vector3(2.5, 1, 2.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_itw7i"]
-material = SubResource("StandardMaterial3D_7mj55")
+material = ExtResource("6_jx54o")
 size = Vector3(2.5, 3, 2.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r6up3"]
 size = Vector3(2.5, 3, 2.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_sx75v"]
-material = SubResource("StandardMaterial3D_jhgi6")
+material = ExtResource("2_mogh2")
 size = Vector3(8, 5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_07woh"]
 size = Vector3(8, 5, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_rtd3n"]
-material = SubResource("StandardMaterial3D_jhgi6")
+material = ExtResource("2_mogh2")
 size = Vector3(6, 5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2evhr"]
 size = Vector3(6, 5, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_a2ggv"]
-material = SubResource("StandardMaterial3D_jhgi6")
+material = ExtResource("2_mogh2")
 size = Vector3(6, 5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b5shs"]
 size = Vector3(6, 5, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_rcbyd"]
-material = SubResource("StandardMaterial3D_jhgi6")
+material = ExtResource("2_mogh2")
 size = Vector3(6, 5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ei4bm"]
 size = Vector3(6, 5, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_3k7wr"]
-material = SubResource("StandardMaterial3D_jhgi6")
+material = ExtResource("2_mogh2")
 size = Vector3(6, 5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mvnv1"]
@@ -283,35 +278,35 @@ material = SubResource("StandardMaterial3D_5xjvb")
 size = Vector3(1, 1, 5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_8hk8i"]
-material = SubResource("StandardMaterial3D_jhgi6")
+material = ExtResource("2_mogh2")
 size = Vector3(8, 5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8r8rx"]
 size = Vector3(8, 5, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_8o2r4"]
-material = SubResource("StandardMaterial3D_jhgi6")
+material = ExtResource("2_mogh2")
 size = Vector3(4, 5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vs4bf"]
 size = Vector3(4, 5, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_84p02"]
-material = SubResource("StandardMaterial3D_jhgi6")
+material = ExtResource("2_mogh2")
 size = Vector3(3, 5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ln3j"]
 size = Vector3(3, 5, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_48r70"]
-material = SubResource("StandardMaterial3D_jhgi6")
+material = ExtResource("2_mogh2")
 size = Vector3(4, 5, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_71abb"]
 size = Vector3(4, 5, 0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_qatho"]
-material = SubResource("StandardMaterial3D_7mj55")
+material = ExtResource("6_jx54o")
 size = Vector3(1.5, 2, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_044ca"]
@@ -327,7 +322,7 @@ size = Vector3(2.25, 2, 7.32549)
 size = Vector3(2, 1.25, 3.75)
 
 [sub_resource type="BoxMesh" id="BoxMesh_keyxl"]
-material = SubResource("StandardMaterial3D_7mj55")
+material = ExtResource("6_jx54o")
 size = Vector3(2.5, 1, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eoa2l"]
@@ -351,14 +346,14 @@ size = Vector3(2, 0.5, 2)
 size = Vector3(2, 1.25, 2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_s5lbh"]
-material = SubResource("StandardMaterial3D_7mj55")
+material = ExtResource("6_jx54o")
 size = Vector3(7, 1, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5bbgu"]
 size = Vector3(7, 1, 3)
 
 [sub_resource type="BoxMesh" id="BoxMesh_j40dx"]
-material = SubResource("StandardMaterial3D_7mj55")
+material = ExtResource("6_jx54o")
 size = Vector3(3, 1, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vtvy7"]
@@ -368,28 +363,28 @@ size = Vector3(4.5, 1, 3)
 size = Vector3(2, 1, 3)
 
 [sub_resource type="BoxMesh" id="BoxMesh_gu0c7"]
-material = SubResource("StandardMaterial3D_jhgi6")
+material = ExtResource("2_mogh2")
 size = Vector3(3, 5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4gqum"]
 size = Vector3(3, 5, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4vl8s"]
-material = SubResource("StandardMaterial3D_jhgi6")
+material = ExtResource("2_mogh2")
 size = Vector3(9, 5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hfuhw"]
 size = Vector3(9, 5, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_m04ro"]
-material = SubResource("StandardMaterial3D_jhgi6")
+material = ExtResource("2_mogh2")
 size = Vector3(3, 1, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r647j"]
 size = Vector3(3, 1, 0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_u4pqu"]
-material = SubResource("StandardMaterial3D_jhgi6")
+material = ExtResource("2_mogh2")
 size = Vector3(0.5, 1, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_504kc"]
@@ -1552,34 +1547,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.49831, 0.302786, 0)
 [node name="playerSpawnPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.50299, 0.329982, 0.00359917)
 
-[node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
+[node name="GridMap" type="GridMap" parent="."]
+
+[node name="lighting" type="Node3D" parent="."]
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="lighting"]
 transform = Transform3D(-4.37114e-08, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1, 3.09086e-08, -3.09086e-08, -3.32541, 2.1958, 0)
 light_energy = 0.2
 shadow_enabled = true
 directional_shadow_mode = 0
 
-[node name="DirectionalLight3d2" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3d2" type="DirectionalLight3D" parent="lighting"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -3.32541, 2.1958, 0)
 light_energy = 0.2
 shadow_enabled = true
 directional_shadow_mode = 0
 
-[node name="DirectionalLight3d3" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3d3" type="DirectionalLight3D" parent="lighting"]
 transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, -3.32541, 2.1958, 16)
 light_energy = 0.2
 shadow_enabled = true
 directional_shadow_mode = 0
 
-[node name="DirectionalLight3d4" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-1, 6.18172e-08, -6.18172e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, -3.32541, 2.1958, 16)
+[node name="DirectionalLight3d4" type="DirectionalLight3D" parent="lighting"]
+transform = Transform3D(-1, 6.18173e-08, -6.18173e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, -3.32541, 2.1958, 16)
 light_energy = 0.2
 shadow_enabled = true
 directional_shadow_mode = 0
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="lighting"]
 environment = SubResource("Environment_2lxyd")
-
-[node name="GridMap" type="GridMap" parent="."]
 
 [editable path="NavigationRegion3D/Wallrun/StaticBody3D16/S_rotate_camera"]
 [editable path="NavigationRegion3D/Danger_Area"]

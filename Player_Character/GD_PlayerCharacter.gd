@@ -6,6 +6,7 @@ signal DashCharge_changed
 
 @export var enable_wallrun : bool = true
 
+@export var dash_version : int = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -35,6 +36,7 @@ var input_frame = {
 func handle_input():
 	input_frame["direction"] = Vector2(Input.get_axis("Move_Left", "Move_Right"),Input.get_axis("Move_Up", "Move_Down")) 
 	input_frame["direction"] = input_frame["direction"] if input_frame["direction"].length() <=1 else input_frame["direction"].normalized()
+	input_frame["direction"] = input_frame["direction"] if input_frame["direction"].length() >0.05 else Vector2.ZERO
 	if input_frame["direction"] != Vector2.ZERO:
 		last_direction = (transform.basis * Vector3(input_frame["direction"] .x,0, input_frame["direction"] .y)).normalized()
 	input_frame["attack"] = Input.is_action_just_pressed("Attack")
@@ -53,84 +55,112 @@ func handle_input():
 	#	rotate(Vector3(0,1,0),deg_to_rad(90))
 	#if input_frame["respawn"]: #Fix this back when finished testing
 		#respawn()
-	
 
 #Exploring variable
-const SPEED = 1 
+const SPEED = 1.5
 const BLOCK_SPEED = 0.5
-const JUMP_VELOCITY = 3.5
 const SLAM_SPEED = 0.25
+const ACCEL = 6
+const DECEL = 10
+const FRICTION = 5
+var target_velocity = Vector3.ZERO
 var direction 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func handle_move(delta):
-	# Add the gravity.
-	if not is_on_floor() and not is_wall_running:
-		velocity.y -= gravity * delta
+	target_velocity = Vector3.ZERO
 
 	#Handle Direction from camera_direction
 	direction = (transform.basis * Vector3(input_frame["direction"] .x,0, input_frame["direction"] .y)).normalized()
 	var character_rotation = get_rotation()
 	var cam_dir = Global.cal_camera_direction(rad_to_deg(character_rotation[1]))
 
-	handle_dash()
 
 	if direction:
-		velocity.x = direction.dot(cam_dir[0])
-		velocity.z = direction.dot(cam_dir[1])
+		target_velocity.x = direction.dot(cam_dir[0])*SPEED
+		target_velocity.z = direction.dot(cam_dir[1])*SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, 1)
-		velocity.z = move_toward(velocity.z, 0, 1)
+		target_velocity.x = 0
+		target_velocity.z = 0
 
+	handle_jump(delta)
+	
 	if enable_wallrun:
 		handle_wall_run(delta)
-
-	# Handle Jump.
-	if input_frame["just_jump"] and is_on_floor() and not is_wall_running:
-		velocity.y = JUMP_VELOCITY
 	
-	if is_on_floor() and not is_wall_running:
-		is_wall_runable = true
 	
-	if input_frame["just_jump"] and is_wall_running:
-		is_wall_runable = true
-		wall_run_jump_Timer.start()
-		wall_run_jumping = [true,selected_wall[2]]
-		velocity.y = JUMP_VELOCITY
-		is_wall_running = false
-
-	if wall_run_jumping[0]:
-		if is_on_floor():
-			wall_run_jumping = [false,Vector3.ZERO]
-		else:
-			velocity += selected_wall[2]*3
+	var speed_dif = target_velocity-velocity
+	var acceleration = Vector3.ZERO
+	acceleration.x = ACCEL if abs(target_velocity.x) > 0.01 else DECEL
+	acceleration.z = ACCEL if abs(target_velocity.z) > 0.01 else DECEL
+	acceleration.x = acceleration.x*2 if abs(speed_dif.x) > 1 else acceleration.x
+	acceleration.z = acceleration.z*2 if abs(speed_dif.z) > 1 else acceleration.z
+	
+	match dash_version:
+		1:
+			handle_dash_1()
+			if not is_dashing and Vector2(velocity.x,velocity.z).length() > Vector2(target_velocity.x,target_velocity.z).length():
+				acceleration.x = 10
+				acceleration.z = 10
+			if is_dashing:
+				acceleration.x = 0 
+				acceleration.z = 0
+	
+	velocity.x = lerp(velocity.x,target_velocity.x,acceleration.x*delta)
+	velocity.z = lerp(velocity.z,target_velocity.z,acceleration.z*delta)
+	
+	if deflecting:
+		velocity.x *= BLOCK_SPEED 
+		velocity.z *= BLOCK_SPEED 
 
 	if slaming:
-		velocity.y -= SLAM_SPEED
+		target_velocity.y -= SLAM_SPEED
 
+	if slaming:
+		velocity.x = 0
+		velocity.z = 0
+	
 	if knockback :
 		velocity = -Vector3(last_direction.dot(cam_dir[0]),0,last_direction.dot(cam_dir[1]))*SPEED*2.5
 		move_and_slide()
 		await get_tree().create_timer(0.05).timeout
 		knockback = false
 
-	if deflecting:
-		velocity.x *= BLOCK_SPEED 
-		velocity.z *= BLOCK_SPEED 
-	if slaming:
-		velocity.x = 0
-		velocity.z = 0
-		
-	if velocity.x + velocity.z >=5:
-		print("Error Speed Limit")
-		velocity.x /= 5
-		velocity.z /= 5
-	
-	if is_dashing:
-		velocity.x *= DASH_SPEED
-		velocity.z *= DASH_SPEED
+	var was_on_floor = is_on_floor()
 	move_and_slide()
-		
+	if not is_on_floor() and was_on_floor and not is_jumping and not is_wall_climbing and not is_wall_running:
+		coyote_timer.start()
+
+var is_jumping = false
+@onready var coyote_timer = $Timer/CoyoteTimer
+@onready var jumpbuffer = $Timer/junmpBufferTimer
+var gravity = 9.8
+const JUMP_VELOCITY = 3.5
+func handle_jump(delta):
+	if is_on_floor() and not is_wall_running:
+		is_jumping = false
+	if is_jumping and input_frame["jump"] and velocity.y > 0 :
+		velocity.y += 5*delta
+	if not is_on_floor() and coyote_timer.is_stopped() and not is_wall_running :
+		velocity.y -= gravity * delta 
+		print(velocity.y)
+		velocity.y = clamp(velocity.y,-10,100)
+	# Handle Normal Jump.
+	if input_frame["just_jump"] and not is_wall_running and not is_wall_climbing:
+		if  is_on_floor() or not coyote_timer.is_stopped():
+			coyote_timer.stop()
+			jump()
+		else:
+			jumpbuffer.start()
+	if is_on_floor() and not jumpbuffer.is_stopped():
+		jumpbuffer.stop()
+		jump()
+func jump():
+	velocity.y = JUMP_VELOCITY
+	is_jumping = true
+func _on_coyote_timer_timeout():
+	coyote_timer.stop()
+func _on_junmp_buffer_timer_timeout():
+	jumpbuffer.stop()
+
 # Dash variable
 const DASH_SPEED = 10
 const MAX_CHARGE = 3
@@ -138,19 +168,21 @@ var dash_charge = 3
 var is_dash_able = true
 var is_dashing = false
 var dash_end = false
-@onready var rechargeDashTimer = $RechargeDashTimer
-func handle_dash():
+@onready var rechargeDashTimer = $Timer/RechargeDashTimer
+func handle_dash_1():
 	if input_frame["dash"] and is_dash_able and not is_wall_running and not is_dashing and dash_charge != 0 and not attacking:
 		dash_charge -= 1
+		velocity.x = direction.x*3
+		velocity.z = direction.z*3
 		emit_signal("DashCharge_changed",dash_charge)
 		rechargeDashTimer.start()
 		is_dashing = true
 		is_dash_able = false
-	if not input_frame["dash"] and is_dashing:
+	if (not input_frame["dash"] or input_frame["direction"] == Vector2.ZERO) and is_dashing:
 		end_dash()
 	if not input_frame["dash"] and dash_end:
 		is_dash_able = true
-		dash_end = false
+		dash_end = false	
 func end_dash():
 	dash_end = true
 	is_dashing = false
@@ -165,46 +197,74 @@ func _on_recharge_dash_timer_timeout():
 # Wallrun variable
 var is_wall_runable = true
 var is_wall_running = false
+var is_wall_climbing = false
 var is_wall= {'left':null,'right':null,'up':null}
 var selected_wall 
 var wall_run_jumping = [false,Vector3.ZERO]
-const WALL_CHECK_RANGE = 1
-@onready var ray = $RayCast3D
-@onready var wall_run_timer = $WallrunTimer
-@onready var wall_run_jump_Timer = $WallRunJumpTimer
-@onready var shadow_pivot = $ShadowPivot
+const WALL_CHECK_RANGE = 0.5
+@onready var ray = $WallRun/RayCast3D
+@onready var wall_run_timer = $WallRun/WallrunTimer
+@onready var wall_run_jump_Timer = $WallRun/WallRunJumpTimer
 func handle_wall_run(delta):
-	shadow_pivot.set_rotation(Vector3(0,0,0))
+	if is_on_floor() and not is_wall_running:
+		is_wall_runable = true
+		is_wall_climbing = false
+		is_wall_running = false
+	
+	if is_wall_climbing and velocity.y > 0:
+		velocity.y += 3*delta
 	is_wall['left'] = check_wall(Vector3(-WALL_CHECK_RANGE,0,0))
 	is_wall['right'] = check_wall(Vector3(WALL_CHECK_RANGE,0,0))
 	is_wall['up'] = check_wall(Vector3(0,0,-WALL_CHECK_RANGE))
 	var has_wall = select_wall()
 	if Input.is_action_just_pressed("WallRun") and input_frame['direction'] != Vector2.ZERO and is_wall_runable and has_wall:
-		is_wall_running = true
-		velocity.y = 0.5
-		wall_run_jumping = [false,Vector3.ZERO]
-		wall_run_timer.start()
-		is_wall_runable = false
+		if has_wall[2].dot(direction) < -0.9:
+			is_wall_climbing = true
+			velocity.y = 3
+			selected_wall = has_wall
+			is_wall_running = false
+		else:
+			is_wall_running = true
+			velocity.y = 0.5
+			wall_run_jumping = [false,Vector3.ZERO]
+			wall_run_timer.start()
+			is_wall_runable = false
 	if not input_frame["wall_run"]:
 		is_wall_running = false
 	if is_wall_running and input_frame['direction'] != Vector2.ZERO:
 		is_wall['left'] = check_wall(Vector3(-WALL_CHECK_RANGE,0,0))
 		is_wall['right'] = check_wall(Vector3(WALL_CHECK_RANGE,0,0))
 		is_wall['up'] = check_wall(Vector3(0,0,-WALL_CHECK_RANGE))
-		selected_wall = select_wall()
+		selected_wall = has_wall
 		if selected_wall:
 			velocity.y -= 0.5 * delta
 			var wall_normal = selected_wall[2]
 			var move_dir = wall_normal.cross(Vector3(0,1,0))
 			if abs(move_dir.x) > 0.1 :
-				velocity.z = 0
-				velocity.x = 2 if velocity.x>0 else -2
+				target_velocity.z = 0
+				target_velocity.x = 2 if target_velocity.x>0 else -2
 			if abs(move_dir.z) > 0.1:
-				velocity.x = 0
-				velocity.z = 2 if velocity.z>0 else -2
-			velocity -= wall_normal
+				target_velocity.x = 0
+				target_velocity.z = 2 if target_velocity.z>0 else -2
+			target_velocity -= wall_normal
 		else:
 			is_wall_running = false
+			
+	if input_frame["just_jump"] and (is_wall_running or is_wall_climbing):
+		is_wall_runable = true
+		wall_run_jump_Timer.start()
+		wall_run_jumping = [true,selected_wall[2]]
+		velocity.y = JUMP_VELOCITY
+		is_jumping = true
+		is_wall_running = false
+		is_wall_climbing = false
+	
+
+	if wall_run_jumping[0]:
+		if is_on_floor():
+			wall_run_jumping = [false,Vector3.ZERO]
+		else:
+			target_velocity += selected_wall[2]*3
 func check_wall(dir):
 	ray.set_target_position(dir)
 	ray.force_raycast_update()
@@ -224,17 +284,14 @@ func select_wall():
 	if is_wall['up']:
 		if result:
 			result = is_wall['up'] if is_wall['up'][1] < result[1] else result
-			if result == is_wall['up'] and is_wall_running:
-				shadow_pivot.set_rotation(Vector3(deg_to_rad(30),0,0))
 		else:
 			result = is_wall['up']
-			if is_wall_running:
-				shadow_pivot.set_rotation(Vector3(deg_to_rad(30),0,0))
 	return result
 func _on_wallrun_timer_timeout():
 	is_wall_running = false
 func _on_wall_run_jump_timer_timeout():
 	wall_run_jumping = [false,Vector3.ZERO]
+
 #Attack variable
 var attacking = false
 var slaming = false
@@ -261,7 +318,7 @@ const MAX_BLOCK_BAR = 100
 var blockBar = 100
 var begin_regen = false
 var is_regen = false
-@onready var iframeTimer = $IframeTimer
+@onready var iframeTimer = $Timer/IframeTimer
 
 func _on_hurt_box_area_entered(area):
 	if "Hitbox" not in area.name :
@@ -287,8 +344,8 @@ func _on_hurt_box_area_entered(area):
 		print("blockBar : " + str(blockBar))
 func on_deflect_animation_end():	
 	perfect_deflect = false
-@onready var recharge_block_timer = $RechargeBlockTimer
-@onready var regen_timer = $RegenTimer
+@onready var recharge_block_timer = $Timer/RechargeBlockTimer
+@onready var regen_timer = $Timer/RegenTimer
 func handle_block():
 	if Input.is_action_pressed("Block") and is_on_floor() and not is_dashing and not is_wall_running and not slaming:
 		deflecting = true
@@ -356,7 +413,6 @@ func handle_animation():
 		animationState.travel("Block")
 	if is_dashing:
 		animationState.travel("Dash")
-
 func respawn():
 	set_position(playerSpawnPoint.global_position)
 	blockBar = 100
@@ -364,15 +420,18 @@ func respawn():
 	emit_signal("Blockbar_changed",blockBar)
 	emit_signal("DashCharge_changed",dash_charge)
 	get_tree().call_group("respawn","respawn")
-
 func _on_iframe_timer_timeout():
 	iFrame = false
 	
+# For Rotaion Camera
 @export var tar_rot :float = 0
 func set_target_rotation(new_tar_rot):
 	tar_rot = new_tar_rot
 func handle_rotation(delta):
 	rotation.y = lerp_angle(rotation.y,tar_rot,5.0*delta)
-
+# For depthBox to behind box
 func set_draw_flag(draw):
 	$Sprite3d.set_draw_flag(3,draw)
+
+
+
