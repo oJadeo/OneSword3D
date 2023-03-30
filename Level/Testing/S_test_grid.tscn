@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://43k24h5bn0bl"]
 
 [ext_resource type="Script" path="res://Level/Testing/GD_test_nav_link.gd" id="1_gu2mx"]
-[ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="2_gj8qt"]
+[ext_resource type="PackedScene" uid="uid://cxiqk8q16cvwc" path="res://Player_Character/S_PlayerCharacter.tscn" id="2_gj8qt"]
 [ext_resource type="PackedScene" uid="uid://n88kt3qi66lc" path="res://Level/Tiles/Depth_test_box/S_depth_bxo.tscn" id="3_3mbc7"]
 [ext_resource type="MeshLibrary" uid="uid://igtk5abse8xh" path="res://Level/Tiles_Set/mesh_lib/set_proto.tres" id="5_bngkd"]
 
