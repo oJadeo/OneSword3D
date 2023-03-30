@@ -1,8 +1,9 @@
-[gd_scene load_steps=145 format=3 uid="uid://cxiqk8q16cvwc"]
+[gd_scene load_steps=146 format=3 uid="uid://ctoe834hxhfjp"]
 
-[ext_resource type="Script" path="res://Player_Character/GD_PlayerCharacter.gd" id="1_key0r"]
-[ext_resource type="Texture2D" uid="uid://druevnyrn8qtt" path="res://Player_Character/Player_Character.png" id="2_ug3k3"]
-[ext_resource type="PackedScene" uid="uid://cwwjrhl86b5co" path="res://UI/playerUI.tscn" id="3_mmhdn"]
+[ext_resource type="Script" path="res://Player_Character/GD_PlayerCharacter.gd" id="1_k8c01"]
+[ext_resource type="Texture2D" uid="uid://druevnyrn8qtt" path="res://Player_Character/Player_Character.png" id="2_s10rq"]
+[ext_resource type="PackedScene" uid="uid://cwwjrhl86b5co" path="res://UI/playerUI.tscn" id="3_pgs4t"]
+[ext_resource type="Script" path="res://Player_Character_With_States/GD_StateManager.gd" id="4_06oee"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xc8no"]
 radius = 0.07
@@ -2331,7 +2332,7 @@ height = 0.4
 
 [node name="Player_Character" type="CharacterBody3D"]
 collision_layer = 2
-script = ExtResource("1_key0r")
+script = ExtResource("1_k8c01")
 enable_wallrun = null
 dash_version = null
 tar_rot = null
@@ -2351,7 +2352,7 @@ double_sided = false
 no_depth_test = true
 texture_filter = 0
 render_priority = 5
-texture = ExtResource("2_ug3k3")
+texture = ExtResource("2_s10rq")
 hframes = 4
 vframes = 36
 
@@ -2419,7 +2420,7 @@ collision_mask = 576
 [node name="CollisionShape3d" type="CollisionShape3D" parent="HurtBox"]
 shape = SubResource("CapsuleShape3D_r3dmx")
 
-[node name="CanvasLayer" parent="." instance=ExtResource("3_mmhdn")]
+[node name="CanvasLayer" parent="." instance=ExtResource("3_pgs4t")]
 
 [node name="WallRun" type="Node3D" parent="."]
 
@@ -2459,6 +2460,9 @@ wait_time = 0.25
 
 [node name="junmpBufferTimer" type="Timer" parent="Timer"]
 wait_time = 0.25
+
+[node name="StateManager" type="Node3D" parent="."]
+script = ExtResource("4_06oee")
 
 [connection signal="Blockbar_changed" from="." to="CanvasLayer" method="_on_player_character_blockbar_changed"]
 [connection signal="DashCharge_changed" from="." to="CanvasLayer" method="_on_player_character_dash_charge_changed"]
