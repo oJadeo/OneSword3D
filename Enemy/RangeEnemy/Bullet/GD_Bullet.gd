@@ -6,7 +6,7 @@ extends Node3D
 @onready var initialTimer = $InitialTimer
 
 var deflected = false
-var direction = Vector2.ZERO
+var direction = Vector3.ZERO
 var speed = 0.0175
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,12 +15,13 @@ func _ready():
 func _physics_process(delta):
 	#position+= direction[move_dir] * speed
 	global_position.x += direction.x * speed
-	global_position.z += direction.y * speed
+	global_position.y += direction.y * speed
+	global_position.z += direction.z * speed
 	#handle_height()
 	pass
 
-func init(dir_x,dir_z,pos,height,time):
-	direction = Vector2(dir_x,dir_z).normalized()
+func init(dir_x,dir_y,dir_z,pos,height,time):
+	direction = Vector3(dir_x,dir_y,dir_z).normalized()
 	timer.set_wait_time(2) #time 
 	timer.set_autostart(true)
 	timer.start()
