@@ -313,7 +313,7 @@ func spawn_bullet():
 	var bulletDirection_y = bullet_direction.y - get_global_position().y
 	var bulletDirection_z = bullet_direction.z - get_global_position().z
 	add_child(new_bullet)
-	new_bullet.init(bulletDirection_x,bulletDirection_y,bulletDirection_z,0,0,2)
+	new_bullet.init(bulletDirection_x,0,bulletDirection_z,0,0,2)
 	reset_attack()
 
 func _on_hitbox_area_entered(area):

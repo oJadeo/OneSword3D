@@ -64,6 +64,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.341214)
 script = ExtResource("1_nhrur")
 
 [node name="Player_Character" parent="." instance=ExtResource("2_tbsyc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05067, 0, -1.76069)
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.757918, 0.65235, 0, -0.65235, 0.757918, -3.32541, 2.1958, 0)
@@ -222,7 +223,7 @@ shape = SubResource("BoxShape3D_kl0tw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7646, 0.795547, -6.78687)
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("8_i1ju3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.215904, 0.86771, 1.39354)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3819, 0.86771, 1.39354)
 
 [node name="MeleeDummy" parent="." instance=ExtResource("9_2x87b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19164, 0.945904, -0.166429)

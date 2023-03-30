@@ -2454,6 +2454,7 @@ wait_time = 0.1
 wait_time = 1.75
 
 [node name="CoyoteTimer" type="Timer" parent="Timer"]
+wait_time = 0.2
 
 [node name="junmpBufferTimer" type="Timer" parent="Timer"]
 
