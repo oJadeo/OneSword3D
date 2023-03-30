@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Level/Testing/GD_Test_Level_with_nav.gd" id="1_hhvk3"]
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="1_r5elx"]
-[ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="2_ttu6c"]
+[ext_resource type="PackedScene" uid="uid://cxiqk8q16cvwc" path="res://Player_Character/S_PlayerCharacter.tscn" id="2_ttu6c"]
 [ext_resource type="PackedScene" uid="uid://dgwyiwbgx7iyb" path="res://Enemy/MortarEnemy/S_MortarEnemy.tscn" id="3_00uri"]
 [ext_resource type="PackedScene" uid="uid://b27w0gqoqaeui" path="res://Enemy/S_Enemy_Manager.tscn" id="3_7x0n0"]
 [ext_resource type="PackedScene" uid="uid://dfynijq7m2hnq" path="res://Enemy/RangeEnemy/S_RangeEnemy.tscn" id="4_ut3ql"]

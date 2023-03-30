@@ -1,7 +1,7 @@
 [gd_scene load_steps=130 format=3 uid="uid://b6baxegk360xs"]
 
 [ext_resource type="Script" path="res://Level/Level_Scene/GD_Level_2.gd" id="1_l36ga"]
-[ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_q4yf2"]
+[ext_resource type="PackedScene" uid="uid://cxiqk8q16cvwc" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_q4yf2"]
 [ext_resource type="PackedScene" uid="uid://wycb6glgigjg" path="res://Level/Tiles/Rotate_Camera/S_rotate_camera.tscn" id="1_v3t3e"]
 [ext_resource type="Material" uid="uid://dorqgxuxcc7go" path="res://Level/Level_Scene/mat/mat_base_lower.tres" id="2_71dhw"]
 [ext_resource type="Material" uid="uid://delp1py61dkvl" path="res://Level/Level_Scene/mat/mat_wall.tres" id="2_mogh2"]

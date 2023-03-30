@@ -1,7 +1,7 @@
 [gd_scene load_steps=82 format=3 uid="uid://ca6dqiorp54dl"]
 
 [ext_resource type="Script" path="res://Level/Testing/GD_Test_Level_with_nav.gd" id="1_de2r7"]
-[ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="2_13tau"]
+[ext_resource type="PackedScene" uid="uid://cxiqk8q16cvwc" path="res://Player_Character/S_PlayerCharacter.tscn" id="2_13tau"]
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="2_rdhxt"]
 [ext_resource type="PackedScene" uid="uid://b0yg8hhtv3vsc" path="res://Level/Tiles/Set_Spawn/S_setSpawn.tscn" id="3_ttjp4"]
 [ext_resource type="PackedScene" uid="uid://wycb6glgigjg" path="res://Level/Tiles/Rotate_Camera/S_rotate_camera.tscn" id="4_w3iai"]
