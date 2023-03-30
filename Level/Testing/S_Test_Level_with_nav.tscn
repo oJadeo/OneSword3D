@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://cb7e4x0wsp4g5"]
 
 [ext_resource type="Script" path="res://Level/Testing/GD_Test_Level_with_nav.gd" id="1_nhrur"]
-[ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="2_ggap4"]
+[ext_resource type="PackedScene" uid="uid://cnd8ojpppaqkd" path="res://Player_Character_Twin_Stick/S_PlayerCharacter_Twin_Stick.tscn" id="2_tbsyc"]
 [ext_resource type="PackedScene" uid="uid://b0yg8hhtv3vsc" path="res://Level/Tiles/Set_Spawn/S_setSpawn.tscn" id="3_i0uac"]
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="4_xrt7e"]
 [ext_resource type="PackedScene" uid="uid://b76gdft4cavda" path="res://Level/Tiles/Trigger_Block_Area/S_Trigger_Block_Area.tscn" id="5_60n33"]
@@ -63,14 +63,14 @@ size = Vector3(2, 0.5, 4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.341214)
 script = ExtResource("1_nhrur")
 
+[node name="Player_Character" parent="." instance=ExtResource("2_tbsyc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05067, 0, -1.76069)
+
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.757918, 0.65235, 0, -0.65235, 0.757918, -3.32541, 2.1958, 0)
 light_energy = 0.2
 shadow_enabled = true
 directional_shadow_mode = 0
-
-[node name="Player_Character" parent="." instance=ExtResource("2_ggap4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.487702, 0.437582)
 
 [node name="S_setSpawn" parent="." instance=ExtResource("3_i0uac")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251, -1.63235)
@@ -223,7 +223,7 @@ shape = SubResource("BoxShape3D_kl0tw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7646, 0.795547, -6.78687)
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("8_i1ju3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.215904, 0.86771, 1.39354)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3819, 0.86771, 1.39354)
 
 [node name="MeleeDummy" parent="." instance=ExtResource("9_2x87b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19164, 0.945904, -0.166429)

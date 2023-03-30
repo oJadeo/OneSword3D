@@ -71,10 +71,11 @@ func _physics_process(delta):
 	
 func spawn_bullet():
 	new_bullet = bullet.instantiate()
-	var bulletDirection_x = player.get_global_position().x - get_global_position().x
-	var bulletDirection_z = player.get_global_position().z - get_global_position().z
-	add_child(new_bullet)
-	new_bullet.init(bulletDirection_x,bulletDirection_z,0,0,2)
+	if player != null :
+		var bulletDirection_x = player.get_global_position().x - get_global_position().x
+		var bulletDirection_z = player.get_global_position().z - get_global_position().z
+		add_child(new_bullet)
+		new_bullet.init(bulletDirection_x,0,bulletDirection_z,0,0,2)
 
 
 func _on_player_detection_body_entered(body):
