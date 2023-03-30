@@ -57,11 +57,11 @@ func handle_input():
 		#respawn()
 
 #Exploring variable
-const SPEED = 1.5
+const SPEED = 2
 const BLOCK_SPEED = 0.5
 const SLAM_SPEED = 0.25
-const ACCEL = 6
-const DECEL = 10
+const ACCEL = 10
+const DECEL = 6
 const FRICTION = 5
 var target_velocity = Vector3.ZERO
 var direction 
@@ -162,7 +162,7 @@ func _on_junmp_buffer_timer_timeout():
 	jumpbuffer.stop()
 
 # Dash variable
-const DASH_SPEED = 10
+const DASH_SPEED = 13
 const MAX_CHARGE = 3
 var dash_charge = 3
 var is_dash_able = true

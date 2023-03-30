@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=3 uid="uid://b6baxegk360xs"]
+[gd_scene load_steps=130 format=3 uid="uid://b6baxegk360xs"]
 
 [ext_resource type="Script" path="res://Level/Level_Scene/GD_Level_2.gd" id="1_l36ga"]
 [ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_q4yf2"]
@@ -26,15 +26,18 @@ cell_height = 0.05
 agent_height = 0.5
 agent_max_climb = 0.1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwsha"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_egcdy"]
 uv1_offset = Vector3(0.5, 0, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_8lrb7"]
-material = SubResource("StandardMaterial3D_pwsha")
+material = SubResource("StandardMaterial3D_egcdy")
 size = Vector3(8, 1, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nw7vi"]
 size = Vector3(8, 1, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwsha"]
+uv1_offset = Vector3(0.5, 0, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_xfebi"]
 material = SubResource("StandardMaterial3D_pwsha")
