@@ -2452,8 +2452,10 @@ wait_time = 0.1
 wait_time = 1.75
 
 [node name="CoyoteTimer" type="Timer" parent="Timer"]
+wait_time = 0.09
 
 [node name="junmpBufferTimer" type="Timer" parent="Timer"]
+wait_time = 0.1
 
 [connection signal="Blockbar_changed" from="." to="CanvasLayer" method="_on_player_character_blockbar_changed"]
 [connection signal="DashCharge_changed" from="." to="CanvasLayer" method="_on_player_character_dash_charge_changed"]
