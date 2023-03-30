@@ -7,11 +7,17 @@ signal DashCharge_changed
 @export var enable_wallrun : bool = true
 
 @export var dash_version : int = 1
+
+@export var bullet: Resource
+
+var new_bullet
+var bullet_direction = Vector3.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 
 func _physics_process(delta):
+	ScreenPointToRay()
 	handle_input()
 	handle_move(delta)
 	handle_atk()
@@ -57,11 +63,11 @@ func handle_input():
 		#respawn()
 
 #Exploring variable
-const SPEED = 2
+const SPEED = 1.5
 const BLOCK_SPEED = 0.5
 const SLAM_SPEED = 0.25
-const ACCEL = 10
-const DECEL = 6
+const ACCEL = 6
+const DECEL = 10
 const FRICTION = 5
 var target_velocity = Vector3.ZERO
 var direction 
@@ -111,12 +117,12 @@ func handle_move(delta):
 		velocity.x *= BLOCK_SPEED 
 		velocity.z *= BLOCK_SPEED 
 
-	if slaming:
-		target_velocity.y -= SLAM_SPEED
+	#if slaming:
+	#	target_velocity.y -= SLAM_SPEED
 
-	if slaming:
-		velocity.x = 0
-		velocity.z = 0
+	#if slaming:
+	#	velocity.x = 0
+	#	velocity.z = 0
 	
 	if knockback :
 		velocity = -Vector3(last_direction.dot(cam_dir[0]),0,last_direction.dot(cam_dir[1]))*SPEED*2.5
@@ -141,7 +147,6 @@ func handle_jump(delta):
 		velocity.y += 5*delta
 	if not is_on_floor() and coyote_timer.is_stopped() and not is_wall_running :
 		velocity.y -= gravity * delta 
-		print(velocity.y)
 		velocity.y = clamp(velocity.y,-10,100)
 	# Handle Normal Jump.
 	if input_frame["just_jump"] and not is_wall_running and not is_wall_climbing:
@@ -162,7 +167,7 @@ func _on_junmp_buffer_timer_timeout():
 	jumpbuffer.stop()
 
 # Dash variable
-const DASH_SPEED = 13
+const DASH_SPEED = 10
 const MAX_CHARGE = 3
 var dash_charge = 3
 var is_dash_able = true
@@ -170,7 +175,7 @@ var is_dashing = false
 var dash_end = false
 @onready var rechargeDashTimer = $Timer/RechargeDashTimer
 func handle_dash_1():
-	if input_frame["dash"] and is_dash_able and not is_wall_running and not is_dashing and dash_charge != 0 and not attacking:
+	if input_frame["dash"] and is_dash_able and not is_wall_running and not is_dashing and dash_charge != 0:
 		dash_charge -= 1
 		velocity.x = direction.x*3
 		velocity.z = direction.z*3
@@ -293,15 +298,24 @@ func _on_wall_run_jump_timer_timeout():
 	wall_run_jumping = [false,Vector3.ZERO]
 
 #Attack variable
-var attacking = false
-var slaming = false
+
 func handle_atk():
-	if input_frame["attack"] and not attacking and not is_wall_running:
-		slaming = not is_on_floor()
-		attacking = true
+	if input_frame["attack"]:
+		spawn_bullet()
 func reset_attack():
-	slaming = false
-	attacking = false
+	pass
+
+
+func spawn_bullet():
+	new_bullet = bullet.instantiate()
+	print(bullet_direction)
+	var bulletDirection_x = bullet_direction.x - get_global_position().x
+	var bulletDirection_y = bullet_direction.y - get_global_position().y
+	var bulletDirection_z = bullet_direction.z - get_global_position().z
+	add_child(new_bullet)
+	new_bullet.init(bulletDirection_x,0,bulletDirection_z,0,0,2)
+	reset_attack()
+
 func _on_hitbox_area_entered(area):
 	if area.name == "HurtBox":
 		print("Player:hit enemy")
@@ -325,7 +339,8 @@ func _on_hurt_box_area_entered(area):
 		return 0
 	if not perfect_deflect and ( not deflecting or blockBar < 20):
 		if blockBar == 0 or not deflecting:
-			respawn()
+			pass
+			#respawn()
 		else:
 			regen_timer.stop()
 			blockBar = 0
@@ -347,7 +362,7 @@ func on_deflect_animation_end():
 @onready var recharge_block_timer = $Timer/RechargeBlockTimer
 @onready var regen_timer = $Timer/RegenTimer
 func handle_block():
-	if Input.is_action_pressed("Block") and is_on_floor() and not is_dashing and not is_wall_running and not slaming:
+	if Input.is_action_pressed("Block") and is_on_floor() and not is_dashing and not is_wall_running:
 		deflecting = true
 	elif Input.is_action_just_released("Block"):
 		deflecting = false
@@ -376,7 +391,7 @@ func _on_regen_timer_timeout():
 #@onready var dash = $Dash
 @onready var playerSpawnPoint = $"../playerSpawnPoint"
 func handle_animation():
-	if input_frame["direction"] != Vector2.ZERO and not deflecting and not attacking:
+	if input_frame["direction"] != Vector2.ZERO and not deflecting:
 		animationTree.set("parameters/Run/blend_position",input_frame["direction"])
 		animationTree.set("parameters/Idle/blend_position",input_frame["direction"])
 		animationTree.set("parameters/Block/blend_position",input_frame["direction"])
@@ -396,14 +411,14 @@ func handle_animation():
 			animationState.travel("Jump")
 		else:
 			animationState.travel("Fall")
-	if attacking:
-		if slaming:
-			if not is_on_floor():
-				animationState.travel("Slaming")
-			else:
-				animationState.travel("Slam_end")
-		else:
-			animationState.travel("Attack_1")
+	#if attacking:
+	#	if slaming:
+	#		if not is_on_floor():
+	#			animationState.travel("Slaming")
+	#		else:
+	#			animationState.travel("Slam_end")
+	#	else:
+	#		animationState.travel("Attack_1")
 	if is_wall_running:
 		if velocity.cross(selected_wall[2]).y < 0:
 			animationState.travel("Wall_run_left")
@@ -434,4 +449,12 @@ func set_draw_flag(draw):
 	$Sprite3d.set_draw_flag(3,draw)
 
 
-
+func ScreenPointToRay():
+	var mousePos = get_viewport().get_mouse_position()
+	var camera = get_tree().root.get_camera_3d()
+	var rayOrigin = camera.project_ray_origin(mousePos)
+	var rayEnd = rayOrigin + camera.project_ray_normal(mousePos) * 1000
+	var query = PhysicsRayQueryParameters3D.create(rayOrigin, rayEnd)
+	var rayArray = get_world_3d().direct_space_state.intersect_ray(query)
+	if rayArray.has("position"):
+		bullet_direction = rayArray["position"]
