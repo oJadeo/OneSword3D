@@ -4,8 +4,7 @@ enum State{
 	Null,
 	Idle,
 	Run,
-	Jump,
-	Fall,
+	Air,
 	WallRun,
 	WallClimb,
 	Ledge
