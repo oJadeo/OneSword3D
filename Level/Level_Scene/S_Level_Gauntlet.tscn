@@ -1,8 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://rmxg4qrw4k2l"]
+[gd_scene load_steps=24 format=3 uid="uid://rmxg4qrw4k2l"]
 
-[ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_objdu"]
+[ext_resource type="PackedScene" uid="uid://cxiqk8q16cvwc" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_objdu"]
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="2_aqg6m"]
 [ext_resource type="Material" uid="uid://delp1py61dkvl" path="res://Level/Level_Scene/mat/mat_wall.tres" id="3_giqib"]
+[ext_resource type="PackedScene" uid="uid://biundw7n53o5u" path="res://Level/Tiles/Dialogue_box/S_dialogue_box.tscn" id="4_ddcwb"]
+[ext_resource type="JSON" path="res://Dialogue/test_dialogue.json" id="5_dnpff"]
 
 [sub_resource type="Environment" id="Environment_n3lkv"]
 background_mode = 1
@@ -66,6 +68,8 @@ size = Vector3(10, 5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rrjtk"]
 size = Vector3(10, 5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j2ni3"]
 
 [node name="S_Level_Gauntlet" type="Node3D"]
 
@@ -292,4 +296,13 @@ mesh = SubResource("BoxMesh_c36pm")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D19"]
 shape = SubResource("BoxShape3D_6vg1r")
 
+[node name="S_dialogue_box2" parent="." instance=ExtResource("4_ddcwb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.17752, 0.542849, 0)
+file = ExtResource("5_dnpff")
+
+[node name="CollisionShape3D" parent="S_dialogue_box2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0599335, 0)
+shape = SubResource("BoxShape3D_j2ni3")
+
 [editable path="Danger_Area"]
+[editable path="S_dialogue_box2"]

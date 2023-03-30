@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://r0xq7fbbomfi"]
+[gd_scene load_steps=26 format=3]
 
 [ext_resource type="PackedScene" uid="uid://cxiqk8q16cvwc" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_6ld6g"]
 [ext_resource type="PackedScene" uid="uid://biundw7n53o5u" path="res://Level/Tiles/Dialogue_box/S_dialogue_box.tscn" id="1_qli0e"]
