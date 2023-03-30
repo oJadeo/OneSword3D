@@ -1,5 +1,6 @@
 extends CharacterBody3D
 class_name PlayerCharacter
+
 #signals
 signal Blockbar_changed
 signal DashCharge_changed
@@ -20,7 +21,7 @@ func _physics_process(delta):
 	handle_rotation(delta)
 
 # input variable
-var input_frame = {
+var input_frame:Dictionary = {
 	"direction" : Vector2.ZERO,
 	"jump" : false,
 	"attack" : false,
@@ -372,7 +373,6 @@ func _on_regen_timer_timeout():
 #Animation variable
 @onready var animationTree = $AnimationTree
 @onready var animationState = animationTree.get("parameters/playback")
-@onready var root = $".."
 #@onready var dash = $Dash
 @onready var playerSpawnPoint = $"../playerSpawnPoint"
 func handle_animation():

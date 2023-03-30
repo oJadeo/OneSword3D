@@ -1,6 +1,6 @@
 [gd_scene load_steps=145 format=3 uid="uid://cxiqk8q16cvwc"]
 
-[ext_resource type="Script" path="res://Player_Character/GD_PlayerCharacter.gd" id="1_key0r"]
+[ext_resource type="Script" path="res://Player_Character/GD_PlayerCharacter.gd" id="1_n33s3"]
 [ext_resource type="Texture2D" uid="uid://druevnyrn8qtt" path="res://Player_Character/Player_Character.png" id="2_ug3k3"]
 [ext_resource type="PackedScene" uid="uid://cwwjrhl86b5co" path="res://UI/playerUI.tscn" id="3_mmhdn"]
 
@@ -2331,10 +2331,7 @@ height = 0.4
 
 [node name="Player_Character" type="CharacterBody3D"]
 collision_layer = 2
-script = ExtResource("1_key0r")
-enable_wallrun = null
-dash_version = null
-tar_rot = null
+script = ExtResource("1_n33s3")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_xc8no")
@@ -2460,8 +2457,6 @@ wait_time = 0.09
 [node name="junmpBufferTimer" type="Timer" parent="Timer"]
 wait_time = 0.1
 
-[connection signal="Blockbar_changed" from="." to="CanvasLayer" method="_on_player_character_blockbar_changed"]
-[connection signal="DashCharge_changed" from="." to="CanvasLayer" method="_on_player_character_dash_charge_changed"]
 [connection signal="area_entered" from="NormalAtk/Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_entered" from="SlamAtk/Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

@@ -1,6 +1,5 @@
-[gd_scene load_steps=26 format=3 uid="uid://r0xq7fbbomfi"]
+[gd_scene load_steps=25 format=3 uid="uid://1b0pdu3ygf3b"]
 
-[ext_resource type="PackedScene" uid="uid://cxiqk8q16cvwc" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_6ld6g"]
 [ext_resource type="PackedScene" uid="uid://biundw7n53o5u" path="res://Level/Tiles/Dialogue_box/S_dialogue_box.tscn" id="1_qli0e"]
 [ext_resource type="JSON" path="res://Dialogue/test_dialogue.json" id="2_dp32p"]
 [ext_resource type="PackedScene" uid="uid://b0yg8hhtv3vsc" path="res://Level/Tiles/Set_Spawn/S_setSpawn.tscn" id="2_m75g1"]
@@ -92,10 +91,6 @@ transform = Transform3D(-1, 6.18173e-08, -6.18173e-08, 0, 0.707107, 0.707107, 8.
 light_energy = 0.2
 shadow_enabled = true
 directional_shadow_mode = 0
-
-[node name="Player_Character" parent="." instance=ExtResource("1_6ld6g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.401128, 0)
-enable_wallrun = false
 
 [node name="playerSpawnPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39878, 0)
