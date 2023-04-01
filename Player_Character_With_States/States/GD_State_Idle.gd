@@ -4,11 +4,15 @@ extends BaseState
 @onready var jump_state = $"../Jump"
 @onready var fall_state = $"../Fall"
 
-@export var JUMP_VELOCITY = 3.5
+@onready var wall_jump_timer = $"../../WallRun/WallRunJumpTimer"
+
+@export var JUMP_VELOCITY:float = 3.5
 @export var DECEL:float = 6
 
 func enter() -> void:
 	super()
+	print("State:Idle")
+	wall_jump_timer.stop()
 	animationState.travel("Idle")
 
 func exit() -> void:
