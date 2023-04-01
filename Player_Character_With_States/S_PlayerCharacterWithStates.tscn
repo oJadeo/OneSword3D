@@ -1,4 +1,4 @@
-[gd_scene load_steps=150 format=3 uid="uid://ctoe834hxhfjp"]
+[gd_scene load_steps=152 format=3 uid="uid://ctoe834hxhfjp"]
 
 [ext_resource type="Script" path="res://Player_Character_With_States/GD_PlayerCharacterWithStates.gd" id="1_te00h"]
 [ext_resource type="Texture2D" uid="uid://druevnyrn8qtt" path="res://Player_Character/Player_Character.png" id="2_s10rq"]
@@ -6,9 +6,11 @@
 [ext_resource type="Script" path="res://Player_Character_With_States/GD_StateManager.gd" id="4_06oee"]
 [ext_resource type="Script" path="res://Player_Character_With_States/States/GD_State_Idle.gd" id="5_g2ttj"]
 [ext_resource type="Script" path="res://Player_Character_With_States/States/GD_State_Run.gd" id="6_nj83b"]
-[ext_resource type="Script" path="res://Player_Character_With_States/States/GD_BaseState.gd" id="6_x0em3"]
 [ext_resource type="Script" path="res://Player_Character_With_States/States/GD_State_Jump.gd" id="7_vr2gg"]
 [ext_resource type="Script" path="res://Player_Character_With_States/States/GD_State_Fall.gd" id="8_a6ra4"]
+[ext_resource type="Script" path="res://Player_Character_With_States/States/GD_State_WallClimb.gd" id="9_41376"]
+[ext_resource type="Script" path="res://Player_Character_With_States/States/GD_State_WallRun.gd" id="10_ks303"]
+[ext_resource type="Script" path="res://Player_Character_With_States/States/GD_State_Ledge.gd" id="11_hn5ux"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xc8no"]
 radius = 0.07
@@ -2030,9 +2032,11 @@ shape = SubResource("CapsuleShape3D_r3dmx")
 
 [node name="WallrunTimer" type="Timer" parent="WallRun"]
 wait_time = 2.0
+one_shot = true
 
 [node name="WallRunJumpTimer" type="Timer" parent="WallRun"]
 wait_time = 0.5
+one_shot = true
 
 [node name="RayCast3D" type="RayCast3D" parent="WallRun"]
 
@@ -2047,17 +2051,6 @@ spot_angle = 1.05
 spot_angle_attenuation = 0.008668
 
 [node name="Timer" type="Node3D" parent="."]
-
-[node name="RechargeDashTimer" type="Timer" parent="Timer"]
-
-[node name="IframeTimer" type="Timer" parent="Timer"]
-wait_time = 0.5
-
-[node name="RegenTimer" type="Timer" parent="Timer"]
-wait_time = 0.1
-
-[node name="RechargeBlockTimer" type="Timer" parent="Timer"]
-wait_time = 1.75
 
 [node name="CoyoteTimer" type="Timer" parent="Timer"]
 wait_time = 0.09
@@ -2081,20 +2074,26 @@ script = ExtResource("7_vr2gg")
 script = ExtResource("8_a6ra4")
 
 [node name="WallClimb" type="Node3D" parent="StateManager"]
-script = ExtResource("6_x0em3")
+script = ExtResource("9_41376")
+WALL_JUMP_FORCE = 2.0
 
 [node name="WallRun" type="Node3D" parent="StateManager"]
-script = ExtResource("6_x0em3")
+script = ExtResource("10_ks303")
 
 [node name="Ledge" type="Node3D" parent="StateManager"]
-script = ExtResource("6_x0em3")
+script = ExtResource("11_hn5ux")
+
+[node name="Ledge" type="Node3D" parent="."]
+
+[node name="CheckWall" type="RayCast3D" parent="Ledge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0.25)
+
+[node name="CheckTop" type="RayCast3D" parent="Ledge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+target_position = Vector3(0, 0, 1)
+
+[node name="CheckBody" type="RayCast3D" parent="Ledge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+target_position = Vector3(0, 0, 1)
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
-[connection signal="timeout" from="WallRun/WallrunTimer" to="." method="_on_wallrun_timer_timeout"]
-[connection signal="timeout" from="WallRun/WallRunJumpTimer" to="." method="_on_wall_run_jump_timer_timeout"]
-[connection signal="timeout" from="Timer/RechargeDashTimer" to="." method="_on_recharge_dash_timer_timeout"]
-[connection signal="timeout" from="Timer/IframeTimer" to="." method="_on_iframe_timer_timeout"]
-[connection signal="timeout" from="Timer/RegenTimer" to="." method="_on_regen_timer_timeout"]
-[connection signal="timeout" from="Timer/RechargeBlockTimer" to="." method="_on_recharge_block_timer_timeout"]
-[connection signal="timeout" from="Timer/CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
-[connection signal="timeout" from="Timer/jumpBufferTimer" to="." method="_on_junmp_buffer_timer_timeout"]

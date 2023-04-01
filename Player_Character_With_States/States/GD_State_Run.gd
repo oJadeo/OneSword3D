@@ -3,16 +3,24 @@ extends BaseState
 @onready var idle_state = $"../Idle"
 @onready var jump_state = $"../Jump"
 @onready var fall_state = $"../Fall"
-@onready var wall_run = $"../WallRun"
-@onready var wall_climb = $"../WallClimb"
+@onready var wall_run_state = $"../WallRun"
+@onready var wall_climb_state = $"../WallClimb"
 
-@export var SPEED = 2
-@export var ACCEL = 10
-@export var DIFF_ACCEL = 20
-@export var JUMP_VELOCITY = 3.5
+@onready var wall_jump_timer = $"../../WallRun/WallRunJumpTimer"
+
+@export var SPEED:float = 2
+@export var ACCEL:float = 10
+@export var DIFF_ACCEL:float = 20
+@export var JUMP_VELOCITY:float = 3.5
+
+
+
 func enter() -> void:
 	super()
+	print("State:Run")
+	wall_jump_timer.stop()
 	animationState.travel("Run")
+	player.is_wall_runable = true
 	
 func exit() -> void:
 	pass
@@ -26,15 +34,12 @@ func process(delta: float,input_frame:Dictionary) -> BaseState:
 	else:
 		player.velocity.y = 0
 	
-	var direction:Vector3 = (transform.basis * Vector3(input_frame["direction"] .x,0, input_frame["direction"] .y)).normalized()
-	var character_rotation:Vector3 = player.get_rotation()
-	var cam_dir = Global.cal_camera_direction(rad_to_deg(character_rotation[1]))
+	var target_direction = player.cal_direction()
 
 	var target_velocity:Vector3
-	target_velocity.x = direction.dot(cam_dir[0])*SPEED
-	target_velocity.z = direction.dot(cam_dir[1])*SPEED
-		
-		
+	target_velocity.x = target_direction.x*SPEED
+	target_velocity.z = target_direction.z*SPEED
+
 	var speed_dif = target_velocity-player.velocity
 	var acceleration = Vector3.ZERO
 	acceleration.x = DIFF_ACCEL if abs(speed_dif.x) > 1 else ACCEL
@@ -54,4 +59,9 @@ func handle_input(delta: float,input_frame:Dictionary) -> BaseState:
 	if input_frame['just_jump']:
 		player.velocity.y = JUMP_VELOCITY
 		return jump_state
+	if input_frame["just_wall_run"] and player.is_wall_runable and player.selected_wall:
+		if player.selected_wall[2].dot(player.direction) < -0.9:
+			return wall_climb_state
+		else:
+			return wall_run_state
 	return null
