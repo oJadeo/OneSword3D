@@ -4,7 +4,7 @@ extends Area3D
 @onready var dialogue = $Dialogue
 
 func _on_body_entered(body: Node3D) -> void:
-	if body is PlayerCharacter :
+	if body is PlayerCharacter:
 		dialogue.start(file)
 
 
