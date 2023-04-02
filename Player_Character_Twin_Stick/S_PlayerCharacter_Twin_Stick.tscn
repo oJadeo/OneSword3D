@@ -2442,6 +2442,11 @@ spot_angle_attenuation = 0.008668
 
 [node name="Timer" type="Node3D" parent="."]
 
+[node name="chargeTimer" type="Timer" parent="Timer"]
+
+[node name="shootTimer" type="Timer" parent="Timer"]
+wait_time = 0.5
+
 [node name="RechargeDashTimer" type="Timer" parent="Timer"]
 
 [node name="IframeTimer" type="Timer" parent="Timer"]
@@ -2465,6 +2470,8 @@ wait_time = 0.2
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="timeout" from="WallRun/WallrunTimer" to="." method="_on_wallrun_timer_timeout"]
 [connection signal="timeout" from="WallRun/WallRunJumpTimer" to="." method="_on_wall_run_jump_timer_timeout"]
+[connection signal="timeout" from="Timer/chargeTimer" to="." method="_on_charge_timer_timeout"]
+[connection signal="timeout" from="Timer/shootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="timeout" from="Timer/RechargeDashTimer" to="." method="_on_recharge_dash_timer_timeout"]
 [connection signal="timeout" from="Timer/IframeTimer" to="." method="_on_iframe_timer_timeout"]
 [connection signal="timeout" from="Timer/RegenTimer" to="." method="_on_regen_timer_timeout"]
