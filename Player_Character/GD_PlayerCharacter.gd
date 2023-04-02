@@ -202,6 +202,7 @@ var is_wall_climbing = false
 var is_wall= {'left':null,'right':null,'up':null}
 var selected_wall 
 var wall_run_jumping = [false,Vector3.ZERO]
+var wall_run_speed = 3
 const WALL_CHECK_RANGE = 0.5
 @onready var ray = $WallRun/RayCast3D
 @onready var wall_run_timer = $WallRun/WallrunTimer
@@ -243,10 +244,10 @@ func handle_wall_run(delta):
 			var move_dir = wall_normal.cross(Vector3(0,1,0))
 			if abs(move_dir.x) > 0.1 :
 				target_velocity.z = 0
-				target_velocity.x = 2 if target_velocity.x>0 else -2
+				target_velocity.x = wall_run_speed if target_velocity.x>0 else -wall_run_speed
 			if abs(move_dir.z) > 0.1:
 				target_velocity.x = 0
-				target_velocity.z = 2 if target_velocity.z>0 else -2
+				target_velocity.z = wall_run_speed if target_velocity.z>0 else -wall_run_speed
 			target_velocity -= wall_normal
 		else:
 			is_wall_running = false
