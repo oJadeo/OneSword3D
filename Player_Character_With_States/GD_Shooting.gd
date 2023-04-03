@@ -49,6 +49,5 @@ func process(delta: float,input_frame:Dictionary) -> void:
 	if input_frame["attack"] and shootTimer.is_stopped():
 		if (chargeTimer.time_left > 0):
 			spawn_bullet()
-
 func _on_charge_timer_timeout():
 	spawn_charge_bullet()

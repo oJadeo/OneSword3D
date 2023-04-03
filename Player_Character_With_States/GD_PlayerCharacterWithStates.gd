@@ -136,6 +136,7 @@ func _on_hurt_box_area_entered(area: Area3D) -> void:
 		return
 	respawn()
 
+
 @onready var playerSpawnPoint = $"../playerSpawnPoint"
 func respawn():
 	set_position(playerSpawnPoint.global_position)
