@@ -5,23 +5,21 @@ class_name PlayerCharacterWithStates
 @onready var animationTree = $AnimationTree
 @onready var animationState = animationTree.get("parameters/playback")
 @onready var state = $StateManager
+@onready var shooting = $Shooting
 
 func _ready() -> void:
 	#Initilize State machine with reference to player
 	state.init(self,animationState)
 
-func _physics_process(delta):
-	handle_rotation(delta)
-	check_ledge()
-
 # input variable
 var input_frame = {
 	"direction" : Vector2.ZERO,
+	"attack" : false,
+	"charge" : false,
 	"jump" : false,
-	"block" : false,
+	"just_jump" : false,
 	"dash" : false,
 	"wall_run":false,
-	"just_jump":false,
 	"just_wall_run":false,
 	}
 #take all input into input dict
@@ -29,11 +27,10 @@ func handle_input():
 	input_frame["direction"] = Vector2(Input.get_axis("Move_Left", "Move_Right"),Input.get_axis("Move_Up", "Move_Down")) 
 	input_frame["direction"] = input_frame["direction"] if input_frame["direction"].length() <=1 else input_frame["direction"].normalized()
 	input_frame["direction"] = input_frame["direction"] if input_frame["direction"].length() >0.05 else Vector2.ZERO
-	input_frame["attack"] = Input.is_action_just_pressed("Attack")
-	input_frame["block"] = Input.is_action_pressed("Block")
+	input_frame["attack"] = Input.is_action_just_released("Attack")
+	input_frame["charge"] = Input.is_action_just_pressed("Attack")
 	input_frame["jump"] = Input.is_action_pressed("Jump")
 	input_frame["just_jump"] = Input.is_action_just_pressed("Jump")
-	input_frame["dash"] = Input.is_action_pressed("Dash")
 	input_frame["wall_run"]  = Input.is_action_pressed("WallRun")
 	input_frame["just_wall_run"] = Input.is_action_just_pressed("WallRun")
 	var character_rotation = get_rotation()
@@ -53,7 +50,10 @@ func handle_input():
 		selected_wall = select_wall()
 func _process(delta: float) -> void:
 	handle_input()
+	handle_rotation(delta)
+	check_ledge()
 	state.process(delta,input_frame)
+	shooting.process(delta,input_frame)
 
 # For Rotaion Camera
 @export var tar_rot :float = 0
@@ -135,6 +135,7 @@ func _on_hurt_box_area_entered(area: Area3D) -> void:
 	if "Hitbox" not in area.name :
 		return
 	respawn()
+
 
 @onready var playerSpawnPoint = $"../playerSpawnPoint"
 func respawn():
