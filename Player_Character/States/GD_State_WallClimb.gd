@@ -30,7 +30,7 @@ func process(delta: float,input_frame:Dictionary) -> BaseState:
 	if player.velocity.y < 0:
 		return fall_state
 	
-	if not player.selected_wall:
+	if not player.selected_wall is Array:
 		return fall_state
 	
 	player.velocity.y -= WALL_CLIMB_GRAVITY*delta

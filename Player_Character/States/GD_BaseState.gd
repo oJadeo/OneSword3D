@@ -1,7 +1,7 @@
 extends Node3D
 class_name BaseState
 
-var player:PlayerCharacterWithStates
+var player:PlayerCharacter
 var animationTree
 var animationState
 
