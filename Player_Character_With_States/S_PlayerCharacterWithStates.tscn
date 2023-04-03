@@ -1,4 +1,4 @@
-[gd_scene load_steps=152 format=3 uid="uid://ctoe834hxhfjp"]
+[gd_scene load_steps=154 format=3 uid="uid://ctoe834hxhfjp"]
 
 [ext_resource type="Script" path="res://Player_Character_With_States/GD_PlayerCharacterWithStates.gd" id="1_te00h"]
 [ext_resource type="Texture2D" uid="uid://druevnyrn8qtt" path="res://Player_Character/Player_Character.png" id="2_s10rq"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" path="res://Player_Character_With_States/States/GD_State_WallClimb.gd" id="9_41376"]
 [ext_resource type="Script" path="res://Player_Character_With_States/States/GD_State_WallRun.gd" id="10_ks303"]
 [ext_resource type="Script" path="res://Player_Character_With_States/States/GD_State_Ledge.gd" id="11_hn5ux"]
+[ext_resource type="Script" path="res://Player_Character_With_States/Shooting.gd" id="12_eil5d"]
+[ext_resource type="PackedScene" uid="uid://mmhjxo44u7lc" path="res://Enemy/RangeEnemy/Bullet/S_Bullet.tscn" id="13_msw5x"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xc8no"]
 radius = 0.07
@@ -2096,4 +2098,16 @@ target_position = Vector3(0, 0, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 target_position = Vector3(0, 0, 1)
 
+[node name="Shooting" type="Node3D" parent="."]
+script = ExtResource("12_eil5d")
+bullet = ExtResource("13_msw5x")
+charge_angles = PackedInt32Array(-30, -15, 0, 15, 30)
+
+[node name="chargeTimer" type="Timer" parent="Shooting"]
+
+[node name="shootTimer" type="Timer" parent="Shooting"]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="timeout" from="Shooting/chargeTimer" to="Shooting" method="_on_charge_timer_timeout"]
