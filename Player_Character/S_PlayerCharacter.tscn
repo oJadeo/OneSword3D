@@ -1,8 +1,18 @@
-[gd_scene load_steps=145 format=3 uid="uid://cxiqk8q16cvwc"]
+[gd_scene load_steps=154 format=3 uid="uid://co7kw2uebqbla"]
 
-[ext_resource type="Script" path="res://Player_Character/GD_PlayerCharacter.gd" id="1_n33s3"]
-[ext_resource type="Texture2D" uid="uid://druevnyrn8qtt" path="res://Player_Character/Player_Character.png" id="2_ug3k3"]
-[ext_resource type="PackedScene" uid="uid://cwwjrhl86b5co" path="res://UI/playerUI.tscn" id="3_mmhdn"]
+[ext_resource type="Script" path="res://Player_Character/GD_PlayerCharacter.gd" id="1_4mlv5"]
+[ext_resource type="Texture2D" uid="uid://druevnyrn8qtt" path="res://Player_Character/Player_Character.png" id="2_fvaqj"]
+[ext_resource type="PackedScene" uid="uid://cwwjrhl86b5co" path="res://UI/playerUI.tscn" id="3_co5qn"]
+[ext_resource type="Script" path="res://Player_Character/GD_StateManager.gd" id="4_dnf64"]
+[ext_resource type="Script" path="res://Player_Character/States/GD_State_Idle.gd" id="5_3ag81"]
+[ext_resource type="Script" path="res://Player_Character/States/GD_State_Run.gd" id="6_mk06a"]
+[ext_resource type="Script" path="res://Player_Character/States/GD_State_Jump.gd" id="7_e3lgh"]
+[ext_resource type="Script" path="res://Player_Character/States/GD_State_Fall.gd" id="8_1bq1t"]
+[ext_resource type="Script" path="res://Player_Character/States/GD_State_WallClimb.gd" id="9_f857v"]
+[ext_resource type="Script" path="res://Player_Character/States/GD_State_WallRun.gd" id="10_jnaov"]
+[ext_resource type="Script" path="res://Player_Character/States/GD_State_Ledge.gd" id="11_yd545"]
+[ext_resource type="Script" path="res://Player_Character/GD_Shooting.gd" id="12_5u6b2"]
+[ext_resource type="PackedScene" uid="uid://mmhjxo44u7lc" path="res://Enemy/RangeEnemy/Bullet/S_Bullet.tscn" id="13_bt3mj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xc8no"]
 radius = 0.07
@@ -45,42 +55,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("NormalAtk:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("NormalAtk/Hitbox/CollisionShape3d:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("SlamAtk/Hitbox/CollisionShape3d:disabled")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gahde"]
@@ -130,42 +104,6 @@ tracks/2/keys = {
 "method": &"reset_attack"
 }]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("NormalAtk:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 3.14159, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("NormalAtk/Hitbox/CollisionShape3d:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.333334),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("NormalAtk/Hitbox/CollisionShape3d:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, -0.3)]
-}
 
 [sub_resource type="Animation" id="Animation_jin0r"]
 resource_name = "player_attack_1_left"
@@ -209,42 +147,6 @@ tracks/2/keys = {
 "method": &"reset_attack"
 }]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("NormalAtk:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 1.5708, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("NormalAtk/Hitbox/CollisionShape3d:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.333334),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("NormalAtk/Hitbox/CollisionShape3d:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, -0.2)]
-}
 
 [sub_resource type="Animation" id="Animation_scqq6"]
 length = 0.5
@@ -287,42 +189,6 @@ tracks/2/keys = {
 "method": &"reset_attack"
 }]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("NormalAtk:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -1.5708, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("NormalAtk/Hitbox/CollisionShape3d:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.333334),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("NormalAtk/Hitbox/CollisionShape3d:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, -0.2)]
-}
 
 [sub_resource type="Animation" id="Animation_eho80"]
 length = 0.5
@@ -364,42 +230,6 @@ tracks/2/keys = {
 "args": [],
 "method": &"reset_attack"
 }]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("NormalAtk:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("NormalAtk/Hitbox/CollisionShape3d:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.333334),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("NormalAtk/Hitbox/CollisionShape3d:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, -0.3)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rsrm0"]
@@ -1254,25 +1084,13 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
-tracks/2/type = "value"
+tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SlamAtk/Hitbox/CollisionShape3d:disabled")
+tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.166667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0.333333),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -1300,34 +1118,22 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SlamAtk/Hitbox/CollisionShape3d:disabled")
+tracks/1/path = NodePath("Sprite3d:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.166667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite3d:flip_h")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0.333333),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -1354,34 +1160,22 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SlamAtk/Hitbox/CollisionShape3d:disabled")
+tracks/1/path = NodePath("Sprite3d:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.166667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite3d:flip_h")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
 }
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0.333333),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -1408,34 +1202,22 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SlamAtk/Hitbox/CollisionShape3d:disabled")
+tracks/1/path = NodePath("Sprite3d:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.166667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite3d:flip_h")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
 }
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0.333333),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -1480,42 +1262,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [Vector2(0, 33), Vector2i(1, 33)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SlamAtk:rotation")
-tracks/2/interp = 0
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector3(0, 3.14159, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("SlamAtk/Hitbox/CollisionShape3d:position")
-tracks/3/interp = 0
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector3(0, -0.16, -0.1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("SlamAtk/Hitbox/CollisionShape3d:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_temg8"]
 resource_name = "player_slaming_left"
@@ -1541,42 +1287,6 @@ tracks/1/path = NodePath("Sprite3d:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SlamAtk:rotation")
-tracks/2/interp = 0
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector3(0, 1.5708, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("SlamAtk/Hitbox/CollisionShape3d:position")
-tracks/3/interp = 0
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector3(0, -0.16, -0.1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("SlamAtk/Hitbox/CollisionShape3d:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -1611,42 +1321,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SlamAtk:rotation")
-tracks/2/interp = 0
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector3(0, -1.5708, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("SlamAtk/Hitbox/CollisionShape3d:position")
-tracks/3/interp = 0
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector3(0, -0.16, -0.1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("SlamAtk/Hitbox/CollisionShape3d:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_vo7lu"]
 length = 10.0
@@ -1675,42 +1349,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SlamAtk/Hitbox/CollisionShape3d:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("SlamAtk/Hitbox/CollisionShape3d:position")
-tracks/3/interp = 0
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector3(0, -0.16, -0.1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("SlamAtk:rotation")
-tracks/4/interp = 0
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o4nai"]
@@ -2322,16 +1960,15 @@ graph_offset = Vector2(-240, -80.0541)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_ggkns"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ykq3n"]
-size = Vector3(0.4, 0.135999, 0.4)
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r3dmx"]
 radius = 0.07
 height = 0.4
 
 [node name="Player_Character" type="CharacterBody3D"]
 collision_layer = 2
-script = ExtResource("1_n33s3")
+script = ExtResource("1_4mlv5")
+LEDGE_CHECK_RANGE = 0.2
+LEDGE_CHECK_HEIGHT = 0.25
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_xc8no")
@@ -2348,7 +1985,7 @@ double_sided = false
 no_depth_test = true
 texture_filter = 0
 render_priority = 5
-texture = ExtResource("2_ug3k3")
+texture = ExtResource("2_fvaqj")
 hframes = 4
 vframes = 36
 
@@ -2386,29 +2023,6 @@ parameters/Slaming/blend_position = Vector2(0, 0)
 parameters/Wall_run_left/blend_position = Vector2(0.996949, 0.0305676)
 parameters/Wall_run_right/blend_position = Vector2(0, 0)
 
-[node name="NormalAtk" type="Marker3D" parent="."]
-
-[node name="Hitbox" type="Area3D" parent="NormalAtk"]
-collision_layer = 8
-collision_mask = 4736
-
-[node name="CollisionShape3d" type="CollisionShape3D" parent="NormalAtk/Hitbox"]
-visible = false
-shape = SubResource("BoxShape3D_ykq3n")
-disabled = true
-
-[node name="SlamAtk" type="Marker3D" parent="."]
-transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0, 0, 0)
-
-[node name="Hitbox" type="Area3D" parent="SlamAtk"]
-collision_layer = 8
-collision_mask = 4800
-
-[node name="CollisionShape3d" type="CollisionShape3D" parent="SlamAtk/Hitbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.16, -0.1)
-shape = SubResource("BoxShape3D_ykq3n")
-disabled = true
-
 [node name="HurtBox" type="Area3D" parent="."]
 collision_layer = 16
 collision_mask = 576
@@ -2416,15 +2030,17 @@ collision_mask = 576
 [node name="CollisionShape3d" type="CollisionShape3D" parent="HurtBox"]
 shape = SubResource("CapsuleShape3D_r3dmx")
 
-[node name="CanvasLayer" parent="." instance=ExtResource("3_mmhdn")]
+[node name="CanvasLayer" parent="." instance=ExtResource("3_co5qn")]
 
 [node name="WallRun" type="Node3D" parent="."]
 
 [node name="WallrunTimer" type="Timer" parent="WallRun"]
 wait_time = 2.0
+one_shot = true
 
 [node name="WallRunJumpTimer" type="Timer" parent="WallRun"]
 wait_time = 0.5
+one_shot = true
 
 [node name="RayCast3D" type="RayCast3D" parent="WallRun"]
 
@@ -2440,31 +2056,65 @@ spot_angle_attenuation = 0.008668
 
 [node name="Timer" type="Node3D" parent="."]
 
-[node name="RechargeDashTimer" type="Timer" parent="Timer"]
-
-[node name="IframeTimer" type="Timer" parent="Timer"]
-wait_time = 0.5
-
-[node name="RegenTimer" type="Timer" parent="Timer"]
-wait_time = 0.1
-
-[node name="RechargeBlockTimer" type="Timer" parent="Timer"]
-wait_time = 1.75
-
 [node name="CoyoteTimer" type="Timer" parent="Timer"]
 wait_time = 0.09
 
-[node name="junmpBufferTimer" type="Timer" parent="Timer"]
+[node name="jumpBufferTimer" type="Timer" parent="Timer"]
 wait_time = 0.1
 
-[connection signal="area_entered" from="NormalAtk/Hitbox" to="." method="_on_hitbox_area_entered"]
-[connection signal="area_entered" from="SlamAtk/Hitbox" to="." method="_on_hitbox_area_entered"]
+[node name="StateManager" type="Node3D" parent="."]
+script = ExtResource("4_dnf64")
+
+[node name="Idle" type="Node3D" parent="StateManager"]
+script = ExtResource("5_3ag81")
+
+[node name="Run" type="Node3D" parent="StateManager"]
+script = ExtResource("6_mk06a")
+
+[node name="Jump" type="Node3D" parent="StateManager"]
+script = ExtResource("7_e3lgh")
+SPEED = 2.0
+
+[node name="Fall" type="Node3D" parent="StateManager"]
+script = ExtResource("8_1bq1t")
+SPEED = 2.0
+
+[node name="WallClimb" type="Node3D" parent="StateManager"]
+script = ExtResource("9_f857v")
+WALL_CLIMB_Y_VELOCITY = 4.0
+WALL_JUMP_FORCE = 3.0
+
+[node name="WallRun" type="Node3D" parent="StateManager"]
+script = ExtResource("10_jnaov")
+WALL_JUMP_FORCE = 3.0
+
+[node name="Ledge" type="Node3D" parent="StateManager"]
+script = ExtResource("11_yd545")
+ACCEL_TO_LEDGE = 3.0
+
+[node name="Ledge" type="Node3D" parent="."]
+
+[node name="CheckWall" type="RayCast3D" parent="Ledge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0.25)
+
+[node name="CheckTop" type="RayCast3D" parent="Ledge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+target_position = Vector3(0, 0, 1)
+
+[node name="CheckBody" type="RayCast3D" parent="Ledge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+target_position = Vector3(0, 0, 1)
+
+[node name="Shooting" type="Node3D" parent="."]
+script = ExtResource("12_5u6b2")
+bullet = ExtResource("13_bt3mj")
+charge_angles = PackedInt32Array(-30, -15, 0, 15, 30)
+
+[node name="chargeTimer" type="Timer" parent="Shooting"]
+
+[node name="shootTimer" type="Timer" parent="Shooting"]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
-[connection signal="timeout" from="WallRun/WallrunTimer" to="." method="_on_wallrun_timer_timeout"]
-[connection signal="timeout" from="WallRun/WallRunJumpTimer" to="." method="_on_wall_run_jump_timer_timeout"]
-[connection signal="timeout" from="Timer/RechargeDashTimer" to="." method="_on_recharge_dash_timer_timeout"]
-[connection signal="timeout" from="Timer/IframeTimer" to="." method="_on_iframe_timer_timeout"]
-[connection signal="timeout" from="Timer/RegenTimer" to="." method="_on_regen_timer_timeout"]
-[connection signal="timeout" from="Timer/RechargeBlockTimer" to="." method="_on_recharge_block_timer_timeout"]
-[connection signal="timeout" from="Timer/CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
-[connection signal="timeout" from="Timer/junmpBufferTimer" to="." method="_on_junmp_buffer_timer_timeout"]
+[connection signal="timeout" from="Shooting/chargeTimer" to="Shooting" method="_on_charge_timer_timeout"]
