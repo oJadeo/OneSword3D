@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlxurrb5wrcm6"]
+
+[ext_resource type="Script" path="res://Dialogue/GD_dialogue.gd" id="1_tgei6"]
+[ext_resource type="FontFile" uid="uid://ddj4pjylrcau5" path="res://Dialogue/m5x7.ttf" id="2_klolw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lujtc"]
+
+[sub_resource type="Theme" id="Theme_drwpk"]
+default_font = ExtResource("2_klolw")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("2_klolw")
+Label/styles/normal = SubResource("StyleBoxEmpty_lujtc")
+
+[node name="Dialogue" type="CanvasLayer" groups=["dialogue"]]
+script = ExtResource("1_tgei6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+texture_filter = 1
+layout_direction = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -21.0
+offset_right = 118.0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="NameLabel" type="RichTextLabel" parent="HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme = SubResource("Theme_drwpk")
+text = "System:
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="MessageLabel" type="RichTextLabel" parent="HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = SubResource("Theme_drwpk")
+text = "Try Moving
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme = SubResource("Theme_drwpk")
+text = "F"
+
+[node name="Timer" type="Timer" parent="."]

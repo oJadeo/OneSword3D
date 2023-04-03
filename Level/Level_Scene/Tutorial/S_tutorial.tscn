@@ -1,14 +1,15 @@
-[gd_scene load_steps=23 format=3 uid="uid://r0xq7fbbomfi"]
+[gd_scene load_steps=25 format=3 uid="uid://1b0pdu3ygf3b"]
 
-[ext_resource type="PackedScene" uid="uid://bjd6kko4hof" path="res://Level/Tiles/Load_Area/S_Load_Area.tscn" id="1_erua6"]
-[ext_resource type="PackedScene" uid="uid://wycb6glgigjg" path="res://Level/Tiles/Rotate_Camera/S_rotate_camera.tscn" id="1_lpy4m"]
-[ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_uyn8b"]
-[ext_resource type="PackedScene" uid="uid://n88kt3qi66lc" path="res://Level/Tiles/Depth_test_box/S_depth_bxo.tscn" id="2_jfj7t"]
-[ext_resource type="PackedScene" uid="uid://b0yg8hhtv3vsc" path="res://Level/Tiles/Set_Spawn/S_setSpawn.tscn" id="4_1mufb"]
-[ext_resource type="PackedScene" uid="uid://c44ydipygu3hq" path="res://Enemy/Dummy/MeleeDummy/S_MeleeDummy.tscn" id="5_ywgci"]
-[ext_resource type="PackedScene" uid="uid://bgpw7dcb666m3" path="res://Enemy/Dummy/Rangedummy/S_RangeDummy.tscn" id="6_lehfe"]
-[ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="7_at722"]
-[ext_resource type="MeshLibrary" uid="uid://igtk5abse8xh" path="res://Level/Tiles_Set/mesh_lib/set_proto.tres" id="8_6y358"]
+[ext_resource type="PackedScene" uid="uid://biundw7n53o5u" path="res://Level/Tiles/Dialogue_box/S_dialogue_box.tscn" id="1_qli0e"]
+[ext_resource type="JSON" path="res://Dialogue/test_dialogue.json" id="2_dp32p"]
+[ext_resource type="PackedScene" uid="uid://b0yg8hhtv3vsc" path="res://Level/Tiles/Set_Spawn/S_setSpawn.tscn" id="2_m75g1"]
+[ext_resource type="PackedScene" uid="uid://wycb6glgigjg" path="res://Level/Tiles/Rotate_Camera/S_rotate_camera.tscn" id="3_xk3j7"]
+[ext_resource type="PackedScene" uid="uid://n88kt3qi66lc" path="res://Level/Tiles/Depth_test_box/S_depth_bxo.tscn" id="4_i16k0"]
+[ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="5_fs8y0"]
+[ext_resource type="PackedScene" uid="uid://c44ydipygu3hq" path="res://Enemy/Dummy/MeleeDummy/S_MeleeDummy.tscn" id="6_pfltm"]
+[ext_resource type="PackedScene" uid="uid://bgpw7dcb666m3" path="res://Enemy/Dummy/Rangedummy/S_RangeDummy.tscn" id="7_3xl6x"]
+[ext_resource type="MeshLibrary" uid="uid://igtk5abse8xh" path="res://Level/Tiles_Set/mesh_lib/set_proto.tres" id="8_x8807"]
+[ext_resource type="PackedScene" uid="uid://bjd6kko4hof" path="res://Level/Tiles/Load_Area/S_Load_Area.tscn" id="9_v35ka"]
 
 [sub_resource type="Environment" id="Environment_uvupg"]
 background_mode = 1
@@ -60,6 +61,8 @@ agent_height = 0.5
 agent_radius = 0.1
 agent_max_climb = 0.1
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ervl6"]
+
 [node name="S_Tutorial_2" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -89,19 +92,15 @@ light_energy = 0.2
 shadow_enabled = true
 directional_shadow_mode = 0
 
-[node name="Player_Character" parent="." instance=ExtResource("1_uyn8b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.401128, 0)
-enable_wallrun = false
-
 [node name="playerSpawnPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39878, 0)
 
 [node name="Addon" type="Node3D" parent="."]
 
-[node name="S_Set_Spawn4" parent="Addon" instance=ExtResource("4_1mufb")]
+[node name="S_Set_Spawn4" parent="Addon" instance=ExtResource("2_m75g1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, -2.9, 24.525)
 
-[node name="S_rotate_camera2" parent="Addon" instance=ExtResource("1_lpy4m")]
+[node name="S_rotate_camera2" parent="Addon" instance=ExtResource("3_xk3j7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9619, 2.47668, -2.42441)
 angle = -90
 delay = true
@@ -109,17 +108,17 @@ delay = true
 [node name="CollisionShape3D" parent="Addon/S_rotate_camera2" index="0"]
 shape = SubResource("BoxShape3D_jmfq3")
 
-[node name="S_Set_Spawn" parent="Addon" instance=ExtResource("4_1mufb")]
+[node name="S_Set_Spawn" parent="Addon" instance=ExtResource("2_m75g1")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 23, 2, 8.5)
 
-[node name="S_rotate_camera4" parent="Addon" instance=ExtResource("1_lpy4m")]
+[node name="S_rotate_camera4" parent="Addon" instance=ExtResource("3_xk3j7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9619, 2.47668, 8.737)
 angle = -90
 
 [node name="CollisionShape3D" parent="Addon/S_rotate_camera4" index="0"]
 shape = SubResource("BoxShape3D_jmfq3")
 
-[node name="S_rotate_camera3" parent="Addon" instance=ExtResource("1_lpy4m")]
+[node name="S_rotate_camera3" parent="Addon" instance=ExtResource("3_xk3j7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9619, 2.47668, 18.492)
 angle = -90
 delay = true
@@ -127,74 +126,74 @@ delay = true
 [node name="CollisionShape3D" parent="Addon/S_rotate_camera3" index="0"]
 shape = SubResource("BoxShape3D_jmfq3")
 
-[node name="S_rotate_camera5" parent="Addon" instance=ExtResource("1_lpy4m")]
+[node name="S_rotate_camera5" parent="Addon" instance=ExtResource("3_xk3j7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9586, 2.47668, 19.4863)
 delay = true
 
 [node name="CollisionShape3D" parent="Addon/S_rotate_camera5" index="0"]
 shape = SubResource("BoxShape3D_7wuxd")
 
-[node name="S_Set_Spawn2" parent="Addon" instance=ExtResource("4_1mufb")]
+[node name="S_Set_Spawn2" parent="Addon" instance=ExtResource("2_m75g1")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 34.25, 1.01, 19.5)
 
-[node name="S_Set_Spawn3" parent="Addon" instance=ExtResource("4_1mufb")]
+[node name="S_Set_Spawn3" parent="Addon" instance=ExtResource("2_m75g1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.5, -2.9, 25)
 
-[node name="S_depth_bxo2" parent="Addon" instance=ExtResource("2_jfj7t")]
+[node name="S_depth_bxo2" parent="Addon" instance=ExtResource("4_i16k0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.3428, -2.02708, 19.5418)
 
 [node name="CollisionShape3D" parent="Addon/S_depth_bxo2" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
 shape = SubResource("BoxShape3D_b66lr")
 
-[node name="S_depth_bxo3" parent="Addon" instance=ExtResource("2_jfj7t")]
+[node name="S_depth_bxo3" parent="Addon" instance=ExtResource("4_i16k0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.057, -1.98654, 18.5438)
 
 [node name="CollisionShape3D" parent="Addon/S_depth_bxo3" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.354805, 0, 0)
 shape = SubResource("BoxShape3D_a7o18")
 
-[node name="S_rotate_camera" parent="Addon" instance=ExtResource("1_lpy4m")]
+[node name="S_rotate_camera" parent="Addon" instance=ExtResource("3_xk3j7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9437, 2.48866, -2.06723)
 delay = true
 
 [node name="CollisionShape3D" parent="Addon/S_rotate_camera" index="0"]
 shape = SubResource("BoxShape3D_fpsmt")
 
-[node name="S_depth_bxo" parent="Addon" instance=ExtResource("2_jfj7t")]
+[node name="S_depth_bxo" parent="Addon" instance=ExtResource("4_i16k0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.50986, 0.501089, 0)
 
 [node name="CollisionShape3D" parent="Addon/S_depth_bxo" index="0"]
 shape = SubResource("BoxShape3D_884ct")
 
-[node name="S_depth_bxo5" parent="Addon" instance=ExtResource("2_jfj7t")]
+[node name="S_depth_bxo5" parent="Addon" instance=ExtResource("4_i16k0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.99, 0.116, 0.374044)
 
 [node name="CollisionShape3D" parent="Addon/S_depth_bxo5" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 shape = SubResource("BoxShape3D_yy461")
 
-[node name="S_depth_bxo6" parent="Addon" instance=ExtResource("2_jfj7t")]
+[node name="S_depth_bxo6" parent="Addon" instance=ExtResource("4_i16k0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.993, 0.116, -1.87617)
 
 [node name="CollisionShape3D" parent="Addon/S_depth_bxo6" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.123214, 0, 0.75)
 shape = SubResource("BoxShape3D_lb4db")
 
-[node name="Danger_Area" parent="Addon" instance=ExtResource("7_at722")]
+[node name="Danger_Area" parent="Addon" instance=ExtResource("5_fs8y0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.7726, -4.72304, 0)
 
 [node name="triggerCollision" parent="Addon/Danger_Area" index="0"]
 shape = SubResource("BoxShape3D_2wgi1")
 
-[node name="S_depth_bxo4" parent="Addon" instance=ExtResource("2_jfj7t")]
+[node name="S_depth_bxo4" parent="Addon" instance=ExtResource("4_i16k0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.2419, -2.9961, 18.6337)
 
 [node name="CollisionShape3D" parent="Addon/S_depth_bxo4" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.715271, 0.991244, -0.163685)
 shape = SubResource("BoxShape3D_r66at")
 
-[node name="S_rotate_camera6" parent="Addon" instance=ExtResource("1_lpy4m")]
+[node name="S_rotate_camera6" parent="Addon" instance=ExtResource("3_xk3j7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.71746, 0)
 
 [node name="CollisionShape3D" parent="Addon/S_rotate_camera6" index="0"]
@@ -203,25 +202,25 @@ shape = SubResource("BoxShape3D_mwow5")
 
 [node name="Dummies" type="Node3D" parent="."]
 
-[node name="MeleeDummy" parent="Dummies" instance=ExtResource("5_ywgci")]
+[node name="MeleeDummy" parent="Dummies" instance=ExtResource("6_pfltm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.8179, -2.81641, 25.4165)
 
-[node name="MeleeDummy2" parent="Dummies" instance=ExtResource("5_ywgci")]
+[node name="MeleeDummy2" parent="Dummies" instance=ExtResource("6_pfltm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.0093, -2.81641, 25.4165)
 
-[node name="MeleeDummy3" parent="Dummies" instance=ExtResource("5_ywgci")]
+[node name="MeleeDummy3" parent="Dummies" instance=ExtResource("6_pfltm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.8179, -2.81641, 22.5868)
 
-[node name="MeleeDummy4" parent="Dummies" instance=ExtResource("5_ywgci")]
+[node name="MeleeDummy4" parent="Dummies" instance=ExtResource("6_pfltm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.9961, -2.81641, 22.6523)
 
-[node name="MeleeDummy5" parent="Dummies" instance=ExtResource("5_ywgci")]
+[node name="MeleeDummy5" parent="Dummies" instance=ExtResource("6_pfltm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.8179, -2.81641, 19.6575)
 
-[node name="MeleeDummy6" parent="Dummies" instance=ExtResource("5_ywgci")]
+[node name="MeleeDummy6" parent="Dummies" instance=ExtResource("6_pfltm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.9961, -2.81641, 19.723)
 
-[node name="RangeDummy" parent="Dummies" instance=ExtResource("6_lehfe")]
+[node name="RangeDummy" parent="Dummies" instance=ExtResource("7_3xl6x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.3016, -2.78732, 22.9083)
 
 [node name="Label" type="Node3D" parent="."]
@@ -280,7 +279,7 @@ navigation_mesh = SubResource("NavigationMesh_f5udf")
 
 [node name="GridMap" type="GridMap" parent="NavigationRegion3D"]
 transform = Transform3D(1, -1.47903e-10, 0, 1.00944e-09, 1, 1.59162e-11, 1.01863e-09, 0, 1, 0, 0, 0)
-mesh_library = ExtResource("8_6y358")
+mesh_library = ExtResource("8_x8807")
 cell_size = Vector3(0.5, 0.5, 0.5)
 cell_scale = 0.25
 data = {
@@ -293,9 +292,17 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 text = "Teleporter Below
 You'll be teleported to new area when stepped on"
 
-[node name="Transporter" parent="." instance=ExtResource("1_erua6")]
+[node name="Transporter" parent="." instance=ExtResource("9_v35ka")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.1337, -2.86272, 21.6835)
 default_on = true
+
+[node name="S_dialogue_box" parent="." instance=ExtResource("1_qli0e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, 0)
+file = ExtResource("2_dp32p")
+
+[node name="CollisionShape3D" parent="S_dialogue_box" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.25, 0)
+shape = SubResource("BoxShape3D_ervl6")
 
 [editable path="Addon/S_rotate_camera2"]
 [editable path="Addon/S_rotate_camera4"]
@@ -310,3 +317,4 @@ default_on = true
 [editable path="Addon/Danger_Area"]
 [editable path="Addon/S_depth_bxo4"]
 [editable path="Addon/S_rotate_camera6"]
+[editable path="S_dialogue_box"]

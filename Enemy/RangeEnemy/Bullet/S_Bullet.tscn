@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://42eowb3sxg2t" path="res://Enemy/RangeEnemy/Bullet/projectile.png" id="1_nujq0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vdt71"]
-radius = 0.02
-height = 0.06
+radius = 0.05
+height = 0.1
 
 [node name="Bullet" type="Node3D"]
 script = ExtResource("1_2856y")

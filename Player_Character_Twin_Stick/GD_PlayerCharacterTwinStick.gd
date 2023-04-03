@@ -1,6 +1,5 @@
 extends CharacterBody3D
-class_name PlayerCharacter
-
+class_name PlayerCharacterTwinStick
 #signals
 signal Blockbar_changed
 signal DashCharge_changed
@@ -8,20 +7,27 @@ signal DashCharge_changed
 @export var enable_wallrun : bool = true
 
 @export var dash_version : int = 1
+
+@export var bullet: Resource
+
+var new_bullet
+var bullet_direction = Vector3.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 
 func _physics_process(delta):
+	ScreenPointToRay()
 	handle_input()
 	handle_move(delta)
+	handle_charge()
 	handle_atk()
 	handle_block()
 	handle_animation()
 	handle_rotation(delta)
 
 # input variable
-var input_frame:Dictionary = {
+var input_frame = {
 	"direction" : Vector2.ZERO,
 	"jump" : false,
 	"attack" : false,
@@ -40,7 +46,8 @@ func handle_input():
 	input_frame["direction"] = input_frame["direction"] if input_frame["direction"].length() >0.05 else Vector2.ZERO
 	if input_frame["direction"] != Vector2.ZERO:
 		last_direction = (transform.basis * Vector3(input_frame["direction"] .x,0, input_frame["direction"] .y)).normalized()
-	input_frame["attack"] = Input.is_action_just_pressed("Attack")
+	input_frame["charge"] = Input.is_action_just_pressed("Attack")
+	input_frame["attack"] = Input.is_action_just_released("Attack")
 	input_frame["block"] = Input.is_action_pressed("Block")
 	input_frame["rotate_cw"] = Input.is_action_just_pressed("Rotate_CW")
 	input_frame["rotate_ccw"] = Input.is_action_just_pressed("Rotate_CCW")
@@ -58,14 +65,18 @@ func handle_input():
 		#respawn()
 
 #Exploring variable
-const SPEED = 2
+const SPEED = 1.5
 const BLOCK_SPEED = 0.5
 const SLAM_SPEED = 0.25
-const ACCEL = 10
-const DECEL = 6
+const ACCEL = 6
+const DECEL = 10
 const FRICTION = 5
 var target_velocity = Vector3.ZERO
-var direction 
+var direction
+
+@onready var shootTimer =  $Timer/shootTimer
+@onready var chargeTimer = $Timer/chargeTimer
+var reloading = false
 func handle_move(delta):
 	target_velocity = Vector3.ZERO
 
@@ -112,12 +123,12 @@ func handle_move(delta):
 		velocity.x *= BLOCK_SPEED 
 		velocity.z *= BLOCK_SPEED 
 
-	if slaming:
-		target_velocity.y -= SLAM_SPEED
+	#if slaming:
+	#	target_velocity.y -= SLAM_SPEED
 
-	if slaming:
-		velocity.x = 0
-		velocity.z = 0
+	#if slaming:
+	#	velocity.x = 0
+	#	velocity.z = 0
 	
 	if knockback :
 		velocity = -Vector3(last_direction.dot(cam_dir[0]),0,last_direction.dot(cam_dir[1]))*SPEED*2.5
@@ -142,7 +153,6 @@ func handle_jump(delta):
 		velocity.y += 5*delta
 	if not is_on_floor() and coyote_timer.is_stopped() and not is_wall_running :
 		velocity.y -= gravity * delta 
-		print(velocity.y)
 		velocity.y = clamp(velocity.y,-10,100)
 	# Handle Normal Jump.
 	if input_frame["just_jump"] and not is_wall_running and not is_wall_climbing:
@@ -163,7 +173,7 @@ func _on_junmp_buffer_timer_timeout():
 	jumpbuffer.stop()
 
 # Dash variable
-const DASH_SPEED = 13
+const DASH_SPEED = 10
 const MAX_CHARGE = 3
 var dash_charge = 3
 var is_dash_able = true
@@ -171,7 +181,7 @@ var is_dashing = false
 var dash_end = false
 @onready var rechargeDashTimer = $Timer/RechargeDashTimer
 func handle_dash_1():
-	if input_frame["dash"] and is_dash_able and not is_wall_running and not is_dashing and dash_charge != 0 and not attacking:
+	if input_frame["dash"] and is_dash_able and not is_wall_running and not is_dashing and dash_charge != 0:
 		dash_charge -= 1
 		velocity.x = direction.x*3
 		velocity.z = direction.z*3
@@ -202,7 +212,6 @@ var is_wall_climbing = false
 var is_wall= {'left':null,'right':null,'up':null}
 var selected_wall 
 var wall_run_jumping = [false,Vector3.ZERO]
-var wall_run_speed = 3
 const WALL_CHECK_RANGE = 0.5
 @onready var ray = $WallRun/RayCast3D
 @onready var wall_run_timer = $WallRun/WallrunTimer
@@ -244,10 +253,10 @@ func handle_wall_run(delta):
 			var move_dir = wall_normal.cross(Vector3(0,1,0))
 			if abs(move_dir.x) > 0.1 :
 				target_velocity.z = 0
-				target_velocity.x = wall_run_speed if target_velocity.x>0 else -wall_run_speed
+				target_velocity.x = 2 if target_velocity.x>0 else -2
 			if abs(move_dir.z) > 0.1:
 				target_velocity.x = 0
-				target_velocity.z = wall_run_speed if target_velocity.z>0 else -wall_run_speed
+				target_velocity.z = 2 if target_velocity.z>0 else -2
 			target_velocity -= wall_normal
 		else:
 			is_wall_running = false
@@ -293,17 +302,41 @@ func _on_wallrun_timer_timeout():
 	is_wall_running = false
 func _on_wall_run_jump_timer_timeout():
 	wall_run_jumping = [false,Vector3.ZERO]
+	
+func handle_charge():
+	print(chargeTimer.time_left)
+	if input_frame["charge"] :
+		chargeTimer.start()
 
 #Attack variable
-var attacking = false
-var slaming = false
 func handle_atk():
-	if input_frame["attack"] and not attacking and not is_wall_running:
-		slaming = not is_on_floor()
-		attacking = true
+	if input_frame["attack"] and not reloading:
+		if (chargeTimer.time_left > 0):
+			spawn_bullet()
+		
 func reset_attack():
-	slaming = false
-	attacking = false
+	shootTimer.start()
+	reloading = true
+
+func spawn_bullet():
+	chargeTimer.stop()
+	new_bullet = bullet.instantiate()
+	var bulletDirection_x = bullet_direction.x 
+	var bulletDirection_z = bullet_direction.z
+	add_child(new_bullet)
+	new_bullet.init(bulletDirection_x,0,bulletDirection_z,0,0,2)
+	reset_attack()
+
+func spawn_charge_bullet():
+	chargeTimer.stop()
+	for angle in [-30,-15,0,15,30] : 
+		new_bullet = bullet.instantiate()
+		var bulletDirection_x = bullet_direction.x + bullet_direction.x * sin(deg_to_rad(angle))
+		var bulletDirection_z = bullet_direction.z + bullet_direction.z * cos(deg_to_rad(angle))
+		add_child(new_bullet)
+		new_bullet.init(bulletDirection_x,0,bulletDirection_z,0,0,2)
+	reset_attack()
+
 func _on_hitbox_area_entered(area):
 	if area.name == "HurtBox":
 		print("Player:hit enemy")
@@ -327,7 +360,8 @@ func _on_hurt_box_area_entered(area):
 		return 0
 	if not perfect_deflect and ( not deflecting or blockBar < 20):
 		if blockBar == 0 or not deflecting:
-			respawn()
+			pass
+			#respawn()
 		else:
 			regen_timer.stop()
 			blockBar = 0
@@ -349,7 +383,7 @@ func on_deflect_animation_end():
 @onready var recharge_block_timer = $Timer/RechargeBlockTimer
 @onready var regen_timer = $Timer/RegenTimer
 func handle_block():
-	if Input.is_action_pressed("Block") and is_on_floor() and not is_dashing and not is_wall_running and not slaming:
+	if Input.is_action_pressed("Block") and is_on_floor() and not is_dashing and not is_wall_running:
 		deflecting = true
 	elif Input.is_action_just_released("Block"):
 		deflecting = false
@@ -374,10 +408,11 @@ func _on_regen_timer_timeout():
 #Animation variable
 @onready var animationTree = $AnimationTree
 @onready var animationState = animationTree.get("parameters/playback")
+@onready var root = $".."
 #@onready var dash = $Dash
 @onready var playerSpawnPoint = $"../playerSpawnPoint"
 func handle_animation():
-	if input_frame["direction"] != Vector2.ZERO and not deflecting and not attacking:
+	if input_frame["direction"] != Vector2.ZERO and not deflecting:
 		animationTree.set("parameters/Run/blend_position",input_frame["direction"])
 		animationTree.set("parameters/Idle/blend_position",input_frame["direction"])
 		animationTree.set("parameters/Block/blend_position",input_frame["direction"])
@@ -397,14 +432,14 @@ func handle_animation():
 			animationState.travel("Jump")
 		else:
 			animationState.travel("Fall")
-	if attacking:
-		if slaming:
-			if not is_on_floor():
-				animationState.travel("Slaming")
-			else:
-				animationState.travel("Slam_end")
-		else:
-			animationState.travel("Attack_1")
+	#if attacking:
+	#	if slaming:
+	#		if not is_on_floor():
+	#			animationState.travel("Slaming")
+	#		else:
+	#			animationState.travel("Slam_end")
+	#	else:
+	#		animationState.travel("Attack_1")
 	if is_wall_running:
 		if velocity.cross(selected_wall[2]).y < 0:
 			animationState.travel("Wall_run_left")
@@ -435,4 +470,16 @@ func set_draw_flag(draw):
 	$Sprite3d.set_draw_flag(3,draw)
 
 
+func ScreenPointToRay():
+	var mousePos = get_viewport().get_mouse_position()
+	bullet_direction = (Vector3(mousePos.x-320,0,mousePos.y-180) - global_position).normalized()
+	print(bullet_direction)
 
+
+func _on_shoot_timer_timeout():
+	shootTimer.stop()
+	reloading = false
+
+
+func _on_charge_timer_timeout():
+	spawn_charge_bullet()
