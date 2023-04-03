@@ -1967,6 +1967,8 @@ height = 0.4
 [node name="Player_Character" type="CharacterBody3D"]
 collision_layer = 2
 script = ExtResource("1_te00h")
+LEDGE_CHECK_RANGE = 0.2
+LEDGE_CHECK_HEIGHT = 0.25
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_xc8no")
@@ -2071,19 +2073,24 @@ script = ExtResource("6_nj83b")
 
 [node name="Jump" type="Node3D" parent="StateManager"]
 script = ExtResource("7_vr2gg")
+SPEED = 2.0
 
 [node name="Fall" type="Node3D" parent="StateManager"]
 script = ExtResource("8_a6ra4")
+SPEED = 2.0
 
 [node name="WallClimb" type="Node3D" parent="StateManager"]
 script = ExtResource("9_41376")
-WALL_JUMP_FORCE = 2.0
+WALL_CLIMB_Y_VELOCITY = 4.0
+WALL_JUMP_FORCE = 3.0
 
 [node name="WallRun" type="Node3D" parent="StateManager"]
 script = ExtResource("10_ks303")
+WALL_JUMP_FORCE = 3.0
 
 [node name="Ledge" type="Node3D" parent="StateManager"]
 script = ExtResource("11_hn5ux")
+ACCEL_TO_LEDGE = 3.0
 
 [node name="Ledge" type="Node3D" parent="."]
 

@@ -5,7 +5,8 @@ var current_dialogue = 0
 @onready var dialogue_box = $HBoxContainer
 @onready var name_label = $HBoxContainer/NameLabel
 @onready var message_label = $HBoxContainer/MessageLabel
-@onready var button = $HBoxContainer/ButtonLabel
+@onready var button = $HBoxContainer/Button
+
 var dialogue_activate = false
 
 # Called when the node enters the scene tree for the first time.
