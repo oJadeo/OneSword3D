@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://58c6txyswrfv" path="res://Level/LevelManager/TransitionScreen/S_Transition_Screen.tscn" id="1_q0qtk"]
 [ext_resource type="Script" path="res://Level/LevelManager/GD_Level_Manager.gd" id="1_thsif"]
-[ext_resource type="PackedScene" uid="uid://r0xq7fbbomfi" path="res://Level/Level_Scene/Tutorial/S_tutorial.tscn" id="2_vejc1"]
+[ext_resource type="PackedScene" uid="uid://1b0pdu3ygf3b" path="res://Level/Level_Scene/Tutorial/S_tutorial.tscn" id="2_vejc1"]
 [ext_resource type="PackedScene" uid="uid://ca6dqiorp54dl" path="res://Level/Level_Scene/S_Level_1_A.tscn" id="3_2lc2a"]
 [ext_resource type="PackedScene" uid="uid://cr0iyf4jjx6at" path="res://Level/Level_Scene/S_Level_1_B.tscn" id="4_xairw"]
 [ext_resource type="PackedScene" uid="uid://dv62q73pop6q6" path="res://Level/Level_Scene/S_Level_1_C.tscn" id="5_q0kmb"]

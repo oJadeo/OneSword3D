@@ -12,6 +12,7 @@ signal DashCharge_changed
 
 var new_bullet
 var bullet_direction = Vector3.ZERO
+var isShootMouse = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -20,6 +21,7 @@ func _physics_process(delta):
 	ScreenPointToRay()
 	handle_input()
 	handle_move(delta)
+	handle_charge()
 	handle_atk()
 	handle_block()
 	handle_animation()
@@ -28,6 +30,7 @@ func _physics_process(delta):
 # input variable
 var input_frame = {
 	"direction" : Vector2.ZERO,
+	"shoot_direction":Vector2.ZERO,
 	"jump" : false,
 	"attack" : false,
 	"block" : false,
@@ -45,7 +48,8 @@ func handle_input():
 	input_frame["direction"] = input_frame["direction"] if input_frame["direction"].length() >0.05 else Vector2.ZERO
 	if input_frame["direction"] != Vector2.ZERO:
 		last_direction = (transform.basis * Vector3(input_frame["direction"] .x,0, input_frame["direction"] .y)).normalized()
-	input_frame["attack"] = Input.is_action_just_pressed("Attack")
+	input_frame["charge"] = Input.is_action_just_pressed("Attack")
+	input_frame["attack"] = Input.is_action_just_released("Attack")
 	input_frame["block"] = Input.is_action_pressed("Block")
 	input_frame["rotate_cw"] = Input.is_action_just_pressed("Rotate_CW")
 	input_frame["rotate_ccw"] = Input.is_action_just_pressed("Rotate_CCW")
@@ -54,6 +58,9 @@ func handle_input():
 	input_frame["just_jump"] = Input.is_action_just_pressed("Jump")
 	input_frame["dash"] = Input.is_action_pressed("Dash")
 	input_frame["wall_run"]  = Input.is_action_pressed("WallRun")
+	input_frame["shoot_direction"] = Vector2(Input.get_axis("Shoot_Left", "Shoot_Right"),Input.get_axis("Shoot_Up", "Shoot_Down")) 
+	input_frame["shootdirection"] = input_frame["shoot_direction"] if input_frame["shoot_direction"].length() <=1 else input_frame["shoot_direction"].normalized()
+	input_frame["shoot_direction"] = input_frame["shoot_direction"] if input_frame["shoot_direction"].length() >0.05 else Vector2.ZERO
 
 	#if input_frame["rotate_cw"]:
 	#	rotate(Vector3(0,1,0),deg_to_rad(-90))
@@ -70,7 +77,11 @@ const ACCEL = 6
 const DECEL = 10
 const FRICTION = 5
 var target_velocity = Vector3.ZERO
-var direction 
+var direction
+
+@onready var shootTimer =  $Timer/shootTimer
+@onready var chargeTimer = $Timer/chargeTimer
+var reloading = false
 func handle_move(delta):
 	target_velocity = Vector3.ZERO
 
@@ -296,24 +307,39 @@ func _on_wallrun_timer_timeout():
 	is_wall_running = false
 func _on_wall_run_jump_timer_timeout():
 	wall_run_jumping = [false,Vector3.ZERO]
-
+	
+func handle_charge():
+	#print(chargeTimer.time_left)
+	if input_frame["charge"] :
+		chargeTimer.start()
 #Attack variable
-
 func handle_atk():
-	if input_frame["attack"]:
-		spawn_bullet()
+	isShootMouse = Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
+	if input_frame["attack"] and not reloading:
+		if (chargeTimer.time_left > 0):
+			spawn_bullet()
+		
 func reset_attack():
-	pass
-
+	shootTimer.start()
+	reloading = true
 
 func spawn_bullet():
+	chargeTimer.stop()
 	new_bullet = bullet.instantiate()
-	print(bullet_direction)
-	var bulletDirection_x = bullet_direction.x - get_global_position().x
-	var bulletDirection_y = bullet_direction.y - get_global_position().y
-	var bulletDirection_z = bullet_direction.z - get_global_position().z
+	var bulletDirection_x = bullet_direction.x 
+	var bulletDirection_z = bullet_direction.z
 	add_child(new_bullet)
 	new_bullet.init(bulletDirection_x,0,bulletDirection_z,0,0,2)
+	reset_attack()
+
+func spawn_charge_bullet():
+	chargeTimer.stop()
+	for angle in [-30,-15,0,15,30] : 
+		new_bullet = bullet.instantiate()
+		var bulletDirection_x = bullet_direction.x + bullet_direction.x * sin(deg_to_rad(angle))
+		var bulletDirection_z = bullet_direction.z + bullet_direction.z * cos(deg_to_rad(angle))
+		add_child(new_bullet)
+		new_bullet.init(bulletDirection_x,0,bulletDirection_z,0,0,2)
 	reset_attack()
 
 func _on_hitbox_area_entered(area):
@@ -451,10 +477,17 @@ func set_draw_flag(draw):
 
 func ScreenPointToRay():
 	var mousePos = get_viewport().get_mouse_position()
-	var camera = get_tree().root.get_camera_3d()
-	var rayOrigin = camera.project_ray_origin(mousePos)
-	var rayEnd = rayOrigin + camera.project_ray_normal(mousePos) * 1000
-	var query = PhysicsRayQueryParameters3D.create(rayOrigin, rayEnd)
-	var rayArray = get_world_3d().direct_space_state.intersect_ray(query)
-	if rayArray.has("position"):
-		bullet_direction = rayArray["position"]
+	if isShootMouse:
+		bullet_direction = (Vector3(mousePos.x-320,0,mousePos.y-180) - global_position).normalized()
+	else:
+		bullet_direction = (transform.basis * Vector3(input_frame["shoot_direction"] .x,0, input_frame["shoot_direction"] .y)).normalized()
+	#print(bullet_direction)
+
+
+func _on_shoot_timer_timeout():
+	shootTimer.stop()
+	reloading = false
+
+
+func _on_charge_timer_timeout():
+	spawn_charge_bullet()

@@ -22,7 +22,7 @@ enum mode {
 var currentMode = mode.KEYBOARD
 var currentControllerType
 var cannotMappedKeyboard = ["Enter","Escape"]
-var cannotMappedController = [4,6]
+var cannotMappedController = [6]
 var gameActions = ["Move_Left","Move_Right","Move_Up","Move_Down","Attack","Dash","WallRun","Jump","Block"]
 var actionsName = {
 	"Move Left": "Move_Left",
@@ -46,7 +46,8 @@ var PS4_button= {
 	1 : "Circle",
 	2 : "Square",
 	3 : "Triangle",
-	4 : "Options",
+	4 : "L2",
+	5 : "R2",
 	6 : "Share",
 	7 : "L3",
 	8 : "R3",
@@ -100,7 +101,7 @@ var currentInputMappedKeyboard = {
 }
 
 var defaultInputController = {
-	"Attack" : 2,
+	"Attack" : 5,
 	"Jump" : 0,
 	"Dash" : 1,
 	"Move_Up" : 999,
@@ -112,7 +113,7 @@ var defaultInputController = {
 }
 
 var currentInputMappedController = {
-	"Attack" : 2,
+	"Attack" : 5,
 	"Jump" : 0,
 	"Dash" : 1,
 	"Move_Up" : 999,
@@ -271,7 +272,7 @@ func _on_button_default_pressed():
 
 func _input(event):
 	if edit :
-		print(event)
+		#print(event)
 		var targetEvent
 		if currentMode == mode.KEYBOARD:
 			if event is InputEventKey:
@@ -305,17 +306,30 @@ func _input(event):
 			keyboardButton.grab_focus()
 		if currentMode == mode.CONTROLLER:
 			if event is InputEventJoypadButton and event.is_pressed():
-			#print(event.button_index)
+				#print(event.button_index)
 				var duplicate = false
 				for e in currentInputMappedController:
 					if currentInputMappedController[e] == event.button_index:
 						print(currentInputMappedController[e])
 						duplicate = true
-				if (event.button_index not in cannotMappedController and not duplicate):
+				if (event.button_index not in cannotMappedController and not duplicate and event.button_index != 4):
 					currentInputMappedController[currentAction] = event.button_index
 					edit = false
 					inputPanel.visible = false
 					container.visible = true
+				displayInputController(currentInputMappedController)
+			if event is InputEventJoypadMotion:
+				if event.axis == 4 || event.axis == 5:
+					var duplicate = false
+					for e in currentInputMappedController:
+						if currentInputMappedController[e] == event.axis:
+							print(currentInputMappedController[e])
+							duplicate = true
+					if (event.axis not in cannotMappedController and not duplicate):
+						currentInputMappedController[currentAction] = event.axis
+						edit = false
+						inputPanel.visible = false
+						container.visible = true
 				displayInputController(currentInputMappedController)
 			controllerButton.grab_focus()		
 
