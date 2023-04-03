@@ -12,6 +12,7 @@ signal DashCharge_changed
 
 var new_bullet
 var bullet_direction = Vector3.ZERO
+var isShootMouse = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -29,6 +30,7 @@ func _physics_process(delta):
 # input variable
 var input_frame = {
 	"direction" : Vector2.ZERO,
+	"shoot_direction":Vector2.ZERO,
 	"jump" : false,
 	"attack" : false,
 	"block" : false,
@@ -56,6 +58,9 @@ func handle_input():
 	input_frame["just_jump"] = Input.is_action_just_pressed("Jump")
 	input_frame["dash"] = Input.is_action_pressed("Dash")
 	input_frame["wall_run"]  = Input.is_action_pressed("WallRun")
+	input_frame["shoot_direction"] = Vector2(Input.get_axis("Shoot_Left", "Shoot_Right"),Input.get_axis("Shoot_Up", "Shoot_Down")) 
+	input_frame["shootdirection"] = input_frame["shoot_direction"] if input_frame["shoot_direction"].length() <=1 else input_frame["shoot_direction"].normalized()
+	input_frame["shoot_direction"] = input_frame["shoot_direction"] if input_frame["shoot_direction"].length() >0.05 else Vector2.ZERO
 
 	#if input_frame["rotate_cw"]:
 	#	rotate(Vector3(0,1,0),deg_to_rad(-90))
@@ -304,12 +309,12 @@ func _on_wall_run_jump_timer_timeout():
 	wall_run_jumping = [false,Vector3.ZERO]
 	
 func handle_charge():
-	print(chargeTimer.time_left)
+	#print(chargeTimer.time_left)
 	if input_frame["charge"] :
 		chargeTimer.start()
-
 #Attack variable
 func handle_atk():
+	isShootMouse = Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
 	if input_frame["attack"] and not reloading:
 		if (chargeTimer.time_left > 0):
 			spawn_bullet()
@@ -472,8 +477,11 @@ func set_draw_flag(draw):
 
 func ScreenPointToRay():
 	var mousePos = get_viewport().get_mouse_position()
-	bullet_direction = (Vector3(mousePos.x-320,0,mousePos.y-180) - global_position).normalized()
-	print(bullet_direction)
+	if isShootMouse:
+		bullet_direction = (Vector3(mousePos.x-320,0,mousePos.y-180) - global_position).normalized()
+	else:
+		bullet_direction = (transform.basis * Vector3(input_frame["shoot_direction"] .x,0, input_frame["shoot_direction"] .y)).normalized()
+	#print(bullet_direction)
 
 
 func _on_shoot_timer_timeout():
