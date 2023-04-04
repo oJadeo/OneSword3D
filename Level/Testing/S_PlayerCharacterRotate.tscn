@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://cl16ff3j40wer"]
+[gd_scene load_steps=86 format=3]
 
 [ext_resource type="Script" path="res://Level/Testing/GD_PlayerCharacterRotate.gd" id="1_p1wv3"]
 [ext_resource type="Texture2D" uid="uid://druevnyrn8qtt" path="res://Player_Character/Player_Character.png" id="2_osw6f"]

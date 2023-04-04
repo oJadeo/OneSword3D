@@ -1,4 +1,5 @@
 extends Node3D
+class_name Bullet
 
 @onready var collision = $Hitbox/CollisionShape3D
 @onready var sprite = $Sprite3D
