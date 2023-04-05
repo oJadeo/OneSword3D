@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4lo38bos3mu3"]
+
+[ext_resource type="Script" path="res://Level/Switch/GD_multi_switch_manager.gd" id="1_flhkb"]
+
+[node name="multi_Switch_Manager" type="Node3D"]
+script = ExtResource("1_flhkb")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

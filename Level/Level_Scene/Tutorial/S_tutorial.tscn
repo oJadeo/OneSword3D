@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://1b0pdu3ygf3b"]
+[gd_scene load_steps=29 format=3 uid="uid://1b0pdu3ygf3b"]
 
 [ext_resource type="PackedScene" uid="uid://biundw7n53o5u" path="res://Level/Tiles/Dialogue_box/S_dialogue_box.tscn" id="1_qli0e"]
 [ext_resource type="JSON" path="res://Dialogue/test_dialogue.json" id="2_dp32p"]
@@ -11,6 +11,9 @@
 [ext_resource type="MeshLibrary" uid="uid://igtk5abse8xh" path="res://Level/Tiles_Set/mesh_lib/set_proto.tres" id="8_x8807"]
 [ext_resource type="PackedScene" uid="uid://bjd6kko4hof" path="res://Level/Tiles/Load_Area/S_Load_Area.tscn" id="9_v35ka"]
 [ext_resource type="PackedScene" uid="uid://co7kw2uebqbla" path="res://Player_Character/S_PlayerCharacter.tscn" id="11_w0s55"]
+[ext_resource type="PackedScene" uid="uid://2dsfobnjgnqg" path="res://Level/Switch/S_singleSwitch.tscn" id="12_qhehc"]
+[ext_resource type="PackedScene" uid="uid://beo18etyx3uhi" path="res://Level/Switch/S_multi_switch.tscn" id="13_3i207"]
+[ext_resource type="PackedScene" uid="uid://d4lo38bos3mu3" path="res://Level/Switch/S_multi_switch_manager.tscn" id="13_kcg2p"]
 
 [sub_resource type="Environment" id="Environment_uvupg"]
 background_mode = 1
@@ -307,6 +310,24 @@ shape = SubResource("BoxShape3D_ervl6")
 
 [node name="Player_Character" parent="." instance=ExtResource("11_w0s55")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+
+[node name="Switch" parent="." instance=ExtResource("12_qhehc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8792, 0.257663, 0.372822)
+activateTimer = true
+timerDuration = 3
+
+[node name="multi_Switch_Manager" parent="." instance=ExtResource("13_kcg2p")]
+activateTimer = true
+timerDuration = 5.0
+
+[node name="multiSwitch" parent="multi_Switch_Manager" instance=ExtResource("13_3i207")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.625924, 0.239904, 0.823061)
+
+[node name="multiSwitch2" parent="multi_Switch_Manager" instance=ExtResource("13_3i207")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.185246, 0)
+
+[node name="multiSwitch3" parent="multi_Switch_Manager" instance=ExtResource("13_3i207")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.712155, 0.195939, 0.851984)
 
 [editable path="Addon/S_rotate_camera2"]
 [editable path="Addon/S_rotate_camera4"]
