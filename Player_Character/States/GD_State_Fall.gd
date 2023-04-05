@@ -39,7 +39,7 @@ func process(delta: float,input_frame:Dictionary) -> BaseState:
 	if player.check_ledge():
 		return ledge_state
 	
-	var target_direction = player.cal_direction()
+	var target_direction = player.cal_direction(input_frame["direction"])
 
 	player.velocity.x = target_direction.x*SPEED
 	player.velocity.z = target_direction.z*SPEED

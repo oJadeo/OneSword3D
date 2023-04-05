@@ -7,6 +7,8 @@ class_name PlayerCharacter
 @onready var state = $StateManager
 @onready var shooting = $Shooting
 
+var view_size:Vector2 = Vector2(640,360)
+
 func _ready() -> void:
 	#Initilize State machine with reference to player
 	state.init(self,animationState)
@@ -36,7 +38,7 @@ func handle_input():
 	input_frame["wall_run"]  = Input.is_action_pressed("WallRun")
 	input_frame["just_wall_run"] = Input.is_action_just_pressed("WallRun")
 	input_frame["shoot_direction"] = Vector2(Input.get_axis("Shoot_Left", "Shoot_Right"),Input.get_axis("Shoot_Up", "Shoot_Down")) 
-	input_frame["shootdirection"] = input_frame["shoot_direction"] if input_frame["shoot_direction"].length() <=1 else input_frame["shoot_direction"].normalized()
+	input_frame["shoot_direction"] = input_frame["shoot_direction"] if input_frame["shoot_direction"].length() <=1 else input_frame["shoot_direction"].normalized()
 	input_frame["shoot_direction"] = input_frame["shoot_direction"] if input_frame["shoot_direction"].length() >0.05 else Vector2.ZERO
 	var character_rotation = get_rotation()
 	Global.cal_camera_direction(rad_to_deg(character_rotation[1]))
@@ -73,11 +75,16 @@ func handle_rotation(delta):
 @onready var jump_buffer = $Timer/jumpBufferTimer
 
 var direction:Vector3
-func cal_direction():
-	direction = (transform.basis * Vector3(input_frame["direction"] .x,0, input_frame["direction"] .y)).normalized()
-	var character_rotation:Vector3 = get_rotation()
-	var cam_dir = Global.cal_camera_direction(rad_to_deg(character_rotation[1]))
-	return Vector3(direction.dot(cam_dir[0]),0,direction.dot(cam_dir[1]))
+func cal_direction(input_direction:Vector2):
+	var input_pos = input_direction.normalized()*view_size.y/2 + view_size/2
+	var camera = get_tree().root.get_camera_3d()
+	var rayOrigin = camera.project_ray_origin(input_pos)
+	var ray_Vector = camera.project_ray_normal(input_pos)
+	var amount:float = (global_position.y - rayOrigin.y)/ray_Vector.y
+	var target_pos:Vector3 = rayOrigin + ray_Vector * amount
+	direction = (target_pos - global_position).normalized()
+	return direction
+
 # For depthBox to behind box
 func set_draw_flag(draw):
 	$Sprite3d.set_draw_flag(3,draw)
@@ -139,6 +146,9 @@ func check_ledge()->bool:
 func _on_hurt_box_area_entered(area: Area3D) -> void:
 	if "Hitbox" not in area.name :
 		return
+	if area.get_parent().friendly:
+		return
+	area.get_parent().queue_free()
 	respawn()
 
 @onready var playerSpawnPoint = $"../playerSpawnPoint"
