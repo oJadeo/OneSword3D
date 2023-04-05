@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cb7e4x0wsp4g5"]
+[gd_scene load_steps=27 format=3 uid="uid://cb7e4x0wsp4g5"]
 
 [ext_resource type="Script" path="res://Level/Testing/GD_Test_Level_with_nav.gd" id="1_nhrur"]
 [ext_resource type="PackedScene" uid="uid://b0yg8hhtv3vsc" path="res://Level/Tiles/Set_Spawn/S_setSpawn.tscn" id="3_i0uac"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dfynijq7m2hnq" path="res://Enemy/RangeEnemy/S_RangeEnemy.tscn" id="8_n62xs"]
 [ext_resource type="PackedScene" uid="uid://c44ydipygu3hq" path="res://Enemy/Dummy/MeleeDummy/S_MeleeDummy.tscn" id="9_2x87b"]
 [ext_resource type="PackedScene" uid="uid://co7kw2uebqbla" path="res://Player_Character/S_PlayerCharacter.tscn" id="9_cr6ip"]
+[ext_resource type="PackedScene" uid="uid://2dsfobnjgnqg" path="res://Level/Switch/S_singleSwitch.tscn" id="10_vuam2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0n7km"]
 size = Vector3(8.77227, 0.314632, 19.6456)
@@ -227,6 +228,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19164, 0.945904, -0.166429
 
 [node name="Player_Character" parent="." instance=ExtResource("9_cr6ip")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.582845, 0)
+
+[node name="Switch" parent="." instance=ExtResource("10_vuam2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38314, 0.401518, -1.24069)
 
 [editable path="Danger_Area"]
 [editable path="Trigger_Block_Area"]
