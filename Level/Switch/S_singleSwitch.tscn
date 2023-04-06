@@ -34,21 +34,6 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_ha6fp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2i(0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_q5djp"]
 resource_name = "Deactivate"
 length = 0.666671
@@ -64,6 +49,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hiq3s"]
+resource_name = "Idle_off"
+loop_mode = 1
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_c7grb"]
@@ -83,11 +85,8 @@ tracks/0/keys = {
 "values": [Vector2i(3, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_hiq3s"]
-resource_name = "Idle_off"
-length = 1.0
-loop_mode = 1
-step = 0.0416667
+[sub_resource type="Animation" id="Animation_ha6fp"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -97,7 +96,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [Vector2i(0, 0)]
 }
 

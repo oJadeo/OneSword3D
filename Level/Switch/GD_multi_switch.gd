@@ -16,6 +16,7 @@ func _on_area_3d_body_entered(body):
 	if body is Bullet and not isOn:
 		animationPlayer.play("Idle_wait")
 		isOn = true
+		body.queue_free()
 		
 
 func complete():

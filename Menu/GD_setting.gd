@@ -23,17 +23,17 @@ var currentMode = mode.KEYBOARD
 var currentControllerType
 var cannotMappedKeyboard = ["Enter","Escape"]
 var cannotMappedController = [6]
-var gameActions = ["Move_Left","Move_Right","Move_Up","Move_Down","Attack","Dash","WallRun","Jump","Block"]
+var gameActions = ["Move_Left","Move_Right","Move_Up","Move_Down","Attack","dialogue","WallRun","Jump","Hook"]
 var actionsName = {
 	"Move Left": "Move_Left",
 	"Move Right" : "Move_Right",
 	"Move Up" : "Move_Up",
 	"Move Down" : "Move_Down",
 	"Attack" : "Attack",
-	"Dash" : "Dash",
+	"Dialogue" : "dialogue",
 	"Wall Run" : "WallRun",
 	"Jump" : "Jump",
-	"Block" : "Block"
+	"Hook" : "Hook"
 }
 
 enum controllerType {
@@ -80,49 +80,49 @@ var xbox_button= {
 var defaultInputKeyboard = {
 	"Attack" : 1,
 	"Jump" : 32,
-	"Dash" : 4194325,
+	"dialogue" : 4194325,
 	"Move_Up" : 87,
 	"Move_Down" : 83,
 	"Move_Left" : 65,
 	"Move_Right" : 68,
 	"WallRun" : 4194326,
-	"Block" : 2
+	"Hook" : 2
 }
 
 var currentInputMappedKeyboard = {
 	"Attack" : 1,
 	"Jump" : 32,
-	"Dash" : 4194325,
+	"dialogue" : 4194325,
 	"Move_Up" : 87,
 	"Move_Down" : 83,
 	"Move_Left" : 65,
 	"Move_Right" : 68,
 	"WallRun" : 4194326,
-	"Block" : 2
+	"Hook" : 2
 }
 
 var defaultInputController = {
 	"Attack" : 5,
 	"Jump" : 0,
-	"Dash" : 1,
+	"dialogue" : 1,
 	"Move_Up" : 999,
 	"Move_Down" : 999,
 	"Move_Left" : 999,
 	"Move_Right" : 999,
 	"WallRun" : 9,
-	"Block" : 10
+	"Hook" : 10
 }
 
 var currentInputMappedController = {
 	"Attack" : 5,
 	"Jump" : 0,
-	"Dash" : 1,
+	"dialogue" : 1,
 	"Move_Up" : 999,
 	"Move_Down" : 999,
 	"Move_Left" : 999,
 	"Move_Right" : 999,
 	"WallRun" : 9,
-	"Block" : 10
+	"Hook" : 10
 }
 
 
@@ -240,7 +240,7 @@ func _on_button_Jump_pressed():
 	inputPanel.visible = true
 	
 func _on_button_Dash_pressed():
-	currentAction = "Dash"
+	currentAction = "Dialogue"
 	edit = true
 	container.visible = false
 	inputPanel.visible = true
@@ -258,7 +258,7 @@ func _on_button_Attack_pressed():
 	inputPanel.visible = true
 
 func _on_button_Block_pressed():
-	currentAction = "Block"
+	currentAction = "Hook"
 	edit = true
 	container.visible = false
 	inputPanel.visible = true

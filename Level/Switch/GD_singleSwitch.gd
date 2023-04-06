@@ -24,8 +24,10 @@ func _process(delta):
 func _on_area_3d_body_entered(body):
 	if body is Bullet and not isOn:
 		switchActivate()
+		body.queue_free()
 	elif body is Bullet and isOn:
 		switchDeactivate()
+		body.queue_free()
 
 func _on_timer_timeout():
 	switchDeactivate()
