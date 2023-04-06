@@ -34,7 +34,7 @@ func process(delta: float,input_frame:Dictionary) -> BaseState:
 	else:
 		player.velocity.y = 0
 	
-	var target_direction = player.cal_direction()
+	var target_direction = player.cal_direction(input_frame["direction"])
 
 	var target_velocity:Vector3
 	target_velocity.x = target_direction.x*SPEED

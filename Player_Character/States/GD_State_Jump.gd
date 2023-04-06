@@ -41,12 +41,10 @@ func process(delta: float,input_frame:Dictionary) -> BaseState:
 	if player.check_ledge() and player.velocity.y < 0.1:
 		return ledge_state
 	
-	player.direction = (transform.basis * Vector3(input_frame["direction"] .x,0, input_frame["direction"] .y)).normalized()
-	var character_rotation:Vector3 = player.get_rotation()
-	var cam_dir = Global.cal_camera_direction(rad_to_deg(character_rotation[1]))
+	var target_direction = player.cal_direction(input_frame["direction"])
 
-	player.velocity.x = player.direction.dot(cam_dir[0])*SPEED
-	player.velocity.z = player.direction.dot(cam_dir[1])*SPEED
+	player.velocity.x = target_direction.x*SPEED
+	player.velocity.z = target_direction.z*SPEED
 
 	if not wall_jump_timer.is_stopped():
 		player.velocity += player.wall_run_jumping
