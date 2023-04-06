@@ -67,7 +67,7 @@ agent_max_climb = 0.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ervl6"]
 
-[node name="S_Tutorial_2" type="Node3D"]
+[node name="S_Tutorial" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_uvupg")

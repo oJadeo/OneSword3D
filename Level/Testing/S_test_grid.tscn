@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dppkin7gux343"]
+[gd_scene load_steps=9 format=3 uid="uid://dppkin7gux343"]
 
 [ext_resource type="Script" path="res://Level/Testing/GD_test_nav_link.gd" id="1_gu2mx"]
 [ext_resource type="PackedScene" uid="uid://n88kt3qi66lc" path="res://Level/Tiles/Depth_test_box/S_depth_bxo.tscn" id="3_3mbc7"]
 [ext_resource type="PackedScene" uid="uid://co7kw2uebqbla" path="res://Player_Character/S_PlayerCharacter.tscn" id="4_do0df"]
 [ext_resource type="MeshLibrary" uid="uid://igtk5abse8xh" path="res://Level/Tiles_Set/mesh_lib/set_proto.tres" id="5_bngkd"]
+[ext_resource type="PackedScene" uid="uid://cc7uecnf8r3uj" path="res://Level/Tiles/Platform/S_Platform.tscn" id="5_i724g"]
 
 [sub_resource type="Environment" id="Environment_qi4dj"]
 background_mode = 1
@@ -80,4 +81,31 @@ shape = SubResource("BoxShape3D_0wqkf")
 [node name="Player_Character" parent="." instance=ExtResource("4_do0df")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.775407, 0)
 
+[node name="S_Platform" parent="." instance=ExtResource("5_i724g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.01759)
+mode = 2
+use_timer = true
+
+[node name="GridMap" parent="S_Platform" index="0"]
+data = {
+"cells": PackedInt32Array(65535, 1, 1048580, 65535, 0, 4, 0, 0, 1441796, 0, 1, 655364)
+}
+metadata/_editor_floor_ = Vector3(146, 0, 55)
+
+[node name="EndPos" parent="S_Platform" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.20253, 0, 0)
+
+[node name="OnTimer" parent="S_Platform" index="3"]
+wait_time = 3.0
+
+[node name="OffTimer" parent="S_Platform" index="4"]
+wait_time = 2.0
+
+[node name="FallTimer" parent="S_Platform" index="5"]
+wait_time = 0.5
+
+[node name="CollisionShape3D" parent="S_Platform/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00678216, 0.514462, 0.501002)
+
 [editable path="NavigationRegion3D/S_depth_bxo"]
+[editable path="S_Platform"]
