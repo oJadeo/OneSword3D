@@ -23,7 +23,6 @@ func _physics_process(delta):
 
 func init(dir:Vector3,start_pos:Vector3,speed:float,friendly:bool):
 	direction = dir.normalized()
-	print(direction)
 	self.speed = speed
 	self.friendly = friendly
 	set_global_position(start_pos)
@@ -40,8 +39,8 @@ func _on_hitbox_area_entered(area):
 		speed = 0.025
 
 func _on_hitbox_body_entered(body):
-	if body is StaticBody3D :
-		print("OH shit")
+	if body is GridMap :
 		queue_free()
 
+	
 

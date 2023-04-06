@@ -76,6 +76,8 @@ func handle_rotation(delta):
 
 var direction:Vector3
 func cal_direction(input_direction:Vector2):
+	if input_direction == Vector2.ZERO:
+		return Vector3.ZERO
 	var input_pos = input_direction.normalized()*view_size.y/2 + view_size/2
 	var camera = get_tree().root.get_camera_3d()
 	var rayOrigin = camera.project_ray_origin(input_pos)
