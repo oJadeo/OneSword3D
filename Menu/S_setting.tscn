@@ -131,7 +131,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/Input6"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Dash"
+text = "Dialogue"
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer2/Input6"]
 layout_mode = 2
@@ -167,7 +167,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/Input9"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Block"
+text = "Hook"
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer2/Input9"]
 layout_mode = 2
