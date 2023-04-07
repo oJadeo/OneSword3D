@@ -11,8 +11,8 @@ extends BaseState
 
 func enter() -> void:
 	super()
-	print("State:Idle")
-	animationState.travel("Idle")
+	print("State:Hooking")
+	animationState.travel("Dash")
 
 func exit() -> void:
 	pass

@@ -18,7 +18,6 @@ extends BaseState
 func enter() -> void:
 	super()
 	print("State:Run")
-	wall_jump_timer.stop()
 	animationState.travel("Run")
 	player.is_wall_runable = true
 	

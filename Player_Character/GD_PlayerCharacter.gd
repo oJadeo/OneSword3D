@@ -8,7 +8,7 @@ class_name PlayerCharacter
 @onready var shooting = $Shooting
 
 var view_size:Vector2 = Vector2(640,360)
-
+var target_hook:Vector3 = Vector3.ZERO
 func _ready() -> void:
 	#Initilize State machine with reference to player
 	state.init(self,animationState)
@@ -61,6 +61,12 @@ func _process(delta: float) -> void:
 	check_ledge()
 	state.process(delta,input_frame)
 	shooting.process(delta,input_frame)
+
+func hook(input_direction:Vector2) -> bool:
+	
+	
+	
+	return false
 
 # For Rotaion Camera
 @export var tar_rot :float = 0

@@ -23,7 +23,7 @@ func enter() -> void:
 	just_enter = true
 	animationState.travel("Jump")
 func exit() -> void:
-	pass
+	wall_jump_timer.stop()
 	
 func process(delta: float,input_frame:Dictionary) -> BaseState:
 	var new_state = handle_input(delta,input_frame)
