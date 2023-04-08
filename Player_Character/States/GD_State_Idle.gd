@@ -3,6 +3,7 @@ extends BaseState
 @onready var run_state = $"../Run"
 @onready var jump_state = $"../Jump"
 @onready var fall_state = $"../Fall"
+@onready var hook_state = $"../Hook"
 
 @onready var wall_jump_timer = $"../../WallRun/WallRunJumpTimer"
 
@@ -26,6 +27,9 @@ func process(delta: float,input_frame:Dictionary) -> BaseState:
 		return jump_state if player.velocity.y > 0 else fall_state
 	else:
 		player.velocity.y = 0
+	
+	if player.go_to_hook:
+		return hook_state
 	
 	if player.velocity != Vector3.ZERO:
 		player.velocity.x = lerp(player.velocity.x,0.0,DECEL*delta)

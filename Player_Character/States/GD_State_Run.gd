@@ -5,6 +5,7 @@ extends BaseState
 @onready var fall_state = $"../Fall"
 @onready var wall_run_state = $"../WallRun"
 @onready var wall_climb_state = $"../WallClimb"
+@onready var hook_state = $"../Hook"
 
 @onready var wall_jump_timer = $"../../WallRun/WallRunJumpTimer"
 
@@ -32,6 +33,9 @@ func process(delta: float,input_frame:Dictionary) -> BaseState:
 		return jump_state if player.velocity.y > 0 else fall_state
 	else:
 		player.velocity.y = 0
+	
+	if player.go_to_hook:
+		return hook_state
 	
 	var target_direction = player.cal_direction(input_frame["direction"])
 

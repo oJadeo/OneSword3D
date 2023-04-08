@@ -9,6 +9,8 @@ class_name PlayerCharacter
 
 var view_size:Vector2 = Vector2(640,360)
 var target_hook:Vector3 = Vector3.ZERO
+var go_to_hook:bool = false
+var can_shoot:bool = true
 func _ready() -> void:
 	#Initilize State machine with reference to player
 	state.init(self,animationState)
@@ -20,6 +22,7 @@ var input_frame = {
 	"shoot_direction" : Vector2.ZERO,
 	"attack" : false,
 	"charge" : false,
+	"hook" : false,
 	"jump" : false,
 	"just_jump" : false,
 	"dash" : false,
@@ -37,6 +40,7 @@ func handle_input():
 	input_frame["just_jump"] = Input.is_action_just_pressed("Jump")
 	input_frame["wall_run"]  = Input.is_action_pressed("WallRun")
 	input_frame["just_wall_run"] = Input.is_action_just_pressed("WallRun")
+	input_frame["hook"] = Input.is_action_just_pressed("Hook")
 	input_frame["shoot_direction"] = Vector2(Input.get_axis("Shoot_Left", "Shoot_Right"),Input.get_axis("Shoot_Up", "Shoot_Down")) 
 	input_frame["shoot_direction"] = input_frame["shoot_direction"] if input_frame["shoot_direction"].length() <=1 else input_frame["shoot_direction"].normalized()
 	input_frame["shoot_direction"] = input_frame["shoot_direction"] if input_frame["shoot_direction"].length() >0.05 else Vector2.ZERO
@@ -44,7 +48,6 @@ func handle_input():
 	Global.cal_camera_direction(rad_to_deg(character_rotation[1]))
 	animationTree.set("parameters/Run/blend_position",input_frame["direction"])
 	animationTree.set("parameters/Idle/blend_position",input_frame["direction"])
-	animationTree.set("parameters/Dash/blend_position",input_frame["direction"])
 	animationTree.set("parameters/Fall/blend_position",input_frame["direction"])
 	animationTree.set("parameters/Jump/blend_position",input_frame["direction"])
 	animationTree.set("parameters/Wall_run_left/blend_position",Global.cal_sprite_direction(velocity))
@@ -55,18 +58,16 @@ func handle_input():
 		is_wall['right'] = check_wall(Vector3(WALL_CHECK_RANGE,0,0))
 		is_wall['up'] = check_wall(Vector3(0,0,-WALL_CHECK_RANGE))
 		selected_wall = select_wall()
+		
+	if input_frame["hook"]:
+		go_to_hook = shooting.hook()
+		print(go_to_hook)
 func _process(delta: float) -> void:
 	handle_input()
 	handle_rotation(delta)
 	check_ledge()
 	state.process(delta,input_frame)
 	shooting.process(delta,input_frame)
-
-func hook(input_direction:Vector2) -> bool:
-	
-	
-	
-	return false
 
 # For Rotaion Camera
 @export var tar_rot :float = 0

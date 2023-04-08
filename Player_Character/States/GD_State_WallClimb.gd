@@ -4,6 +4,7 @@ extends BaseState
 @onready var run_state = $"../Run"
 @onready var jump_state = $"../Jump"
 @onready var fall_state = $"../Fall"
+@onready var hook_state = $"../Hook"
 
 @onready var wall_jump_timer = $"../../WallRun/WallRunJumpTimer"
 
@@ -32,6 +33,10 @@ func process(delta: float,input_frame:Dictionary) -> BaseState:
 	
 	if not player.selected_wall is Array:
 		return fall_state
+	
+	
+	if player.go_to_hook:
+		return hook_state
 	
 	player.velocity.y -= WALL_CLIMB_GRAVITY*delta
 	
