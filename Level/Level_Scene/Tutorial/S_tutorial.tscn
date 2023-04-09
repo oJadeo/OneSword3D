@@ -325,7 +325,7 @@ timerDuration = 5.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.625924, 0.239904, 0.823061)
 
 [node name="multiSwitch2" parent="multi_Switch_Manager" instance=ExtResource("13_3i207")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.185246, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90275, 0.185246, 0)
 
 [node name="multiSwitch3" parent="multi_Switch_Manager" instance=ExtResource("13_3i207")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.712155, 0.195939, 0.851984)
