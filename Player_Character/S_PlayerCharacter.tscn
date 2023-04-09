@@ -2118,6 +2118,9 @@ script = ExtResource("12_whnj1")
 bullet = ExtResource("13_bt3mj")
 charge_angles = PackedInt32Array(-30, -15, 0, 15, 30)
 
+[node name="showMouseAimTimer" type="Timer" parent="Shooting"]
+one_shot = true
+
 [node name="chargeTimer" type="Timer" parent="Shooting"]
 
 [node name="shootTimer" type="Timer" parent="Shooting"]
@@ -2131,7 +2134,6 @@ script = ExtResource("15_cs8ua")
 shape = SubResource("SphereShape3D_jee2y")
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
-[connection signal="timeout" from="Shooting/showMouseAimTimer" to="Shooting" method="_on_show_mouse_aim_timer_timeout"]
 [connection signal="timeout" from="Shooting/chargeTimer" to="Shooting" method="_on_charge_timer_timeout"]
 [connection signal="area_entered" from="Shooting/AimAssist" to="Shooting/AimAssist" method="_on_area_entered"]
 [connection signal="area_exited" from="Shooting/AimAssist" to="Shooting/AimAssist" method="_on_area_exited"]

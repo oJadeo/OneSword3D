@@ -14,7 +14,7 @@ extends Node3D
 var bullet_direction = Vector3.ZERO
 var reloading:bool = false
 var isShootMouse:bool = false
-var showMouseAim:bool = false
+
 var player:PlayerCharacter
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -49,7 +49,6 @@ func create_bullet(direction:Vector3):
 	var new_bullet = bullet.instantiate()
 	get_tree().current_scene.add_child(new_bullet)
 	showMouseAimTimer.start()
-	showMouseAim = true
 	new_bullet.init(direction,global_position,bullet_speed,true)
 		
 func line(pos1: Vector3, pos2: Vector3, color = Color.WHITE_SMOKE) -> MeshInstance3D:
@@ -82,7 +81,8 @@ func cal_bullet_dir(input_frame:Dictionary):
 		var amount:float = (rayOrigin.y-global_position.y)/ray_Vector.y
 		target_pos= rayOrigin - ray_Vector * amount
 		bullet_direction = (target_pos - global_position).normalized()
-		if  showMouseAim:
+		bullet_direction = aim_assist.get_assist(Vector2(bullet_direction.x,bullet_direction.z))
+		if not showMouseAimTimer.is_stopped():
 			var line = line(global_position,global_position+bullet_direction*5,Color.BLACK)
 			get_tree().create_timer(.001).timeout.connect(func():line.queue_free())
 	else:
@@ -93,10 +93,10 @@ func cal_bullet_dir(input_frame:Dictionary):
 		var amount:float = (global_position.y - rayOrigin.y)/ray_Vector.y
 		target_pos= rayOrigin + ray_Vector * amount
 		bullet_direction = (target_pos - global_position).normalized()
+		bullet_direction = aim_assist.get_assist(Vector2(bullet_direction.x,bullet_direction.z))
 		if input_frame["shoot_direction"] != Vector2.ZERO :
 			var line = line(global_position,global_position+bullet_direction*5,Color.BLACK)
 			get_tree().create_timer(.001).timeout.connect(func():line.queue_free())
-	bullet_direction = aim_assist.get_assist(Vector2(bullet_direction.x,bullet_direction.z))
 func hook() -> bool:
 	hook_ray.set_target_position(bullet_direction*hook_range)
 	hook_ray.force_raycast_update()
@@ -113,6 +113,3 @@ func _input(event: InputEvent) -> void:
 		isShootMouse = false
 
 
-func _on_show_mouse_aim_timer_timeout():
-	showMouseAimTimer.stop()
-	showMouseAim = false
