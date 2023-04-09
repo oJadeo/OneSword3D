@@ -128,7 +128,7 @@ libraries = {
 "": SubResource("AnimationLibrary_j2hli")
 }
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." groups=["target"]]
 collision_mask = 512
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
