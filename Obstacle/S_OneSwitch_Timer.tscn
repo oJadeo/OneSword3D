@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://4ufxawcoyuy2"]
+
+[ext_resource type="PackedScene" uid="uid://2dsfobnjgnqg" path="res://Level/Switch/S_singleSwitch.tscn" id="1_jsste"]
+[ext_resource type="PackedScene" uid="uid://cc7uecnf8r3uj" path="res://Level/Tiles/Platform/S_Platform.tscn" id="2_etn0l"]
+
+[node name="Single_Switch_Platform" type="Node3D"]
+
+[node name="Switch" parent="." instance=ExtResource("1_jsste")]
+activateTimer = true
+timerDuration = 5
+activator = NodePath("../S_Platform")
+
+[node name="S_Platform" parent="." instance=ExtResource("2_etn0l")]
