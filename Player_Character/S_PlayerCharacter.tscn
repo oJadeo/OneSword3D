@@ -2110,6 +2110,8 @@ script = ExtResource("12_5u6b2")
 bullet = ExtResource("13_bt3mj")
 charge_angles = PackedInt32Array(-30, -15, 0, 15, 30)
 
+[node name="showMouseAimTimer" type="Timer" parent="Shooting"]
+
 [node name="chargeTimer" type="Timer" parent="Shooting"]
 
 [node name="shootTimer" type="Timer" parent="Shooting"]
@@ -2117,4 +2119,5 @@ wait_time = 0.5
 one_shot = true
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="timeout" from="Shooting/showMouseAimTimer" to="Shooting" method="_on_show_mouse_aim_timer_timeout"]
 [connection signal="timeout" from="Shooting/chargeTimer" to="Shooting" method="_on_charge_timer_timeout"]
