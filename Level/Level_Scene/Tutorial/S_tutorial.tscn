@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://1b0pdu3ygf3b"]
+[gd_scene load_steps=30 format=3 uid="uid://1b0pdu3ygf3b"]
 
 [ext_resource type="PackedScene" uid="uid://biundw7n53o5u" path="res://Level/Tiles/Dialogue_box/S_dialogue_box.tscn" id="1_qli0e"]
 [ext_resource type="JSON" path="res://Dialogue/test_dialogue.json" id="2_dp32p"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://2dsfobnjgnqg" path="res://Level/Switch/S_singleSwitch.tscn" id="12_qhehc"]
 [ext_resource type="PackedScene" uid="uid://beo18etyx3uhi" path="res://Level/Switch/S_multi_switch.tscn" id="13_3i207"]
 [ext_resource type="PackedScene" uid="uid://d4lo38bos3mu3" path="res://Level/Switch/S_multi_switch_manager.tscn" id="13_kcg2p"]
+[ext_resource type="PackedScene" uid="uid://cc7uecnf8r3uj" path="res://Level/Tiles/Platform/S_Platform.tscn" id="15_lexpl"]
 
 [sub_resource type="Environment" id="Environment_uvupg"]
 background_mode = 1
@@ -313,8 +314,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 
 [node name="Switch" parent="." instance=ExtResource("12_qhehc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8792, 0.257663, 0.372822)
-activateTimer = true
 timerDuration = 3
+activator = NodePath("../S_Platform")
 
 [node name="multi_Switch_Manager" parent="." instance=ExtResource("13_kcg2p")]
 activateTimer = true
@@ -324,10 +325,35 @@ timerDuration = 5.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.625924, 0.239904, 0.823061)
 
 [node name="multiSwitch2" parent="multi_Switch_Manager" instance=ExtResource("13_3i207")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.185246, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90275, 0.185246, 0)
 
 [node name="multiSwitch3" parent="multi_Switch_Manager" instance=ExtResource("13_3i207")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.712155, 0.195939, 0.851984)
+
+[node name="S_Platform" parent="." instance=ExtResource("15_lexpl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.48549)
+mode = 2
+
+[node name="GridMap" parent="S_Platform" index="0"]
+data = {
+"cells": PackedInt32Array(65535, 1, 1048580, 65535, 0, 4, 0, 0, 1441796, 0, 1, 655364)
+}
+metadata/_editor_floor_ = Vector3(146, 0, 55)
+
+[node name="EndPos" parent="S_Platform" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.20253, 0, 0)
+
+[node name="OnTimer" parent="S_Platform" index="3"]
+wait_time = 3.0
+
+[node name="OffTimer" parent="S_Platform" index="4"]
+wait_time = 2.0
+
+[node name="FallTimer" parent="S_Platform" index="5"]
+wait_time = 0.5
+
+[node name="CollisionShape3D" parent="S_Platform/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00678216, 0.514462, 0.501002)
 
 [editable path="Addon/S_rotate_camera2"]
 [editable path="Addon/S_rotate_camera4"]
@@ -343,3 +369,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.712155, 0.195939, 0.851984
 [editable path="Addon/S_depth_bxo4"]
 [editable path="Addon/S_rotate_camera6"]
 [editable path="S_dialogue_box"]
+[editable path="S_Platform"]
