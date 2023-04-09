@@ -16,7 +16,7 @@ var currentInputMappedKeyboard = {
 }
 
 var currentInputMappedController = {
-	"Attack" : 2,
+	"Attack" : 5,
 	"Jump" : 0,
 	"Dash" : 1,
 	"Move_Up" : 999,
@@ -83,7 +83,15 @@ func setupInput(inputKeyboard:Dictionary,inputController:Dictionary):
 			newKeyboard.keycode = inputKeyboard[action]
 		InputMap.action_add_event(action,newKeyboard)
 		var newController
-		if action == "Move_Up":
+		if currentInputMappedController[action] == 4:
+			newController = InputEventJoypadMotion.new()
+			newController.axis = 4
+			newController.axis_value = +1
+		elif currentInputMappedController[action] == 5:
+			newController = InputEventJoypadMotion.new()
+			newController.axis = 5
+			newController.axis_value = +1
+		elif action == "Move_Up":
 			newController = InputEventJoypadMotion.new()
 			newController.axis = 1
 			newController.axis_value = -1

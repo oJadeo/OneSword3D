@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" uid="uid://druevnyrn8qtt" path="res://Player_Character/Player_Character.png" id="1_tti5l"]
+
+[node name="Player_Rotate" type="CharacterBody3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 1
+double_sided = false
+no_depth_test = true
+texture_filter = 0
+render_priority = 5
+texture = ExtResource("1_tti5l")
+hframes = 4
+vframes = 36

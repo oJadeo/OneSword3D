@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://go5s3j6b61ro"
-path="res://.godot/imported/Player_Character.png-5d54b85d41aecf5807e5b71fb91628aa.ctex"
+uid="uid://bxytm1dnva8s7"
+path="res://.godot/imported/Switch_Timer.png-7401a1fbf93e64d7a64a440766d166a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player_Character_Twin_Stick/Player_Character.png"
-dest_files=["res://.godot/imported/Player_Character.png-5d54b85d41aecf5807e5b71fb91628aa.ctex"]
+source_file="res://Level/Switch/Switch_Timer.png"
+dest_files=["res://.godot/imported/Switch_Timer.png-7401a1fbf93e64d7a64a440766d166a1.ctex"]
 
 [params]
 

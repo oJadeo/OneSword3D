@@ -22,18 +22,18 @@ enum mode {
 var currentMode = mode.KEYBOARD
 var currentControllerType
 var cannotMappedKeyboard = ["Enter","Escape"]
-var cannotMappedController = [4,6]
-var gameActions = ["Move_Left","Move_Right","Move_Up","Move_Down","Attack","Dash","WallRun","Jump","Block"]
+var cannotMappedController = [6]
+var gameActions = ["Move_Left","Move_Right","Move_Up","Move_Down","Attack","dialogue","WallRun","Jump","Hook"]
 var actionsName = {
 	"Move Left": "Move_Left",
 	"Move Right" : "Move_Right",
 	"Move Up" : "Move_Up",
 	"Move Down" : "Move_Down",
 	"Attack" : "Attack",
-	"Dash" : "Dash",
+	"Dialogue" : "dialogue",
 	"Wall Run" : "WallRun",
 	"Jump" : "Jump",
-	"Block" : "Block"
+	"Hook" : "Hook"
 }
 
 enum controllerType {
@@ -46,7 +46,8 @@ var PS4_button= {
 	1 : "Circle",
 	2 : "Square",
 	3 : "Triangle",
-	4 : "Options",
+	4 : "L2",
+	5 : "R2",
 	6 : "Share",
 	7 : "L3",
 	8 : "R3",
@@ -63,10 +64,11 @@ var xbox_button= {
 	1 : "B",
 	2 : "X",
 	3 : "Y",
-	4 : "Menu",
+	4 : "LT",
+	5: "RT",
 	6 : "mairu",
-	7 : "LSB",
-	8 : "RSB",
+	7 : "LS",
+	8 : "RS",
 	9 : "LB",
 	10 : "RB",
 	11 : "Dpad Up",
@@ -78,49 +80,49 @@ var xbox_button= {
 var defaultInputKeyboard = {
 	"Attack" : 1,
 	"Jump" : 32,
-	"Dash" : 4194325,
+	"dialogue" : 4194325,
 	"Move_Up" : 87,
 	"Move_Down" : 83,
 	"Move_Left" : 65,
 	"Move_Right" : 68,
 	"WallRun" : 4194326,
-	"Block" : 2
+	"Hook" : 2
 }
 
 var currentInputMappedKeyboard = {
 	"Attack" : 1,
 	"Jump" : 32,
-	"Dash" : 4194325,
+	"dialogue" : 4194325,
 	"Move_Up" : 87,
 	"Move_Down" : 83,
 	"Move_Left" : 65,
 	"Move_Right" : 68,
 	"WallRun" : 4194326,
-	"Block" : 2
+	"Hook" : 2
 }
 
 var defaultInputController = {
-	"Attack" : 2,
+	"Attack" : 5,
 	"Jump" : 0,
-	"Dash" : 1,
+	"dialogue" : 1,
 	"Move_Up" : 999,
 	"Move_Down" : 999,
 	"Move_Left" : 999,
 	"Move_Right" : 999,
 	"WallRun" : 9,
-	"Block" : 10
+	"Hook" : 10
 }
 
 var currentInputMappedController = {
-	"Attack" : 2,
+	"Attack" : 5,
 	"Jump" : 0,
-	"Dash" : 1,
+	"dialogue" : 1,
 	"Move_Up" : 999,
 	"Move_Down" : 999,
 	"Move_Left" : 999,
 	"Move_Right" : 999,
 	"WallRun" : 9,
-	"Block" : 10
+	"Hook" : 10
 }
 
 
@@ -238,7 +240,7 @@ func _on_button_Jump_pressed():
 	inputPanel.visible = true
 	
 func _on_button_Dash_pressed():
-	currentAction = "Dash"
+	currentAction = "Dialogue"
 	edit = true
 	container.visible = false
 	inputPanel.visible = true
@@ -256,7 +258,7 @@ func _on_button_Attack_pressed():
 	inputPanel.visible = true
 
 func _on_button_Block_pressed():
-	currentAction = "Block"
+	currentAction = "Hook"
 	edit = true
 	container.visible = false
 	inputPanel.visible = true
@@ -271,7 +273,7 @@ func _on_button_default_pressed():
 
 func _input(event):
 	if edit :
-		print(event)
+		#print(event)
 		var targetEvent
 		if currentMode == mode.KEYBOARD:
 			if event is InputEventKey:
@@ -305,17 +307,30 @@ func _input(event):
 			keyboardButton.grab_focus()
 		if currentMode == mode.CONTROLLER:
 			if event is InputEventJoypadButton and event.is_pressed():
-			#print(event.button_index)
+				#print(event.button_index)
 				var duplicate = false
 				for e in currentInputMappedController:
 					if currentInputMappedController[e] == event.button_index:
 						print(currentInputMappedController[e])
 						duplicate = true
-				if (event.button_index not in cannotMappedController and not duplicate):
+				if (event.button_index not in cannotMappedController and not duplicate and event.button_index != 4):
 					currentInputMappedController[currentAction] = event.button_index
 					edit = false
 					inputPanel.visible = false
 					container.visible = true
+				displayInputController(currentInputMappedController)
+			if event is InputEventJoypadMotion:
+				if event.axis == 4 || event.axis == 5:
+					var duplicate = false
+					for e in currentInputMappedController:
+						if currentInputMappedController[e] == event.axis:
+							print(currentInputMappedController[e])
+							duplicate = true
+					if (event.axis not in cannotMappedController and not duplicate):
+						currentInputMappedController[currentAction] = event.axis
+						edit = false
+						inputPanel.visible = false
+						container.visible = true
 				displayInputController(currentInputMappedController)
 			controllerButton.grab_focus()		
 
