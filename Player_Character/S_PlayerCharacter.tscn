@@ -1,4 +1,4 @@
-[gd_scene load_steps=154 format=3 uid="uid://co7kw2uebqbla"]
+[gd_scene load_steps=157 format=3 uid="uid://s05c20f50p7d"]
 
 [ext_resource type="Script" path="res://Player_Character/GD_PlayerCharacter.gd" id="1_4mlv5"]
 [ext_resource type="Texture2D" uid="uid://druevnyrn8qtt" path="res://Player_Character/Player_Character.png" id="2_fvaqj"]
@@ -11,8 +11,10 @@
 [ext_resource type="Script" path="res://Player_Character/States/GD_State_WallClimb.gd" id="9_f857v"]
 [ext_resource type="Script" path="res://Player_Character/States/GD_State_WallRun.gd" id="10_jnaov"]
 [ext_resource type="Script" path="res://Player_Character/States/GD_State_Ledge.gd" id="11_yd545"]
-[ext_resource type="Script" path="res://Player_Character/GD_Shooting.gd" id="12_5u6b2"]
+[ext_resource type="Script" path="res://Player_Character/States/GD_State_Hooking.gd" id="12_osv4a"]
+[ext_resource type="Script" path="res://Player_Character/Shooting/GD_Shooting.gd" id="12_whnj1"]
 [ext_resource type="PackedScene" uid="uid://mmhjxo44u7lc" path="res://Enemy/RangeEnemy/Bullet/S_Bullet.tscn" id="13_bt3mj"]
+[ext_resource type="Script" path="res://Player_Character/GD_AimAssist.gd" id="15_cs8ua"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xc8no"]
 radius = 0.07
@@ -1956,13 +1958,16 @@ states/Wall_run_left/position = Vector2(207, 261.946)
 states/Wall_run_right/node = SubResource("AnimationNodeBlendSpace2D_vjbpw")
 states/Wall_run_right/position = Vector2(386, 261.946)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_1cegg"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_fkea5"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_gvt5f"), "Run", "Dash", SubResource("AnimationNodeStateMachineTransition_8vtlh"), "Dash", "Run", SubResource("AnimationNodeStateMachineTransition_jcmng"), "Dash", "Idle", SubResource("AnimationNodeStateMachineTransition_5ub82"), "Idle", "Dash", SubResource("AnimationNodeStateMachineTransition_lo1ux"), "Idle", "Block", SubResource("AnimationNodeStateMachineTransition_421b5"), "Block", "Idle", SubResource("AnimationNodeStateMachineTransition_oub33"), "Idle", "Attack_1", SubResource("AnimationNodeStateMachineTransition_odrdr"), "Attack_1", "Idle", SubResource("AnimationNodeStateMachineTransition_thled"), "Idle", "Slaming", SubResource("AnimationNodeStateMachineTransition_13fa8"), "Slaming", "Slam_end", SubResource("AnimationNodeStateMachineTransition_crb4r"), "Slam_end", "Idle", SubResource("AnimationNodeStateMachineTransition_oc25s"), "Idle", "End", SubResource("AnimationNodeStateMachineTransition_jt4wg"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_8ba68"), "Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_f2bbh"), "Fall", "Idle", SubResource("AnimationNodeStateMachineTransition_13xjr"), "Idle", "Wall_run_left", SubResource("AnimationNodeStateMachineTransition_fx8m7"), "Wall_run_left", "Idle", SubResource("AnimationNodeStateMachineTransition_1wir8"), "Wall_run_left", "Wall_run_right", SubResource("AnimationNodeStateMachineTransition_bahmm"), "Wall_run_right", "Wall_run_left", SubResource("AnimationNodeStateMachineTransition_0pidd"), "Wall_run_right", "Idle", SubResource("AnimationNodeStateMachineTransition_xcgcm"), "Idle", "Wall_run_right", SubResource("AnimationNodeStateMachineTransition_3v3ai")]
-graph_offset = Vector2(-240, -80.0541)
+graph_offset = Vector2(-204, -46.0541)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_ggkns"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r3dmx"]
 radius = 0.07
 height = 0.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jee2y"]
+radius = 2.0
 
 [node name="Player_Character" type="CharacterBody3D"]
 collision_layer = 2
@@ -2092,6 +2097,9 @@ WALL_JUMP_FORCE = 3.0
 script = ExtResource("11_yd545")
 ACCEL_TO_LEDGE = 3.0
 
+[node name="Hook" type="Node3D" parent="StateManager"]
+script = ExtResource("12_osv4a")
+
 [node name="Ledge" type="Node3D" parent="."]
 
 [node name="CheckWall" type="RayCast3D" parent="Ledge"]
@@ -2106,9 +2114,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 target_position = Vector3(0, 0, 1)
 
 [node name="Shooting" type="Node3D" parent="."]
-script = ExtResource("12_5u6b2")
+script = ExtResource("12_whnj1")
 bullet = ExtResource("13_bt3mj")
 charge_angles = PackedInt32Array(-30, -15, 0, 15, 30)
+
+[node name="HookRay" type="RayCast3D" parent="Shooting"]
+collide_with_areas = true
 
 [node name="chargeTimer" type="Timer" parent="Shooting"]
 
@@ -2116,5 +2127,13 @@ charge_angles = PackedInt32Array(-30, -15, 0, 15, 30)
 wait_time = 0.5
 one_shot = true
 
+[node name="AimAssist" type="Area3D" parent="Shooting"]
+script = ExtResource("15_cs8ua")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Shooting/AimAssist"]
+shape = SubResource("SphereShape3D_jee2y")
+
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="timeout" from="Shooting/chargeTimer" to="Shooting" method="_on_charge_timer_timeout"]
+[connection signal="area_entered" from="Shooting/AimAssist" to="Shooting/AimAssist" method="_on_area_entered"]
+[connection signal="area_exited" from="Shooting/AimAssist" to="Shooting/AimAssist" method="_on_area_exited"]
