@@ -4,7 +4,7 @@
 [ext_resource type="MeshLibrary" uid="uid://igtk5abse8xh" path="res://Level/Tiles_Set/mesh_lib/set_proto.tres" id="2_bxkda"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pthba"]
-size = Vector3(0.928193, 0.25, 0.955467)
+size = Vector3(1.5071, 0.293109, 1.4984)
 
 [node name="S_Platform" type="Node3D"]
 script = ExtResource("1_cf8j1")
@@ -36,7 +36,7 @@ one_shot = true
 collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24237, 0.514462, 0.249007)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.253086, 0.514462, 0.249007)
 shape = SubResource("BoxShape3D_pthba")
 
 [node name="MoveTimer" type="Timer" parent="."]
