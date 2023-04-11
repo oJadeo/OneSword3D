@@ -2099,6 +2099,7 @@ ACCEL_TO_LEDGE = 3.0
 
 [node name="Hook" type="Node3D" parent="StateManager"]
 script = ExtResource("12_osv4a")
+ACCEL = 20.0
 
 [node name="Ledge" type="Node3D" parent="."]
 
@@ -2117,6 +2118,7 @@ target_position = Vector3(0, 0, 1)
 script = ExtResource("12_whnj1")
 bullet = ExtResource("13_bt3mj")
 charge_angles = PackedInt32Array(-30, -15, 0, 15, 30)
+hook_range = 2
 
 [node name="HookRay" type="RayCast3D" parent="Shooting"]
 collide_with_areas = true
@@ -2132,6 +2134,7 @@ one_shot = true
 
 [node name="AimAssist" type="Area3D" parent="Shooting"]
 script = ExtResource("15_cs8ua")
+assist_angle = 15.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Shooting/AimAssist"]
 shape = SubResource("SphereShape3D_jee2y")
