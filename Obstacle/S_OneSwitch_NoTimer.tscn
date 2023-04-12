@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2wh3aqmeck26"]
+
+[ext_resource type="PackedScene" uid="uid://2dsfobnjgnqg" path="res://Level/Switch/S_singleSwitch.tscn" id="1_ue63g"]
+[ext_resource type="PackedScene" uid="uid://cc7uecnf8r3uj" path="res://Level/Tiles/Platform/S_Platform.tscn" id="2_36p1p"]
+
+[node name="S_Single_Switch_Platform_No" type="Node3D"]
+
+[node name="Switch" parent="." instance=ExtResource("1_ue63g")]
+activator = NodePath("../S_Platform")
+
+[node name="S_Platform" parent="." instance=ExtResource("2_36p1p")]
