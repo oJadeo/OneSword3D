@@ -2118,6 +2118,9 @@ script = ExtResource("12_whnj1")
 bullet = ExtResource("13_bt3mj")
 charge_angles = PackedInt32Array(-30, -15, 0, 15, 30)
 
+[node name="HookRay" type="RayCast3D" parent="Shooting"]
+collide_with_areas = true
+
 [node name="showMouseAimTimer" type="Timer" parent="Shooting"]
 one_shot = true
 
