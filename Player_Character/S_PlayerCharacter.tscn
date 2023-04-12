@@ -1966,8 +1966,8 @@ graph_offset = Vector2(-204, -46.0541)
 radius = 0.07
 height = 0.4
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_jee2y"]
-radius = 2.0
+[sub_resource type="SphereShape3D" id="SphereShape3D_itvw0"]
+radius = 3.0
 
 [node name="Player_Character" type="CharacterBody3D"]
 collision_layer = 2
@@ -2118,6 +2118,7 @@ target_position = Vector3(0, 0, 1)
 script = ExtResource("12_whnj1")
 bullet = ExtResource("13_bt3mj")
 charge_angles = PackedInt32Array(-30, -15, 0, 15, 30)
+bullet_speed = 0.02
 hook_range = 2
 
 [node name="HookRay" type="RayCast3D" parent="Shooting"]
@@ -2134,10 +2135,10 @@ one_shot = true
 
 [node name="AimAssist" type="Area3D" parent="Shooting"]
 script = ExtResource("15_cs8ua")
-assist_angle = 15.0
+assist_angle = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Shooting/AimAssist"]
-shape = SubResource("SphereShape3D_jee2y")
+shape = SubResource("SphereShape3D_itvw0")
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="timeout" from="Shooting/chargeTimer" to="Shooting" method="_on_charge_timer_timeout"]
