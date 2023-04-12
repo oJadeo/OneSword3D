@@ -8,6 +8,5 @@
 [node name="Switch" parent="." instance=ExtResource("1_jsste")]
 activateTimer = true
 timerDuration = 5
-activator = NodePath("../S_Platform")
 
 [node name="S_Platform" parent="." instance=ExtResource("2_etn0l")]
