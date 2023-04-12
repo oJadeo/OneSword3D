@@ -7,4 +7,8 @@ script = ExtResource("1_flhkb")
 
 [node name="Timer" type="Timer" parent="."]
 
+[node name="deactivateChildren" type="Node3D" parent="."]
+
+[node name="activateChildren" type="Node3D" parent="."]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

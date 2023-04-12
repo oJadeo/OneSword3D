@@ -35,9 +35,9 @@ func _ready() -> void:
 				on_timer.start()
 		Mode.Appear:
 			platform.set_global_position(start_pos.get_global_position())
-			platform.visible = true
+			platform.visible = false
 			platform.set_collision_layer_value(1,true)
-			collision.disabled = false
+			collision.disabled = true
 			if use_timer:
 				on_timer.start()
 		Mode.Falling:
