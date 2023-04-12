@@ -1,0 +1,100 @@
+[gd_scene load_steps=8 format=3 uid="uid://dy64eo2vtwlam"]
+
+[ext_resource type="PackedScene" uid="uid://s05c20f50p7d" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_lpe1n"]
+[ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="2_0l6n2"]
+[ext_resource type="MeshLibrary" uid="uid://igtk5abse8xh" path="res://Level/Tiles_Set/mesh_lib/set_proto.tres" id="3_78vti"]
+[ext_resource type="PackedScene" uid="uid://2dsfobnjgnqg" path="res://Level/Switch/S_singleSwitch.tscn" id="4_myknu"]
+[ext_resource type="PackedScene" uid="uid://cc7uecnf8r3uj" path="res://Level/Tiles/Platform/S_Platform.tscn" id="5_k5s8d"]
+
+[sub_resource type="Environment" id="Environment_ahxjr"]
+background_mode = 1
+background_color = Color(0.317647, 0.541176, 0.713726, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+ambient_light_sky_contribution = 0.17
+tonemap_mode = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ui0eq"]
+size = Vector3(100, 1, 100)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="lighting" type="Node3D" parent="."]
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="lighting"]
+transform = Transform3D(-4.37114e-08, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1, 3.09086e-08, -3.09086e-08, -3.32541, 2.1958, 0)
+light_energy = 0.2
+shadow_enabled = true
+directional_shadow_mode = 0
+
+[node name="DirectionalLight3d2" type="DirectionalLight3D" parent="lighting"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -3.32541, 2.1958, 0)
+light_energy = 0.2
+shadow_enabled = true
+directional_shadow_mode = 0
+
+[node name="DirectionalLight3d3" type="DirectionalLight3D" parent="lighting"]
+transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, -3.32541, 2.1958, 16)
+light_energy = 0.2
+shadow_enabled = true
+directional_shadow_mode = 0
+
+[node name="DirectionalLight3d4" type="DirectionalLight3D" parent="lighting"]
+transform = Transform3D(-1, 6.18173e-08, -6.18173e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, -3.32541, 2.1958, 16)
+light_energy = 0.2
+shadow_enabled = true
+directional_shadow_mode = 0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="lighting"]
+environment = SubResource("Environment_ahxjr")
+
+[node name="Player_Character" parent="." instance=ExtResource("1_lpe1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.71469, 0.842903, -0.191857)
+
+[node name="playerSpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6936, 0.816732, 0.013776)
+
+[node name="Danger_Area" parent="." instance=ExtResource("2_0l6n2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+
+[node name="triggerCollision" parent="Danger_Area" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, 28)
+shape = SubResource("BoxShape3D_ui0eq")
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("3_78vti")
+cell_size = Vector3(0.5, 0.5, 0.5)
+cell_scale = 0.25
+data = {
+"cells": PackedInt32Array(65524, 65535, 1, 65524, 0, 655361, 65523, 0, 1048576, 65525, 0, 655361, 65525, 65535, 655361, 65523, 65535, 1048576, 65525, 1, 655360, 65524, 1, 655360, 65523, 1, 655363, 65526, 1, 655360, 65527, 1, 655360, 65528, 1, 655360, 65529, 1, 655360, 65530, 1, 655360, 65531, 1, 655360, 65532, 1, 655360, 65533, 1, 1441795, 65533, 0, 1441792, 65532, 0, 655361, 65532, 65535, 655361, 65531, 65535, 655361, 65530, 65535, 655361, 65530, 0, 655361, 65529, 0, 655361, 65529, 65535, 655361, 65528, 0, 655361, 65527, 0, 655361, 65527, 65535, 655361, 65526, 0, 655361, 65526, 65535, 655361, 65528, 65535, 655361, 65533, 65535, 1441792, 65531, 0, 655361)
+}
+
+[node name="Switch" parent="." instance=ExtResource("4_myknu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4629, 0.631856, 0.367031)
+
+[node name="S_Platform" parent="Switch/deactivateChildren" index="0" instance=ExtResource("5_k5s8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.298048, 0, 1.82646)
+mode = 1
+
+[node name="S_Platform2" parent="Switch/deactivateChildren" index="1" instance=ExtResource("5_k5s8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44795, 0, 1.85843)
+mode = 1
+
+[node name="S_Platform3" parent="Switch/deactivateChildren" index="2" instance=ExtResource("5_k5s8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1783, 0, 1.83355)
+mode = 1
+
+[node name="S_Platform" parent="Switch/activateChildren" index="0" instance=ExtResource("5_k5s8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.640977, 0, -1.93325)
+mode = 1
+
+[node name="S_Platform2" parent="Switch/activateChildren" index="1" instance=ExtResource("5_k5s8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.60848, 0, -1.84332)
+mode = 1
+
+[node name="S_Platform3" parent="Switch/activateChildren" index="2" instance=ExtResource("5_k5s8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67224, 0, -1.60764)
+mode = 1
+
+[editable path="Danger_Area"]
+[editable path="Switch"]

@@ -2,15 +2,17 @@ extends Node3D
 
 @onready var animationPlayer = $AnimationPlayer
 @onready var timer = $Timer
+@onready var activate_children = $activateChildren
+@onready var deactivate_children = $deactivateChildren
 
 @export var activateTimer = false
 @export var timerDuration = 0
-@export var activator : NodePath
 
 var isOn = false
 
 
 func _ready():
+	switchDeactivate()
 	animationPlayer.play("Idle_off")
 	timer.wait_time = timerDuration
 
@@ -37,18 +39,29 @@ func switchDeactivate():
 			timer.stop()
 	animationPlayer.play("Deactivate")
 	isOn = false
-	if activator:
-		var node = get_node(activator)
-		if node and node.has_method('deactivate'):
-			node.deactivate()
+	if activate_children.get_child_count() != 0:
+		for e in activate_children.get_children():
+			if e and e.has_method('deactivate'):
+				e.deactivate()
+				
+	if deactivate_children.get_child_count() != 0:
+		for e in deactivate_children.get_children():
+			if e and e.has_method('activate'):
+				e.activate()
 
 func switchActivate():
 	animationPlayer.play("Activate")
 	isOn = true
-	if activator:
-		var node = get_node(activator)
-		if node and node.has_method('activate'):
-			node.activate()
+	if activate_children.get_child_count() != 0:
+		for e in activate_children.get_children():
+			if e and e.has_method('activate'):
+				e.activate()
+	
+	if deactivate_children.get_child_count() != 0:
+		for e in deactivate_children.get_children():
+			if e and e.has_method('deactivate'):
+				e.deactivate()
+				
 	if activateTimer:
 		timer.start()
 

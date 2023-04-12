@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://rmxg4qrw4k2l"]
 
-[ext_resource type="PackedScene" uid="uid://co7kw2uebqbla" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_objdu"]
+[ext_resource type="PackedScene" uid="uid://s05c20f50p7d" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_objdu"]
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="2_aqg6m"]
 [ext_resource type="Material" uid="uid://delp1py61dkvl" path="res://Level/Level_Scene/mat/mat_wall.tres" id="3_giqib"]
 [ext_resource type="PackedScene" uid="uid://biundw7n53o5u" path="res://Level/Tiles/Dialogue_box/S_dialogue_box.tscn" id="4_ddcwb"]
