@@ -80,7 +80,7 @@ var xbox_button= {
 var defaultInputKeyboard = {
 	"Attack" : 1,
 	"Jump" : 32,
-	"dialogue" : 4194325,
+	"dialogue" : 70,
 	"Move_Up" : 87,
 	"Move_Down" : 83,
 	"Move_Left" : 65,
@@ -92,7 +92,7 @@ var defaultInputKeyboard = {
 var currentInputMappedKeyboard = {
 	"Attack" : 1,
 	"Jump" : 32,
-	"dialogue" : 4194325,
+	"dialogue" : 70,
 	"Move_Up" : 87,
 	"Move_Down" : 83,
 	"Move_Left" : 65,
@@ -103,8 +103,8 @@ var currentInputMappedKeyboard = {
 
 var defaultInputController = {
 	"Attack" : 5,
-	"Jump" : 0,
-	"dialogue" : 1,
+	"Jump" : 4,
+	"dialogue" : 0,
 	"Move_Up" : 999,
 	"Move_Down" : 999,
 	"Move_Left" : 999,
@@ -115,8 +115,8 @@ var defaultInputController = {
 
 var currentInputMappedController = {
 	"Attack" : 5,
-	"Jump" : 0,
-	"dialogue" : 1,
+	"Jump" : 4,
+	"dialogue" : 0,
 	"Move_Up" : 999,
 	"Move_Down" : 999,
 	"Move_Left" : 999,
