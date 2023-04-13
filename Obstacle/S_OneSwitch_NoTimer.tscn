@@ -6,6 +6,5 @@
 [node name="S_Single_Switch_Platform_No" type="Node3D"]
 
 [node name="Switch" parent="." instance=ExtResource("1_ue63g")]
-activator = NodePath("../S_Platform")
 
 [node name="S_Platform" parent="." instance=ExtResource("2_36p1p")]

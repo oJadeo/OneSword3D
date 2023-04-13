@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://b0yua74dbmywr"]
 
-[ext_resource type="PackedScene" uid="uid://ckhvfyhreuwrp" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_5gfxn"]
+[ext_resource type="PackedScene" uid="uid://s05c20f50p7d" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_5gfxn"]
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="2_ujtmv"]
 
 [sub_resource type="Environment" id="Environment_63jx7"]
@@ -69,7 +69,6 @@ Please Exit to Main Menu"
 
 [node name="Player_Character" parent="." instance=ExtResource("1_5gfxn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14243, 0.788702, 0)
-enable_wallrun = false
 
 [node name="playerSpawnPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14243, 0.425246, 0)

@@ -315,7 +315,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 [node name="Switch" parent="." instance=ExtResource("12_qhehc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8792, 0.257663, 0.372822)
 timerDuration = 3
-activator = NodePath("../S_Platform")
 
 [node name="multi_Switch_Manager" parent="." instance=ExtResource("13_kcg2p")]
 activateTimer = true

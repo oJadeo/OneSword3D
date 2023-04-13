@@ -6,25 +6,25 @@ var current = 0
 var currentInputMappedKeyboard = {
 	"Attack" : 1,
 	"Jump" : 32,
-	"Dash" : 4194325,
+	"dialogue" : 70,
 	"Move_Up" : 87,
 	"Move_Down" : 83,
 	"Move_Left" : 65,
 	"Move_Right" : 68,
 	"WallRun" : 4194326,
-	"Block" : 2
+	"Hook" : 2
 }
 
 var currentInputMappedController = {
 	"Attack" : 5,
-	"Jump" : 0,
-	"Dash" : 1,
+	"Jump" : 4,
+	"dialogue" : 0,
 	"Move_Up" : 999,
 	"Move_Down" : 999,
 	"Move_Left" : 999,
 	"Move_Right" : 999,
 	"WallRun" : 9,
-	"Block" : 10
+	"Hook" : 10
 }
 
 
