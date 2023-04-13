@@ -143,19 +143,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.58229, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6701, 4.81938, -9.0344)
 activateTimer = true
 timerDuration = 10
-activator = NodePath("../S_Platform")
 
 [node name="Switch2" parent="." instance=ExtResource("7_b2eih")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.81823, 4.81938, -9.0344)
 activateTimer = true
 timerDuration = 10
-activator = NodePath("../S_Platform")
 
 [node name="Switch3" parent="." instance=ExtResource("7_b2eih")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3298, 4.81938, -9.0344)
 activateTimer = true
 timerDuration = 10
-activator = NodePath("../S_Platform")
 
 [node name="S_Platform2" parent="." instance=ExtResource("6_ocumd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16714, 0, 1.82557)
