@@ -19,6 +19,7 @@ func enter() -> void:
 	player.velocity.y = WALL_CLIMB_Y_VELOCITY
 	player.wall_run_jumping = Vector3.ZERO
 	animationState.travel("Jump")
+	player.can_double_jump = true
 
 func exit() -> void:
 	pass

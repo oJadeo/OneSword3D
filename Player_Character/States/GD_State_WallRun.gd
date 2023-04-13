@@ -23,6 +23,7 @@ func enter() -> void:
 	player.wall_run_jumping = Vector3.ZERO
 	wall_run_timer.start()
 	cal_velocity()
+	player.can_double_jump = true
 	if player.velocity.cross(player.selected_wall[2]).y < 0:
 		animationState.travel("Wall_run_left")
 	else:

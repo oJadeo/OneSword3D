@@ -11,6 +11,7 @@ var view_size:Vector2 = Vector2(640,360)
 var target_hook:Vector3 = Vector3.ZERO
 var go_to_hook:bool = false
 var can_shoot:bool = true
+var can_double_jump = true
 func _ready() -> void:
 	#Initilize State machine with reference to player
 	state.init(self,animationState)

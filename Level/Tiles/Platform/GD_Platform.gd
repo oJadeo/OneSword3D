@@ -11,7 +11,6 @@ enum State{
 }
 @export var mode:Mode =  Mode.Moving
 @onready var move_timer = $MoveTimer
-
 @export var use_timer:bool = false
 @onready var on_timer = $OnTimer
 @onready var off_timer = $OffTimer
@@ -30,24 +29,17 @@ func _ready() -> void:
 	match mode:
 		Mode.Moving:
 			platform.set_global_position(start_pos.get_global_position())
-			collision.disabled = false
 			if use_timer:
 				on_timer.start()
 		Mode.Appear:
 			platform.set_global_position(start_pos.get_global_position())
-			platform.visible = true
-			platform.set_collision_layer_value(1,true)
-			collision.disabled = false
 			if use_timer:
 				on_timer.start()
 		Mode.Falling:
 			platform.set_global_position(start_pos.get_global_position())
-			platform.visible = true
-			platform.set_collision_layer_value(1,true)
-			collision.disabled = false
-	
 
-	
+	activate()
+
 	velocity = (end_pos.global_position - start_pos.global_position)/move_timer.wait_time
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -76,7 +68,6 @@ func activate()-> void:
 			platform.visible = true
 			platform.set_collision_layer_value(1,true)
 			collision.disabled = false
-	
 func deactivate()-> void:
 	match mode:
 		Mode.Moving:
@@ -90,7 +81,6 @@ func deactivate()-> void:
 			platform.visible = false
 			platform.set_collision_layer_value(1,false)
 			collision.disabled = true
-
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D:
