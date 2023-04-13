@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://cu2k5scdh8k3y"]
 
-[ext_resource type="PackedScene" uid="uid://co7kw2uebqbla" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_awcpq"]
+[ext_resource type="PackedScene" uid="uid://s05c20f50p7d" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_awcpq"]
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="2_dt8uy"]
 [ext_resource type="MeshLibrary" uid="uid://igtk5abse8xh" path="res://Level/Tiles_Set/mesh_lib/set_proto.tres" id="3_ctv3a"]
 [ext_resource type="PackedScene" uid="uid://4ufxawcoyuy2" path="res://Obstacle/S_OneSwitch_Timer.tscn" id="4_4cdbg"]
@@ -143,19 +143,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.58229, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6701, 4.81938, -9.0344)
 activateTimer = true
 timerDuration = 10
-activator = NodePath("../S_Platform")
 
 [node name="Switch2" parent="." instance=ExtResource("7_b2eih")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.81823, 4.81938, -9.0344)
 activateTimer = true
 timerDuration = 10
-activator = NodePath("../S_Platform")
 
 [node name="Switch3" parent="." instance=ExtResource("7_b2eih")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3298, 4.81938, -9.0344)
 activateTimer = true
 timerDuration = 10
-activator = NodePath("../S_Platform")
 
 [node name="S_Platform2" parent="." instance=ExtResource("6_ocumd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16714, 0, 1.82557)
