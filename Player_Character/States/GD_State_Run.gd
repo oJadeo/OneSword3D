@@ -21,6 +21,7 @@ func enter() -> void:
 	print("State:Run")
 	animationState.travel("Run")
 	player.is_wall_runable = true
+	player.can_double_jump = true
 	
 func exit() -> void:
 	pass

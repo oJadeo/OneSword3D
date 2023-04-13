@@ -12,6 +12,7 @@ extends BaseState
 @export var SPEED:float = 1
 @export var JUMP_VELOCITY:float = 3.5
 @export var GRAVITY:float = 9.8
+@export var DOUBLE_JUMP_VELOCITY:float = 3.5
 
 
 
@@ -56,6 +57,10 @@ func handle_input(delta: float,input_frame:Dictionary) -> BaseState:
 		player.velocity.y = JUMP_VELOCITY
 		return jump_state
 		#Double Jump
+		
+	if input_frame['just_jump'] and player.can_double_jump:
+		player.velocity.y = DOUBLE_JUMP_VELOCITY
+		return jump_state
 		
 		#JumpBuffer
 	if input_frame['just_jump']:

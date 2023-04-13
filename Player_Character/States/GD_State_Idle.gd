@@ -14,6 +14,7 @@ func enter() -> void:
 	super()
 	print("State:Idle")
 	animationState.travel("Idle")
+	player.can_double_jump = true
 
 func exit() -> void:
 	pass
