@@ -22,7 +22,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50566, 0, 0.497375)
 
 [node name="Switch" parent="." instance=ExtResource("3_ha31h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0639, 0, 0.696425)
-activator = NodePath("../S_Platform")
 
 [node name="Player_Character" parent="." instance=ExtResource("3_sbbrq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.77069, 0.959508, 1.15478)
