@@ -110,5 +110,8 @@ wait_time = 0.5
 [node name="CollisionShape3D" parent="S_Platform/Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00678216, 0.514462, 0.501002)
 
+[node name="S_HookTarget2" parent="." instance=ExtResource("2_qtb4l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.16367, 0.736946, -0.772157)
+
 [editable path="NavigationRegion3D/S_depth_bxo"]
 [editable path="S_Platform"]
