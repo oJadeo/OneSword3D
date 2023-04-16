@@ -2,6 +2,7 @@ extends BaseState
 
 @onready var jump_state = $"../Jump"
 @onready var fall_state = $"../Fall"
+@onready var ledge_state = $"../Ledge"
 
 @onready var wall_jump_timer = $"../../WallRun/WallRunJumpTimer"
 
@@ -29,7 +30,13 @@ func process(delta: float,input_frame:Dictionary) -> BaseState:
 	
 	if hook_direction.dot((player.target_hook - player.global_position).normalized()) < 0:
 		return fall_state
-		
+
+	if player.check_ledge():
+		return ledge_state
+	
+	if player.is_on_wall():
+		return fall_state
+	
 	var target_velocity:Vector3 =hook_direction* SPEED
 	
 	player.velocity.x = lerp(player.velocity.x,target_velocity.x,ACCEL*delta)
