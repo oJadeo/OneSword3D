@@ -4,7 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dlxurrb5wrcm6" path="res://Dialogue/S_Dialogue.tscn" id="2_55dr7"]
 
 [node name="S_dialogue_box" type="Area3D"]
-collision_mask = 3
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_yjxll")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
