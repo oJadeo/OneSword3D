@@ -165,7 +165,6 @@ wait_time = 3.0
 
 [node name="multi_Switch_Manager" parent="." instance=ExtResource("8_mb2bv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.39159, 0.719571, 0)
-activator = NodePath("../S_Platform2")
 timerDuration = 5.0
 
 [node name="multiSwitch" parent="multi_Switch_Manager" instance=ExtResource("9_krm32")]

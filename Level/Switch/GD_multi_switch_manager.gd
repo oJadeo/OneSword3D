@@ -1,37 +1,45 @@
 extends Node3D
 
 
+
 var multiSwitchList = []
 var activated = false
 var check = true
 var firstActivated = false
 
-@onready var timer = $Timer
+
+
+
 @export var activateTimer : bool
 @export var timerDuration : float
 
 @onready var activate_children = $activateChildren
+@onready var timer = $Timer
 @onready var deactivate_children = $deactivateChildren
 
 func _ready():
 	timer.wait_time = timerDuration
+	if activate_children.get_child_count() != 0:
+		for e in activate_children.get_children():
+			if e and e.has_method('deactivate'):
+				e.deactivate()
 
 
 
 func _process(delta):
-	check = true
-	for child in get_children():
-		if not child.get("isOn") == null:
-			if not child.isOn:
-				check = false
-			elif child.isOn and not firstActivated and activateTimer:
-				firstActivated = true
-				timer.start()
-	if check and not activated:
-		activated = true
-		completeAllSwitch()
+		check = true
+		for child in get_children():
+			if not child.get("isOn") == null:
+				if not child.isOn:
+					check = false
+				elif child.isOn and not firstActivated and activateTimer:
+					firstActivated = true
+					timer.start()
+		if check and not activated:
+			activated = true
+			completeAllSwitch()		
 
-func completeAllSwitch():
+func completeAllSwitch():		
 	for child in get_children():
 		if child.has_method("complete"):
 			child.complete()
@@ -55,4 +63,3 @@ func _on_timer_timeout():
 		for child in get_children():
 			if child.has_method("reset"):
 				child.reset()
-	
