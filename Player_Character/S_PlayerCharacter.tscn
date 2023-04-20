@@ -2086,7 +2086,7 @@ SPEED = 2.0
 
 [node name="WallClimb" type="Node3D" parent="StateManager"]
 script = ExtResource("9_f857v")
-WALL_CLIMB_Y_VELOCITY = 4.0
+WALL_CLIMB_Y_VELOCITY = 5.0
 WALL_JUMP_FORCE = 3.0
 
 [node name="WallRun" type="Node3D" parent="StateManager"]
@@ -2099,7 +2099,7 @@ ACCEL_TO_LEDGE = 3.0
 
 [node name="Hook" type="Node3D" parent="StateManager"]
 script = ExtResource("12_osv4a")
-ACCEL = 20.0
+ACCEL = 15.0
 
 [node name="Ledge" type="Node3D" parent="."]
 
