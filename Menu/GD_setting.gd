@@ -11,6 +11,7 @@ extends CanvasLayer
 @onready var seperateContainer = $VBoxContainer/HBoxContainer/VBoxContainer3
 @onready var keyboardButton = $VBoxContainer/HBoxContainer2/Keyboard
 @onready var controllerButton = $VBoxContainer/HBoxContainer2/Controller
+@onready var testButton = $VBoxContainer/HBoxContainer/VBoxContainer2/Input5/Button
 
 var currentAction
 var edit = false
@@ -23,14 +24,14 @@ var currentMode = mode.KEYBOARD
 var currentControllerType
 var cannotMappedKeyboard = ["Enter","Escape"]
 var cannotMappedController = [6]
-var gameActions = ["Move_Left","Move_Right","Move_Up","Move_Down","Attack","dialogue","WallRun","Jump","Hook"]
+var gameActions = ["Move_Left","Move_Right","Move_Up","Move_Down","Attack","Dialogue","WallRun","Jump","Hook"]
 var actionsName = {
 	"Move Left": "Move_Left",
 	"Move Right" : "Move_Right",
 	"Move Up" : "Move_Up",
 	"Move Down" : "Move_Down",
 	"Attack" : "Attack",
-	"Dialogue" : "dialogue",
+	"Dialogue" : "Dialogue",
 	"Wall Run" : "WallRun",
 	"Jump" : "Jump",
 	"Hook" : "Hook"
@@ -59,6 +60,24 @@ var PS4_button= {
 	14 : "Dpad Right"	
 }
 
+var PS4_button_pics= {
+	0 : "Cross",
+	1 : "Circle",
+	2 : "Square",
+	3 : "Triangle",
+	4 : "L2",
+	5 : "R2",
+	6 : "SelectP",
+	7 : "LS",
+	8 : "RS",
+	9 : "L1",
+	10 : "R1",
+	11 : "UpDpadP",
+	12 : "DownDpadP",
+	13 : "LeftDpadP",
+	14 : "RightDpadP"	
+}
+
 var xbox_button= {
 	0 : "A",
 	1 : "B",
@@ -77,10 +96,85 @@ var xbox_button= {
 	14 : "Dpad Right"	
 }
 
+var xbox_button_pics= {
+	0 : "A",
+	1 : "B",
+	2 : "X",
+	3 : "Y",
+	4 : "LT",
+	5: "RT",
+	6 : "mairu",
+	7 : "LS",
+	8 : "RS",
+	9 : "LB",
+	10 : "RB",
+	11 : "UpDpadX",
+	12 : "DownDpadX",
+	13 : "LeftDpadX",
+	14 : "RightDpadX"	
+}
+
+var keyboard_button_pics = {
+	1 : "LeftMouse",
+	2 : "RightMouse",
+	65 : "A",
+	66 : "B",
+	67 : "C",
+	68 : "D",
+	69 : "E",
+	70 : "F",
+	71 : "G",
+	72 : "H",
+	73 : "I",
+	74 : "J",
+	75 : "K",
+	76 : "L",
+	77 : "M",
+	78 : "N",
+	79 : "O",
+	80 : "P",
+	81 : "Q",
+	82 : "R",
+	83 : "S",
+	84 : "T",
+	85 : "U",
+	86 : "V",
+	87 : "W",
+	88 : "X",
+	89 : "Y",
+	90 : "Z",
+	4194320 : "Up",
+	4194319 : "Left",
+	4194322 : "Down",
+	4194321 : "Right",
+	4194325 : "Shift",
+	4194326 : "CTRL",
+	46 : "Dot",
+	44 : "Comma",
+	59 : "Semicolon",
+	91 : "OpenBracket",
+	93 : "CloseBracket",
+	92 : "BackSlash",
+	47 : "Slash",
+	61 : "Equal",
+	39 : "Apostrophe",
+	48 : "0",
+	49 : "1",
+	50 : "2",
+	51 : "3",
+	52 : "4",
+	53 : "5",
+	54 : "6",
+	55 : "7",
+	56 : "8",
+	57 : "9",
+	32 : "Space"
+}
+
 var defaultInputKeyboard = {
 	"Attack" : 1,
 	"Jump" : 32,
-	"dialogue" : 70,
+	"Dialogue" : 70,
 	"Move_Up" : 87,
 	"Move_Down" : 83,
 	"Move_Left" : 65,
@@ -92,7 +186,7 @@ var defaultInputKeyboard = {
 var currentInputMappedKeyboard = {
 	"Attack" : 1,
 	"Jump" : 32,
-	"dialogue" : 70,
+	"Dialogue" : 70,
 	"Move_Up" : 87,
 	"Move_Down" : 83,
 	"Move_Left" : 65,
@@ -104,7 +198,7 @@ var currentInputMappedKeyboard = {
 var defaultInputController = {
 	"Attack" : 5,
 	"Jump" : 4,
-	"dialogue" : 0,
+	"Dialogue" : 0,
 	"Move_Up" : 999,
 	"Move_Down" : 999,
 	"Move_Left" : 999,
@@ -116,7 +210,7 @@ var defaultInputController = {
 var currentInputMappedController = {
 	"Attack" : 5,
 	"Jump" : 4,
-	"dialogue" : 0,
+	"Dialogue" : 0,
 	"Move_Up" : 999,
 	"Move_Down" : 999,
 	"Move_Left" : 999,
@@ -168,32 +262,36 @@ func _on_back_pressed():
 func displayInputKeyboard(input_dict: Dictionary):
 	var actions = input_dict.keys()
 	for action in firstCol.get_children():
-		if currentInputMappedKeyboard[actionsName[action.get_child(0).text]] == 1:
-			action.get_child(1).text = "LM"
-		elif currentInputMappedKeyboard[actionsName[action.get_child(0).text]] == 2:
-			action.get_child(1).text = "RM"
-		else:
-			action.get_child(1).text = OS.get_keycode_string(input_dict[actionsName[action.get_child(0).text]])
+		action.get_child(1).icon = load("res://Menu/Buttons/Keyboard_Pics/" + keyboard_button_pics[input_dict[actionsName[action.get_child(0).text]]] + ".png")
+		#if currentInputMappedKeyboard[actionsName[action.get_child(0).text]] == 1:
+			#action.get_child(1).text = "LM"
+		#elif currentInputMappedKeyboard[actionsName[action.get_child(0).text]] == 2:
+			#action.get_child(1).text = "RM"
+		#else:
+			#action.get_child(1).text = OS.get_keycode_string(input_dict[actionsName[action.get_child(0).text]])
 	for action in secondCol.get_children():
-		if currentInputMappedKeyboard[actionsName[action.get_child(0).text]] == 1:
-			action.get_child(1).text = "LM"
-		elif currentInputMappedKeyboard[actionsName[action.get_child(0).text]] == 2:
-			action.get_child(1).text = "RM"
-		else:
-			action.get_child(1).text = OS.get_keycode_string(input_dict[actionsName[action.get_child(0).text]])
+		action.get_child(1).icon = load("res://Menu/Buttons/Keyboard_Pics/" + keyboard_button_pics[input_dict[actionsName[action.get_child(0).text]]] + ".png")
+		#if currentInputMappedKeyboard[actionsName[action.get_child(0).text]] == 1:
+			#action.get_child(1).text = "LM"
+		#elif currentInputMappedKeyboard[actionsName[action.get_child(0).text]] == 2:
+			#action.get_child(1).text = "RM"
+		#else:
+			#action.get_child(1).text = OS.get_keycode_string(input_dict[actionsName[action.get_child(0).text]])
 func displayInputController(input_dict:Dictionary):
 	if currentControllerType == null:
 		pass
 	elif currentControllerType == controllerType.PS4:
 		for action in secondCol.get_children():
-			print(input_dict[actionsName[action.get_child(0).text]])
+			#print(input_dict[actionsName[action.get_child(0).text]])
 			if input_dict[actionsName[action.get_child(0).text]] != 999:
-				action.get_child(1).text = PS4_button[input_dict[actionsName[action.get_child(0).text]]]
+				#action.get_child(1).text = PS4_button[input_dict[actionsName[action.get_child(0).text]]]
+				action.get_child(1).icon = load("res://Menu/Buttons/Controller_Pics/" + PS4_button_pics[input_dict[actionsName[action.get_child(0).text]]] + ".png")
 	elif currentControllerType == controllerType.XBOX:
 		for action in secondCol.get_children():
-			print(input_dict[actionsName[action.get_child(0).text]])
+			#print(input_dict[actionsName[action.get_child(0).text]])
 			if input_dict[actionsName[action.get_child(0).text]] != 999:
-				action.get_child(1).text = xbox_button[input_dict[actionsName[action.get_child(0).text]]]
+				#action.get_child(1).text = xbox_button[input_dict[actionsName[action.get_child(0).text]]]
+				action.get_child(1).icon = load("res://Menu/Buttons/Controller_Pics/" + xbox_button_pics[input_dict[actionsName[action.get_child(0).text]]] + ".png")
 func _on_controller_button_pressed():
 	if currentControllerType == null:
 		pass
@@ -272,8 +370,10 @@ func _on_button_default_pressed():
 		displayInputController(currentInputMappedController)
 
 func _input(event):
+	if (event is InputEventKey):
+		#print(event.keycode)
+		pass
 	if edit :
-		#print(event)
 		var targetEvent
 		if currentMode == mode.KEYBOARD:
 			if event is InputEventKey:
@@ -311,7 +411,7 @@ func _input(event):
 				var duplicate = false
 				for e in currentInputMappedController:
 					if currentInputMappedController[e] == event.button_index:
-						print(currentInputMappedController[e])
+						#print(currentInputMappedController[e])
 						duplicate = true
 				if (event.button_index not in cannotMappedController and not duplicate and event.button_index != 4):
 					currentInputMappedController[currentAction] = event.button_index
@@ -324,7 +424,7 @@ func _input(event):
 					var duplicate = false
 					for e in currentInputMappedController:
 						if currentInputMappedController[e] == event.axis:
-							print(currentInputMappedController[e])
+							#print(currentInputMappedController[e])
 							duplicate = true
 					if (event.axis not in cannotMappedController and not duplicate):
 						currentInputMappedController[currentAction] = event.axis
