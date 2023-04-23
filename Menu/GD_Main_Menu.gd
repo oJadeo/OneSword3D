@@ -6,7 +6,7 @@ var current = 0
 var currentInputMappedKeyboard = {
 	"Attack" : 1,
 	"Jump" : 32,
-	"dialogue" : 70,
+	"Dialogue" : 70,
 	"Move_Up" : 87,
 	"Move_Down" : 83,
 	"Move_Left" : 65,
@@ -18,7 +18,7 @@ var currentInputMappedKeyboard = {
 var currentInputMappedController = {
 	"Attack" : 5,
 	"Jump" : 4,
-	"dialogue" : 0,
+	"Dialogue" : 0,
 	"Move_Up" : 999,
 	"Move_Down" : 999,
 	"Move_Left" : 999,
