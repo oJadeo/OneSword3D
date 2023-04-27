@@ -1966,8 +1966,8 @@ graph_offset = Vector2(-204, -46.0541)
 radius = 0.07
 height = 0.4
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_jee2y"]
-radius = 2.0
+[sub_resource type="SphereShape3D" id="SphereShape3D_itvw0"]
+radius = 3.0
 
 [node name="Player_Character" type="CharacterBody3D"]
 collision_layer = 2
@@ -2086,7 +2086,7 @@ SPEED = 2.0
 
 [node name="WallClimb" type="Node3D" parent="StateManager"]
 script = ExtResource("9_f857v")
-WALL_CLIMB_Y_VELOCITY = 4.0
+WALL_CLIMB_Y_VELOCITY = 5.0
 WALL_JUMP_FORCE = 3.0
 
 [node name="WallRun" type="Node3D" parent="StateManager"]
@@ -2099,32 +2099,40 @@ ACCEL_TO_LEDGE = 3.0
 
 [node name="Hook" type="Node3D" parent="StateManager"]
 script = ExtResource("12_osv4a")
+ACCEL = 15.0
 
 [node name="Ledge" type="Node3D" parent="."]
 
 [node name="CheckWall" type="RayCast3D" parent="Ledge"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0.25)
+visible = false
 
 [node name="CheckTop" type="RayCast3D" parent="Ledge"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+visible = false
 target_position = Vector3(0, 0, 1)
 
 [node name="CheckBody" type="RayCast3D" parent="Ledge"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+visible = false
 target_position = Vector3(0, 0, 1)
 
 [node name="Shooting" type="Node3D" parent="."]
 script = ExtResource("12_whnj1")
 bullet = ExtResource("13_bt3mj")
 charge_angles = PackedInt32Array(-30, -15, 0, 15, 30)
+bullet_speed = 0.02
+hook_range = 2
 
 [node name="HookRay" type="RayCast3D" parent="Shooting"]
+visible = false
 collide_with_areas = true
 
 [node name="showMouseAimTimer" type="Timer" parent="Shooting"]
 one_shot = true
 
 [node name="chargeTimer" type="Timer" parent="Shooting"]
+one_shot = true
 
 [node name="shootTimer" type="Timer" parent="Shooting"]
 wait_time = 0.5
@@ -2132,11 +2140,13 @@ one_shot = true
 
 [node name="AimAssist" type="Area3D" parent="Shooting"]
 script = ExtResource("15_cs8ua")
+assist_angle = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Shooting/AimAssist"]
-shape = SubResource("SphereShape3D_jee2y")
+shape = SubResource("SphereShape3D_itvw0")
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="timeout" from="Shooting/chargeTimer" to="Shooting" method="_on_charge_timer_timeout"]
+[connection signal="timeout" from="Shooting/shootTimer" to="Shooting" method="_on_shoot_timer_timeout"]
 [connection signal="area_entered" from="Shooting/AimAssist" to="Shooting/AimAssist" method="_on_area_entered"]
 [connection signal="area_exited" from="Shooting/AimAssist" to="Shooting/AimAssist" method="_on_area_exited"]

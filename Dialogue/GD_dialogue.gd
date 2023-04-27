@@ -39,7 +39,7 @@ func change_button(new_button):
 	
 	
 func _input(event):
-	if event.is_action_pressed("dialogue"):
+	if event.is_action_pressed("Dialogue"):
 		current_dialogue += 1
 		
 		if current_dialogue >= len(dialogue):
