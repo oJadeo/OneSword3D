@@ -4,7 +4,7 @@
 [ext_resource type="MeshLibrary" uid="uid://igtk5abse8xh" path="res://Level/Tiles_Set/mesh_lib/set_proto.tres" id="2_bxkda"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pthba"]
-size = Vector3(1.50992, 0.293109, 1.49356)
+size = Vector3(1.49908, 0.513068, 1.45953)
 
 [node name="S_Platform" type="Node3D"]
 script = ExtResource("1_cf8j1")
