@@ -39,7 +39,7 @@ func _process(delta):
 			activated = true
 			completeAllSwitch()		
 
-func completeAllSwitch():		
+func completeAllSwitch():	
 	for child in get_children():
 		if child.has_method("complete"):
 			child.complete()
