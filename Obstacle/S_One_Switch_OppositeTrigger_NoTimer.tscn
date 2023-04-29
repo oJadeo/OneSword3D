@@ -1,14 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dv08iyx7rl0id"]
+[gd_scene load_steps=2 format=3 uid="uid://dv08iyx7rl0id"]
 
 [ext_resource type="PackedScene" uid="uid://2dsfobnjgnqg" path="res://Level/Switch/S_singleSwitch.tscn" id="1_odb1l"]
-[ext_resource type="PackedScene" uid="uid://cc7uecnf8r3uj" path="res://Level/Tiles/Platform/S_Platform.tscn" id="2_mwrlw"]
 
 [node name="S_OneSwitch_WithOpposite_NoTimer" type="Node3D"]
 
 [node name="Switch" parent="." instance=ExtResource("1_odb1l")]
-
-[node name="S_Platform" parent="Switch/deactivateChildren" index="0" instance=ExtResource("2_mwrlw")]
-
-[node name="S_Platform" parent="Switch/activateChildren" index="0" instance=ExtResource("2_mwrlw")]
 
 [editable path="Switch"]
