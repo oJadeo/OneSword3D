@@ -544,7 +544,7 @@ text = "END OF LEVEL
 "
 
 [node name="S_Set_Spawn" parent="." instance=ExtResource("4_cxrvk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.4134, 2.10547, 1.17133)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.165, 1.13414, 1.17133)
 
 [node name="S_Set_Spawn2" parent="." instance=ExtResource("4_cxrvk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.018, 4.61646, -12.123)
