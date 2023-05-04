@@ -76,7 +76,7 @@ func set_target_rotation(new_tar_rot):
 	tar_rot = new_tar_rot
 func handle_rotation(delta):
 	rotation.y = lerp_angle(rotation.y,tar_rot,5.0*delta)
-
+	$Shooting.rotation.y = - rotation.y 
 #Coyote Timer
 @onready var coyote_timer = $Timer/CoyoteTimer
 #Jump Buffer
