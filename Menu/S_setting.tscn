@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cca4kx43jro3a"]
+[gd_scene load_steps=4 format=3 uid="uid://bqpj3iu8pppdv"]
 
 [ext_resource type="Script" path="res://Menu/GD_setting.gd" id="1_ypw4n"]
+[ext_resource type="Texture2D" uid="uid://icgr7fdx45c7" path="res://Menu/Buttons/Controller_Pics/LT.png" id="2_ivnhq"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_we2is"]
+load_path = "res://.godot/imported/1.png-fb39aaab63636554f89d02f1ca65b02f.ctex"
 
 [node name="S_Setting" type="CanvasLayer"]
 script = ExtResource("1_ypw4n")
@@ -30,9 +34,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -204.0
-offset_top = -85.5
+offset_top = -118.0
 offset_right = 204.0
-offset_bottom = 85.5
+offset_bottom = 158.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -50,6 +54,7 @@ text = "Controller"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
@@ -58,6 +63,7 @@ size_flags_horizontal = 3
 
 [node name="Input1" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Input1"]
 layout_mode = 2
@@ -65,11 +71,17 @@ size_flags_horizontal = 3
 text = "Move Up"
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/Input1"]
+texture_filter = 1
 layout_mode = 2
-text = "Space"
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+icon = SubResource("CompressedTexture2D_we2is")
+icon_alignment = 1
+expand_icon = true
 
 [node name="Input2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Input2"]
 layout_mode = 2
@@ -77,11 +89,16 @@ size_flags_horizontal = 3
 text = "Move Down"
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/Input2"]
+texture_filter = 1
 layout_mode = 2
-text = "Space"
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+icon_alignment = 1
+expand_icon = true
 
 [node name="Input3" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Input3"]
 layout_mode = 2
@@ -89,11 +106,16 @@ size_flags_horizontal = 3
 text = "Move Left"
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/Input3"]
+texture_filter = 1
 layout_mode = 2
-text = "W"
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+icon_alignment = 1
+expand_icon = true
 
 [node name="Input4" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Input4"]
 layout_mode = 2
@@ -101,8 +123,12 @@ size_flags_horizontal = 3
 text = "Move Right"
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/Input4"]
+texture_filter = 1
 layout_mode = 2
-text = "W"
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+icon_alignment = 1
+expand_icon = true
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -115,6 +141,7 @@ size_flags_horizontal = 3
 
 [node name="Input5" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/Input5"]
 layout_mode = 2
@@ -122,11 +149,17 @@ size_flags_horizontal = 3
 text = "Jump"
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer2/Input5"]
+texture_filter = 1
 layout_mode = 2
-text = "W"
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+icon = ExtResource("2_ivnhq")
+icon_alignment = 1
+expand_icon = true
 
 [node name="Input6" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/Input6"]
 layout_mode = 2
@@ -134,11 +167,16 @@ size_flags_horizontal = 3
 text = "Dialogue"
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer2/Input6"]
+texture_filter = 1
 layout_mode = 2
-text = "W"
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+icon_alignment = 1
+expand_icon = true
 
 [node name="Input7" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/Input7"]
 layout_mode = 2
@@ -146,11 +184,16 @@ size_flags_horizontal = 3
 text = "Wall Run"
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer2/Input7"]
+texture_filter = 1
 layout_mode = 2
-text = "Space"
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+icon_alignment = 1
+expand_icon = true
 
 [node name="Input8" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/Input8"]
 layout_mode = 2
@@ -158,11 +201,16 @@ size_flags_horizontal = 3
 text = "Attack"
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer2/Input8"]
+texture_filter = 1
 layout_mode = 2
-text = "W"
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+icon_alignment = 1
+expand_icon = true
 
 [node name="Input9" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/Input9"]
 layout_mode = 2
@@ -170,8 +218,12 @@ size_flags_horizontal = 3
 text = "Hook"
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer2/Input9"]
+texture_filter = 1
 layout_mode = 2
-text = "W"
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+icon_alignment = 1
+expand_icon = true
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2

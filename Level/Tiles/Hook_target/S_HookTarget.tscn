@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://biog60ajpy1ju"]
+[gd_scene load_steps=8 format=3 uid="uid://biog60ajpy1ju"]
 
+[ext_resource type="Script" path="res://Level/Tiles/Hook_target/GD_HookTarget.gd" id="1_36b6i"]
 [ext_resource type="Script" path="res://Level/Tiles/Hook_target/S_HookTarget.gd" id="1_bgjrl"]
 [ext_resource type="Texture2D" uid="uid://rk2cddkgk5f0" path="res://Level/Tiles/Hook_target/hook_target.png" id="1_gocjm"]
 
@@ -46,6 +47,7 @@ height = 0.5
 radius = 0.1
 
 [node name="S_HookTarget" type="Node3D"]
+script = ExtResource("1_36b6i")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 billboard = 1
