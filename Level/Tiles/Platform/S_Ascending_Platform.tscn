@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://hftwbtthilru"]
+
+[ext_resource type="Script" path="res://Level/Tiles/Platform/GD_Ascending_Platform.gd" id="1_py7b6"]
+[ext_resource type="MeshLibrary" uid="uid://igtk5abse8xh" path="res://Level/Tiles_Set/mesh_lib/set_proto.tres" id="2_bcxno"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4amtb"]
+size = Vector3(1.5, 0.5, 1.5)
+
+[node name="Asending_Platform" type="Node3D"]
+script = ExtResource("1_py7b6")
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("2_bcxno")
+cell_size = Vector3(0.5, 0.5, 0.5)
+cell_scale = 0.25
+data = {
+"cells": PackedInt32Array(65535, 0, 1441793, 0, 0, 1441792, 65535, 1, 655360, 65534, 0, 1048576, 65535, 65535, 0, 0, 1, 655364, 65534, 1, 1048580, 65534, 65535, 4, 0, 65535, 1441796)
+}
+
+[node name="endPos" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72843, 0, 0.253374)
+
+[node name="startPos" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58695, 0, 0.590554)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.262323, 0.620116, 0.251664)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.100827, 0)
+shape = SubResource("BoxShape3D_4amtb")
+
+[node name="move_timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
