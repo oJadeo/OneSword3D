@@ -59,6 +59,7 @@ func handle_input(delta: float,input_frame:Dictionary) -> BaseState:
 		#Double Jump
 		
 	if input_frame['just_jump'] and player.can_double_jump:
+		player.can_double_jump = false
 		player.velocity.y = DOUBLE_JUMP_VELOCITY
 		return jump_state
 		

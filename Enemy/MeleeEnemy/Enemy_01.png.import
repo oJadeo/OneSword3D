@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/Enemy_01.png-38d434c461770fa1d0f97e97afe7a55e
 [params]
 
 compress/mode=3
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=0
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

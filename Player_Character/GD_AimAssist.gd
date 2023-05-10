@@ -11,7 +11,7 @@ var target_list:Array = []
 
 # From input position in the camera 
 func get_assist(input_angle:Vector2) -> Vector3:
-
+	
 	var output_direction = Vector3.ZERO
 
 	# calculate normal from position in the camera  cast to same height
@@ -36,7 +36,7 @@ func get_assist(input_angle:Vector2) -> Vector3:
 		var target_angle = (camera.unproject_position(target.global_position) - view_size/2).normalized()
 		
 		# cal direction in 3d space
-		var distance_vector = target.global_position- global_position
+		var distance_vector = target.global_position - global_position
 
 		# Ray cast check if there are something in the way
 		assist_ray.set_target_position(distance_vector)
