@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://1b0pdu3ygf3b"]
+[gd_scene load_steps=34 format=3 uid="uid://1b0pdu3ygf3b"]
 
 [ext_resource type="PackedScene" uid="uid://biundw7n53o5u" path="res://Level/Tiles/Dialogue_box/S_dialogue_box.tscn" id="1_qli0e"]
 [ext_resource type="JSON" path="res://Dialogue/test_dialogue.json" id="2_dp32p"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://d4lo38bos3mu3" path="res://Level/Switch/S_multi_switch_manager.tscn" id="13_kcg2p"]
 [ext_resource type="PackedScene" uid="uid://cc7uecnf8r3uj" path="res://Level/Tiles/Platform/S_Platform.tscn" id="15_lexpl"]
 [ext_resource type="PackedScene" uid="uid://c35fjbdg1kjtt" path="res://Level/Switch/S_extend_switch.tscn" id="17_6cupv"]
+[ext_resource type="PackedScene" uid="uid://hftwbtthilru" path="res://Level/Tiles/Platform/S_Ascending_Platform.tscn" id="17_lmsdp"]
 
 [sub_resource type="Environment" id="Environment_uvupg"]
 background_mode = 1
@@ -69,6 +70,8 @@ agent_radius = 0.1
 agent_max_climb = 0.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ervl6"]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_67b73"]
 
 [node name="S_Tutorial" type="Node3D"]
 
@@ -304,7 +307,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.1337, -2.86272, 21.6835)
 default_on = true
 
 [node name="S_dialogue_box" parent="." instance=ExtResource("1_qli0e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5134, 0.5, 0)
 file = ExtResource("2_dp32p")
 
 [node name="CollisionShape3D" parent="S_dialogue_box" index="0"]
@@ -313,6 +316,12 @@ shape = SubResource("BoxShape3D_ervl6")
 
 [node name="Player_Character" parent="." instance=ExtResource("11_w0s55")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+
+[node name="AnimationTree" parent="Player_Character" index="4"]
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_67b73")
+
+[node name="CanvasLayer" parent="Player_Character" index="6"]
+visible = false
 
 [node name="Switch" parent="." instance=ExtResource("12_qhehc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8792, 0.257663, 0.372822)
@@ -366,9 +375,18 @@ wait_time = 0.5
 [node name="CollisionShape3D" parent="S_Platform/Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00678216, 0.514462, 0.501002)
 
+[node name="Asending_Platform" parent="." instance=ExtResource("17_lmsdp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.87643, -0.626925, 3.40545)
+
+[node name="endPos" parent="Asending_Platform" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="startPos" parent="Asending_Platform" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
 [node name="Extend_Switch" parent="." instance=ExtResource("17_6cupv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.03141, 0.150407, 2.29652)
-timerDuration = 5
+timerDuration = 1
 
 [node name="S_HookTarget" parent="Extend_Switch/children" index="0" instance=ExtResource("13_3mxg4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0298946, -0.11429, 1.26914)
@@ -387,7 +405,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0298946, -0.11429, 1.26914
 [editable path="Addon/S_depth_bxo4"]
 [editable path="Addon/S_rotate_camera6"]
 [editable path="S_dialogue_box"]
+[editable path="Player_Character"]
 [editable path="Switch"]
 [editable path="multi_Switch_Manager"]
 [editable path="S_Platform"]
+[editable path="Asending_Platform"]
 [editable path="Extend_Switch"]
