@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://1b0pdu3ygf3b"]
+[gd_scene load_steps=34 format=3 uid="uid://1b0pdu3ygf3b"]
 
 [ext_resource type="PackedScene" uid="uid://biundw7n53o5u" path="res://Level/Tiles/Dialogue_box/S_dialogue_box.tscn" id="1_qli0e"]
 [ext_resource type="JSON" path="res://Dialogue/test_dialogue.json" id="2_dp32p"]
@@ -70,6 +70,8 @@ agent_radius = 0.1
 agent_max_climb = 0.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ervl6"]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_67b73"]
 
 [node name="S_Tutorial" type="Node3D"]
 
@@ -305,7 +307,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.1337, -2.86272, 21.6835)
 default_on = true
 
 [node name="S_dialogue_box" parent="." instance=ExtResource("1_qli0e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5134, 0.5, 0)
 file = ExtResource("2_dp32p")
 
 [node name="CollisionShape3D" parent="S_dialogue_box" index="0"]
@@ -314,6 +316,12 @@ shape = SubResource("BoxShape3D_ervl6")
 
 [node name="Player_Character" parent="." instance=ExtResource("11_w0s55")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+
+[node name="AnimationTree" parent="Player_Character" index="4"]
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_67b73")
+
+[node name="CanvasLayer" parent="Player_Character" index="6"]
+visible = false
 
 [node name="Switch" parent="." instance=ExtResource("12_qhehc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8792, 0.257663, 0.372822)
@@ -397,6 +405,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0298946, -0.11429, 1.26914
 [editable path="Addon/S_depth_bxo4"]
 [editable path="Addon/S_rotate_camera6"]
 [editable path="S_dialogue_box"]
+[editable path="Player_Character"]
 [editable path="Switch"]
 [editable path="multi_Switch_Manager"]
 [editable path="S_Platform"]
