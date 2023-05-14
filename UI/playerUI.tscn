@@ -8,6 +8,7 @@ process_mode = 3
 script = ExtResource("1_t1xia")
 
 [node name="Control" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

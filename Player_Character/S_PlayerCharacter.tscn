@@ -2140,6 +2140,7 @@ one_shot = true
 
 [node name="AimAssist" type="Area3D" parent="Shooting"]
 script = ExtResource("15_cs8ua")
+assist_angle = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Shooting/AimAssist"]
 shape = SubResource("SphereShape3D_itvw0")

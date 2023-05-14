@@ -86,10 +86,10 @@ use_timer = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2861, 0, 0)
 
 [node name="OnTimer" parent="S_Platform" index="3"]
-wait_time = 6.0
+wait_time = 4.0
 
 [node name="OffTimer" parent="S_Platform" index="4"]
-wait_time = 3.0
+wait_time = 4.0
 
 [node name="CollisionShape3D" parent="S_Platform/Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.253086, 0.327164, 0.240357)
