@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ch2y44mfob2d0"]
+[gd_scene load_steps=23 format=3 uid="uid://de4ar4owfctfi"]
 
 [ext_resource type="PackedScene" uid="uid://s05c20f50p7d" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_kjidw"]
 [ext_resource type="MeshLibrary" uid="uid://igtk5abse8xh" path="res://Level/Tiles_Set/mesh_lib/set_proto.tres" id="2_44wvo"]
@@ -6,10 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://b0yg8hhtv3vsc" path="res://Level/Tiles/Set_Spawn/S_setSpawn.tscn" id="4_afoos"]
 [ext_resource type="PackedScene" uid="uid://wycb6glgigjg" path="res://Level/Tiles/Rotate_Camera/S_rotate_camera.tscn" id="5_xxm2u"]
 [ext_resource type="PackedScene" uid="uid://dv08iyx7rl0id" path="res://Obstacle/S_One_Switch_OppositeTrigger_NoTimer.tscn" id="6_qn1e2"]
-[ext_resource type="PackedScene" uid="uid://0k3hxc0ikx4m" path="res://Level/Level_Scene/S_Level_1_section_2.tscn" id="7_2hu18"]
+[ext_resource type="PackedScene" uid="uid://0k3hxc0ikx4m" path="res://Level/Level_Scene/Level_Section/Level 1/S_Level_1_section_2.tscn" id="7_2hu18"]
 [ext_resource type="PackedScene" uid="uid://3tk8h74oj36t" path="res://Level/Level_Scene/Level_Section/Level 1/S_Level_1_3.tscn" id="8_q5ij0"]
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="9_55ky8"]
 [ext_resource type="PackedScene" uid="uid://n88kt3qi66lc" path="res://Level/Tiles/Depth_test_box/S_depth_bxo.tscn" id="10_lyn5b"]
+[ext_resource type="PackedScene" uid="uid://biundw7n53o5u" path="res://Level/Tiles/Dialogue_box/S_dialogue_box.tscn" id="11_fhxyb"]
+[ext_resource type="JSON" path="res://Dialogue/Level1/Section 1/d_1_1_1.json" id="12_s1yqo"]
+[ext_resource type="JSON" path="res://Dialogue/Level1/Section 1/d_1_1_2.json" id="13_kkrb6"]
+[ext_resource type="JSON" path="res://Dialogue/Level1/Section 1/d_1_1_3.json" id="14_5iagc"]
 
 [sub_resource type="Environment" id="Environment_4c64m"]
 background_mode = 1
@@ -30,6 +34,15 @@ size = Vector3(300, 1, 300)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_md5m4"]
 size = Vector3(200, 50, 200)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_61cid"]
+size = Vector3(1.96817, 1.44261, 2.1655)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ijj3l"]
+size = Vector3(1, 6.82114, 8.74695)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lgy0s"]
+size = Vector3(3.59159, 3.45547, 3.03787)
 
 [node name="S_Level_1" type="Node3D"]
 
@@ -86,10 +99,10 @@ use_timer = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2861, 0, 0)
 
 [node name="OnTimer" parent="S_Platform" index="3"]
-wait_time = 6.0
+wait_time = 4.0
 
 [node name="OffTimer" parent="S_Platform" index="4"]
-wait_time = 3.0
+wait_time = 4.0
 
 [node name="CollisionShape3D" parent="S_Platform/Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.253086, 0.327164, 0.240357)
@@ -268,6 +281,30 @@ shape = SubResource("BoxShape3D_dbgcv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.1799, 0, 0)
 shape = SubResource("BoxShape3D_md5m4")
 
+[node name="S_dialogue_box" parent="." instance=ExtResource("11_fhxyb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.12544, 1.10598, 1.72356)
+file = ExtResource("12_s1yqo")
+
+[node name="CollisionShape3D" parent="S_dialogue_box" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.655381, 0.115291, -1.41007)
+shape = SubResource("BoxShape3D_61cid")
+
+[node name="S_dialogue_box2" parent="." instance=ExtResource("11_fhxyb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.221, 8.1076, 15.1204)
+file = ExtResource("13_kkrb6")
+
+[node name="CollisionShape3D" parent="S_dialogue_box2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.91589, -0.512966)
+shape = SubResource("BoxShape3D_ijj3l")
+
+[node name="S_dialogue_box3" parent="." instance=ExtResource("11_fhxyb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.0165, 8.98274, 4.62408)
+file = ExtResource("14_5iagc")
+
+[node name="CollisionShape3D" parent="S_dialogue_box3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40762, 4.22844, -1.48185)
+shape = SubResource("BoxShape3D_lgy0s")
+
 [editable path="S_Platform"]
 [editable path="S_Platform2"]
 [editable path="S_Platform3"]
@@ -283,3 +320,6 @@ shape = SubResource("BoxShape3D_md5m4")
 [editable path="S_OneSwitch_WithOpposite_NoTimer/Switch/activateChildren/S_Platform"]
 [editable path="Danger_Area"]
 [editable path="S_depth_bxo"]
+[editable path="S_dialogue_box"]
+[editable path="S_dialogue_box2"]
+[editable path="S_dialogue_box3"]

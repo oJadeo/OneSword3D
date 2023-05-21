@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://d4lo38bos3mu3" path="res://Level/Switch/S_multi_switch_manager.tscn" id="13_kcg2p"]
 [ext_resource type="PackedScene" uid="uid://cc7uecnf8r3uj" path="res://Level/Tiles/Platform/S_Platform.tscn" id="15_lexpl"]
 [ext_resource type="PackedScene" uid="uid://c35fjbdg1kjtt" path="res://Level/Switch/S_extend_switch.tscn" id="17_6cupv"]
-[ext_resource type="PackedScene" uid="uid://hftwbtthilru" path="res://Level/Tiles/Platform/S_Ascending_Platform.tscn" id="17_lmsdp"]
 
 [sub_resource type="Environment" id="Environment_uvupg"]
 background_mode = 1
@@ -375,15 +374,6 @@ wait_time = 0.5
 [node name="CollisionShape3D" parent="S_Platform/Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00678216, 0.514462, 0.501002)
 
-[node name="Asending_Platform" parent="." instance=ExtResource("17_lmsdp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.87643, -0.626925, 3.40545)
-
-[node name="endPos" parent="Asending_Platform" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
-
-[node name="startPos" parent="Asending_Platform" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
 [node name="Extend_Switch" parent="." instance=ExtResource("17_6cupv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.03141, 0.150407, 2.29652)
 timerDuration = 1
@@ -409,5 +399,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0298946, -0.11429, 1.26914
 [editable path="Switch"]
 [editable path="multi_Switch_Manager"]
 [editable path="S_Platform"]
-[editable path="Asending_Platform"]
 [editable path="Extend_Switch"]
