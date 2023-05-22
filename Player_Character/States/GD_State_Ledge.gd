@@ -14,7 +14,7 @@ extends BaseState
 func enter() -> void:
 	super()
 	print("State:Ledging")
-	animationState.travel("Fall")
+	animationState.travel("Ledge")
 
 func exit() -> void:
 	super()
@@ -22,6 +22,7 @@ func exit() -> void:
 	
 func process(delta: float,input_frame:Dictionary) -> BaseState:
 	var new_state = handle_input(delta,input_frame)
+	print(animationState.get_current_node())
 	if new_state:
 		return new_state
 	

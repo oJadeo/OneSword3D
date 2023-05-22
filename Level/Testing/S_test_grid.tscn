@@ -83,13 +83,17 @@ shape = SubResource("BoxShape3D_0wqkf")
 
 [node name="Player_Character" parent="." instance=ExtResource("4_do0df")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.775407, 0)
-tar_rot = 3.14
 
 [node name="AnimationTree" parent="Player_Character" index="4"]
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_h5lh8")
+parameters/Ledge/blend_position = Vector2(0, 0)
+parameters/WallClimb/blend_position = Vector2(0, 0)
 
 [node name="HookRay" parent="Player_Character/Shooting" index="0"]
 visible = true
+
+[node name="AimAssist" parent="Player_Character/Shooting" index="4"]
+debug = true
 
 [node name="S_Platform" parent="." instance=ExtResource("5_i724g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.01759)
@@ -117,10 +121,7 @@ wait_time = 0.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00678216, 0.514462, 0.501002)
 
 [node name="Switch" parent="." instance=ExtResource("6_lxf80")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34508, 0.764864, 0.992649)
-
-[node name="Switch2" parent="." instance=ExtResource("6_lxf80")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59366, 0.861005, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.67068, 0.816999, 0.0185897)
 
 [editable path="NavigationRegion3D/S_depth_bxo"]
 [editable path="Player_Character"]
