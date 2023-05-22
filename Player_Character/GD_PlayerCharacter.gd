@@ -6,6 +6,7 @@ class_name PlayerCharacter
 @onready var animationState = animationTree.get("parameters/playback")
 @onready var state = $StateManager
 @onready var shooting = $Shooting
+@onready var canvas_layer = $CanvasLayer
 
 var view_size:Vector2 = Vector2(640,360)
 var target_hook:Vector3 = Vector3.ZERO
@@ -47,12 +48,14 @@ func handle_input():
 	input_frame["shoot_direction"] = input_frame["shoot_direction"] if input_frame["shoot_direction"].length() >0.05 else Vector2.ZERO
 	var character_rotation = get_rotation()
 	Global.cal_camera_direction(rad_to_deg(character_rotation[1]))
-	animationTree.set("parameters/Run/blend_position",input_frame["direction"])
-	animationTree.set("parameters/Idle/blend_position",input_frame["direction"])
-	animationTree.set("parameters/Fall/blend_position",input_frame["direction"])
-	animationTree.set("parameters/Jump/blend_position",input_frame["direction"])
-	animationTree.set("parameters/Wall_run_left/blend_position",Global.cal_sprite_direction(velocity))
-	animationTree.set("parameters/Wall_run_right/blend_position",Global.cal_sprite_direction(velocity))
+	if input_frame["direction"].length() > 0.1:
+		animationTree.set("parameters/Run/blend_position",input_frame["direction"])
+		animationTree.set("parameters/Idle/blend_position",input_frame["direction"])
+		animationTree.set("parameters/Fall/blend_position",input_frame["direction"])
+		animationTree.set("parameters/Jump/blend_position",input_frame["direction"])
+		animationTree.set("parameters/WallClimb/blend_position",input_frame["direction"])
+		animationTree.set("parameters/Wall_run_left/blend_position",Global.cal_sprite_direction(velocity))
+		animationTree.set("parameters/Wall_run_right/blend_position",Global.cal_sprite_direction(velocity))
 	
 	if input_frame["wall_run"]:
 		is_wall['left'] = check_wall(Vector3(-WALL_CHECK_RANGE,0,0))
@@ -150,6 +153,8 @@ func check_ledge()->bool:
 		var is_body_collided = ray_body.get_collider()
 		if is_wall_collided is GridMap and not is_top_collided is GridMap and is_body_collided is GridMap:
 			ledge_pos = ray_body.get_collision_point() - Vector3(0,0.1,0)
+			var ledge_dir = Vector2(ray_body.target_position.x,ray_body.target_position.z)
+			animationTree.set("parameters/Ledge/blend_position",ledge_dir)
 			return true
 	return false
 

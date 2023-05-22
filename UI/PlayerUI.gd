@@ -1,29 +1,48 @@
 extends Node
 
-@onready var blockProgressBar = $Control/BlockLabel/ProgressBar
-@onready var firstDashCharge = $Control/DashCharge/firstDashCharge
-@onready var secondDashCharge = $Control/DashCharge/secondDashCharge
-@onready var thirdDashCharge = $Control/DashCharge/thirdDashCharge
 # Called when the node enters the scene tree for the first time.
 @onready var buttonList = $ButtonList
 @onready var pauseCanvas = $ColorRect
 
 @onready var timer_main = $timerMain
+@onready var conclude = $Conclude
+
+@onready var timer_conclude = $Conclude/timerConclude
 
 var current = 0
 var menuOpen = false
+var levelFin = false
 
 func _ready():
 	hidePauseMenu()
+	conclude.hide()
 
 func _process(delta):
-	if Input.is_action_just_pressed("Menu_Toggle") :
-		menuOpen = !menuOpen
-		get_tree().paused = menuOpen
-		if menuOpen :
-			showPauseMenu()
-		else :
-			hidePauseMenu()
+	if levelFin:
+		get_tree().paused = true
+		timer_main.stop()
+		buttonList.hide()
+		pauseCanvas.show()
+		conclude.show()
+		timer_main.hide()
+		var cens = fmod(timer_main.time,1) * 100
+		var secs = fmod(timer_main.time,60)
+		var mins = fmod(timer_main.time,60*60) /60 
+		var hrs = fmod(fmod(timer_main.time,3600*60)/3600, 24)
+		var time_passed
+		if hrs > 1 :
+			time_passed = "%02d :%02d : %02d : %02d" %[hrs,mins,secs,cens]
+		else:
+			time_passed = "%02d : %02d : %02d" %[mins,secs,cens]
+		timer_conclude.text = "Time used: "+time_passed
+	if not levelFin :
+		if Input.is_action_just_pressed("Menu_Toggle") :
+			menuOpen = !menuOpen
+			get_tree().paused = menuOpen
+			if menuOpen :
+				showPauseMenu()
+			else :
+				hidePauseMenu()
 			
 	#elif Input.is_action_just_pressed("Move_Down") or Input.is_action_just_pressed("Move_Up") and menuOpen :
 		#if Input.is_action_just_pressed("Move_Down") :
@@ -39,28 +58,6 @@ func _process(delta):
 	#elif Input.is_action_just_pressed("Menu_Back") and menuOpen :
 		#buttonList.get_children()[0].emit_signal("pressed")
 	
-
-func _on_player_character_blockbar_changed(blockBar):
-	blockProgressBar.value = blockBar
-
-func _on_player_character_dash_charge_changed(dash_charge):
-	if dash_charge == 0 :
-		firstDashCharge.value = 0
-		secondDashCharge.value = 0
-		thirdDashCharge.value = 0
-	elif dash_charge == 1 :
-		firstDashCharge.value = 100
-		secondDashCharge.value = 0
-		thirdDashCharge.value = 0
-	elif dash_charge == 2 :
-		firstDashCharge.value = 100
-		secondDashCharge.value = 100
-		thirdDashCharge.value = 0
-	else :
-		firstDashCharge.value = 100
-		secondDashCharge.value = 100
-		thirdDashCharge.value = 100.
-
 
 func hidePauseMenu():
 	timer_main.start()
@@ -89,4 +86,19 @@ func _on_exit_game_pressed():
 	get_tree().paused = false
 	get_tree().quit()
 
+func showFinLev():
+	levelFin = true
 
+	
+
+
+func _on_main_pressed():
+	_on_main_menu_pressed()
+
+
+func _on_lavel_pressed():
+	_on_level_select_pressed()
+
+
+func _on_quit_pressed():
+	_on_exit_game_pressed()
