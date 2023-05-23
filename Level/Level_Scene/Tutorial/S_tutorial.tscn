@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://1b0pdu3ygf3b"]
+[gd_scene load_steps=33 format=3]
 
 [ext_resource type="PackedScene" uid="uid://biundw7n53o5u" path="res://Level/Tiles/Dialogue_box/S_dialogue_box.tscn" id="1_qli0e"]
 [ext_resource type="JSON" path="res://Dialogue/test_dialogue.json" id="2_dp32p"]
