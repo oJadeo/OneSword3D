@@ -1,10 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cu2k5scdh8k3y"]
+[gd_scene load_steps=14 format=3]
 
 [ext_resource type="PackedScene" uid="uid://s05c20f50p7d" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_awcpq"]
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="2_dt8uy"]
 [ext_resource type="MeshLibrary" uid="uid://igtk5abse8xh" path="res://Level/Tiles_Set/mesh_lib/set_proto.tres" id="3_ctv3a"]
-[ext_resource type="PackedScene" uid="uid://4ufxawcoyuy2" path="res://Obstacle/S_OneSwitch_Timer.tscn" id="4_4cdbg"]
-[ext_resource type="PackedScene" uid="uid://b2wh3aqmeck26" path="res://Obstacle/S_OneSwitch_NoTimer.tscn" id="5_8pci8"]
+[ext_resource type="PackedScene" path="res://Obstacle/S_OneSwitch_Timer.tscn" id="4_4cdbg"]
+[ext_resource type="PackedScene" path="res://Obstacle/S_OneSwitch_NoTimer.tscn" id="5_8pci8"]
 [ext_resource type="PackedScene" uid="uid://cc7uecnf8r3uj" path="res://Level/Tiles/Platform/S_Platform.tscn" id="6_ocumd"]
 [ext_resource type="PackedScene" uid="uid://2dsfobnjgnqg" path="res://Level/Switch/S_singleSwitch.tscn" id="7_b2eih"]
 [ext_resource type="PackedScene" uid="uid://d4lo38bos3mu3" path="res://Level/Switch/S_multi_switch_manager.tscn" id="8_mb2bv"]
