@@ -462,17 +462,17 @@ transform = Transform3D(0.563842, -0.711883, 0.418695, -0.558192, 0.0451606, 0.8
 [node name="multi_Switch_Manager2" parent="." instance=ExtResource("8_ek08c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.1016, 6.49428, 51.0304)
 
-[node name="multiSwitch" parent="multi_Switch_Manager2" instance=ExtResource("9_b715d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.81438, 4.12481, -0.282383)
-
-[node name="multiSwitch2" parent="multi_Switch_Manager2" instance=ExtResource("9_b715d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.03123, 5.39234, 22.5469)
-
 [node name="S_Platform" parent="multi_Switch_Manager2/activateChildren" index="0" instance=ExtResource("3_jvudy")]
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0.328934, 0.0132699, 1.45016)
 
 [node name="StartPos" parent="multi_Switch_Manager2/activateChildren/S_Platform" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67365, 0, 0)
+
+[node name="multiSwitch" parent="multi_Switch_Manager2" instance=ExtResource("9_b715d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.81438, 4.12481, -0.282383)
+
+[node name="multiSwitch2" parent="multi_Switch_Manager2" instance=ExtResource("9_b715d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.03123, 5.39234, 22.5469)
 
 [editable path="Danger_Area"]
 [editable path="Asending_Platform"]

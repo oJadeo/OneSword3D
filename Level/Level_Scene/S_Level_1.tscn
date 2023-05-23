@@ -77,7 +77,7 @@ directional_shadow_mode = 0
 environment = SubResource("Environment_4c64m")
 
 [node name="Player_Character" parent="." instance=ExtResource("1_kjidw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.81546, 5.21205, 0.0330169)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.8452, 5.21205, 57.4639)
 
 [node name="playerSpawnPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.02937, 0.672546, -0.0165476)

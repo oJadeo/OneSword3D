@@ -86,11 +86,15 @@ func _on_exit_game_pressed():
 	get_tree().paused = false
 	get_tree().quit()
 
-func showFinLev():
+func showFinLev(level):
 	levelFin = true
-
-	
-
+	if level == 1 :
+		if (timer_main.time < Global.level1_highScore) or (Global.level1_highScore == 0) :
+			Global.level1_highScore = timer_main.time
+			
+	elif  level == 2 : 
+		if (timer_main.time < Global.level2_highScore) or (Global.level2_highScore == 0) :
+			Global.level2_highScore = timer_main.time
 
 func _on_main_pressed():
 	_on_main_menu_pressed()
