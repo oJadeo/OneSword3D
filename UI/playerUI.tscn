@@ -79,6 +79,7 @@ color = Color(0, 0, 0, 0.490196)
 
 [node name="ButtonList" type="VBoxContainer" parent="."]
 process_mode = 2
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -116,7 +117,47 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "asdfadsf"
 
+[node name="Conclude" type="VBoxContainer" parent="."]
+process_mode = 2
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -114.0
+offset_top = 86.0
+offset_right = 116.0
+offset_bottom = -111.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Conclude"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Level Clear !"
+horizontal_alignment = 1
+
+[node name="timerConclude" type="Label" parent="Conclude"]
+layout_mode = 2
+text = "Time used :"
+horizontal_alignment = 1
+
+[node name="Main" type="Button" parent="Conclude"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="Lavel" type="Button" parent="Conclude"]
+layout_mode = 2
+text = "Level Select"
+
+[node name="Quit" type="Button" parent="Conclude"]
+layout_mode = 2
+text = "Quit Game"
+
 [connection signal="pressed" from="ButtonList/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="ButtonList/Main Menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="ButtonList/Level Select" to="." method="_on_level_select_pressed"]
 [connection signal="pressed" from="ButtonList/Exit Game" to="." method="_on_exit_game_pressed"]
+[connection signal="pressed" from="Conclude/Main" to="." method="_on_main_pressed"]
+[connection signal="pressed" from="Conclude/Lavel" to="." method="_on_lavel_pressed"]
+[connection signal="pressed" from="Conclude/Quit" to="." method="_on_quit_pressed"]

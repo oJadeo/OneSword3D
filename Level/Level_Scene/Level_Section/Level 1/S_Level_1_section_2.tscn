@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://0k3hxc0ikx4m"]
+[gd_scene load_steps=15 format=3 uid="uid://bgrwial8fmd7"]
 
 [ext_resource type="MeshLibrary" uid="uid://igtk5abse8xh" path="res://Level/Tiles_Set/mesh_lib/set_proto.tres" id="2_xttt8"]
 [ext_resource type="PackedScene" uid="uid://cc7uecnf8r3uj" path="res://Level/Tiles/Platform/S_Platform.tscn" id="3_jusbf"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://beo18etyx3uhi" path="res://Level/Switch/S_multi_switch.tscn" id="5_7uvbd"]
 [ext_resource type="PackedScene" uid="uid://b0yg8hhtv3vsc" path="res://Level/Tiles/Set_Spawn/S_setSpawn.tscn" id="5_ivvmc"]
 [ext_resource type="PackedScene" uid="uid://wycb6glgigjg" path="res://Level/Tiles/Rotate_Camera/S_rotate_camera.tscn" id="6_hcvej"]
+[ext_resource type="PackedScene" uid="uid://biundw7n53o5u" path="res://Level/Tiles/Dialogue_box/S_dialogue_box.tscn" id="7_leehg"]
+[ext_resource type="JSON" path="res://Dialogue/Level1/Section 2/d_1_2_1.json" id="8_kh121"]
+[ext_resource type="JSON" path="res://Dialogue/Level1/Section 2/d_1_2_2.json" id="9_xurye"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_no8r0"]
 size = Vector3(3, 1, 3)
@@ -13,6 +16,12 @@ size = Vector3(3, 1, 3)
 [sub_resource type="BoxShape3D" id="BoxShape3D_rnijx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hbrfx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t07de"]
+size = Vector3(1.42451, 1.83126, 4.38475)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jbb5i"]
+size = Vector3(3.42304, 3.32513, 1.97556)
 
 [node name="Level1_section2" type="Node3D"]
 
@@ -410,6 +419,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.96134, -0.0846055, 7.68814
 [node name="multiSwitch4" parent="Templerun3/multi_Switch_Manager2" instance=ExtResource("5_7uvbd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.95406, -0.0846055, 7.63766)
 
+[node name="S_dialogue_box" parent="." instance=ExtResource("7_leehg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.88387, 2.65228, -0.204304)
+file = ExtResource("8_kh121")
+
+[node name="CollisionShape3D" parent="S_dialogue_box" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.62478, -1.77165, -0.578394)
+shape = SubResource("BoxShape3D_t07de")
+
+[node name="S_dialogue_box2" parent="." instance=ExtResource("7_leehg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.7273, -2.5, 9.83381)
+file = ExtResource("9_xurye")
+
+[node name="CollisionShape3D" parent="S_dialogue_box2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.949616, -0.287474)
+shape = SubResource("BoxShape3D_jbb5i")
+
 [editable path="S_rotate_camera2"]
 [editable path="Fallguy/S_Platform5"]
 [editable path="Fallguy/S_Platform2"]
@@ -458,3 +483,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.95406, -0.0846055, 7.63766
 [editable path="Templerun3/S_Platform21"]
 [editable path="Templerun3/multi_Switch_Manager2"]
 [editable path="Templerun3/multi_Switch_Manager2/activateChildren/S_Platform16"]
+[editable path="S_dialogue_box"]
+[editable path="S_dialogue_box2"]
