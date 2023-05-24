@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://do17gqyxbh34u"]
+[gd_scene load_steps=15 format=3]
 
 [ext_resource type="MeshLibrary" uid="uid://igtk5abse8xh" path="res://Level/Tiles_Set/mesh_lib/set_proto.tres" id="2_xttt8"]
 [ext_resource type="PackedScene" uid="uid://cc7uecnf8r3uj" path="res://Level/Tiles/Platform/S_Platform.tscn" id="3_jusbf"]

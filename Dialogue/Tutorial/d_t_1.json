@@ -1,0 +1,22 @@
+[
+	{
+		"message":"Booting... Machine Code: P-1-UT-0...",
+		"name": "P-1-UT-0"
+	},
+	{
+		"message":"Hello, P-1-UT-0. Let me just call you \"Pluto\"",
+		"name": "???"
+	},
+	{
+		"message":"I am Dr. Mercury, One of your creators.",
+		"name": "Dr. Mercury"
+	},
+	{
+		"message":"We're in a hurry. Let's go. I'll be briefing our mission.",
+		"name": "Dr. Mercury"
+	},
+	{
+		"message":"Press WASD to MOVE",
+		"name": "Dr. Mercury"
+	},
+]

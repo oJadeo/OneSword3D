@@ -1,0 +1,22 @@
+[
+	{
+		"message":"Here's the mission brief",
+		"name": "Dr. Mercury"
+	},
+	{
+		"message":"All of our robots got hijacked, they're going on rampage in our Zon city.",
+		"name": "Dr. Mercury"
+	},
+	{
+		"message":"Since you use different command protocol, you're not hijacked. We only have you left.",
+		"name": "Dr. Mercury"
+	},
+	{
+		"message":"We need you to go into Zon city and take care of them ASAP.",
+		"name": "Dr. Mercury"
+	},
+	{
+		"message":"Don't worry about equipment and feature, I'll keep installing more module.",
+		"name": "Dr. Mercury"
+	},
+]
