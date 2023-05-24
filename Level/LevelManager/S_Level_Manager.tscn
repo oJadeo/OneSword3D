@@ -1,26 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://hmjcda78xft4"]
+[gd_scene load_steps=6 format=3 uid="uid://hmjcda78xft4"]
 
 [ext_resource type="PackedScene" uid="uid://58c6txyswrfv" path="res://Level/LevelManager/TransitionScreen/S_Transition_Screen.tscn" id="1_q0qtk"]
 [ext_resource type="Script" path="res://Level/LevelManager/GD_Level_Manager.gd" id="1_thsif"]
 [ext_resource type="PackedScene" uid="uid://1b0pdu3ygf3b" path="res://Level/Level_Scene/Tutorial/S_tutorial.tscn" id="2_vejc1"]
-[ext_resource type="PackedScene" uid="uid://ca6dqiorp54dl" path="res://Level/Level_Scene/S_Level_1_A.tscn" id="3_2lc2a"]
-[ext_resource type="PackedScene" uid="uid://cr0iyf4jjx6at" path="res://Level/Level_Scene/S_Level_1_B.tscn" id="4_xairw"]
-[ext_resource type="PackedScene" uid="uid://dv62q73pop6q6" path="res://Level/Level_Scene/S_Level_1_C.tscn" id="5_q0kmb"]
-[ext_resource type="PackedScene" uid="uid://b6baxegk360xs" path="res://Level/Level_Scene/S_Level_2.tscn" id="6_cum1h"]
-[ext_resource type="PackedScene" uid="uid://i65ct1vrwmwp" path="res://Level/Level_Scene/S_Level_3_A.tscn" id="7_dw1xp"]
-[ext_resource type="PackedScene" uid="uid://b1xkxb3ygaydx" path="res://Level/Level_Scene/S_Level_3_B.tscn" id="8_qjvcn"]
-[ext_resource type="PackedScene" uid="uid://b0yua74dbmywr" path="res://Level/Level_Scene/S_Level_Final_Demo.tscn" id="9_ywr1g"]
+[ext_resource type="PackedScene" uid="uid://cufca0iwovrq1" path="res://Level/Level_Scene/S_Level_1_new.tscn" id="3_6x3mt"]
+[ext_resource type="PackedScene" uid="uid://dwvfw8p4vtui" path="res://Level/Level_Scene/S_Level_2_new.tscn" id="4_h2c7t"]
 
 [node name="LevelManager" type="Node3D"]
 script = ExtResource("1_thsif")
 S_Tutorial = ExtResource("2_vejc1")
-S_level_1_A = ExtResource("3_2lc2a")
-S_level_1_B = ExtResource("4_xairw")
-S_level_1_C = ExtResource("5_q0kmb")
-S_level_2 = ExtResource("6_cum1h")
-S_level_3_A = ExtResource("7_dw1xp")
-S_level_3_B = ExtResource("8_qjvcn")
-S_Level_Final_Demo = ExtResource("9_ywr1g")
+S_level_1 = ExtResource("3_6x3mt")
+S_level_2 = ExtResource("4_h2c7t")
 
 [node name="TransitionScreen" parent="." instance=ExtResource("1_q0qtk")]
 
