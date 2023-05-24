@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://de4ar4owfctfi"]
+[gd_scene load_steps=24 format=3 uid="uid://de4ar4owfctfi"]
 
 [ext_resource type="PackedScene" uid="uid://s05c20f50p7d" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_kjidw"]
 [ext_resource type="MeshLibrary" uid="uid://igtk5abse8xh" path="res://Level/Tiles_Set/mesh_lib/set_proto.tres" id="2_44wvo"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bgrwial8fmd7" path="res://Level/Level_Scene/Level_Section/Level 1/S_Level_1_section_2.tscn" id="7_2hu18"]
 [ext_resource type="PackedScene" uid="uid://3tk8h74oj36t" path="res://Level/Level_Scene/Level_Section/Level 1/S_Level_1_3.tscn" id="8_q5ij0"]
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="9_55ky8"]
+[ext_resource type="PackedScene" uid="uid://cmtsmetiytihr" path="res://Level/Tiles/Finish_Level/S_finish_level.tscn" id="9_rnwxv"]
 [ext_resource type="PackedScene" uid="uid://n88kt3qi66lc" path="res://Level/Tiles/Depth_test_box/S_depth_bxo.tscn" id="10_lyn5b"]
 [ext_resource type="PackedScene" uid="uid://biundw7n53o5u" path="res://Level/Tiles/Dialogue_box/S_dialogue_box.tscn" id="11_fhxyb"]
 [ext_resource type="JSON" path="res://Dialogue/Level1/Section 1/d_1_1_1.json" id="12_s1yqo"]
@@ -76,7 +77,7 @@ directional_shadow_mode = 0
 environment = SubResource("Environment_4c64m")
 
 [node name="Player_Character" parent="." instance=ExtResource("1_kjidw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75536, 5.13251, -0.124416)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.81546, 5.21205, 0.0330169)
 
 [node name="playerSpawnPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.02937, 0.672546, -0.0165476)
@@ -268,6 +269,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.4154, 0.613513, 1.45008)
 
 [node name="S_Level_1_3" parent="." instance=ExtResource("8_q5ij0")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 84.6835, -3.03881, 43.3763)
+
+[node name="Finish_Level" parent="." instance=ExtResource("9_rnwxv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.8335, 1.95547, 57.3849)
 
 [node name="Danger_Area" parent="." instance=ExtResource("9_55ky8")]
 
