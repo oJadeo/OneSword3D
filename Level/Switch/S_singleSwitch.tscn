@@ -1,7 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://2dsfobnjgnqg"]
+[gd_scene load_steps=13 format=3 uid="uid://2dsfobnjgnqg"]
 
 [ext_resource type="Script" path="res://Level/Switch/GD_singleSwitch.gd" id="1_dq2pc"]
 [ext_resource type="Texture2D" uid="uid://balk2mmikxwe7" path="res://Level/Switch/Switch_on_off.png" id="1_fvfxc"]
+[ext_resource type="AudioStream" uid="uid://cjvxkri5qamjt" path="res://Sound/Switch_On.mp3" id="3_rbcwb"]
+[ext_resource type="AudioStream" uid="uid://lbps5xiyupfh" path="res://Sound/Switch_Off.mp3" id="4_n7y0y"]
+[ext_resource type="AudioStream" uid="uid://dd4awpgjs15g2" path="res://Sound/Timer.mp3" id="5_y4dju"]
 
 [sub_resource type="Animation" id="Animation_io7rj"]
 resource_name = "Activate"
@@ -138,6 +141,18 @@ shape = SubResource("CapsuleShape3D_tuxy7")
 [node name="deactivateChildren" type="Node3D" parent="."]
 
 [node name="activateChildren" type="Node3D" parent="."]
+
+[node name="Activate" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_rbcwb")
+volume_db = -15.0
+
+[node name="Deactivate" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_n7y0y")
+volume_db = -15.0
+
+[node name="Timer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_y4dju")
+volume_db = -15.0
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

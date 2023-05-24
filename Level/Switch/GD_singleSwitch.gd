@@ -7,7 +7,9 @@ extends Node3D
 
 @export var activateTimer = false
 @export var timerDuration = 0
-
+@onready var onAudio = $Activate
+@onready var offAudio = $Deactivate
+@onready var timerAudio = $Timer2
 var isOn = false
 
 
@@ -37,7 +39,9 @@ func _on_timer_timeout():
 func switchDeactivate():
 	if activateTimer:
 			timer.stop()
+			timerAudio.stop()
 	animationPlayer.play("Deactivate")
+	offAudio.play()
 	isOn = false
 	if activate_children.get_child_count() != 0:
 		for e in activate_children.get_children():
@@ -51,6 +55,7 @@ func switchDeactivate():
 
 func switchActivate():
 	animationPlayer.play("Activate")
+	onAudio.play()
 	isOn = true
 	if activate_children.get_child_count() != 0:
 		for e in activate_children.get_children():
@@ -64,9 +69,12 @@ func switchActivate():
 				
 	if activateTimer:
 		timer.start()
-
+		timerAudio.play()
+	
 func onActivationFinished():
 	animationPlayer.play("Idle_on")
+	
 
 func OnDeactivationFinished():
 	animationPlayer.play("Deactivate")
+	
