@@ -1,0 +1,15 @@
+[
+	{
+		"message":"You might not make it by normal jumping. I've installed wallrun/wallclimb module.",
+		"name": "Dr. Mercury"
+	},
+	{
+		"message":"Now you can use wall as a movement tool.",
+		"name": "Dr. Mercury"
+	},
+	{
+		"message":"Hold CTRL while moving alongside wall to WALL RUN.",
+		"name": "Dr. Mercury"
+	},
+	
+]
