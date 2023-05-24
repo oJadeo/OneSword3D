@@ -55,6 +55,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.71469, 0.842903, -0.191857
 [node name="AnimationTree" parent="Player_Character" index="4"]
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_bjrld")
 
+[node name="Conclude" parent="Player_Character/CanvasLayer" index="4"]
+anchors_preset = 13
+offset_left = -49.5
+offset_top = 0.0
+offset_right = 49.5
+offset_bottom = 0.0
+
 [node name="AimAssist" parent="Player_Character/Shooting" index="4"]
 assist_angle = 15.0
 
