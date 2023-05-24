@@ -4,6 +4,8 @@ extends Node
 @onready var buttonList = $ButtonList
 @onready var pauseCanvas = $ColorRect
 
+@onready var timer_main = $timerMain
+
 var current = 0
 var menuOpen = false
 
@@ -35,10 +37,12 @@ func _process(delta):
 	
 
 func hidePauseMenu():
+	timer_main.start()
 	buttonList.hide()
 	pauseCanvas.hide()
 	
 func showPauseMenu():
+	timer_main.stop()
 	buttonList.show()
 	pauseCanvas.show()
 	buttonList.get_children()[current].grab_focus()
