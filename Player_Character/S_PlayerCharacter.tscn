@@ -2566,7 +2566,7 @@ volume_db = -20.0
 
 [node name="WallRunAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_ie54c")
-volume_db = -15.0
+volume_db = -10.0
 
 [node name="HookAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_k0ikv")
