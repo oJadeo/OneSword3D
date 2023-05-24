@@ -86,7 +86,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.775407, 0)
 
 [node name="AnimationTree" parent="Player_Character" index="4"]
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_h5lh8")
-parameters/Ledge/blend_position = Vector2(0, 0)
 parameters/WallClimb/blend_position = Vector2(0, 0)
 
 [node name="HookRay" parent="Player_Character/Shooting" index="0"]
