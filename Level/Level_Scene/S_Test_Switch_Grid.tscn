@@ -55,9 +55,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.71469, 0.842903, -0.191857
 [node name="AnimationTree" parent="Player_Character" index="4"]
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_bjrld")
 
-[node name="Control" parent="Player_Character/CanvasLayer" index="0"]
-visible = false
-
 [node name="AimAssist" parent="Player_Character/Shooting" index="4"]
 assist_angle = 15.0
 

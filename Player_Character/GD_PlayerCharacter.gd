@@ -6,6 +6,7 @@ class_name PlayerCharacter
 @onready var animationState = animationTree.get("parameters/playback")
 @onready var state = $StateManager
 @onready var shooting = $Shooting
+@onready var canvas_layer = $CanvasLayer
 
 var view_size:Vector2 = Vector2(640,360)
 var target_hook:Vector3 = Vector3.ZERO
