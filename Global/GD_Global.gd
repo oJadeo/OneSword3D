@@ -4,12 +4,18 @@ signal InputType_changed
 
 var y_deg
 var input_mkb = true
+
+var level0_highScore = 0
+var level1_highScore = 0
+var level2_highScore = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	print(level1_highScore)
+	print(level2_highScore)
 	pass
 	
 func _input(event):
