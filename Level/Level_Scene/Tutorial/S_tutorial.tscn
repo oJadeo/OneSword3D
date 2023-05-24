@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://1b0pdu3ygf3b"]
+[gd_scene load_steps=54 format=3 uid="uid://1b0pdu3ygf3b"]
 
 [ext_resource type="PackedScene" uid="uid://b0yg8hhtv3vsc" path="res://Level/Tiles/Set_Spawn/S_setSpawn.tscn" id="3_ttvhl"]
 [ext_resource type="PackedScene" uid="uid://wycb6glgigjg" path="res://Level/Tiles/Rotate_Camera/S_rotate_camera.tscn" id="4_8wh2l"]
@@ -19,6 +19,7 @@
 [ext_resource type="JSON" path="res://Dialogue/Tutorial/d_t_7.json" id="17_dml4f"]
 [ext_resource type="JSON" path="res://Dialogue/Tutorial/d_t_8.json" id="18_sofxt"]
 [ext_resource type="JSON" path="res://Dialogue/Tutorial/d_t_9.json" id="19_yqe4k"]
+[ext_resource type="PackedScene" uid="uid://cmtsmetiytihr" path="res://Level/Tiles/Finish_Level/S_finish_level.tscn" id="20_8kbrb"]
 
 [sub_resource type="Environment" id="Environment_uvupg"]
 background_mode = 1
@@ -160,9 +161,6 @@ transform = Transform3D(1, 0, 0, 0, 0.999841, -0.0178538, 0, 0.0178538, 0.999841
 
 [node name="AnimationTree" parent="Player_Character" index="4"]
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_67b73")
-
-[node name="CanvasLayer" parent="Player_Character" index="6"]
-visible = false
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("8_x8807")
@@ -496,6 +494,10 @@ file = ExtResource("19_yqe4k")
 
 [node name="CollisionShape3D" parent="Dialogue/S_dialogue_box10" index="0"]
 shape = SubResource("BoxShape3D_i28m7")
+
+[node name="Finish_Level" parent="." instance=ExtResource("20_8kbrb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, 136.065, 0.414114, -66.2319)
+level = 0
 
 [editable path="Player_Character"]
 [editable path="Rotate_Cam/S_rotate_camera"]

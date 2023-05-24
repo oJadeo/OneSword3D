@@ -31,9 +31,6 @@ func _on_level_1_pressed():
 	get_tree().change_scene_to_file("res://Level/LevelManager/S_Level_Manager.tscn")
 
 func _on_level_2_pressed():
-	GdLevelGlobal.current_level = 3
+	GdLevelGlobal.current_level = 1
 	get_tree().change_scene_to_file("res://Level/LevelManager/S_Level_Manager.tscn")
 
-func _on_level_3_pressed():
-	GdLevelGlobal.current_level = 4
-	get_tree().change_scene_to_file("res://Level/LevelManager/S_Level_Manager.tscn")
