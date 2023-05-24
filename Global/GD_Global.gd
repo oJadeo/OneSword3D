@@ -5,6 +5,7 @@ signal InputType_changed
 var y_deg
 var input_mkb = true
 
+var level0_highScore = 0
 var level1_highScore = 0
 var level2_highScore = 0
 # Called when the node enters the scene tree for the first time.
