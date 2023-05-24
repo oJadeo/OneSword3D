@@ -10,7 +10,7 @@ extends Node3D
 @onready var showMouseAimTimer = $showMouseAimTimer
 @onready var hook_ray = $HookRay
 @onready var aim_assist = $AimAssist
-
+@onready var audio = $"../ShootAudio"
 # For setting the Bullet that was shot
 var bullet_direction = Vector3.ZERO
 
@@ -162,6 +162,7 @@ func create_bullet(direction:Vector3):
 
 	# instante setting and add to scene
 	var new_bullet = bullet.instantiate()
+	audio.play()
 	get_tree().current_scene.add_child(new_bullet)
 	new_bullet.init(direction,global_position,bullet_speed,true)
 

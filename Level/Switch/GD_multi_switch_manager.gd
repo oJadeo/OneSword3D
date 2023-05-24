@@ -16,7 +16,9 @@ var firstActivated = false
 @onready var activate_children = $activateChildren
 @onready var timer = $Timer
 @onready var deactivate_children = $deactivateChildren
-
+@onready var timerAudio = $Timer2
+@onready var timeoutAudio = $Timeout
+@onready var completeAudio = $Complete
 func _ready():
 	timer.wait_time = timerDuration
 	if activate_children.get_child_count() != 0:
@@ -35,11 +37,14 @@ func _process(delta):
 				elif child.isOn and not firstActivated and activateTimer:
 					firstActivated = true
 					timer.start()
+					timerAudio.play()
 		if check and not activated:
 			activated = true
 			completeAllSwitch()		
 
 func completeAllSwitch():	
+	completeAudio.play()
+	timerAudio.stop()
 	for child in get_children():
 		if child.has_method("complete"):
 			child.complete()
@@ -58,6 +63,8 @@ func completeAllSwitch():
 
 func _on_timer_timeout():
 	timer.stop()
+	timerAudio.stop()
+	timeoutAudio.play()
 	firstActivated = false
 	if not activated:
 		for child in get_children():

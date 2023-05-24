@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://d4lo38bos3mu3"]
+[gd_scene load_steps=5 format=3 uid="uid://d4lo38bos3mu3"]
 
 [ext_resource type="Script" path="res://Level/Switch/GD_multi_switch_manager.gd" id="1_flhkb"]
+[ext_resource type="AudioStream" uid="uid://dd4awpgjs15g2" path="res://Sound/Timer.mp3" id="2_m5yni"]
+[ext_resource type="AudioStream" uid="uid://bodtfqcsu0fw0" path="res://Sound/Timeout.mp3" id="3_6a3im"]
+[ext_resource type="AudioStream" uid="uid://dwh6y1b48c1em" path="res://Sound/Multiple_Completed.mp3" id="4_j8a6g"]
 
 [node name="multi_Switch_Manager" type="Node3D"]
 script = ExtResource("1_flhkb")
@@ -10,5 +13,17 @@ script = ExtResource("1_flhkb")
 [node name="deactivateChildren" type="Node3D" parent="."]
 
 [node name="activateChildren" type="Node3D" parent="."]
+
+[node name="Timer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_m5yni")
+volume_db = -15.0
+
+[node name="Timeout" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6a3im")
+volume_db = -15.0
+
+[node name="Complete" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_j8a6g")
+volume_db = -10.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

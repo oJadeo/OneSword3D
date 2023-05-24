@@ -1,8 +1,9 @@
-[gd_scene load_steps=181 format=3 uid="uid://s05c20f50p7d"]
+[gd_scene load_steps=187 format=3 uid="uid://s05c20f50p7d"]
 
 [ext_resource type="Script" path="res://Player_Character/GD_PlayerCharacter.gd" id="1_4mlv5"]
 [ext_resource type="Texture2D" uid="uid://druevnyrn8qtt" path="res://Player_Character/Player_Character.png" id="2_fvaqj"]
 [ext_resource type="PackedScene" uid="uid://cwwjrhl86b5co" path="res://UI/playerUI.tscn" id="3_co5qn"]
+[ext_resource type="AudioStream" uid="uid://b2rqi8mgpvbve" path="res://Sound/Running.mp3" id="3_wqutg"]
 [ext_resource type="Script" path="res://Player_Character/GD_StateManager.gd" id="4_dnf64"]
 [ext_resource type="Script" path="res://Player_Character/States/GD_State_Idle.gd" id="5_3ag81"]
 [ext_resource type="Script" path="res://Player_Character/States/GD_State_Run.gd" id="6_mk06a"]
@@ -15,6 +16,11 @@
 [ext_resource type="Script" path="res://Player_Character/Shooting/GD_Shooting.gd" id="12_whnj1"]
 [ext_resource type="PackedScene" uid="uid://mmhjxo44u7lc" path="res://Enemy/RangeEnemy/Bullet/S_Bullet.tscn" id="13_bt3mj"]
 [ext_resource type="Script" path="res://Player_Character/GD_AimAssist.gd" id="15_cs8ua"]
+[ext_resource type="AudioStream" uid="uid://da7cwdcohql4" path="res://Sound/WallRun.mp3" id="16_ie54c"]
+[ext_resource type="AudioStream" uid="uid://76uxkp8pv7g2" path="res://Sound/Hook.mp3" id="17_k0ikv"]
+[ext_resource type="AudioStream" uid="uid://dgvh3l7mcvs8c" path="res://Sound/Jump.mp3" id="18_f3cth"]
+[ext_resource type="AudioStream" uid="uid://dixd3gi24dwmj" path="res://Sound/Ledge.mp3" id="19_walhp"]
+[ext_resource type="AudioStream" uid="uid://pmxgmjaimyuo" path="res://Sound/Shoot.mp3" id="20_p4is0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xc8no"]
 radius = 0.07
@@ -57,6 +63,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimAudio:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-20.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gahde"]
@@ -1213,6 +1231,37 @@ tracks/1/keys = {
 "update": 1,
 "values": [Vector2i(0, 3), Vector2i(1, 3), Vector2(2, 3), Vector2(3, 3)]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimAudio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.4,
+"start_offset": 0.0,
+"stream": ExtResource("3_wqutg")
+}, {
+"end_offset": 0.4,
+"start_offset": 0.0,
+"stream": ExtResource("3_wqutg")
+}],
+"times": PackedFloat32Array(0, 0.5004)
+}
+tracks/2/use_blend = true
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimAudio:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-20.0]
+}
 
 [sub_resource type="Animation" id="Animation_v5ue7"]
 resource_name = "player_run_left"
@@ -1242,6 +1291,25 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimAudio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.4,
+"start_offset": 0.0,
+"stream": ExtResource("3_wqutg")
+}, {
+"end_offset": 0.4,
+"start_offset": 0.0,
+"stream": ExtResource("3_wqutg")
+}],
+"times": PackedFloat32Array(0, 0.5004)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_i7qw6"]
 loop_mode = 1
@@ -1270,6 +1338,25 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimAudio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.4,
+"start_offset": 0.0,
+"stream": ExtResource("3_wqutg")
+}, {
+"end_offset": 0.4,
+"start_offset": 0.0,
+"stream": ExtResource("3_wqutg")
+}],
+"times": PackedFloat32Array(0, 0.5004)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_p282w"]
 loop_mode = 1
@@ -1298,6 +1385,25 @@ tracks/1/keys = {
 "update": 1,
 "values": [Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5), Vector2i(3, 5)]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimAudio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.4,
+"start_offset": 0.0,
+"stream": ExtResource("3_wqutg")
+}, {
+"end_offset": 0.4,
+"start_offset": 0.0,
+"stream": ExtResource("3_wqutg")
+}],
+"times": PackedFloat32Array(0, 0.5004)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_31siy"]
 _data = {
@@ -2454,6 +2560,29 @@ assist_angle = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Shooting/AimAssist"]
 shape = SubResource("SphereShape3D_itvw0")
+
+[node name="AnimAudio" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
+
+[node name="WallRunAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_ie54c")
+volume_db = -15.0
+
+[node name="HookAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_k0ikv")
+volume_db = -20.0
+
+[node name="JumpAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_f3cth")
+volume_db = -30.0
+
+[node name="LedgeAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_walhp")
+volume_db = -20.0
+
+[node name="ShootAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_p4is0")
+volume_db = -25.0
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="timeout" from="Shooting/chargeTimer" to="Shooting" method="_on_charge_timer_timeout"]

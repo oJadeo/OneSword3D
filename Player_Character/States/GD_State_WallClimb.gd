@@ -7,7 +7,7 @@ extends BaseState
 @onready var hook_state = $"../Hook"
 
 @onready var wall_jump_timer = $"../../WallRun/WallRunJumpTimer"
-
+@onready var audio = $"../../WallRunAudio"
 @export var WALL_CLIMB_Y_VELOCITY:float = 3.0
 @export var WALL_CLIMB_GRAVITY:float = 6.8
 @export var WALL_JUMP_Y_VELOCITY:float  = 3.5
@@ -20,9 +20,9 @@ func enter() -> void:
 	player.wall_run_jumping = Vector3.ZERO
 	animationState.travel("WallClimb")
 	player.can_double_jump = true
-
+	audio.play()
 func exit() -> void:
-	pass
+	audio.stop()
 	
 func process(delta: float,input_frame:Dictionary) -> BaseState:
 	var new_state = handle_input(delta,input_frame)

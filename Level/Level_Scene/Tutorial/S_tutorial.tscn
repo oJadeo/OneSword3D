@@ -157,7 +157,7 @@ directional_shadow_mode = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17071, 0.39878, 0.372748)
 
 [node name="Player_Character" parent="." instance=ExtResource("11_w0s55")]
-transform = Transform3D(1, 0, 0, 0, 0.999841, -0.0178538, 0, 0.0178538, 0.999841, -1.03407, 0.922427, 0.810713)
+transform = Transform3D(1, 0, 0, 0, 0.999841, -0.0178538, 0, 0.0178538, 0.999841, -1.0228, 0.922427, 1.07512)
 
 [node name="AnimationTree" parent="Player_Character" index="4"]
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_67b73")

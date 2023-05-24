@@ -1,7 +1,7 @@
 extends Node3D
 
 @onready var animationPlayer = $AnimationPlayer
-
+@onready var onAudio = $Activate
 var isOn = false
 
 func _ready():
@@ -17,7 +17,7 @@ func _on_area_3d_body_entered(body):
 		animationPlayer.play("Idle_wait")
 		isOn = true
 		body.queue_free()
-		
+		onAudio.play()
 
 func complete():
 	animationPlayer.play("complete")
