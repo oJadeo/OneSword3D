@@ -8,6 +8,7 @@ extends BaseState
 
 @onready var wall_run_timer = $"../../WallRun/WallrunTimer"
 @onready var wall_jump_timer = $"../../WallRun/WallRunJumpTimer"
+@onready var audio = $"../../WallRunAudio"
 
 @export var WALL_RUN_Y_VELOCITY:float = 0.5
 @export var WALL_RUN_GRAVITY:float = 0.5
@@ -28,9 +29,11 @@ func enter() -> void:
 		animationState.travel("Wall_run_left")
 	else:
 		animationState.travel("Wall_run_right")
+	audio.play()
 
 func exit() -> void:
 	wall_run_timer.stop()
+	audio.stop()
 	super()
 	
 	

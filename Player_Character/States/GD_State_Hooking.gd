@@ -5,7 +5,7 @@ extends BaseState
 @onready var ledge_state = $"../Ledge"
 
 @onready var wall_jump_timer = $"../../WallRun/WallRunJumpTimer"
-
+@onready var audio = $"../../HookAudio"
 @export var JUMP_VELOCITY:float = 3.5
 @export var SPEED:float = 4
 @export var ACCEL:float = 10
@@ -18,11 +18,12 @@ func enter() -> void:
 	hook_direction = (player.target_hook - player.global_position).normalized()
 	animationState.travel("Dash")
 	player.animationTree.set("parameters/Dash/blend_position",Vector2(hook_direction.x,hook_direction.z))
+	audio.play()
 
 func exit() -> void:
 	player.target_hook = Vector3.ZERO
 	player.can_shoot = true
-	
+	audio.stop()
 func process(delta: float,input_frame:Dictionary) -> BaseState:
 	var new_state = handle_input(delta,input_frame)
 	if new_state:

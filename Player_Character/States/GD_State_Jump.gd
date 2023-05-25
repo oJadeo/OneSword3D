@@ -9,7 +9,7 @@ extends BaseState
 @onready var hook_state = $"../Hook"
 
 @onready var wall_jump_timer = $"../../WallRun/WallRunJumpTimer"
-
+@onready var audio = $"../../JumpAudio"
 @export var SPEED:float = 1
 @export var DOUBLE_JUMP_VELOCITY:float = 3.5
 @export var GRAVITY:float = 9.8
@@ -23,8 +23,10 @@ func enter() -> void:
 	player.is_wall_runable = true
 	just_enter = true
 	animationState.travel("Jump")
+	audio.play()
 func exit() -> void:
 	wall_jump_timer.stop()
+	#audio.stop()
 	
 func process(delta: float,input_frame:Dictionary) -> BaseState:
 	var new_state = handle_input(delta,input_frame)

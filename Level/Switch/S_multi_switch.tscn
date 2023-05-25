@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://beo18etyx3uhi"]
+[gd_scene load_steps=11 format=3 uid="uid://beo18etyx3uhi"]
 
 [ext_resource type="Texture2D" uid="uid://bxytm1dnva8s7" path="res://Level/Switch/Switch_Timer.png" id="1_fh7s6"]
 [ext_resource type="Script" path="res://Level/Switch/GD_multi_switch.gd" id="1_xgiju"]
+[ext_resource type="AudioStream" uid="uid://cjvxkri5qamjt" path="res://Sound/Switch_On.mp3" id="3_7222y"]
 
 [sub_resource type="Animation" id="Animation_k8rd0"]
 resource_name = "Idle_complete"
@@ -133,5 +134,9 @@ collision_mask = 512
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("CapsuleShape3D_u0alc")
+
+[node name="Activate" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7222y")
+volume_db = -15.0
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

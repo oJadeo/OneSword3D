@@ -8,14 +8,14 @@ extends BaseState
 
 @onready var wall_run_timer = $"../../WallRun/WallrunTimer"
 @onready var wall_jump_timer = $"../../WallRun/WallRunJumpTimer"
-
+@onready var audio = $"../../LedgeAudio"
 @export var ACCEL_TO_LEDGE:float = 0.1
 @export var JUMP_VELOCITY:float = 3.5
 func enter() -> void:
 	super()
 	print("State:Ledging")
 	animationState.travel("Ledge")
-
+	audio.play()
 func exit() -> void:
 	super()
 	

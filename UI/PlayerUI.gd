@@ -8,6 +8,9 @@ extends Node
 @onready var conclude = $Conclude
 
 @onready var timer_conclude = $Conclude/timerConclude
+@onready var high_score = $Conclude/highScore
+
+@export var level = 0
 
 var current = 0
 var menuOpen = false
@@ -34,7 +37,24 @@ func _process(delta):
 			time_passed = "%02d :%02d : %02d : %02d" %[hrs,mins,secs,cens]
 		else:
 			time_passed = "%02d : %02d : %02d" %[mins,secs,cens]
-		timer_conclude.text = "Time used: "+time_passed
+		timer_conclude.text = "Time used: "+ time_passed
+		var high
+		if level == 0 :
+			high = Global.level0_highScore
+		elif level == 1 :
+			high = Global.level1_highScore
+		elif level == 2 :
+			high = Global.level2_highScore
+		cens = fmod(high,1) * 100
+		secs = fmod(high,60)
+		mins = fmod(high,60*60) /60 
+		hrs = fmod(fmod(high,3600*60)/3600, 24)
+		var highScoreTime
+		if hrs > 1 :
+			highScoreTime = "%02d :%02d : %02d : %02d" %[hrs,mins,secs,cens]
+		else:
+			highScoreTime = "%02d : %02d : %02d" %[mins,secs,cens]
+		high_score.text = "High Score: " + highScoreTime
 	if not levelFin :
 		if Input.is_action_just_pressed("Menu_Toggle") :
 			menuOpen = !menuOpen
@@ -86,11 +106,17 @@ func _on_exit_game_pressed():
 	get_tree().paused = false
 	get_tree().quit()
 
-func showFinLev():
+func showFinLev(level):
 	levelFin = true
-
-	
-
+	if level == 0:
+		if (timer_main.time < Global.level0_highScore) or (Global.level0_highScore == 0) :
+			Global.level1_highScore = timer_main.time
+	elif level == 1 :
+		if (timer_main.time < Global.level1_highScore) or (Global.level1_highScore == 0) :
+			Global.level1_highScore = timer_main.time
+	elif  level == 2 : 
+		if (timer_main.time < Global.level2_highScore) or (Global.level2_highScore == 0) :
+			Global.level2_highScore = timer_main.time
 
 func _on_main_pressed():
 	_on_main_menu_pressed()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://de4ar4owfctfi"]
+[gd_scene load_steps=24 format=3]
 
 [ext_resource type="PackedScene" uid="uid://s05c20f50p7d" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_kjidw"]
 [ext_resource type="MeshLibrary" uid="uid://igtk5abse8xh" path="res://Level/Tiles_Set/mesh_lib/set_proto.tres" id="2_44wvo"]
@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://b0yg8hhtv3vsc" path="res://Level/Tiles/Set_Spawn/S_setSpawn.tscn" id="4_afoos"]
 [ext_resource type="PackedScene" uid="uid://wycb6glgigjg" path="res://Level/Tiles/Rotate_Camera/S_rotate_camera.tscn" id="5_xxm2u"]
 [ext_resource type="PackedScene" uid="uid://dv08iyx7rl0id" path="res://Obstacle/S_One_Switch_OppositeTrigger_NoTimer.tscn" id="6_qn1e2"]
-[ext_resource type="PackedScene" uid="uid://bgrwial8fmd7" path="res://Level/Level_Scene/Level_Section/Level 1/S_Level_1_section_2.tscn" id="7_2hu18"]
-[ext_resource type="PackedScene" uid="uid://3tk8h74oj36t" path="res://Level/Level_Scene/Level_Section/Level 1/S_Level_1_3.tscn" id="8_q5ij0"]
+[ext_resource type="PackedScene" path="res://Level/Level_Scene/Level_Section/Level 1/S_Level_1_section_2.tscn" id="7_2hu18"]
+[ext_resource type="PackedScene" path="res://Level/Level_Scene/Level_Section/Level 1/S_Level_1_3.tscn" id="8_q5ij0"]
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="9_55ky8"]
 [ext_resource type="PackedScene" uid="uid://cmtsmetiytihr" path="res://Level/Tiles/Finish_Level/S_finish_level.tscn" id="9_rnwxv"]
 [ext_resource type="PackedScene" uid="uid://n88kt3qi66lc" path="res://Level/Tiles/Depth_test_box/S_depth_bxo.tscn" id="10_lyn5b"]
@@ -77,7 +77,7 @@ directional_shadow_mode = 0
 environment = SubResource("Environment_4c64m")
 
 [node name="Player_Character" parent="." instance=ExtResource("1_kjidw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.81546, 5.21205, 0.0330169)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.8452, 5.21205, 57.4639)
 
 [node name="playerSpawnPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.02937, 0.672546, -0.0165476)
@@ -308,6 +308,9 @@ file = ExtResource("14_5iagc")
 [node name="CollisionShape3D" parent="S_dialogue_box3" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40762, 4.22844, -1.48185)
 shape = SubResource("BoxShape3D_lgy0s")
+
+[node name="Finish_Level2" parent="." instance=ExtResource("9_rnwxv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.6624, 1.77443, 57.2862)
 
 [editable path="S_Platform"]
 [editable path="S_Platform2"]

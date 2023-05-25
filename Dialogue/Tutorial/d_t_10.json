@@ -1,0 +1,11 @@
+[
+	{
+		"message":"This is a teleporter. I'll teleport you here once you've stepped on it.",
+		"name": "Dr. Mercury"
+	},
+	{
+		"message":"I'll only teleport when you're in grave danger.",
+		"name": "Dr. Mercury"
+	},
+
+]

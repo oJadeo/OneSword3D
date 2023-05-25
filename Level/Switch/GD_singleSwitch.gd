@@ -7,12 +7,14 @@ extends Node3D
 
 @export var activateTimer = false
 @export var timerDuration = 0
-
+@onready var onAudio = $Activate
+@onready var offAudio = $Deactivate
+@onready var timerAudio = $Timer2
 var isOn = false
 
 
 func _ready():
-	switchDeactivate()
+	initial()
 	animationPlayer.play("Idle_off")
 	timer.wait_time = timerDuration
 
@@ -34,7 +36,7 @@ func _on_area_3d_body_entered(body):
 func _on_timer_timeout():
 	switchDeactivate()
 
-func switchDeactivate():
+func initial():
 	if activateTimer:
 			timer.stop()
 	animationPlayer.play("Deactivate")
@@ -48,9 +50,27 @@ func switchDeactivate():
 		for e in deactivate_children.get_children():
 			if e and e.has_method('activate'):
 				e.activate()
+				
+func switchDeactivate():
+	if activateTimer:
+			timer.stop()
+			timerAudio.stop()
+	animationPlayer.play("Deactivate")
+	offAudio.play()
+	isOn = false
+	if activate_children.get_child_count() != 0:
+		for e in activate_children.get_children():
+			if e and e.has_method('deactivate'):
+				e.deactivate()
+				
+	if deactivate_children.get_child_count() != 0:
+		for e in deactivate_children.get_children():
+			if e and e.has_method('activate'):
+				e.activate()
 
 func switchActivate():
 	animationPlayer.play("Activate")
+	onAudio.play()
 	isOn = true
 	if activate_children.get_child_count() != 0:
 		for e in activate_children.get_children():
@@ -64,9 +84,12 @@ func switchActivate():
 				
 	if activateTimer:
 		timer.start()
-
+		timerAudio.play()
+	
 func onActivationFinished():
 	animationPlayer.play("Idle_on")
+	
 
 func OnDeactivationFinished():
 	animationPlayer.play("Deactivate")
+	
