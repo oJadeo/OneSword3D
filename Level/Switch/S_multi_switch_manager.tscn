@@ -9,6 +9,7 @@
 script = ExtResource("1_flhkb")
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [node name="deactivateChildren" type="Node3D" parent="."]
 
