@@ -66,6 +66,8 @@ func handle_input(delta: float,input_frame:Dictionary) -> BaseState:
 	if input_frame['just_jump'] and player.can_double_jump:
 		player.can_double_jump = false
 		player.velocity.y = DOUBLE_JUMP_VELOCITY
+		audio.stop()
+		audio.play()
 	
 	if input_frame["just_wall_run"] and player.is_wall_runable and player.selected_wall:
 		if player.selected_wall[2].dot(player.direction) < -0.9:

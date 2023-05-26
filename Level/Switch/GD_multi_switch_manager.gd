@@ -45,6 +45,7 @@ func _process(delta):
 func completeAllSwitch():	
 	completeAudio.play()
 	timerAudio.stop()
+	timer.stop()
 	for child in get_children():
 		if child.has_method("complete"):
 			child.complete()
@@ -62,7 +63,6 @@ func completeAllSwitch():
 
 
 func _on_timer_timeout():
-	timer.stop()
 	timerAudio.stop()
 	timeoutAudio.play()
 	firstActivated = false
