@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dwvfw8p4vtui"]
+[gd_scene load_steps=28 format=3 uid="uid://dwvfw8p4vtui"]
 
 [ext_resource type="PackedScene" uid="uid://s05c20f50p7d" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_ponkc"]
 [ext_resource type="MeshLibrary" uid="uid://igtk5abse8xh" path="res://Level/Tiles_Set/mesh_lib/set_proto.tres" id="2_l3nk1"]
@@ -28,7 +28,7 @@ tonemap_mode = 2
 size = Vector3(300, 1, 300)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w4ysy"]
-size = Vector3(1, 1, 1.27858)
+size = Vector3(1.40894, 4.15353, 4.42588)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3eqrp"]
 
@@ -39,7 +39,7 @@ size = Vector3(1.2252, 2.64774, 4.15032)
 size = Vector3(2.29529, 3.01801, 1.40034)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b1j58"]
-size = Vector3(3.29144, 10.1995, 1)
+size = Vector3(1.82752, 10.1995, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e6w3y"]
 size = Vector3(5.00742, 9.81155, 1)
@@ -53,6 +53,12 @@ size = Vector3(6.8554, 5.74641, 5.36351)
 [sub_resource type="BoxShape3D" id="BoxShape3D_x6fxr"]
 size = Vector3(6.20552, 3.78249, 4.3467)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_g405p"]
+size = Vector3(1.45741, 8.24934, 2.87764)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k5cvk"]
+size = Vector3(0.908569, 2.16695, 5.58926)
+
 [node name="Node3D" type="Node3D"]
 
 [node name="Player_Character" parent="." instance=ExtResource("1_ponkc")]
@@ -65,7 +71,7 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_17o7o")
 level = 2
 
 [node name="playerSpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(-0.30705, -0.0224806, -0.951428, 0.125629, 0.990015, -0.0639359, 0.943365, -0.139158, -0.30116, -6.90435, 0.981276, -0.213281)
+transform = Transform3D(-0.30705, -0.0224806, -0.951428, 0.125629, 0.990015, -0.0639359, 0.943365, -0.139158, -0.30116, -6.4688, 0.981276, 0.297069)
 
 [node name="lighting" type="Node3D" parent="."]
 
@@ -221,6 +227,7 @@ transform = Transform3D(0.892373, -0.157458, 0.422939, 0.175546, 0.984464, -0.00
 
 [node name="S_Platform22" parent="." instance=ExtResource("3_jvudy")]
 transform = Transform3D(0.892373, -0.157458, 0.422939, 0.175546, 0.984464, -0.00387993, -0.415757, 0.0777074, 0.90615, 34.5283, 3.58726, 2.87874)
+visible = false
 
 [node name="S_rotate_camera" parent="." instance=ExtResource("7_ivvlo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.6797, 4.11337, 2.95481)
@@ -715,7 +722,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0251999, 0.243179, -0.5969
 shape = SubResource("BoxShape3D_76uoo")
 
 [node name="S_depth_bxo4" parent="." instance=ExtResource("12_i202h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.3294, 6, 52.1995)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.9855, 6, 52.1995)
 
 [node name="CollisionShape3D" parent="S_depth_bxo4" index="0"]
 shape = SubResource("BoxShape3D_b1j58")
@@ -750,6 +757,25 @@ shape = SubResource("BoxShape3D_x6fxr")
 [node name="Finish_Level" parent="." instance=ExtResource("13_yginf")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 32.5217, 5.70202, 94.0303)
 level = 2
+
+[node name="S_depth_bxo9" parent="." instance=ExtResource("12_i202h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.5288, 6, 52.0342)
+
+[node name="CollisionShape3D" parent="S_depth_bxo9" index="0"]
+shape = SubResource("BoxShape3D_g405p")
+
+[node name="S_depth_bxo10" parent="." instance=ExtResource("12_i202h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.2125, 11.3296, 50.7156)
+
+[node name="CollisionShape3D" parent="S_depth_bxo10" index="0"]
+shape = SubResource("BoxShape3D_k5cvk")
+
+[node name="S_rotate_camera6" parent="." instance=ExtResource("7_ivvlo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.7338, 4.11337, 2.95481)
+
+[node name="CollisionShape3D" parent="S_rotate_camera6" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.297051, 0.117606)
+shape = SubResource("BoxShape3D_w4ysy")
 
 [editable path="Player_Character"]
 [editable path="Danger_Area"]
@@ -804,3 +830,6 @@ level = 2
 [editable path="S_depth_bxo6"]
 [editable path="S_depth_bxo7"]
 [editable path="S_depth_bxo8"]
+[editable path="S_depth_bxo9"]
+[editable path="S_depth_bxo10"]
+[editable path="S_rotate_camera6"]
