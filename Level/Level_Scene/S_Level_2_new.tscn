@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dwvfw8p4vtui"]
+[gd_scene load_steps=41 format=3 uid="uid://dwvfw8p4vtui"]
 
 [ext_resource type="PackedScene" uid="uid://s05c20f50p7d" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_ponkc"]
 [ext_resource type="MeshLibrary" uid="uid://igtk5abse8xh" path="res://Level/Tiles_Set/mesh_lib/set_proto.tres" id="2_l3nk1"]
@@ -13,6 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://b0yg8hhtv3vsc" path="res://Level/Tiles/Set_Spawn/S_setSpawn.tscn" id="11_4w24w"]
 [ext_resource type="PackedScene" uid="uid://n88kt3qi66lc" path="res://Level/Tiles/Depth_test_box/S_depth_bxo.tscn" id="12_i202h"]
 [ext_resource type="PackedScene" uid="uid://cmtsmetiytihr" path="res://Level/Tiles/Finish_Level/S_finish_level.tscn" id="13_yginf"]
+[ext_resource type="PackedScene" uid="uid://biundw7n53o5u" path="res://Level/Tiles/Dialogue_box/S_dialogue_box.tscn" id="14_owrer"]
+[ext_resource type="JSON" path="res://Dialogue/Level 2/d_2_1.json" id="15_k8mug"]
+[ext_resource type="JSON" path="res://Dialogue/Level 2/d_2_2.json" id="16_s73x8"]
+[ext_resource type="JSON" path="res://Dialogue/Level 2/d_2_3.json" id="17_uhby8"]
+[ext_resource type="JSON" path="res://Dialogue/Level 2/d_2_4.json" id="18_uot28"]
+[ext_resource type="JSON" path="res://Dialogue/Level 2/d_2_5.json" id="19_iq7ut"]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_17o7o"]
 
@@ -58,6 +64,27 @@ size = Vector3(1.45741, 8.24934, 2.87764)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k5cvk"]
 size = Vector3(0.908569, 2.16695, 5.58926)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6o4ii"]
+size = Vector3(4.04529, 1, 4.02804)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4tscd"]
+size = Vector3(1.96964, 1, 1.6123)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ortv0"]
+size = Vector3(1.56756, 1, 1.84315)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_00dep"]
+size = Vector3(7.16477, 2.51622, 4.45866)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ulxd"]
+size = Vector3(1.83124, 2.85812, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y8452"]
+size = Vector3(1.5, 1.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6hg6k"]
+size = Vector3(1.5, 1, 1.5)
 
 [node name="Node3D" type="Node3D"]
 
@@ -701,7 +728,7 @@ transform = Transform3D(-0.670627, 0.326877, 0.665891, 0.304284, 0.939897, -0.15
 transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 32.1656, 5.00989, 93.4809)
 
 [node name="S_depth_bxo" parent="." instance=ExtResource("12_i202h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.0915, 6.56806, 42.6926)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.0912, 6.55686, 42.6922)
 
 [node name="CollisionShape3D" parent="S_depth_bxo" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.321518, 0.132413, -0.158978)
@@ -777,6 +804,58 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.7338, 4.11337, 2.95481)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.297051, 0.117606)
 shape = SubResource("BoxShape3D_w4ysy")
 
+[node name="Dialogue" type="Node3D" parent="."]
+
+[node name="S_dialogue_box" parent="Dialogue" instance=ExtResource("14_owrer")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.84516, 0.944373, -0.0623447)
+file = ExtResource("15_k8mug")
+
+[node name="CollisionShape3D" parent="Dialogue/S_dialogue_box" index="0"]
+shape = SubResource("BoxShape3D_6o4ii")
+
+[node name="S_dialogue_box2" parent="Dialogue" instance=ExtResource("14_owrer")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.26055, 2.00504, 2.59446)
+file = ExtResource("16_s73x8")
+
+[node name="CollisionShape3D" parent="Dialogue/S_dialogue_box2" index="0"]
+shape = SubResource("BoxShape3D_4tscd")
+
+[node name="S_dialogue_box3" parent="Dialogue" instance=ExtResource("14_owrer")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.3789, 6.56036, 8.60922)
+file = ExtResource("17_uhby8")
+
+[node name="CollisionShape3D" parent="Dialogue/S_dialogue_box3" index="0"]
+shape = SubResource("BoxShape3D_ortv0")
+
+[node name="S_dialogue_box4" parent="Dialogue" instance=ExtResource("14_owrer")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.3957, 7.10618, 49.8029)
+file = ExtResource("18_uot28")
+
+[node name="CollisionShape3D" parent="Dialogue/S_dialogue_box4" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.129951, 0.389301)
+shape = SubResource("BoxShape3D_00dep")
+
+[node name="S_dialogue_box5" parent="Dialogue" instance=ExtResource("14_owrer")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.4064, 7.34363, 58.0932)
+file = ExtResource("19_iq7ut")
+
+[node name="CollisionShape3D" parent="Dialogue/S_dialogue_box5" index="0"]
+shape = SubResource("BoxShape3D_4ulxd")
+
+[node name="S_depth_bxo11" parent="." instance=ExtResource("12_i202h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.9576, 6.79557, 40.4882)
+
+[node name="CollisionShape3D" parent="S_depth_bxo11" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.250725)
+shape = SubResource("BoxShape3D_y8452")
+
+[node name="S_depth_bxo12" parent="." instance=ExtResource("12_i202h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9434, 9, 93.5029)
+
+[node name="CollisionShape3D" parent="S_depth_bxo12" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.333656, 0, 0)
+shape = SubResource("BoxShape3D_6hg6k")
+
 [editable path="Player_Character"]
 [editable path="Danger_Area"]
 [editable path="Asending_Platform"]
@@ -833,3 +912,10 @@ shape = SubResource("BoxShape3D_w4ysy")
 [editable path="S_depth_bxo9"]
 [editable path="S_depth_bxo10"]
 [editable path="S_rotate_camera6"]
+[editable path="Dialogue/S_dialogue_box"]
+[editable path="Dialogue/S_dialogue_box2"]
+[editable path="Dialogue/S_dialogue_box3"]
+[editable path="Dialogue/S_dialogue_box4"]
+[editable path="Dialogue/S_dialogue_box5"]
+[editable path="S_depth_bxo11"]
+[editable path="S_depth_bxo12"]

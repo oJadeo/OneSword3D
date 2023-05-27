@@ -1,13 +1,16 @@
-[gd_scene load_steps=16 format=3 uid="uid://cufca0iwovrq1"]
+[gd_scene load_steps=22 format=3 uid="uid://cufca0iwovrq1"]
 
 [ext_resource type="PackedScene" uid="uid://s05c20f50p7d" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_lx168"]
 [ext_resource type="MeshLibrary" uid="uid://igtk5abse8xh" path="res://Level/Tiles_Set/mesh_lib/set_proto.tres" id="2_gi60r"]
 [ext_resource type="PackedScene" uid="uid://cc7uecnf8r3uj" path="res://Level/Tiles/Platform/S_Platform.tscn" id="3_v6eya"]
 [ext_resource type="PackedScene" uid="uid://n88kt3qi66lc" path="res://Level/Tiles/Depth_test_box/S_depth_bxo.tscn" id="5_w3rfm"]
 [ext_resource type="PackedScene" uid="uid://2dsfobnjgnqg" path="res://Level/Switch/S_singleSwitch.tscn" id="6_us3la"]
-[ext_resource type="PackedScene" path="res://Level/Level_Scene/Level_Section/Level 1/S_Level_1_3.tscn" id="7_on15b"]
+[ext_resource type="PackedScene" uid="uid://bsbrg750snmta" path="res://Level/Level_Scene/Level_Section/Level 1/S_Level_1_3.tscn" id="7_on15b"]
 [ext_resource type="PackedScene" uid="uid://cmtsmetiytihr" path="res://Level/Tiles/Finish_Level/S_finish_level.tscn" id="8_npv8n"]
+[ext_resource type="PackedScene" uid="uid://biundw7n53o5u" path="res://Level/Tiles/Dialogue_box/S_dialogue_box.tscn" id="9_0dmbl"]
 [ext_resource type="PackedScene" uid="uid://di2pirwy4n1ky" path="res://Level/Tiles/Danger_Area/S_Danger_Area.tscn" id="9_rvlli"]
+[ext_resource type="JSON" path="res://Dialogue/Level1/Section 1/d_1_1_1.json" id="10_nvxpn"]
+[ext_resource type="JSON" path="res://Dialogue/Level1/Section 2/d_1_2_1.json" id="11_wa6gt"]
 
 [sub_resource type="Environment" id="Environment_4c64m"]
 background_mode = 1
@@ -33,6 +36,15 @@ size = Vector3(2, 2, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sd0bl"]
 size = Vector3(2, 2, 2.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ed650"]
+size = Vector3(5.52585, 1, 4.41163)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b4g85"]
+size = Vector3(2.17382, 1.40256, 3.45942)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xfg1f"]
+size = Vector3(1.98698, 5.86743, 1)
 
 [node name="S_Level_1" type="Node3D"]
 
@@ -229,6 +241,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1988, 7.98274, -21.8275)
 [node name="Finish_Level" parent="." instance=ExtResource("8_npv8n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 177.084, 13.3646, -36.2138)
 
+[node name="Dialogue" type="Node3D" parent="."]
+
+[node name="S_dialogue_box" parent="Dialogue" instance=ExtResource("9_0dmbl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.67797, 0.482741, -0.622909)
+file = ExtResource("10_nvxpn")
+
+[node name="CollisionShape3D" parent="Dialogue/S_dialogue_box" index="0"]
+shape = SubResource("BoxShape3D_ed650")
+
+[node name="S_dialogue_box2" parent="Dialogue" instance=ExtResource("9_0dmbl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.662, 4.48274, -17.6066)
+file = ExtResource("11_wa6gt")
+
+[node name="CollisionShape3D" parent="Dialogue/S_dialogue_box2" index="0"]
+shape = SubResource("BoxShape3D_b4g85")
+
+[node name="S_depth_bxo" parent="." instance=ExtResource("5_w3rfm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.891, 0, -25.6596)
+
+[node name="CollisionShape3D" parent="S_depth_bxo" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.71287, 11.881, 2.82331)
+shape = SubResource("BoxShape3D_xfg1f")
+
 [editable path="Player_Character"]
 [editable path="Danger_Area"]
 [editable path="GridMap3/S_Platform"]
@@ -245,3 +280,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 177.084, 13.3646, -36.2138)
 [editable path="GridMap3/S_Platform4"]
 [editable path="GridMap3/S_Platform5"]
 [editable path="GridMap3/S_Platform6"]
+[editable path="Dialogue/S_dialogue_box"]
+[editable path="Dialogue/S_dialogue_box2"]
+[editable path="S_depth_bxo"]

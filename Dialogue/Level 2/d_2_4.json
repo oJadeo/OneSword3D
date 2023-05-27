@@ -1,0 +1,14 @@
+[
+	{
+		"message":"This door is activated by 2 switches.",
+		"name": "Dr. Mercury"
+	},
+	{
+		"message":"They're separated from each other in different sections.",
+		"name": "Dr. Mercury"
+	},
+	{
+		"message":"You might find it if you go to your North and South.",
+		"name": "Dr. Mercury"
+	},
+]

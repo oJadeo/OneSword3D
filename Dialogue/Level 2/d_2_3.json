@@ -1,0 +1,14 @@
+[
+	{
+		"message":"This pathway is unstable.",
+		"name": "Dr. Mercury"
+	},
+	{
+		"message":"There are a emergency switches to open the door along the way.",
+		"name": "Dr. Mercury"
+	},
+	{
+		"message":"You have to activate all of them.",
+		"name": "Dr. Mercury"
+	},
+]
