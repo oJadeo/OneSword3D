@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://1b0pdu3ygf3b"]
+[gd_scene load_steps=55 format=3 uid="uid://1b0pdu3ygf3b"]
 
 [ext_resource type="PackedScene" uid="uid://b0yg8hhtv3vsc" path="res://Level/Tiles/Set_Spawn/S_setSpawn.tscn" id="3_ttvhl"]
 [ext_resource type="PackedScene" uid="uid://wycb6glgigjg" path="res://Level/Tiles/Rotate_Camera/S_rotate_camera.tscn" id="4_8wh2l"]
@@ -36,6 +36,9 @@ size = Vector3(3.047, 5.82271, 2.06468)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_unc3k"]
 size = Vector3(2.04422, 5.82271, 2.06468)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4se8x"]
+size = Vector3(1.8823, 2.70123, 1.98982)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wh64o"]
 size = Vector3(1, 3.49332, 2.01156)
@@ -154,7 +157,7 @@ shadow_enabled = true
 directional_shadow_mode = 0
 
 [node name="playerSpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17071, 0.39878, 0.372748)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17071, 1.27913, 0.372748)
 
 [node name="Player_Character" parent="." instance=ExtResource("11_w0s55")]
 transform = Transform3D(1, 0, 0, 0, 0.999841, -0.0178538, 0, 0.0178538, 0.999841, -1.0228, 0.922427, 1.07512)
@@ -210,6 +213,12 @@ angle = 90
 [node name="CollisionShape3D" parent="Rotate_Cam/S_rotate_camera5" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.508541, 0.0982509, 0.149881)
 shape = SubResource("BoxShape3D_unc3k")
+
+[node name="S_rotate_camera6" parent="Rotate_Cam" instance=ExtResource("4_8wh2l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.072, 0.5, 1.05645)
+
+[node name="CollisionShape3D" parent="Rotate_Cam/S_rotate_camera6" index="0"]
+shape = SubResource("BoxShape3D_4se8x")
 
 [node name="Set_spawn" type="Node3D" parent="."]
 
@@ -505,6 +514,7 @@ level = 0
 [editable path="Rotate_Cam/S_rotate_camera3"]
 [editable path="Rotate_Cam/S_rotate_camera4"]
 [editable path="Rotate_Cam/S_rotate_camera5"]
+[editable path="Rotate_Cam/S_rotate_camera6"]
 [editable path="DepthBox/S_depth_bxo"]
 [editable path="DepthBox/S_depth_bxo2"]
 [editable path="DepthBox/S_depth_bxo3"]
