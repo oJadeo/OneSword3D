@@ -1,10 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://cufca0iwovrq1"]
+[gd_scene load_steps=21 format=3 uid="uid://cufca0iwovrq1"]
 
 [ext_resource type="PackedScene" uid="uid://s05c20f50p7d" path="res://Player_Character/S_PlayerCharacter.tscn" id="1_lx168"]
 [ext_resource type="MeshLibrary" uid="uid://igtk5abse8xh" path="res://Level/Tiles_Set/mesh_lib/set_proto.tres" id="2_gi60r"]
 [ext_resource type="PackedScene" uid="uid://cc7uecnf8r3uj" path="res://Level/Tiles/Platform/S_Platform.tscn" id="3_v6eya"]
 [ext_resource type="PackedScene" uid="uid://n88kt3qi66lc" path="res://Level/Tiles/Depth_test_box/S_depth_bxo.tscn" id="5_w3rfm"]
-[ext_resource type="PackedScene" uid="uid://2dsfobnjgnqg" path="res://Level/Switch/S_singleSwitch.tscn" id="6_us3la"]
 [ext_resource type="PackedScene" uid="uid://bsbrg750snmta" path="res://Level/Level_Scene/Level_Section/Level 1/S_Level_1_3.tscn" id="7_on15b"]
 [ext_resource type="PackedScene" uid="uid://cmtsmetiytihr" path="res://Level/Tiles/Finish_Level/S_finish_level.tscn" id="8_npv8n"]
 [ext_resource type="PackedScene" uid="uid://biundw7n53o5u" path="res://Level/Tiles/Dialogue_box/S_dialogue_box.tscn" id="9_0dmbl"]
@@ -187,27 +186,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.80124, 2.01726, -19.6725)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 0.5)
 shape = SubResource("BoxShape3D_s0ni1")
 
-[node name="Switch" parent="GridMap3" instance=ExtResource("6_us3la")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 4.75, -17.5)
-
-[node name="S_Platform" parent="GridMap3/Switch/deactivateChildren" index="0" instance=ExtResource("3_v6eya")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, -0.75, -2.5)
-
-[node name="EndPos" parent="GridMap3/Switch/deactivateChildren/S_Platform" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.5)
-
-[node name="MoveTimer" parent="GridMap3/Switch/deactivateChildren/S_Platform" index="7"]
-wait_time = 3.0
-
-[node name="S_Platform2" parent="GridMap3/Switch/deactivateChildren" index="1" instance=ExtResource("3_v6eya")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, -0.75, 2)
-
-[node name="EndPos" parent="GridMap3/Switch/deactivateChildren/S_Platform2" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
-
-[node name="MoveTimer" parent="GridMap3/Switch/deactivateChildren/S_Platform2" index="7"]
-wait_time = 3.0
-
 [node name="S_depth_bxo5" parent="GridMap3" instance=ExtResource("5_w3rfm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5512, 3.01726, -18.4225)
 
@@ -264,6 +242,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.891, 0, -25.6596)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.71287, 11.881, 2.82331)
 shape = SubResource("BoxShape3D_xfg1f")
 
+[node name="S_Platform" parent="." instance=ExtResource("3_v6eya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9488, 3.98274, -19.8275)
+use_timer = true
+
+[node name="EndPos" parent="S_Platform" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.5)
+
+[node name="OnTimer" parent="S_Platform" index="3"]
+wait_time = 3.0
+
+[node name="OffTimer" parent="S_Platform" index="4"]
+wait_time = 3.0
+
+[node name="MoveTimer" parent="S_Platform" index="7"]
+wait_time = 2.0
+
+[node name="S_Platform2" parent="." instance=ExtResource("3_v6eya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.1988, 3.98274, -15.3275)
+use_timer = true
+
+[node name="EndPos" parent="S_Platform2" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="OnTimer" parent="S_Platform2" index="3"]
+wait_time = 3.0
+
+[node name="OffTimer" parent="S_Platform2" index="4"]
+wait_time = 3.0
+
+[node name="MoveTimer" parent="S_Platform2" index="7"]
+wait_time = 2.0
+
 [editable path="Player_Character"]
 [editable path="Danger_Area"]
 [editable path="GridMap3/S_Platform"]
@@ -273,9 +283,6 @@ shape = SubResource("BoxShape3D_xfg1f")
 [editable path="GridMap3/S_depth_bxo2"]
 [editable path="GridMap3/S_depth_bxo3"]
 [editable path="GridMap3/S_depth_bxo4"]
-[editable path="GridMap3/Switch"]
-[editable path="GridMap3/Switch/deactivateChildren/S_Platform"]
-[editable path="GridMap3/Switch/deactivateChildren/S_Platform2"]
 [editable path="GridMap3/S_depth_bxo5"]
 [editable path="GridMap3/S_Platform4"]
 [editable path="GridMap3/S_Platform5"]
@@ -283,3 +290,5 @@ shape = SubResource("BoxShape3D_xfg1f")
 [editable path="Dialogue/S_dialogue_box"]
 [editable path="Dialogue/S_dialogue_box2"]
 [editable path="S_depth_bxo"]
+[editable path="S_Platform"]
+[editable path="S_Platform2"]
